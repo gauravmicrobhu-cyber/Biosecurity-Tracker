@@ -1,60 +1,322 @@
 {
   "meta": {
-    "updatedAt": "2026-08-19T12:00:00Z",
-    "source": "Manual refresh via Claude — WHO DON, ECDC, CDC, WHO/AFRO, 19 Aug 2026",
+    "updatedAt": "2026-08-19T20:00:00Z",
+    "source": "Manual refresh via Claude \u2014 WHO DON, AIxBio Research Hub cross-reference, 19 Aug 2026",
     "generator": "manual"
   },
   "outbreaks": [
-    {"id":"ebola-drc","date":"2026-08-18","sortDate":"2026-08-18","title":"Ebola (Bundibugyo virus) — DRC / Uganda","level":4,"status":"PHEIC · Active, under IHR review","country":["DRC","Uganda"],
-     "desc":"As of 18 August 2026, WHO/AFRO reports 5,021 confirmed cases and 2,378 deaths (data through 16 August), with 751 patients currently hospitalised in isolation across six provinces (Ituri, North Kivu, South Kivu, Tshopo, Haut-Uele, Bas-Uele). This is now the second-largest Ebola outbreak on record. Uganda's national outbreak was declared over on 28 July after 42 days without a new case. An IHR Emergency Committee met 18 August to reassess PHEIC status.",
-     "more":"Cross-border spread risk continues into CAR, Republic of Congo and South Sudan, with mobile lab deployment at borders. Two imported cases occurred outside the region: a US citizen medically evacuated to Germany (May 2026) and a case reported by France's Ministry of Health (24 June 2026). CDC assesses risk to the US public as low; no domestic US cases confirmed. A scientific trial for candidate treatments has begun enrolling patients — no vaccine or specific treatment is approved for Bundibugyo virus.",
-     "src":"WHO DON-2026-DON614, WHO/AFRO Weekly Sitrep 13 (9 Aug 2026), ECDC, CDC Ebola Situation Summary (12 Aug 2026)","tags":["Ebola","Filovirus","PHEIC","Zoonotic spillover","Cross-border"]},
-    {"id":"avian-h5n5-us","date":"2025-12-05","sortDate":"2025-12-05","title":"Avian Influenza A(H5N5) — United States of America","level":3,"status":"Monitoring","country":["USA"],
-     "desc":"WHO Disease Outbreak News on avian influenza A(H5N5) detection in the United States — tracked alongside ongoing H5N1 surveillance as part of WHO's broader avian influenza monitoring.",
-     "more":"","src":"WHO DON, 5 Dec 2025","tags":["Avian influenza","H5N5","Zoonotic"]},
-    {"id":"mpox-broader-dec25","date":"2025-12-05","sortDate":"2025-12-05","title":"Broader Transmission of Mpox (Clade Ib MPXV) — Global Situation","level":3,"status":"Active","country":["Global"],
-     "desc":"WHO global situation update on the wider geographic spread of clade Ib mpox virus, preceding the Feb 2026 report of a clade Ib/IIb recombinant strain.",
-     "more":"","src":"WHO DON, 5 Dec 2025","tags":["Mpox","Clade Ib","Global spread"]},
-    {"id":"food-safety-mar26","date":"2026-03-13","sortDate":"2026-03-13","title":"Infant Formula Contaminated with Cereulide Toxin — Multi-country","level":3,"status":"Active recall/investigation","country":["Multi-country"],
-     "desc":"WHO international food safety event notification: infant formula and products containing arachidonic acid oil found contaminated with cereulide toxin (produced by Bacillus cereus), affecting multiple countries.",
-     "more":"","src":"WHO DON, 13 Mar 2026","tags":["Food safety","Cereulide toxin","Multi-country"]},
-    {"id":"hanta-cruise","date":"2026-07-02","sortDate":"2026-07-02","title":"Andes Hantavirus — Cruise Ship (M/V Hondius), Multi-country","level":3,"status":"Closed","country":["UK (Overseas Territory)","Multi-country"],
-     "desc":"Fifth and reportedly final DON on this cluster. Following notification 2 May of severe acute respiratory illness aboard, 13 cases confirmed/probable across passengers and crew (147 aboard), including 3 deaths (23% CFR). A probable case in Tristan da Cunha was later lab-confirmed after disembarkation.",
-     "more":"CDC assessed overall US public risk as extremely low throughout; coordination extended to State Department travel guidance for affected Americans.",
-     "src":"WHO DON-611, DON-599; CDC HAN-528/529","tags":["Andes virus","Hantavirus","Travel-linked","Closed"]},
-    {"id":"marburg-eth","date":"2026-01-26","sortDate":"2026-01-26","title":"Marburg Virus Disease — Ethiopia (closed)","level":2,"status":"Closed","country":["Ethiopia"],
-     "desc":"Outbreak declared over after two incubation periods (42 days) with no new cases. Final tally: 19 cases (14 confirmed, 5 probable), 14 deaths. 857 contacts completed monitoring. An earlier DON on the same outbreak was issued 21 Nov 2025.",
-     "more":"","src":"WHO DON-592; earlier DON 21 Nov 2025","tags":["Marburg","Filovirus","Closed"]},
-    {"id":"mpox-recomb","date":"2026-02-14","sortDate":"2026-02-14","title":"Mpox — Recombinant Clade Ib/IIb Virus, Global","level":2,"status":"Monitoring","country":["Global"],
-     "desc":"WHO DON flags a recombinant mpox virus carrying genomic elements of both clade Ib and clade IIb — a genetic-mixing signal of concern for surveillance systems tracking lineage-specific countermeasures.",
-     "more":"","src":"WHO DON, 14 Feb 2026","tags":["Mpox","Recombination","Genomic surveillance"]},
-    {"id":"nipah-bd","date":"2026-02-06","sortDate":"2026-02-06","title":"Nipah Virus — Bangladesh","level":2,"status":"Seasonal","country":["Bangladesh"],
-     "desc":"Seasonal Nipah reporting period; date-palm-sap transmission remains the primary route under investigation.",
-     "more":"","src":"WHO DON, 6 Feb 2026","tags":["Nipah","Henipavirus"]},
-    {"id":"nipah-in","date":"2026-01-30","sortDate":"2026-01-30","title":"Nipah Virus — India","level":2,"status":"Seasonal","country":["India"],
-     "desc":"Concurrent Nipah reporting from India during the same seasonal window as the Bangladesh cluster.",
-     "more":"","src":"WHO DON, 30 Jan 2026","tags":["Nipah","India"]},
-    {"id":"mers-global","date":"2025-12-24","sortDate":"2025-12-24","title":"MERS-CoV — Global Update","level":1,"status":"Endemic monitoring","country":["Global"],
-     "desc":"Routine WHO global situation update on Middle East respiratory syndrome coronavirus.",
-     "more":"","src":"WHO DON, 24 Dec 2025","tags":["MERS-CoV","Zoonotic"]},
-    {"id":"seasonal-flu-dec25","date":"2025-12-10","sortDate":"2025-12-10","title":"Seasonal Influenza — Global Situation","level":1,"status":"Seasonal monitoring","country":["Global"],
-     "desc":"Routine WHO global seasonal influenza situation update.",
-     "more":"","src":"WHO DON, 10 Dec 2025","tags":["Influenza","Seasonal"]},
-    {"id":"diphtheria-afro","date":"2025-11-21","sortDate":"2025-11-21","title":"Diphtheria — African Region (AFRO)","level":2,"status":"Active","country":["Africa Region"],
-     "desc":"WHO Disease Outbreak News on diphtheria activity across the African Region.",
-     "more":"","src":"WHO DON, 21 Nov 2025","tags":["Diphtheria","AFRO"]},
-    {"id":"rvf-mauritania-senegal","date":"2025-11-05","sortDate":"2025-11-05","title":"Rift Valley Fever — Mauritania and Senegal","level":2,"status":"Active","country":["Mauritania","Senegal"],
-     "desc":"WHO Disease Outbreak News on Rift Valley fever activity in Mauritania and Senegal.",
-     "more":"","src":"WHO DON, 5 Nov 2025","tags":["Rift Valley fever","Zoonotic","West Africa"]}
+    {
+      "id": "ebola-drc",
+      "date": "2026-08-18",
+      "sortDate": "2026-08-18",
+      "title": "Ebola (Bundibugyo virus) \u2014 DRC / Uganda",
+      "level": 4,
+      "status": "PHEIC \u00b7 Active, under IHR review",
+      "country": [
+        "DRC",
+        "Uganda"
+      ],
+      "desc": "As of 18 August 2026, WHO/AFRO reports 5,021 confirmed cases and 2,378 deaths (data through 16 August), with 751 patients currently hospitalised in isolation across six provinces (Ituri, North Kivu, South Kivu, Tshopo, Haut-Uele, Bas-Uele). This is now the second-largest Ebola outbreak on record. Uganda's national outbreak was declared over on 28 July after 42 days without a new case. An IHR Emergency Committee met 18 August to reassess PHEIC status.",
+      "more": "Cross-border spread risk continues into CAR, Republic of Congo and South Sudan, with mobile lab deployment at borders. Two imported cases occurred outside the region: a US citizen medically evacuated to Germany (May 2026) and a case reported by France's Ministry of Health (24 June 2026). CDC assesses risk to the US public as low; no domestic US cases confirmed. A scientific trial for candidate treatments has begun enrolling patients \u2014 no vaccine or specific treatment is approved for Bundibugyo virus.",
+      "src": "WHO DON-2026-DON614, WHO/AFRO Weekly Sitrep 13 (9 Aug 2026), ECDC, CDC Ebola Situation Summary (12 Aug 2026)",
+      "tags": [
+        "Ebola",
+        "Filovirus",
+        "PHEIC",
+        "Zoonotic spillover",
+        "Cross-border"
+      ]
+    },
+    {
+      "id": "avian-h5n5-us",
+      "date": "2025-12-05",
+      "sortDate": "2025-12-05",
+      "title": "Avian Influenza A(H5N5) \u2014 United States of America",
+      "level": 3,
+      "status": "Monitoring",
+      "country": [
+        "USA"
+      ],
+      "desc": "WHO Disease Outbreak News on avian influenza A(H5N5) detection in the United States \u2014 tracked alongside ongoing H5N1 surveillance as part of WHO's broader avian influenza monitoring.",
+      "more": "",
+      "src": "WHO DON, 5 Dec 2025",
+      "tags": [
+        "Avian influenza",
+        "H5N5",
+        "Zoonotic"
+      ]
+    },
+    {
+      "id": "mpox-broader-dec25",
+      "date": "2025-12-05",
+      "sortDate": "2025-12-05",
+      "title": "Broader Transmission of Mpox (Clade Ib MPXV) \u2014 Global Situation",
+      "level": 3,
+      "status": "Active",
+      "country": [
+        "Global"
+      ],
+      "desc": "WHO global situation update on the wider geographic spread of clade Ib mpox virus, preceding the Feb 2026 report of a clade Ib/IIb recombinant strain.",
+      "more": "",
+      "src": "WHO DON, 5 Dec 2025",
+      "tags": [
+        "Mpox",
+        "Clade Ib",
+        "Global spread"
+      ]
+    },
+    {
+      "id": "food-safety-mar26",
+      "date": "2026-03-13",
+      "sortDate": "2026-03-13",
+      "title": "Infant Formula Contaminated with Cereulide Toxin \u2014 Multi-country",
+      "level": 3,
+      "status": "Active recall/investigation",
+      "country": [
+        "Multi-country"
+      ],
+      "desc": "WHO international food safety event notification: infant formula and products containing arachidonic acid oil found contaminated with cereulide toxin (produced by Bacillus cereus), affecting multiple countries.",
+      "more": "",
+      "src": "WHO DON, 13 Mar 2026",
+      "tags": [
+        "Food safety",
+        "Cereulide toxin",
+        "Multi-country"
+      ]
+    },
+    {
+      "id": "hanta-cruise",
+      "date": "2026-07-02",
+      "sortDate": "2026-07-02",
+      "title": "Andes Hantavirus \u2014 Cruise Ship (M/V Hondius), Multi-country",
+      "level": 3,
+      "status": "Closed",
+      "country": [
+        "UK (Overseas Territory)",
+        "Multi-country"
+      ],
+      "desc": "Fifth and reportedly final DON on this cluster. Following notification 2 May of severe acute respiratory illness aboard, 13 cases confirmed/probable across passengers and crew (147 aboard), including 3 deaths (23% CFR). A probable case in Tristan da Cunha was later lab-confirmed after disembarkation.",
+      "more": "CDC assessed overall US public risk as extremely low throughout; coordination extended to State Department travel guidance for affected Americans.",
+      "src": "WHO DON-611, DON-599; CDC HAN-528/529",
+      "tags": [
+        "Andes virus",
+        "Hantavirus",
+        "Travel-linked",
+        "Closed"
+      ]
+    },
+    {
+      "id": "marburg-eth",
+      "date": "2026-01-26",
+      "sortDate": "2026-01-26",
+      "title": "Marburg Virus Disease \u2014 Ethiopia (closed)",
+      "level": 2,
+      "status": "Closed",
+      "country": [
+        "Ethiopia"
+      ],
+      "desc": "Outbreak declared over after two incubation periods (42 days) with no new cases. Final tally: 19 cases (14 confirmed, 5 probable), 14 deaths. 857 contacts completed monitoring. An earlier DON on the same outbreak was issued 21 Nov 2025.",
+      "more": "",
+      "src": "WHO DON-592; earlier DON 21 Nov 2025",
+      "tags": [
+        "Marburg",
+        "Filovirus",
+        "Closed"
+      ]
+    },
+    {
+      "id": "mpox-recomb",
+      "date": "2026-02-14",
+      "sortDate": "2026-02-14",
+      "title": "Mpox \u2014 Recombinant Clade Ib/IIb Virus, Global",
+      "level": 2,
+      "status": "Monitoring",
+      "country": [
+        "Global"
+      ],
+      "desc": "WHO DON flags a recombinant mpox virus carrying genomic elements of both clade Ib and clade IIb \u2014 a genetic-mixing signal of concern for surveillance systems tracking lineage-specific countermeasures.",
+      "more": "",
+      "src": "WHO DON, 14 Feb 2026",
+      "tags": [
+        "Mpox",
+        "Recombination",
+        "Genomic surveillance"
+      ]
+    },
+    {
+      "id": "nipah-bd",
+      "date": "2026-02-06",
+      "sortDate": "2026-02-06",
+      "title": "Nipah Virus \u2014 Bangladesh",
+      "level": 2,
+      "status": "Seasonal",
+      "country": [
+        "Bangladesh"
+      ],
+      "desc": "Seasonal Nipah reporting period; date-palm-sap transmission remains the primary route under investigation.",
+      "more": "",
+      "src": "WHO DON, 6 Feb 2026",
+      "tags": [
+        "Nipah",
+        "Henipavirus"
+      ]
+    },
+    {
+      "id": "nipah-in",
+      "date": "2026-01-30",
+      "sortDate": "2026-01-30",
+      "title": "Nipah Virus \u2014 India",
+      "level": 2,
+      "status": "Seasonal",
+      "country": [
+        "India"
+      ],
+      "desc": "Concurrent Nipah reporting from India during the same seasonal window as the Bangladesh cluster.",
+      "more": "",
+      "src": "WHO DON, 30 Jan 2026",
+      "tags": [
+        "Nipah",
+        "India"
+      ]
+    },
+    {
+      "id": "mers-global",
+      "date": "2025-12-24",
+      "sortDate": "2025-12-24",
+      "title": "MERS-CoV \u2014 Global Update",
+      "level": 1,
+      "status": "Endemic monitoring",
+      "country": [
+        "Global"
+      ],
+      "desc": "Routine WHO global situation update on Middle East respiratory syndrome coronavirus.",
+      "more": "",
+      "src": "WHO DON, 24 Dec 2025",
+      "tags": [
+        "MERS-CoV",
+        "Zoonotic"
+      ]
+    },
+    {
+      "id": "seasonal-flu-dec25",
+      "date": "2025-12-10",
+      "sortDate": "2025-12-10",
+      "title": "Seasonal Influenza \u2014 Global Situation",
+      "level": 1,
+      "status": "Seasonal monitoring",
+      "country": [
+        "Global"
+      ],
+      "desc": "Routine WHO global seasonal influenza situation update.",
+      "more": "",
+      "src": "WHO DON, 10 Dec 2025",
+      "tags": [
+        "Influenza",
+        "Seasonal"
+      ]
+    },
+    {
+      "id": "diphtheria-afro",
+      "date": "2025-11-21",
+      "sortDate": "2025-11-21",
+      "title": "Diphtheria \u2014 African Region (AFRO)",
+      "level": 2,
+      "status": "Active",
+      "country": [
+        "Africa Region"
+      ],
+      "desc": "WHO Disease Outbreak News on diphtheria activity across the African Region.",
+      "more": "",
+      "src": "WHO DON, 21 Nov 2025",
+      "tags": [
+        "Diphtheria",
+        "AFRO"
+      ]
+    },
+    {
+      "id": "rvf-mauritania-senegal",
+      "date": "2025-11-05",
+      "sortDate": "2025-11-05",
+      "title": "Rift Valley Fever \u2014 Mauritania and Senegal",
+      "level": 2,
+      "status": "Active",
+      "country": [
+        "Mauritania",
+        "Senegal"
+      ],
+      "desc": "WHO Disease Outbreak News on Rift Valley fever activity in Mauritania and Senegal.",
+      "more": "",
+      "src": "WHO DON, 5 Nov 2025",
+      "tags": [
+        "Rift Valley fever",
+        "Zoonotic",
+        "West Africa"
+      ]
+    }
   ],
   "governance": [
-    {"id":"g1","date":"2026-01-29","sortDate":"2026-01-29","title":"Biosecurity Modernization and Innovation Act (S.3741) introduced","desc":"Introduced in the US Senate; read twice and referred to the Committee on Commerce, Science, and Transportation."},
-    {"id":"g2","date":"2026-01-20","sortDate":"2026-01-20","title":"IBBIS International Standards Initiative launched (Singapore)","desc":"Meeting convened stakeholders from industry, government, academia and standards bodies to push consistent global adoption of DNA synthesis screening."},
-    {"id":"g3","date":"2025-05-05","sortDate":"2025-05-05","title":"Executive Order 14292","desc":"Directs revision or replacement of the 2024 OSTP nucleic-acid synthesis screening framework."},
-    {"id":"g4","date":"2025-04-26","sortDate":"2025-04-26","title":"OSTP Screening Framework takes effect for purchases","desc":"Nucleic acid synthesis screening becomes a live requirement for purchases (condition of federal life-sciences research funding)."},
-    {"id":"g5","date":"2024-04-29","sortDate":"2024-04-29","title":"OSTP Framework for Nucleic Acid Synthesis Screening issued","desc":"Established as a voluntary-turned-conditional requirement tied to federal life-sciences funding eligibility."},
-    {"id":"g6","date":"2024-05-01","sortDate":"2024-05-01","title":"IBBIS Common Mechanism launched","desc":"Free, open-source, globally available DNA/RNA synthesis screening software released."},
-    {"id":"g7","date":"2024-02-01","sortDate":"2024-02-01","title":"IBBIS founded as independent Swiss foundation","desc":"Incubated out of NTI | bio; headquartered Geneva."},
-    {"id":"g8","date":"2010-01-01","sortDate":"2010-01-01","title":"HHS voluntary synthesis-screening guidance","desc":"Baseline (non-binding) starting point for US gene-synthesis screening policy."}
+    {
+      "id": "g0",
+      "date": "2026-07-22",
+      "sortDate": "2026-07-22",
+      "title": "OpenAI \"Biodefense in the Intelligence Age\" action plan",
+      "desc": "An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit \u2014 positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk."
+    },
+    {
+      "id": "g1",
+      "date": "2026-01-29",
+      "sortDate": "2026-01-29",
+      "title": "Biosecurity Modernization and Innovation Act (S.3741) introduced",
+      "desc": "Introduced in the US Senate; read twice and referred to the Committee on Commerce, Science, and Transportation."
+    },
+    {
+      "id": "g2",
+      "date": "2026-01-20",
+      "sortDate": "2026-01-20",
+      "title": "IBBIS International Standards Initiative launched (Singapore)",
+      "desc": "Meeting convened stakeholders from industry, government, academia and standards bodies to push consistent global adoption of DNA synthesis screening."
+    },
+    {
+      "id": "g3",
+      "date": "2025-05-05",
+      "sortDate": "2025-05-05",
+      "title": "Executive Order 14292",
+      "desc": "Directs revision or replacement of the 2024 OSTP nucleic-acid synthesis screening framework."
+    },
+    {
+      "id": "g4",
+      "date": "2025-04-26",
+      "sortDate": "2025-04-26",
+      "title": "OSTP Screening Framework takes effect for purchases",
+      "desc": "Nucleic acid synthesis screening becomes a live requirement for purchases (condition of federal life-sciences research funding)."
+    },
+    {
+      "id": "g5",
+      "date": "2024-04-29",
+      "sortDate": "2024-04-29",
+      "title": "OSTP Framework for Nucleic Acid Synthesis Screening issued",
+      "desc": "Established as a voluntary-turned-conditional requirement tied to federal life-sciences funding eligibility."
+    },
+    {
+      "id": "g6",
+      "date": "2024-05-01",
+      "sortDate": "2024-05-01",
+      "title": "IBBIS Common Mechanism launched",
+      "desc": "Free, open-source, globally available DNA/RNA synthesis screening software released."
+    },
+    {
+      "id": "g7",
+      "date": "2024-02-01",
+      "sortDate": "2024-02-01",
+      "title": "IBBIS founded as independent Swiss foundation",
+      "desc": "Incubated out of NTI | bio; headquartered Geneva."
+    },
+    {
+      "id": "g8",
+      "date": "2010-01-01",
+      "sortDate": "2010-01-01",
+      "title": "HHS voluntary synthesis-screening guidance",
+      "desc": "Baseline (non-binding) starting point for US gene-synthesis screening policy."
+    }
   ]
 }
