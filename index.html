@@ -179,6 +179,71 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .net-legend span{display:inline-flex; align-items:center; gap:6px;}
 .net-legend i{width:10px; height:10px; border-radius:50%; display:inline-block;}
 
+/* ---------- Analysis module ---------- */
+.analysis-select{background:var(--panel-2); border:1px solid var(--line); color:var(--text); padding:9px 12px; border-radius:6px; font-family:var(--sans); font-size:13px; width:100%; max-width:320px; margin-bottom:18px;}
+.narrative{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px 22px; margin-bottom:16px;}
+.narrative p{font-size:13.5px; color:var(--text); line-height:1.7;}
+.narrative .placeholder{color:var(--muted-2); font-size:12.8px;}
+.stat-strip{display:flex; gap:0; flex-wrap:wrap; margin:14px 0;}
+.stat-box{flex:1; min-width:110px; background:var(--panel-2); border:1px solid var(--line); padding:12px 14px; text-align:center;}
+.stat-box:first-child{border-radius:6px 0 0 6px;}
+.stat-box:last-child{border-radius:0 6px 6px 0;}
+.stat-box b{display:block; font-family:var(--mono); font-size:19px; color:var(--amber);}
+.stat-box span{font-size:9.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.05em;}
+#trendChart{width:100%; height:220px; display:block;}
+.trend-dot{cursor:pointer;}
+.trend-dot:hover{stroke:#fff; stroke-width:2px;}
+.mini-timeline-row{display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid var(--line); font-size:12px; cursor:pointer;}
+.mini-timeline-row:hover{color:var(--amber);}
+.mini-timeline-row:last-child{border-bottom:none;}
+.citation-out{width:100%; min-height:140px; background:var(--panel-2); border:1px solid var(--line); border-radius:6px; color:var(--text); font-family:var(--mono); font-size:11.5px; padding:12px; margin-top:12px; white-space:pre-wrap;}
+.smallbtn{font-family:var(--mono); font-size:11px; background:var(--panel-2); border:1px solid var(--line); color:var(--text); padding:6px 12px; border-radius:6px;}
+.smallbtn:hover{border-color:var(--amber); color:var(--amber);}
+
+/* ---------- Signal detection ---------- */
+.signal-warn{background:rgba(189,81,56,0.1); border:1px solid rgba(189,81,56,0.35); color:#E4A896; padding:12px 16px; border-radius:8px; font-size:12.5px; margin-bottom:18px; line-height:1.6;}
+.signal-warn b{color:var(--brick);}
+.signal-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
+.signal-card{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 18px; cursor:pointer; transition:border-color .15s;}
+.signal-card:hover{border-color:var(--muted-2);}
+.signal-card.expanded{grid-column:1 / -1; cursor:default;}
+.signal-card-head{display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px;}
+.signal-title{font-size:12.5px; font-weight:600; line-height:1.3;}
+.signal-badge{font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.05em; padding:3px 7px; border-radius:4px; white-space:nowrap; flex-shrink:0;}
+.signal-badge.normal{background:rgba(62,144,152,0.12); color:var(--l1);}
+.signal-badge.elevated{background:rgba(217,164,65,0.12); color:var(--l2);}
+.signal-badge.spike{background:rgba(189,81,56,0.14); color:var(--l4);}
+.signal-badge.loading{background:var(--panel-2); color:var(--muted-2);}
+.signal-badge.error{background:rgba(189,81,56,0.14); color:var(--brick);}
+.signal-meta{font-family:var(--mono); font-size:10px; color:var(--muted-2); margin-top:6px;}
+.signal-detail{margin-top:14px; padding-top:14px; border-top:1px solid var(--line);}
+.signal-error-msg{font-size:11.5px; color:var(--muted); margin-top:8px; line-height:1.5;}
+@media (max-width:880px){ .signal-grid{grid-template-columns:1fr;} }
+
+/* ---------- Historical incidents map ---------- */
+.cat-toggle{display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;}
+.cat-btn{font-family:var(--mono); font-size:11.5px; padding:8px 14px; border-radius:6px; border:1px solid var(--line); background:var(--panel); color:var(--muted); cursor:pointer; display:flex; align-items:center; gap:7px;}
+.cat-btn i{width:9px; height:9px; border-radius:50%; display:inline-block;}
+.cat-btn.active{border-color:currentColor;}
+.cat-btn[data-cat="A"].active{background:rgba(62,144,152,0.12); color:var(--l1);}
+.cat-btn[data-cat="B"].active{background:rgba(189,81,56,0.12); color:var(--brick);}
+.cat-btn[data-cat="all"].active{background:var(--panel-2); color:var(--text);}
+#histmap{height:440px; border-radius:8px; border:1px solid var(--line); background:#10151A;}
+.hist-list{margin-top:18px;}
+.hist-entry{display:grid; grid-template-columns:90px 1fr auto; gap:14px; padding:13px 0; border-bottom:1px solid var(--line); align-items:start;}
+.hist-entry:last-child{border-bottom:none;}
+.hist-entry[hidden]{display:none;}
+.hist-date{font-family:var(--mono); font-size:10.5px; color:var(--muted-2); padding-top:2px;}
+.hist-body h4{font-size:13.5px; font-weight:600; margin-bottom:4px;}
+.hist-body p{font-size:12.5px; color:var(--muted); line-height:1.55;}
+.hist-body .src{font-family:var(--mono); font-size:10px; color:var(--muted-2); margin-top:6px; display:block;}
+.hist-cat-chip{font-family:var(--mono); font-size:9.5px; font-weight:600; padding:2px 7px; border-radius:4px; white-space:nowrap;}
+.hist-cat-chip.A{background:rgba(62,144,152,0.12); color:var(--l1);}
+.hist-cat-chip.B{background:rgba(189,81,56,0.12); color:var(--brick);}
+.hist-unverified{font-family:var(--mono); font-size:9.5px; color:var(--muted-2); border:1px dashed var(--line); padding:2px 6px; border-radius:4px; margin-left:6px;}
+
+.new-badge{background:var(--amber); color:#14181A; font-family:var(--mono); font-size:8.5px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; letter-spacing:0.03em;}
+
 .foot{padding:30px 28px 60px 28px; border-top:1px solid var(--line); margin-top:10px;}
 .foot p{font-size:11.5px; color:var(--muted-2); max-width:720px; line-height:1.6;}
 
@@ -195,6 +260,12 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .menu-btn{display:none; align-items:center; gap:8px; background:none; border:1px solid var(--line); color:var(--text); padding:6px 10px; border-radius:6px; font-family:var(--mono); font-size:11px;}
 :focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
 @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important;} }
+@media print{
+  .sidebar, .topbar, .menu-btn, #genBriefingBtn, #copyBriefingBtn, #printBriefingBtn{ display:none !important; }
+  .main{ width:100%; }
+  body{ background:#fff; color:#111; }
+  .card{ border-color:#ccc; background:#fff; }
+}
 </style>
 </head>
 <body>
@@ -213,6 +284,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     <div class="navgroup">
       <div class="navgroup-label">Surveillance</div>
       <div class="navitem" data-target="outbreaks"><span class="navdot"></span>Outbreak Feed<span class="navcount" id="cnt-outbreaks"></span></div>
+      <div class="navitem" data-target="signals"><span class="navdot"></span>Signal Detection</div>
     </div>
     <div class="navgroup">
       <div class="navgroup-label">Convergence</div>
@@ -222,6 +294,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     <div class="navgroup">
       <div class="navgroup-label">Infrastructure</div>
       <div class="navitem" data-target="labmap-section"><span class="navdot"></span>BSL-3/4 Facility Map</div>
+      <div class="navitem" data-target="histmap-section"><span class="navdot"></span>Historical Incidents Map</div>
       <div class="navitem" data-target="scorecards"><span class="navdot"></span>Biorisk Scorecards</div>
     </div>
     <div class="navgroup">
@@ -234,6 +307,8 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     </div>
     <div class="navgroup">
       <div class="navgroup-label">Research</div>
+      <div class="navitem" data-target="briefing"><span class="navdot"></span>Briefing</div>
+      <div class="navitem" data-target="analysis"><span class="navdot"></span>Analysis</div>
       <div class="navitem" data-target="flagged"><span class="navdot"></span>Flagged for Report<span class="navcount" id="cnt-flagged">0</span></div>
     </div>
   </nav>
@@ -291,6 +366,14 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <div class="card" style="padding:6px 20px;" id="outbreakFeed"></div>
     </section>
 
+    <section class="section" id="signals" hidden>
+      <div class="section-head"><h2>Signal Detection</h2><p>News-volume anomaly detection via GDELT — flags keyword clusters running above their recent baseline. This is a leading indicator layer, separate from the confirmed WHO/CDC feed.</p></div>
+      <div class="signal-warn">⚠ <b>Unverified signals, not confirmed outbreaks.</b> These are statistical anomalies in news-mention volume — they can be driven by a single viral article, an unrelated event sharing keywords, or genuine early outbreak chatter. Cross-check against the Outbreak Feed and primary sources before treating any of this as actionable. A spike is a prompt to look closer, not a finding.</div>
+      <button class="smallbtn" id="checkSignalsBtn" style="margin-bottom:16px;">🔄 Check signals now</button>
+      <span id="signalsStatus" style="font-family:var(--mono);font-size:10.5px;color:var(--muted-2);margin-left:10px;"></span>
+      <div class="signal-grid" id="signalGrid"></div>
+    </section>
+
     <section class="section" id="aibio" hidden>
       <div class="section-head"><h2>AI-Bio Capability Watch</h2><p>Generative protein-design and structure-prediction tools, and the research examining where capability outruns safeguards.</p></div>
       <div class="grid grid-2" id="aibioGrid"></div>
@@ -312,6 +395,22 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
         <span><i style="background:#BD5138"></i>Weak / no dual-use oversight flagged</span>
       </div>
       <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:700px;">Representative sample for illustration — no single body maintains a comprehensive global BSL-3/4 register.</p>
+    </section>
+
+    <section class="section" id="histmap-section" hidden>
+      <div class="section-head"><h2>Historical Dual-Use Incidents Map</h2><p>Two distinct categories of "flagged" — kept separate deliberately. <b style="color:var(--l1)">Category A</b> is research or material formally flagged by oversight/export-control bodies (no attack occurred). <b style="color:var(--brick)">Category B</b> is confirmed historical use of a biological agent to cause harm. Sourced from FBI/DOJ records, BIS enforcement actions, peer-reviewed journals, and the Global Terrorism Database (START/University of Maryland, Kaggle mirror through 2017).</p>
+      <div class="cat-toggle" id="histCatToggle">
+        <button class="cat-btn active" data-cat="all"><i style="background:var(--muted)"></i>All (<span id="cnt-all"></span>)</button>
+        <button class="cat-btn" data-cat="A"><i style="background:var(--l1)"></i>Category A — Flagged research / export control (<span id="cnt-A"></span>)</button>
+        <button class="cat-btn" data-cat="B"><i style="background:var(--brick)"></i>Category B — Confirmed biocrime/bioterrorism (<span id="cnt-B"></span>)</button>
+      </div>
+      <div id="histmap"></div>
+      <div class="map-legend">
+        <span><i style="background:#3E9098"></i>Category A — flagged, no attack</span>
+        <span><i style="background:#BD5138"></i>Category B — confirmed use of agent</span>
+      </div>
+      <div class="hist-list" id="histList"></div>
+      <p style="font-size:11.5px;color:var(--muted-2);margin-top:14px;max-width:720px;">Excluded deliberately: ~15 GTD-logged 2001–2011 hoax "white powder" letters (US, Kenya, Pakistan, Chile) riding the Amerithrax panic — real GTD entries, but near-identical, zero-casualty, and would clutter the map without adding distinct value. Also excluded: a GTD entry for a 23 May 2000 Salmonella poisoning of Israeli tourists (2 deaths) — GTD is the only source found for this and it could not be independently corroborated, so it is omitted rather than presented as confirmed.</p>
     </section>
 
     <section class="section" id="scorecards" hidden>
@@ -348,8 +447,40 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <div class="card"><div class="timeline" id="govTimeline"></div></div>
     </section>
 
+    <section class="section" id="briefing" hidden>
+      <div class="section-head"><h2>Briefing</h2><p>Auto-compiled synthesis across every tracked module — for a quick status read or to paste into a report/update.</p></div>
+      <div style="margin-bottom:14px;">
+        <button class="smallbtn" id="genBriefingBtn">🔄 Generate briefing</button>
+        <button class="smallbtn" id="copyBriefingBtn" style="margin-left:8px;">📋 Copy</button>
+        <button class="smallbtn" id="printBriefingBtn" style="margin-left:8px;">🖨 Print</button>
+      </div>
+      <div id="briefingOut" class="card" style="padding:24px 26px;"><p class="placeholder" style="color:var(--muted-2);font-size:12.8px;">Click "Generate briefing" to compile the latest snapshot.</p></div>
+    </section>
+
+    <section class="section" id="analysis" hidden>
+      <div class="section-head"><h2>Analysis</h2><p>Cross-module synthesis and trend visualization — pulls together everything the dashboard already tracks per-country into one working view.</p></div>
+
+      <div class="card" style="margin-bottom:22px;">
+        <div class="card-head"><span class="card-title">Containment-Level Timeline</span><span style="font-family:var(--mono);font-size:10px;color:var(--muted-2)">ALL TRACKED OUTBREAKS · CLICK A POINT</span></div>
+        <svg id="trendChart"></svg>
+        <p style="font-size:11px;color:var(--muted-2);margin-top:8px;">Each point is one WHO/CDC-reported event, positioned by report date (x) and containment level (y). Clustering toward L3–L4 in a short window is the pattern worth watching, not any single event.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="card-title">Country Deep-Dive</span></div>
+        <select class="analysis-select" id="countrySelect"><option value="">Select a country…</option></select>
+        <div id="countryAnalysisOut">
+          <div class="narrative"><p class="placeholder">Pick a country above — or click any 📍 tag, map marker, network node, or scorecard row elsewhere in the dashboard — to generate a synthesis here.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="flagged" hidden>
       <div class="section-head"><h2>Flagged for Report</h2><p>Items you've starred, with any notes attached — persisted on this device for pulling into the companion academic report.</p></div>
+      <button class="smallbtn" id="citeBtn" style="margin-bottom:14px;">📋 Copy as citation list</button>
+      <button class="smallbtn" id="exportJsonBtn" style="margin-bottom:14px;margin-left:8px;">⬇ Export JSON</button>
+      <button class="smallbtn" id="exportCsvBtn" style="margin-bottom:14px;margin-left:8px;">⬇ Export CSV</button>
+      <textarea class="citation-out" id="citeOut" style="display:none;" readonly></textarea>
       <div id="flaggedList"></div>
     </section>
 
@@ -409,12 +540,21 @@ const D = {
     {id:"screening-gap", title:"The Screening-Gap Problem", level:3,
      desc:"AI-generated proteins can be functionally equivalent to known toxins while sharing little sequence similarity — rendering homology-based screening blind. Current biosecurity screening software (BSS) is built almost entirely on similarity search against natural-sequence databases.",
      src:"Frontiers 2026 (fmicb.2026.1817535); bioRxiv 2025.05.15.654077"},
-    {id:"ibbis-msft", title:"IBBIS × Microsoft Red-Team Study", level:2,
-     desc:"A Microsoft-led consortium study, \"Strengthening nucleic acid biosecurity screening against generative protein design tools,\" demonstrated the Common Mechanism and peer tools can be hardened against AI-redesigned threat proteins. Covered by Nature News, FT, MIT Tech Review, BBC, NPR.",
-     src:"IBBIS, Nov 2025"},
+    {id:"ibbis-msft", title:"AI-Redesigned Proteins Can Evade Synthesis Screening — and the Fix", level:2,
+     desc:"The primary study: open-source AI protein-design tools could generate variants of proteins of concern that evaded detection by nucleic-acid synthesis biosecurity screening software (BSS). The authors, working with IBBIS and Microsoft, developed and deployed patches that substantially improved detection of these AI-redesigned homologs. Microsoft's own account of the effort ('When AI Meets Biology') frames it as a confidential red-team exercise now informing global screening standards.",
+     src:"Wittmann et al., Science, 2 Oct 2025, DOI 10.1126/science.adu8578; Horvitz, Microsoft Research, 6 Oct 2025"},
     {id:"foldmark", title:"FoldMark — Watermarking Protein Generative Models", level:1,
      desc:"Research proposal for embedding traceable watermarks into protein-structure generative model outputs (AlphaFold3, RFdiffusion, ESM3-class tools), aimed at provenance-tracking for IP and biosecurity misuse cases.",
      src:"bioRxiv 2024.10.23.619960"},
+    {id:"llm-uplift", title:"LLM Novice Uplift on Dual-Use Biology Tasks", level:3,
+     desc:"A multi-model, multi-benchmark human study found novices with LLM access were 4.16× more accurate on dual-use, in-silico biology tasks than internet-only controls (95% CI 2.63–6.87), and outperformed expert baselines on 3 of 4 benchmarks with available comparisons. 89.6% of participants reported little difficulty obtaining dual-use-relevant information despite model safeguards.",
+     src:"Zhang, Knight, Kruus et al., arXiv 2602.23329, 26 Feb 2026"},
+    {id:"ebola-ai-restrictions", title:"AI Safety Restrictions vs. Public Health Analysis — a Live Tension", level:2, country:["DRC","Uganda"],
+     desc:"A public health researcher documents ChatGPT's biosafety restrictions obstructing legitimate epidemiological analysis of the ongoing Bundibugyo Ebola response — the same outbreak this tracker's feed leads with. Argues the model's 'Trusted Access' exception process offers little transparency when the safeguard misfires against defensive, not offensive, use.",
+     src:"Larry Kerr, Substack, 6 Aug 2026"},
+    {id:"cnss-aixbio", title:"The Evolving Paradigm of AI-Biosecurity: Challenges and Solutions", level:2, country:["India"],
+     desc:"India-authored overview of AI-biosecurity challenges and governance gaps, from JNU's Center for National Security Studies — a natural companion source to this tracker's own India/IBSC synthesis-screening entry.",
+     src:"Sarawagi & Namdeo, Center for National Security Studies, 1 Jan 2026"},
   ],
   synthesis:[
     {id:"fbi-redteam", title:"FBI Red-Team Result — 1918 Influenza Fragment Test", level:4,
@@ -432,6 +572,12 @@ const D = {
     {id:"intl-standards", title:"IBBIS International Standards Initiative", level:1,
      desc:"Singapore meeting (Jan 2026) launched a sustained international-standards track through 2026+, converging industry, government, and standards bodies (incl. ISO 20688-2) around common screening norms.",
      src:"ibbis.bio, Jan 2026"},
+    {id:"soc-definition", title:"A Standard Definition for 'Sequences of Concern'", level:1,
+     desc:"First agreed rubric for what counts as a nucleic-acid sequence of concern, built from 1.1 million test sequences (pathogens/toxins on the Australia Group Common Control Lists plus non-controlled relatives) and reconciled across four existing biosecurity screening systems, which already agreed on over 80% of cases before refinement. Applying the rubric reduced disputed categorizations by 44.3% for controlled viruses.",
+     src:"Alexanian, Beal, Bartling et al., Frontiers in Bioengineering and Biotechnology, 4 Jun 2026"},
+    {id:"function-based-screening", title:"Beyond Sequence Similarity: Function-Based Screening", level:2,
+     desc:"Direct proposed fix to the screening-gap problem above: since AI biodesign tools can decouple biological function from sequence similarity to known threats, the authors argue for screening that detects hazardous *function* directly rather than homology to a known-sequence database — starting with toxins as the most tractable target before expanding to more complex pathogenic functions.",
+     src:"Abel, Alexanian, Bartling et al., Frontiers in Bioengineering and Biotechnology, 14 May 2026"},
   ],
   labs:[
     {id:"lab-cdc", n:"CDC — Atlanta, USA", lat:33.797, lng:-84.324, tier:"strong", country:"USA"},
@@ -462,6 +608,7 @@ const D = {
     {country:"Russia", biosafety:42, biosecurity:38, dualuse:28},
   ],
   governance:[
+    {id:"g0", date:"2026-07-22", sortDate:"2026-07-22", title:"OpenAI \"Biodefense in the Intelligence Age\" action plan", desc:"An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit — positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk."},
     {id:"g1", date:"2026-01-29", sortDate:"2026-01-29", title:"Biosecurity Modernization and Innovation Act (S.3741) introduced", desc:"Introduced in the US Senate; read twice and referred to the Committee on Commerce, Science, and Transportation."},
     {id:"g2", date:"2026-01-20", sortDate:"2026-01-20", title:"IBBIS International Standards Initiative launched (Singapore)", desc:"Meeting convened stakeholders from industry, government, academia and standards bodies to push consistent global adoption of DNA synthesis screening."},
     {id:"g3", date:"2025-05-05", sortDate:"2025-05-05", title:"Executive Order 14292", desc:"Directs revision or replacement of the 2024 OSTP nucleic-acid synthesis screening framework."},
@@ -482,6 +629,70 @@ D.netBodies = [
   {id:"GBL", label:"Global BioLabs Initiative", note:"KCL/George Mason collaboration producing BSL-4 biorisk governance scorecards."},
 ];
 D.netCountries = ["USA","Canada","UK","France","Germany","Netherlands","Sweden","Italy","Japan","South Korea","Australia","China","Russia","India","South Africa","DRC","Uganda","Ethiopia","Bangladesh"];
+
+/* ---- Historical dual-use incidents (Category A: flagged research/export control; Category B: confirmed biocrime) ---- */
+D.historicalIncidents = [
+  // Category A — flagged research / export-control enforcement (no attack occurred)
+  {id:"h5n1-rotterdam", cat:"A", title:"H5N1 Ferret-Transmissibility Study (Fouchier)", lat:51.917, lng:4.470, date:"2011-09-01", country:"Netherlands",
+   desc:"Erasmus MC modified H5N1 avian flu to transmit between ferrets via respiratory droplets. Triggered NSABB review and a voluntary international research moratorium (Jan 2012–Jan 2013) over publication-safety concerns.",
+   src:"Herfst et al., Science, 2012; Science.org NIH coverage"},
+  {id:"h5n1-madison", cat:"A", title:"H5N1 Ferret-Transmissibility Study (Kawaoka)", lat:43.0766, lng:-89.4125, date:"2011-09-01", country:"USA",
+   desc:"Parallel study at UW-Madison achieving similar H5N1 mammalian transmissibility results, published alongside the Fouchier study — together the two triggered the DURC publication debate.",
+   src:"Imai et al., Nature, 2012"},
+  {id:"gof-pause-cdc", cat:"A", title:"CDC H5N1 Contamination Incident → US GOF Funding Pause", lat:33.797, lng:-84.324, date:"2014-10-17", country:"USA",
+   desc:"A CDC Atlanta lab incident (a benign avian flu sample inadvertently contaminated with H5N1) was one of several biosafety lapses that led OSTP to pause federal funding for 18–21 gain-of-function projects at ~14 institutions nationwide, Oct 2014–Dec 2017.",
+   src:"NIH Notice NOT-OD-17-071; Congress.gov CRS R47114"},
+  {id:"butler-plague", cat:"A", title:"Unlicensed Export of Yersinia pestis (Plague)", lat:33.5779, lng:-101.8552, date:"2003-01-01", country:"USA",
+   desc:"Texas Tech professor Thomas Butler exported plague bacterium to Tanzania without the required Commerce Department license. Convicted on export-control charges.",
+   src:"BIS charging documents, Aug 2006; UMBC Export Control Case Studies"},
+  {id:"iu-toxin-flies", cat:"A", title:"Unlicensed Export of Toxin-Producing GM Organisms", lat:39.1653, lng:-86.5264, date:"2025-06-01", country:"USA",
+   desc:"BIS settled with Indiana University over 42 violations: its Bloomington Drosophila Stock Center shipped fruit flies genetically modified to produce a subunit of a controlled toxin to research institutions worldwide, without required export licenses.",
+   src:"BIS official press release, bis.gov"},
+
+  // Category B — confirmed use of a biological agent
+  {id:"sverdlovsk", cat:"B", title:"Sverdlovsk Anthrax Leak", lat:56.8431, lng:60.6454, date:"1979-04-02", country:"Russia",
+   desc:"Accidental release of aerosolized B. anthracis from Compound 19, a Soviet military bioweapons facility. At least 66–68 confirmed deaths. Denied by the USSR for 13 years as tainted meat; confirmed as a weapons-facility accident by Yeltsin in 1992.",
+   src:"Meselson et al., Science, 1994 (peer-reviewed); PBS Frontline"},
+  {id:"dark-harvest-porton", cat:"B", title:"Dark Harvest Commando — Porton Down Delivery", lat:51.128, lng:-1.696, date:"1981-10-10", country:"UK",
+   desc:"Group calling itself Dark Harvest Commando left a container of Gruinard Island soil, confirmed to contain live B. anthracis, outside the UK's Chemical Defence Establishment, protesting the island's undecontaminated WWII bioweapons-test status. 0 casualties.",
+   src:"Wikipedia (cross-verified via Scotland's History Scot, The Ferret)"},
+  {id:"dark-harvest-blackpool", cat:"B", title:"Dark Harvest Commando — Blackpool Delivery", lat:53.8175, lng:-3.0357, date:"1981-10-14", country:"UK",
+   desc:"A second soil container, matching Gruinard Island's soil type but testing negative for anthrax, was left at the Conservative Party conference venue. Part of the same protest campaign as the Porton Down delivery.",
+   src:"History Scot (National Records of Scotland); GTD"},
+  {id:"aum-yokohama", cat:"B", title:"Aum Shinrikyo Botulinum Attempt — Yokosuka Naval Base area", lat:35.4437, lng:139.6380, date:"1990-04-15", country:"Japan",
+   desc:"Early, little-known failed attempt — cult sprayed botulinum toxin near a US naval base as part of a wider 1990 campaign that also targeted the Imperial Palace and Japan's Diet. Predates the better-known 1993 Kameido anthrax incident. 0 casualties (technical failure).",
+   src:"GTD; ASPI Strategist"},
+  {id:"aum-narita", cat:"B", title:"Aum Shinrikyo Botulinum Attempt — Narita Airport", lat:35.7722, lng:140.3218, date:"1990-04-15", country:"Japan",
+   desc:"Same April 1990 campaign, targeting Narita International Airport. 0 casualties.",
+   src:"GTD"},
+  {id:"aum-kameido", cat:"B", title:"Kameido Anthrax Incident", lat:35.7010, lng:139.8288, date:"1993-06-29", country:"Japan",
+   desc:"Aum Shinrikyo aerosolized B. anthracis from the roof of its 8-story Kameido headquarters. Later analysis found the strain was the non-virulent veterinary vaccine strain — zero confirmed human casualties despite the attempt.",
+   src:"Emerging Infectious Diseases (CDC, peer-reviewed), Jan 2004"},
+  {id:"rajneeshee", cat:"B", title:"Rajneeshee Bioterror Attack", lat:45.6011, lng:-121.1828, date:"1984-09-09", country:"USA",
+   desc:"Election-sabotage plot: Salmonella Typhimurium in restaurant salad bars, The Dalles, Oregon. GTD records this as a 4-stage escalating campaign (small test-runs 15 Jul, 29 Aug, and a larger dose 9 Sep, before the large 20 Sep attack that produced 751 confirmed cases, 45 hospitalized, 0 deaths).",
+   src:"FBI; Oregon Health Authority investigation; GTD"},
+  {id:"amerithrax-trenton", cat:"B", title:"Amerithrax — Mailing Origin", lat:40.2171, lng:-74.7429, date:"2001-09-18", country:"USA",
+   desc:"Anthrax-laced letters postmarked from Trenton, NJ, sent to media outlets and US senators. FBI concluded Dr. Bruce Ivins of USAMRIID (Fort Detrick) acted alone; investigation formally closed 2010.",
+   src:"FBI/DOJ Amerithrax Investigative Summary, 2010"},
+  {id:"amerithrax-bocaraton", cat:"B", title:"Amerithrax — Boca Raton, FL", lat:26.3683, lng:-80.1289, date:"2001-10-02", country:"USA",
+   desc:"American Media Inc. (National Enquirer). First fatality: photo editor Bob Stevens, first confirmed inhalational anthrax death.",
+   src:"CNN; FBI"},
+  {id:"amerithrax-dc", cat:"B", title:"Amerithrax — Washington, DC", lat:38.9072, lng:-77.0369, date:"2001-10-15", country:"USA",
+   desc:"Letter to Sen. Tom Daschle's office; Brentwood postal facility contamination killed two postal workers, Thomas Morris Jr. and Joseph Curseen.",
+   src:"FBI/DOJ Amerithrax Investigative Summary"},
+  {id:"amerithrax-nyc", cat:"B", title:"Amerithrax — New York City", lat:40.7128, lng:-74.0060, date:"2001-10-12", country:"USA",
+   desc:"Letters to NBC News (Tom Brokaw), ABC, CBS, New York Post. Kathy Nguyen, a hospital worker with no identified direct exposure link, died of inhalational anthrax in late October.",
+   src:"FBI/DOJ Amerithrax Investigative Summary"},
+  {id:"amerithrax-oxford", cat:"B", title:"Amerithrax — Oxford, CT", lat:41.4459, lng:-73.1287, date:"2001-11-14", country:"USA",
+   desc:"Ottilie Lundgren, 94, died of inhalational anthrax with no identified direct exposure — believed a victim of cross-contaminated mail. Fifth and final fatality.",
+   src:"FBI/DOJ Amerithrax Investigative Summary"},
+  {id:"ricin-dc", cat:"B", title:"2013 Ricin Letters — Washington, DC", lat:38.9072, lng:-77.0369, date:"2013-05-20", country:"USA",
+   desc:"Ricin-laced letters addressed to President Obama and Mark Glaze (director, Mayors Against Illegal Guns), tied to the post-Sandy Hook gun-control debate. Intercepted by mail screening before delivery — 0 casualties.",
+   src:"GTD; DOJ press statements"},
+  {id:"ricin-nyc", cat:"B", title:"2013 Ricin Letters — New York City", lat:40.7128, lng:-74.0060, date:"2013-05-20", country:"USA",
+   desc:"Companion ricin letter addressed to NYC Mayor Michael Bloomberg, part of the same mailing campaign. Intercepted, 0 casualties.",
+   src:"GTD; DOJ press statements"},
+];
 function buildNetworkGraph(){
   const nodes = [];
   const links = [];
@@ -541,6 +752,29 @@ function renderDataFreshness(){
   }
 }
 
+/* ================= NEW-SINCE-LAST-VISIT TRACKING ================= */
+let newItemIds = new Set();
+let lastVisitDate = null;
+async function checkNewSinceLastVisit(){
+  let seen = [];
+  let prevVisit = null;
+  try{ const v = await storageGet('seenIds'); if(v) seen = JSON.parse(v); }catch(e){}
+  try{ prevVisit = await storageGet('lastVisitDate'); }catch(e){}
+  lastVisitDate = prevVisit;
+  const seenSet = new Set(seen);
+  const allIds = [
+    ...D.outbreaks.map(o=>o.id),
+    ...D.governance.map(g=>g.id),
+    ...D.historicalIncidents.map(h=>h.id),
+    ...D.aibio.map(a=>a.id),
+    ...D.synthesis.map(s=>s.id),
+  ];
+  if(seen.length){ allIds.forEach(id=>{ if(!seenSet.has(id)) newItemIds.add(id); }); }
+  await storageSet('seenIds', JSON.stringify(allIds));
+  await storageSet('lastVisitDate', new Date().toISOString());
+}
+function newBadge(id){ return newItemIds.has(id) ? '<span class="new-badge">NEW</span>' : ''; }
+
 /* ================= STATE ================= */
 let state = { module:"overview", countryFilter:null, levelFilter:null, itemId:null };
 let bookmarks = {}; // id -> {starred, note}
@@ -597,7 +831,11 @@ function goTo(moduleId, itemId){
   window.scrollTo({top:0, behavior:'smooth'});
   updateHash();
   if(moduleId==='labmap-section') setTimeout(initMap, 60);
+  if(moduleId==='histmap-section') setTimeout(initHistMap, 60);
   if(moduleId==='network'){ setTimeout(()=>{ renderNetFilters(); renderNetwork(); netInitialized = true; }, 60); }
+  if(moduleId==='analysis'){ setTimeout(()=>{ renderAnalysis(); analysisInitialized = true; }, 60); }
+  if(moduleId==='signals' && !signalsChecked){ setTimeout(()=>{ renderSignalGrid(); }, 60); }
+  if(moduleId==='briefing'){ setTimeout(generateBriefing, 60); }
   if(itemId){
     setTimeout(()=>{
       const el = document.querySelector(`[data-id="${itemId}"]`);
@@ -660,7 +898,7 @@ function renderOutbreaks(){
     <div class="feed-item" data-id="${o.id}" data-country="${o.country.join(',')}">
       <div class="feed-date">${new Date(o.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short'})}<br>${o.date.slice(0,4)}</div>
       <div class="feed-body">
-        <h4>${o.title} ${clFmt(o.level)}</h4>
+        <h4>${o.title} ${clFmt(o.level)}${newBadge(o.id)}</h4>
         <p>${o.desc}</p>
         ${o.more ? `<div class="detail-more"><p style="margin-top:6px;">${o.more}</p><textarea class="note-box" placeholder="Add a research note…" data-note="${o.id}">${(bookmarks[o.id]&&bookmarks[o.id].note)||''}</textarea></div><button class="more-btn" data-expand="${o.id}">SHOW MORE ▾</button>` : `<textarea class="note-box" placeholder="Add a research note…" data-note="${o.id}" style="display:none" data-lazy="1">${(bookmarks[o.id]&&bookmarks[o.id].note)||''}</textarea>`}
         <span class="src">Source: ${o.src}</span>
@@ -688,17 +926,19 @@ function renderOutbreaks(){
 function renderAibio(){
   document.getElementById('aibioGrid').innerHTML = D.aibio.map(a=>`
     <div class="card" data-id="${a.id}">
-      <div class="card-head"><span class="card-title">${a.title}</span>${clFmt(a.level)}</div>
+      <div class="card-head"><span class="card-title">${a.title}${newBadge(a.id)}</span>${clFmt(a.level)}</div>
       <p style="font-size:12.8px;color:var(--muted);margin-bottom:8px;">${a.desc}</p>
       <span class="src" style="font-family:var(--mono);font-size:10px;color:var(--muted-2)">Source: ${a.src}</span>
-      <div style="margin-top:8px;">${starHtml(a.id, a.title, 'AI-Bio Tool')}</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:10px;">${starHtml(a.id, a.title, 'AI-Bio Tool')}
+      ${a.country? `<span class="tag" style="cursor:pointer;border-color:var(--teal);color:var(--teal)" data-goto-country="${a.country[0]}">📍 ${a.country[0]}</span>`:''}</div>
     </div>`).join('');
   document.querySelectorAll('#aibioGrid [data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
+  document.querySelectorAll('#aibioGrid [data-goto-country]').forEach(el=> el.onclick = ()=>{ state.countryFilter = el.dataset.gotoCountry; goTo('labmap-section'); });
 }
 function renderSynthesis(){
   document.getElementById('synthesisGrid').innerHTML = `<div class="grid grid-2">` + D.synthesis.map(s=>`
     <div class="card" data-id="${s.id}">
-      <div class="card-head"><span class="card-title">${s.title}</span>${clFmt(s.level)}</div>
+      <div class="card-head"><span class="card-title">${s.title}${newBadge(s.id)}</span>${clFmt(s.level)}</div>
       <p style="font-size:12.8px;color:var(--muted);margin-bottom:8px;">${s.desc}</p>
       <span class="src" style="font-family:var(--mono);font-size:10px;color:var(--muted-2)">Source: ${s.src}</span>
       <div style="margin-top:8px;display:flex;align-items:center;gap:10px;">${starHtml(s.id, s.title, 'Synthesis')}
@@ -730,6 +970,8 @@ function initMap(){
   leafletMap = L.map('labmap', {scrollWheelZoom:false}).setView([25,10], 2);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19}).addTo(leafletMap);
   refreshMapMarkers();
+  setTimeout(()=> leafletMap && leafletMap.invalidateSize(), 120);
+  setTimeout(()=> leafletMap && leafletMap.invalidateSize(), 500);
 }
 function refreshMapMarkers(){
   if(!leafletMap) return;
@@ -777,7 +1019,7 @@ function renderGovernance(){
   document.getElementById('govTimeline').innerHTML = D.governance.map(g=>`
     <div class="tl-item" data-id="${g.id}" data-date="${g.sortDate}">
       <div class="tl-date">${new Date(g.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div>
-      <h4>${g.title}</h4><p>${g.desc}</p>
+      <h4>${g.title}${newBadge(g.id)}</h4><p>${g.desc}</p>
     </div>`).join('');
   applyScrubber();
 }
@@ -794,7 +1036,7 @@ function applyScrubber(){
 }
 
 /* ================= RENDER: NETWORK GRAPH ================= */
-let netSim = null, netInitialized = false, netTypeFilter = null;
+let netSim = null, netInitialized = false, netTypeFilter = null, analysisInitialized = false;
 function renderNetFilters(){
   const types = [["","All"],["facility","Facilities"],["country","Countries"],["body","Governance bodies"]];
   document.getElementById('netFilters').innerHTML = types.map(([k,l])=>
@@ -874,6 +1116,357 @@ function renderNetwork(){
     });
 }
 
+/* ================= SIGNAL DETECTION (GDELT news-volume anomaly) ================= */
+const SIGNAL_KEYWORDS = [
+  {id:'hemfever-drc', label:'Hemorrhagic fever — Central Africa', query:'hemorrhagic fever (DRC OR Congo OR Uganda OR "South Sudan")'},
+  {id:'unknown-pneumonia', label:'Unknown pneumonia / mystery illness cluster', query:'"unknown pneumonia" OR "mystery illness" outbreak'},
+  {id:'mass-illness-sasia', label:'Mass illness — South Asia', query:'"mass illness" OR "unknown disease" (India OR Pakistan OR Bangladesh)'},
+  {id:'cholera-global', label:'Cholera outbreak — Global', query:'cholera outbreak'},
+  {id:'avian-flu-human', label:'Avian influenza — human cases', query:'"avian influenza" human case'},
+  {id:'lab-biosafety', label:'Lab biosafety incident / breach', query:'laboratory biosafety incident OR breach OR leak'},
+];
+let signalData = {}; // id -> {series, signal, error}
+let signalsChecked = false;
+
+function parseGdeltDate(s){
+  if(typeof s === 'string' && /^\d{14}$/.test(s)) return new Date(`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}T00:00:00Z`);
+  const d = new Date(s); return isNaN(d) ? null : d;
+}
+async function fetchGdeltTimeline(query, timespan='60d'){
+  const url = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(query)}&mode=timelinevol&format=json&timespan=${timespan}`;
+  const res = await fetch(url);
+  if(!res.ok) throw new Error(`HTTP ${res.status}`);
+  const json = await res.json();
+  console.log('[GDELT raw response]', query, json); // left in deliberately — inspect here if parsing fails
+  const raw = json?.timeline?.[0]?.data;
+  if(!Array.isArray(raw) || !raw.length) throw new Error('Unexpected response shape (see console)');
+  return raw.map(d => ({ date: parseGdeltDate(d.date), value: Number(d.value ?? d.count ?? 0) }))
+             .filter(d => d.date);
+}
+function computeSignal(series){
+  if(series.length < 8) return {status:'insufficient', z:null};
+  const values = series.map(d=>d.value);
+  const latest = values[values.length-1];
+  const baseline = values.slice(0,-1);
+  const mean = baseline.reduce((a,b)=>a+b,0)/baseline.length;
+  const variance = baseline.reduce((a,b)=>a+Math.pow(b-mean,2),0)/baseline.length;
+  const sd = Math.sqrt(variance) || 0.0001;
+  const z = (latest-mean)/sd;
+  const status = z>=3 ? 'spike' : z>=1.75 ? 'elevated' : 'normal';
+  return {status, z, mean, sd, latest};
+}
+function sparklineSvg(series, color){
+  const values = series.map(d=>d.value);
+  const max = Math.max(...values, 0.0001), min = Math.min(...values, 0);
+  const range = (max-min) || 1;
+  const w = 100, h = 100;
+  const pts = values.map((v,i)=> `${(i/(values.length-1))*w},${h-((v-min)/range)*h}`).join(' ');
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:44px;display:block;margin-top:8px;"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="3"/></svg>`;
+}
+function badgeColor(status){ return {normal:'#3E9098', elevated:'#D9A441', spike:'#BD5138', loading:'#5E6669', error:'#BD5138'}[status] || '#5E6669'; }
+
+function renderSignalGrid(){
+  const grid = document.getElementById('signalGrid');
+  if(!grid) return;
+  grid.innerHTML = SIGNAL_KEYWORDS.map(k=>{
+    const d = signalData[k.id];
+    if(!d) return signalCardHtml(k, {status:'loading'});
+    if(d.error) return signalCardHtml(k, {status:'error'}, d.error);
+    return signalCardHtml(k, d.signal, null, d.series);
+  }).join('');
+  grid.querySelectorAll('.signal-card').forEach(card=>{
+    card.onclick = ()=> toggleSignalDetail(card.dataset.id);
+  });
+}
+function signalCardHtml(k, sig, errorMsg, series){
+  const status = sig?.status || 'loading';
+  const label = {normal:'NORMAL', elevated:'ELEVATED', spike:'SPIKE', loading:'CHECKING…', error:'ERROR', insufficient:'INSUFFICIENT DATA'}[status] || status.toUpperCase();
+  return `<div class="signal-card" data-id="${k.id}">
+    <div class="signal-card-head"><span class="signal-title">${k.label}</span><span class="signal-badge ${status}">${label}</span></div>
+    ${series ? sparklineSvg(series, badgeColor(status)) : ''}
+    ${sig?.z!=null ? `<div class="signal-meta">z-score: ${sig.z.toFixed(2)} · latest: ${sig.latest?.toFixed(2)}% · baseline mean: ${sig.mean?.toFixed(2)}%</div>` : ''}
+    ${errorMsg ? `<div class="signal-error-msg">${errorMsg}</div>` : ''}
+  </div>`;
+}
+function toggleSignalDetail(id){
+  const card = document.querySelector(`.signal-card[data-id="${id}"]`);
+  if(!card) return;
+  const already = card.classList.contains('expanded');
+  document.querySelectorAll('.signal-card.expanded').forEach(c=>c.classList.remove('expanded'));
+  document.querySelectorAll('.signal-card .signal-detail').forEach(e=>e.remove());
+  if(already) return;
+  card.classList.add('expanded');
+  const k = SIGNAL_KEYWORDS.find(x=>x.id===id);
+  const d = signalData[id];
+  const detail = document.createElement('div');
+  detail.className = 'signal-detail';
+  const gdeltUrl = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(k.query)}&mode=artlist&format=html`;
+  detail.innerHTML = `<p style="font-size:12px;color:var(--muted);">Query: <span style="font-family:var(--mono);color:var(--text)">${k.query}</span></p>
+    <a href="${gdeltUrl}" target="_blank" rel="noopener" class="smallbtn" style="display:inline-block;margin-top:10px;text-decoration:none;">View matching articles on GDELT ↗</a>`;
+  card.appendChild(detail);
+}
+async function checkSignals(){
+  const statusEl = document.getElementById('signalsStatus');
+  const btn = document.getElementById('checkSignalsBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Checking 0/' + SIGNAL_KEYWORDS.length + '…';
+  signalData = {};
+  renderSignalGrid();
+  let done = 0;
+  for(const k of SIGNAL_KEYWORDS){
+    try{
+      const series = await fetchGdeltTimeline(k.query);
+      const signal = computeSignal(series);
+      signalData[k.id] = {series, signal};
+    }catch(e){
+      signalData[k.id] = {error: `Could not reach GDELT (${e.message}). This may be a network/CORS restriction on this host — check the browser console for details.`};
+    }
+    done++;
+    statusEl.textContent = `Checking ${done}/${SIGNAL_KEYWORDS.length}…`;
+    renderSignalGrid();
+    await new Promise(r=>setTimeout(r, 250)); // stagger requests, be polite to the free API
+  }
+  statusEl.textContent = `Last checked ${new Date().toLocaleTimeString()}`;
+  btn.disabled = false;
+  signalsChecked = true;
+}
+
+/* ================= BRIEFING GENERATOR ================= */
+function generateBriefing(){
+  const now = new Date();
+  const highSeverity = D.outbreaks.filter(o=>o.level>=3).sort((a,b)=> new Date(b.date)-new Date(a.date));
+  const newOutbreaks = D.outbreaks.filter(o=> newItemIds.has(o.id));
+  const newGov = D.governance.filter(g=> newItemIds.has(g.id));
+  const newHist = D.historicalIncidents.filter(h=> newItemIds.has(h.id));
+  const newAibio = D.aibio.filter(a=> newItemIds.has(a.id));
+  const newSynth = D.synthesis.filter(s=> newItemIds.has(s.id));
+  const totalNew = newOutbreaks.length+newGov.length+newHist.length+newAibio.length+newSynth.length;
+  const flaggedCount = Object.values(bookmarks).filter(b=>b.starred).length;
+  const spikes = Object.entries(signalData).filter(([id,d])=> d.signal && (d.signal.status==='spike'||d.signal.status==='elevated'));
+
+  const html = `
+    <p style="font-family:var(--mono);font-size:10.5px;color:var(--muted-2);margin-bottom:16px;">GENERATED ${now.toUTCString().slice(0,25)} UTC ${lastVisitDate? '· PREVIOUS VISIT: '+new Date(lastVisitDate).toUTCString().slice(0,22):''}</p>
+
+    <h3 style="font-family:var(--cond);font-size:17px;margin-bottom:8px;">Active High-Severity Events (L3–L4)</h3>
+    ${highSeverity.length ? highSeverity.map(o=>`<p style="font-size:12.8px;margin-bottom:6px;">${clFmt(o.level)} <b>${o.title}</b> — ${o.status} (${o.date})</p>`).join('') : '<p style="font-size:12.5px;color:var(--muted-2);">None currently tracked at L3+.</p>'}
+
+    <h3 style="font-family:var(--cond);font-size:17px;margin:18px 0 8px;">New Since Last Visit (${totalNew})</h3>
+    ${totalNew ? `
+      ${newOutbreaks.length? `<p style="font-size:12.5px;"><b>Outbreaks:</b> ${newOutbreaks.map(o=>o.title).join('; ')}</p>`:''}
+      ${newGov.length? `<p style="font-size:12.5px;"><b>Governance:</b> ${newGov.map(g=>g.title).join('; ')}</p>`:''}
+      ${newHist.length? `<p style="font-size:12.5px;"><b>Historical incidents:</b> ${newHist.map(h=>h.title).join('; ')}</p>`:''}
+      ${newAibio.length? `<p style="font-size:12.5px;"><b>AI-Bio:</b> ${newAibio.map(a=>a.title).join('; ')}</p>`:''}
+      ${newSynth.length? `<p style="font-size:12.5px;"><b>Synthesis screening:</b> ${newSynth.map(s=>s.title).join('; ')}</p>`:''}
+    ` : `<p style="font-size:12.5px;color:var(--muted-2);">${lastVisitDate? 'Nothing new since your last visit.' : 'First recorded visit — nothing to compare against yet.'}</p>`}
+
+    <h3 style="font-family:var(--cond);font-size:17px;margin:18px 0 8px;">Signal Detection</h3>
+    ${Object.keys(signalData).length ? (spikes.length? spikes.map(([id,d])=>{ const k=SIGNAL_KEYWORDS.find(x=>x.id===id); return `<p style="font-size:12.5px;">⚠ <b>${k.label}</b> — ${d.signal.status.toUpperCase()} (z=${d.signal.z.toFixed(2)})</p>`; }).join('') : '<p style="font-size:12.5px;color:var(--muted-2);">Checked — nothing above baseline.</p>') : '<p style="font-size:12.5px;color:var(--muted-2);">Not checked this session — visit Signal Detection and click "Check signals now".</p>'}
+
+    <h3 style="font-family:var(--cond);font-size:17px;margin:18px 0 8px;">Flagged for Report</h3>
+    <p style="font-size:12.5px;">${flaggedCount} item${flaggedCount===1?'':'s'} currently starred.</p>
+
+    <p style="font-size:11px;color:var(--muted-2);margin-top:20px;">Illustrative synthesis, not a formal assessment — cross-check anything before citing externally.</p>
+  `;
+  document.getElementById('briefingOut').innerHTML = html;
+}
+
+/* ================= RENDER: ANALYSIS ================= */
+function allCountries(){
+  const set = new Set();
+  D.labs.forEach(l=> set.add(l.country));
+  D.scorecards.forEach(s=> set.add(s.country));
+  D.outbreaks.forEach(o=> o.country.forEach(c=> set.add(c)));
+  D.aibio.forEach(a=> a.country && a.country.forEach(c=> set.add(c)));
+  D.synthesis.forEach(s=> s.country && s.country.forEach(c=> set.add(c)));
+  D.historicalIncidents.forEach(h=> set.add(h.country));
+  return [...set].sort();
+}
+function populateCountrySelect(){
+  const sel = document.getElementById('countrySelect');
+  if(!sel) return;
+  sel.innerHTML = '<option value="">Select a country…</option>' + allCountries().map(c=>`<option value="${c}">${c}</option>`).join('');
+  if(state.countryFilter) sel.value = state.countryFilter;
+}
+function renderCountryAnalysis(country){
+  const out = document.getElementById('countryAnalysisOut');
+  if(!out) return;
+  if(!country){ out.innerHTML = `<div class="narrative"><p class="placeholder">Pick a country above — or click any 📍 tag, map marker, network node, or scorecard row elsewhere in the dashboard — to generate a synthesis here.</p></div>`; return; }
+  const outbreaks = D.outbreaks.filter(o=> o.country.includes(country));
+  const labs = D.labs.filter(l=> l.country===country);
+  const score = D.scorecards.find(s=> s.country===country);
+  const histIncidents = D.historicalIncidents.filter(h=> h.country===country);
+  const histA = histIncidents.filter(h=>h.cat==='A').length, histB = histIncidents.filter(h=>h.cat==='B').length;
+  const maxLevel = outbreaks.length ? Math.max(...outbreaks.map(o=>o.level)) : 0;
+  const activeCount = outbreaks.filter(o=> o.status && /active|pheic|monitoring/i.test(o.status)).length;
+
+  // Composite risk index — illustrative, weighted blend, not an official score
+  const govRisk = score ? (100 - (score.biosafety+score.biosecurity+score.dualuse)/3) : 50;
+  const outbreakRisk = maxLevel * 25;
+  const facilityRisk = Math.min(100, labs.filter(l=>l.tier==='weak').length*25 + labs.filter(l=>l.tier==='moderate').length*12 + labs.filter(l=>l.tier==='strong').length*4);
+  const historyRisk = Math.min(100, histB*22 + histA*10);
+  const composite = Math.round(govRisk*0.30 + outbreakRisk*0.25 + facilityRisk*0.20 + historyRisk*0.25);
+  const compositeLevel = composite>=65?4:composite>=42?3:composite>=20?2:1;
+  const compositeColor = {1:'var(--l1)',2:'var(--l2)',3:'var(--l3)',4:'var(--l4)'}[compositeLevel];
+
+  const parts = [];
+  if(outbreaks.length){
+    parts.push(`has ${outbreaks.length} tracked outbreak ${outbreaks.length===1?'event':'events'} in this dataset, peaking at containment level L${maxLevel}${activeCount? ` (${activeCount} currently active or under monitoring)`:''}.`);
+  } else {
+    parts.push(`has no tracked outbreak events in this dataset.`);
+  }
+  if(labs.length){
+    const tiers = [...new Set(labs.map(l=>l.tier))];
+    parts.push(` It hosts ${labs.length} tracked high-containment facilit${labs.length===1?'y':'ies'} (governance tier: ${tiers.join(', ')}).`);
+  } else {
+    parts.push(` No BSL-3/4 facilities are tracked here for this country.`);
+  }
+  if(score){
+    const lowest = Math.min(score.biosafety, score.biosecurity, score.dualuse);
+    const lowestLabel = lowest===score.dualuse? 'dual-use research oversight' : lowest===score.biosecurity? 'biosecurity' : 'biosafety';
+    parts.push(` Its illustrative governance scorecard shows biosafety ${score.biosafety}%, biosecurity ${score.biosecurity}%, dual-use oversight ${score.dualuse}% — ${lowestLabel} is the weakest of the three tracked dimensions.`);
+  } else {
+    parts.push(` No governance scorecard is tracked for this country.`);
+  }
+  if(histIncidents.length){
+    parts.push(` The historical incidents map records ${histIncidents.length} entr${histIncidents.length===1?'y':'ies'} here: ${histB} confirmed biocrime/bioterrorism incident${histB===1?'':'s'} and ${histA} instance${histA===1?'':'s'} of flagged dual-use research or export-control enforcement.`);
+  }
+  const narrative = `${country} ${parts.join('')}`;
+
+  out.innerHTML = `
+    <div class="narrative"><p>${narrative}</p></div>
+    <div class="card" style="margin:14px 0;border-color:${compositeColor};">
+      <div class="card-head"><span class="card-title">Composite Dual-Use Risk Index</span><span class="cl" style="background:${compositeColor}22;color:${compositeColor}">L${compositeLevel} · ${composite}/100</span></div>
+      <p style="font-size:11.5px;color:var(--muted-2);">Illustrative blend: governance scorecard (30%) + outbreak severity (25%) + facility risk tier (20%) + historical incident record (25%). Not an official rating — a synthesis tool for spotting where to look closer.</p>
+    </div>
+    <div class="stat-strip">
+      <div class="stat-box"><b>${outbreaks.length}</b><span>Outbreak events</span></div>
+      <div class="stat-box"><b>${maxLevel||'—'}</b><span>Peak level</span></div>
+      <div class="stat-box"><b>${labs.length}</b><span>BSL facilities</span></div>
+      <div class="stat-box"><b>${histIncidents.length||'—'}</b><span>Historical incidents</span></div>
+    </div>
+    ${outbreaks.length? `<div style="margin-top:14px;"><span class="eyebrow">Outbreak history</span>${outbreaks.map(o=>`
+      <div class="mini-timeline-row" data-goto-outbreak="${o.id}">${clFmt(o.level)}<span>${new Date(o.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</span><span style="color:var(--muted)">${o.title}</span></div>`).join('')}</div>` : ''}
+    ${histIncidents.length? `<div style="margin-top:14px;"><span class="eyebrow">Historical dual-use incidents</span>${histIncidents.map(h=>`
+      <div class="mini-timeline-row" data-goto-hist="${h.id}"><span class="hist-cat-chip ${h.cat}">CAT ${h.cat}</span><span>${new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</span><span style="color:var(--muted)">${h.title}</span></div>`).join('')}</div>` : ''}
+    ${labs.length? `<div style="margin-top:14px;"><span class="eyebrow">Tracked facilities</span>${labs.map(l=>`<div class="mini-timeline-row" data-goto-lab="${l.id}"><span style="width:8px;height:8px;border-radius:50%;background:${l.tier==='strong'?'var(--l1)':l.tier==='moderate'?'var(--l2)':'var(--l4)'};display:inline-block;"></span><span style="color:var(--muted)">${l.n}</span></div>`).join('')}</div>` : ''}
+  `;
+  out.querySelectorAll('[data-goto-outbreak]').forEach(el=> el.onclick = ()=> goTo('outbreaks', el.dataset.gotoOutbreak));
+  out.querySelectorAll('[data-goto-lab]').forEach(el=> el.onclick = ()=> goTo('labmap-section'));
+  out.querySelectorAll('[data-goto-hist]').forEach(el=> el.onclick = ()=> goTo('histmap-section', el.dataset.gotoHist));
+}
+function renderTrendChart(){
+  const svgEl = document.getElementById('trendChart');
+  if(!svgEl) return;
+  const width = svgEl.clientWidth || 900, height = 220;
+  svgEl.innerHTML = '';
+  const svg = d3.select('#trendChart').attr('viewBox', [0,0,width,height]);
+  const margin = {top:26,right:20,bottom:26,left:34};
+  const events = D.outbreaks.map(o=>({...o, dateObj:new Date(o.date)}));
+  const x = d3.scaleTime().domain(d3.extent(events, d=>d.dateObj)).range([margin.left, width-margin.right]);
+  const y = d3.scaleLinear().domain([0.5,4.5]).range([height-margin.bottom, margin.top]);
+  const colors = {1:'#3E9098',2:'#D9A441',3:'#C97A3B',4:'#BD5138'};
+
+  [1,2,3,4].forEach(l=>{
+    svg.append('line').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',y(l)).attr('y2',y(l)).attr('stroke','#2A3234').attr('stroke-width',1);
+    svg.append('text').attr('x',margin.left-8).attr('y',y(l)+3).attr('text-anchor','end').attr('font-family','IBM Plex Mono').attr('font-size',9).attr('fill','#5E6669').text('L'+l);
+  });
+  const xAxis = d3.axisBottom(x).ticks(Math.min(6, events.length)).tickFormat(d3.timeFormat('%b %y'));
+  const gx = svg.append('g').attr('transform',`translate(0,${height-margin.bottom})`).call(xAxis);
+  gx.selectAll('text').attr('font-family','IBM Plex Mono').attr('font-size',9).attr('fill','#8B9296');
+  gx.selectAll('line,path').attr('stroke','#2A3234');
+
+  svg.selectAll('circle').data(events).join('circle')
+    .attr('class','trend-dot')
+    .attr('cx', d=> x(d.dateObj)).attr('cy', d=> y(d.level))
+    .attr('r', 6).attr('fill', d=> colors[d.level]).attr('stroke','#0E1213').attr('stroke-width',1.5)
+    .on('click', (ev,d)=> goTo('outbreaks', d.id))
+    .append('title').text(d=> d.title + ' — ' + d.date);
+
+  // Response-lag overlay: governance/policy actions plotted as amber diamonds at the top of the chart
+  const govEvents = D.governance.map(g=>({...g, dateObj:new Date(g.date)})).filter(g=> g.dateObj >= x.domain()[0] && g.dateObj <= x.domain()[1]);
+  const govY = margin.top - 2;
+  svg.selectAll('.gov-marker').data(govEvents).join('path')
+    .attr('class','gov-marker')
+    .attr('d', d3.symbol().type(d3.symbolDiamond).size(50))
+    .attr('transform', d=> `translate(${x(d.dateObj)},${govY})`)
+    .attr('fill', '#D9A441').attr('stroke','#0E1213').attr('stroke-width',1)
+    .style('cursor','pointer')
+    .on('click', ()=> goTo('governance'))
+    .append('title').text(d=> `Policy action: ${d.title} — ${d.date}`);
+  if(govEvents.length){
+    svg.append('text').attr('x', margin.left).attr('y', govY-8).attr('font-family','IBM Plex Mono').attr('font-size',8.5).attr('fill','#D9A441').text('◆ policy/governance actions (response-lag overlay)');
+  }
+}
+function renderAnalysis(){
+  populateCountrySelect();
+  renderTrendChart();
+  renderCountryAnalysis(state.countryFilter);
+}
+
+/* ================= RENDER: HISTORICAL INCIDENTS MAP ================= */
+let histMap = null, histMarkers = [], histCatFilter = "all";
+function renderHistCounts(){
+  document.getElementById('cnt-all').textContent = D.historicalIncidents.length;
+  document.getElementById('cnt-A').textContent = D.historicalIncidents.filter(h=>h.cat==='A').length;
+  document.getElementById('cnt-B').textContent = D.historicalIncidents.filter(h=>h.cat==='B').length;
+}
+function initHistMap(){
+  renderHistCounts();
+  try{
+    if(!histMap){
+      histMap = L.map('histmap', {scrollWheelZoom:false}).setView([30,0], 2);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19}).addTo(histMap);
+    }
+    refreshHistMarkers();
+    renderHistList();
+    // Leaflet sometimes mis-sizes a map initialized just after its container became visible — nudge it to recalculate.
+    setTimeout(()=> histMap && histMap.invalidateSize(), 120);
+    setTimeout(()=> histMap && histMap.invalidateSize(), 500);
+  }catch(e){
+    console.error('[Historical Incidents Map] failed to initialize:', e);
+    document.getElementById('histmap').innerHTML = `<div style="padding:20px;color:#BD5138;font-family:var(--mono);font-size:12px;">Map failed to load: ${e.message}. Open the browser console (F12) for details.</div>`;
+  }
+}
+function refreshHistMarkers(){
+  histMarkers.forEach(m=>histMap.removeLayer(m));
+  histMarkers = [];
+  const colors = {A:"#3E9098", B:"#BD5138"};
+  D.historicalIncidents.forEach(h=>{
+    if(histCatFilter!=='all' && h.cat!==histCatFilter) return;
+    const m = L.circleMarker([h.lat,h.lng], {
+      radius:7, color:colors[h.cat], fillColor:colors[h.cat], fillOpacity:0.8, weight:1.5
+    }).addTo(histMap).bindPopup(`<b>${h.title}</b><br><span style="font-family:IBM Plex Mono;font-size:10.5px;color:${colors[h.cat]}">CATEGORY ${h.cat} · ${h.date}</span><p style="font-size:11.5px;max-width:220px;margin-top:6px;">${h.desc}</p><a href="#" onclick="window.gotoHistCountry('${h.country}');return false;" style="font-family:IBM Plex Mono;font-size:10px;color:#3E9098;">📍 View ${h.country} in Analysis →</a>`);
+    histMarkers.push(m);
+  });
+}
+function renderHistList(){
+  const list = D.historicalIncidents
+    .filter(h=> histCatFilter==='all' || h.cat===histCatFilter)
+    .slice().sort((a,b)=> new Date(a.date) - new Date(b.date));
+  document.getElementById('histList').innerHTML = list.map(h=>`
+    <div class="hist-entry" data-id="${h.id}">
+      <div class="hist-date">${new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div>
+      <div class="hist-body">
+        <h4><span class="hist-cat-chip ${h.cat}">CAT ${h.cat}</span> ${h.title}${newBadge(h.id)}</h4>
+        <p>${h.desc}</p>
+        <span class="src">Source: ${h.src}</span>
+        <span class="tag" style="cursor:pointer;border-color:var(--teal);color:var(--teal);display:inline-block;margin-top:6px;" data-goto-country="${h.country}">📍 ${h.country}</span>
+      </div>
+      ${starHtml(h.id, h.title, h.cat==='A'?'Flagged Research':'Confirmed Incident')}
+    </div>`).join('');
+  document.querySelectorAll('#histList [data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
+  document.querySelectorAll('#histList [data-goto-country]').forEach(el=> el.onclick = ()=>{ state.countryFilter = el.dataset.gotoCountry; goTo('analysis'); });
+}
+document.querySelectorAll('#histCatToggle .cat-btn')?.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    histCatFilter = btn.dataset.cat;
+    document.querySelectorAll('#histCatToggle .cat-btn').forEach(b=>b.classList.toggle('active', b===btn));
+    refreshHistMarkers();
+    renderHistList();
+  });
+});
+window.gotoHistCountry = function(country){ state.countryFilter = country; goTo('analysis'); };
+
 /* ================= RENDER: FLAGGED ================= */
 function renderFlagged(){
   const flagged = Object.entries(bookmarks).filter(([id,b])=>b.starred);
@@ -919,6 +1512,8 @@ function buildIndex(){
   D.scorecards.forEach(s=> idx.push({type:'Scorecard', title:s.country+' biorisk scorecard', module:'scorecards', id:s.country}));
   D.governance.forEach(g=> idx.push({type:'Policy', title:g.title, module:'governance', id:g.id}));
   D.netBodies.forEach(b=> idx.push({type:'Network', title:b.label, module:'network', id:'body:'+b.id}));
+  SIGNAL_KEYWORDS.forEach(k=> idx.push({type:'Signal', title:k.label, module:'signals', id:k.id}));
+  D.historicalIncidents.forEach(h=> idx.push({type:'Historical Incident', title:h.title, module:'histmap-section', id:h.id}));
   return idx;
 }
 const PIDX = buildIndex();
@@ -957,6 +1552,7 @@ function renderAll(){
   renderGovernance();
   computeGauge();
   if(netInitialized) renderNetwork();
+  if(analysisInitialized) renderAnalysis();
 }
 
 document.querySelectorAll('.navitem').forEach(it=>{
@@ -988,7 +1584,72 @@ document.getElementById('shareBtn').onclick = ()=>{
   navigator.clipboard?.writeText(location.href).then(()=> showToast('Deep link copied')).catch(()=> showToast(location.hash));
 };
 
+document.getElementById('checkSignalsBtn')?.addEventListener('click', checkSignals);
+document.getElementById('genBriefingBtn')?.addEventListener('click', generateBriefing);
+document.getElementById('copyBriefingBtn')?.addEventListener('click', ()=>{
+  const text = document.getElementById('briefingOut').innerText;
+  navigator.clipboard?.writeText(text).then(()=> showToast('Briefing copied')).catch(()=> showToast('Copy failed — select manually'));
+});
+document.getElementById('printBriefingBtn')?.addEventListener('click', ()=> window.print());
+
 document.getElementById('scrubber').addEventListener('input', applyScrubber);
+
+document.getElementById('countrySelect')?.addEventListener('change', e=>{
+  state.countryFilter = e.target.value || null;
+  renderCountryAnalysis(state.countryFilter);
+});
+
+document.getElementById('citeBtn').onclick = ()=>{
+  const flagged = Object.entries(bookmarks).filter(([id,b])=>b.starred);
+  if(!flagged.length){ showToast('Nothing flagged yet'); return; }
+  const findSrc = (id)=>{
+    const o = D.outbreaks.find(x=>x.id===id); if(o) return o.src;
+    const a = D.aibio.find(x=>x.id===id); if(a) return a.src;
+    const s = D.synthesis.find(x=>x.id===id); if(s) return s.src;
+    const h = D.historicalIncidents.find(x=>x.id===id); if(h) return h.src;
+    return '';
+  };
+  const text = flagged.map(([id,b],i)=>{
+    const src = findSrc(id);
+    return `[${i+1}] ${b.label}. ${b.type}.${src? ' Source: '+src+'.':''}${b.note? ' Note: '+b.note+'.':''}`;
+  }).join('\n\n');
+  const el = document.getElementById('citeOut');
+  el.style.display = 'block'; el.value = text; el.focus(); el.select();
+  navigator.clipboard?.writeText(text).then(()=> showToast('Citation list copied to clipboard')).catch(()=> showToast('Selected — copy manually'));
+};
+
+function downloadBlob(content, filename, mime){
+  const blob = new Blob([content], {type: mime});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+function findSrcForExport(id){
+  const o = D.outbreaks.find(x=>x.id===id); if(o) return o.src;
+  const a = D.aibio.find(x=>x.id===id); if(a) return a.src;
+  const s = D.synthesis.find(x=>x.id===id); if(s) return s.src;
+  const h = D.historicalIncidents.find(x=>x.id===id); if(h) return h.src;
+  return '';
+}
+document.getElementById('exportJsonBtn').onclick = ()=>{
+  const flagged = Object.entries(bookmarks).filter(([id,b])=>b.starred).map(([id,b])=>({
+    id, title:b.label, type:b.type, note:b.note||'', source:findSrcForExport(id)
+  }));
+  if(!flagged.length){ showToast('Nothing flagged yet'); return; }
+  downloadBlob(JSON.stringify(flagged, null, 2), 'containment-flagged-items.json', 'application/json');
+  showToast('JSON downloaded');
+};
+document.getElementById('exportCsvBtn').onclick = ()=>{
+  const flagged = Object.entries(bookmarks).filter(([id,b])=>b.starred);
+  if(!flagged.length){ showToast('Nothing flagged yet'); return; }
+  const esc = s => `"${String(s||'').replace(/"/g,'""')}"`;
+  const rows = [['id','title','type','source','note'].join(',')];
+  flagged.forEach(([id,b])=> rows.push([esc(id), esc(b.label), esc(b.type), esc(findSrcForExport(id)), esc(b.note)].join(',')));
+  downloadBlob(rows.join('\n'), 'containment-flagged-items.csv', 'text/csv');
+  showToast('CSV downloaded');
+};
 
 document.querySelectorAll('#toggles .toggle').forEach(t=>{
   t.addEventListener('click', ()=>{
@@ -1001,9 +1662,11 @@ document.querySelectorAll('#toggles .toggle').forEach(t=>{
 
 /* init */
 loadData().then(()=>{
-  loadBookmarks().then(renderAll);
-  parseHash();
-  if(!location.hash) goTo('overview');
+  Promise.all([loadBookmarks(), checkNewSinceLastVisit()]).then(()=>{
+    renderAll();
+    parseHash();
+    if(!location.hash) goTo('overview');
+  });
 });
 </script>
 </body>
