@@ -5,29 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CONTAINMENT — Biosecurity &amp; Dual-Use Convergence Monitor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
 <style>
 :root{
-  --bg:#0E1213; --panel:#171C1E; --panel-2:#1D2325; --panel-3:#242B2D; --line:#2A3234;
-  --text:#E7E4DC; --muted:#A6AFB5; --muted-2:#7C8790;
-  --amber:#D9A441; --teal:#3E9098; --brick:#BD5138;
-  --l1:#3E9098; --l2:#D9A441; --l3:#C97A3B; --l4:#BD5138;
-  --mono:'IBM Plex Mono',monospace; --sans:'IBM Plex Sans',sans-serif; --cond:'Barlow Condensed',sans-serif;
+  --bg:#05060b; --panel:#0e1220; --panel-2:#161c30; --panel-3:#1c2340; --line:#2a3350;
+  --text:#c9d1d9; --muted:#8b96ab; --muted-2:#4a5568;
+  --amber:#ffe600; --teal:#00f5d4; --brick:#ff2d6a;
+  --l1:#00f5d4; --l2:#ffe600; --l3:#ff9f1c; --l4:#ff2d6a;
+  --mono:'IBM Plex Mono',monospace; --sans:'IBM Plex Sans',sans-serif; --cond:'IBM Plex Serif',serif;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 body{
   background:
-    radial-gradient(ellipse 1400px 900px at 15% -10%, rgba(62,144,152,0.06), transparent 60%),
-    radial-gradient(ellipse 1200px 800px at 100% 10%, rgba(217,164,65,0.045), transparent 55%),
+    radial-gradient(ellipse 1400px 900px at 20% 10%, rgba(255,45,106,0.05), transparent 55%),
+    radial-gradient(ellipse 1200px 800px at 80% 80%, rgba(0,245,212,0.045), transparent 55%),
     repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, transparent 1px, transparent 32px),
     repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0px, transparent 1px, transparent 32px),
     var(--bg);
   background-attachment:fixed;
   color:var(--text); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased;
 }
-::selection{background:var(--amber); color:#0E1213;}
+::selection{background:var(--amber); color:#05060b;}
 a{color:inherit;}
 button{font-family:inherit; cursor:pointer;}
 input,textarea{font-family:inherit;}
@@ -128,7 +128,7 @@ input,textarea{font-family:inherit;}
 .chiprow{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:16px;}
 .chip{font-family:var(--mono); font-size:13px; padding:5px 10px; border-radius:14px; border:1px solid var(--line); color:var(--muted); background:var(--panel); transition:all .15s ease; cursor:pointer;}
 .chip:hover{border-color:var(--amber); color:var(--text);}
-.chip.active{background:var(--amber); color:#14181A; border-color:var(--amber); font-weight:600;}
+.chip.active{background:var(--amber); color:#05060b; border-color:var(--amber); font-weight:600;}
 .chip .x{margin-left:4px;}
 
 /* star */
@@ -280,7 +280,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .hist-cat-chip.B{background:rgba(189,81,56,0.12); color:var(--brick);}
 .hist-unverified{font-family:var(--mono); font-size:11.5px; color:var(--muted-2); border:1px dashed var(--line); padding:2px 6px; border-radius:4px; margin-left:6px;}
 
-.new-badge{background:var(--amber); color:#14181A; font-family:var(--mono); font-size:10.5px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; letter-spacing:0.03em;}
+.new-badge{background:var(--amber); color:#05060b; font-family:var(--mono); font-size:10.5px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; letter-spacing:0.03em;}
 
 /* ---------- Walkthrough card ---------- */
 .walkthrough{background:linear-gradient(135deg, rgba(217,164,65,0.08), rgba(62,144,152,0.05)); border:1px solid var(--line); border-radius:8px; padding:18px 20px; margin-bottom:20px; position:relative;}
@@ -532,10 +532,10 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     <section class="hero" id="hero">
       <div class="gauge-wrap">
         <svg width="220" height="130" viewBox="0 0 220 130">
-          <path d="M20,120 A90,90 0 0,1 200,120" fill="none" stroke="#2A3234" stroke-width="14" stroke-linecap="round"/>
-          <path id="gaugeArc" d="M20,120 A90,90 0 0,1 200,120" fill="none" stroke="#C97A3B" stroke-width="14" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="63" style="transition:stroke-dashoffset .4s, stroke .4s;"/>
-          <text id="gaugeText" x="110" y="100" text-anchor="middle" font-family="IBM Plex Mono" font-size="30" fill="#E7E4DC" font-weight="600">L3</text>
-          <text x="110" y="118" text-anchor="middle" font-family="Barlow Condensed" font-size="11" fill="#8B9296" letter-spacing="1">CONTAINMENT INDEX</text>
+          <path d="M20,120 A90,90 0 0,1 200,120" fill="none" stroke="#2a3350" stroke-width="14" stroke-linecap="round"/>
+          <path id="gaugeArc" d="M20,120 A90,90 0 0,1 200,120" fill="none" stroke="#ff9f1c" stroke-width="14" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="63" style="transition:stroke-dashoffset .4s, stroke .4s;"/>
+          <text id="gaugeText" x="110" y="100" text-anchor="middle" font-family="IBM Plex Mono" font-size="30" fill="#c9d1d9" font-weight="600">L3</text>
+          <text x="110" y="118" text-anchor="middle" font-family="IBM Plex Serif" font-size="11" fill="#8b96ab" letter-spacing="1">CONTAINMENT INDEX</text>
         </svg>
         <div class="gauge-label">Composite Global Biorisk Posture</div>
         <div class="gauge-value" id="gaugeVerdict">ELEVATED — convergence-driven</div>
@@ -648,9 +648,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <div class="chiprow" id="mapFilters"></div>
       <div id="labmap"></div>
       <div class="map-legend">
-        <span><i style="background:#3E9098"></i>Strong biorisk governance</span>
-        <span><i style="background:#D9A441"></i>Moderate / partial oversight</span>
-        <span><i style="background:#BD5138"></i>Weak / no dual-use oversight flagged</span>
+        <span><i style="background:#00f5d4"></i>Strong biorisk governance</span>
+        <span><i style="background:#ffe600"></i>Moderate / partial oversight</span>
+        <span><i style="background:#ff2d6a"></i>Weak / no dual-use oversight flagged</span>
       </div>
       <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:700px;">Representative sample for illustration — no single body maintains a comprehensive global BSL-3/4 register.</p>
     </section>
@@ -664,8 +664,8 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       </div>
       <div id="histmap"></div>
       <div class="map-legend">
-        <span><i style="background:#3E9098"></i>Category A — flagged, no attack</span>
-        <span><i style="background:#BD5138"></i>Category B — confirmed use of agent</span>
+        <span><i style="background:#00f5d4"></i>Category A — flagged, no attack</span>
+        <span><i style="background:#ff2d6a"></i>Category B — confirmed use of agent</span>
       </div>
       <div class="hist-list" id="histList"></div>
       <p style="font-size:11.5px;color:var(--muted-2);margin-top:14px;max-width:720px;">Excluded deliberately: ~15 GTD-logged 2001–2011 hoax "white powder" letters (US, Kenya, Pakistan, Chile) riding the Amerithrax panic — real GTD entries, but near-identical, zero-casualty, and would clutter the map without adding distinct value. Also excluded: a GTD entry for a 23 May 2000 Salmonella poisoning of Israeli tourists (2 deaths) — GTD is the only source found for this and it could not be independently corroborated, so it is omitted rather than presented as confirmed.</p>
@@ -689,9 +689,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
         <div class="net-tooltip" id="netTooltip"></div>
       </div>
       <div class="net-legend">
-        <span><i style="background:#D9A441"></i>Facility</span>
-        <span><i style="background:#3E9098"></i>Country</span>
-        <span><i style="background:#BD5138"></i>Governance / standards body</span>
+        <span><i style="background:#ffe600"></i>Facility</span>
+        <span><i style="background:#00f5d4"></i>Country</span>
+        <span><i style="background:#ff2d6a"></i>Governance / standards body</span>
       </div>
       <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:720px;">Edges shown are documented relationships (facility location, standards adoption, reporting/oversight ties) — not funding flows. Per-facility funding sources aren't independently verified here, so they're deliberately left out rather than estimated.</p>
     </section>
@@ -1142,7 +1142,7 @@ function updateFlagCount(){
 
 /* ================= HELPERS ================= */
 function clFmt(n){ return `<span class="cl cl-${n}">L${n}</span>`; }
-function levelColor(n){ return {1:'#3E9098',2:'#D9A441',3:'#C97A3B',4:'#BD5138'}[n] || '#5E6669'; }
+function levelColor(n){ return {1:'#00f5d4',2:'#ffe600',3:'#ff9f1c',4:'#ff2d6a'}[n] || '#4a5568'; }
 function starHtml(id,label,type){
   const on = bookmarks[id] && bookmarks[id].starred;
   return `<button class="starbtn ${on?'starred':''}" data-star="${id}" data-label="${label.replace(/"/g,'&quot;')}" data-type="${type}" title="Flag for report">${on?'★':'☆'}</button>`;
@@ -1225,7 +1225,7 @@ function renderImpactChart(){
   const margin = {top:6, right:70, bottom:6, left:190};
   const maxVal = Math.max(...data.map(getVal), 1);
   const x = d3.scaleLinear().domain([0, maxVal]).range([0, width-margin.left-margin.right]);
-  const colors = {1:'#3E9098',2:'#D9A441',3:'#C97A3B',4:'#BD5138'};
+  const colors = {1:'#00f5d4',2:'#ffe600',3:'#ff9f1c',4:'#ff2d6a'};
 
   const rows = svg.selectAll('g.row').data(data).join('g').attr('class','row')
     .attr('transform',(d,i)=> `translate(${margin.left},${i*38+8})`)
@@ -1355,7 +1355,7 @@ function refreshMapMarkers(){
   if(!leafletMap) return;
   mapMarkers.forEach(m=>leafletMap.removeLayer(m));
   mapMarkers = [];
-  const colors = {strong:"#3E9098", moderate:"#D9A441", weak:"#BD5138"};
+  const colors = {strong:"#00f5d4", moderate:"#ffe600", weak:"#ff2d6a"};
   D.labs.forEach(l=>{
     if(state.levelFilter && l.tier !== state.levelFilter) return;
     const matched = state.countryFilter && l.country.includes(state.countryFilter);
@@ -1523,7 +1523,7 @@ function renderNetwork(){
     nodes.forEach(n=> n._linked = (n.id===cid));
   }
 
-  const colors = {facility:"#D9A441", country:"#3E9098", body:"#BD5138"};
+  const colors = {facility:"#ffe600", country:"#00f5d4", body:"#ff2d6a"};
   const radii = {facility:5, country:7, body:9};
 
   const link = g.append('g').attr('stroke', '#3A4345').attr('stroke-opacity',0.6)
@@ -1532,7 +1532,7 @@ function renderNetwork(){
   const node = g.append('g').selectAll('circle').data(nodes).join('circle')
     .attr('r', d=> (d._linked? radii[d.type]+4 : radii[d.type]))
     .attr('fill', d=> colors[d.type])
-    .attr('stroke', d=> d._linked ? '#E7E4DC' : '#0E1213')
+    .attr('stroke', d=> d._linked ? '#c9d1d9' : '#05060b')
     .attr('stroke-width', d=> d._linked ? 2.5 : 1)
     .style('cursor','pointer')
     .call(d3.drag()
@@ -1542,7 +1542,7 @@ function renderNetwork(){
 
   const label = g.append('g').selectAll('text').data(nodes).join('text')
     .text(d=> d.label).attr('font-family','IBM Plex Mono').attr('font-size', 9)
-    .attr('fill','#8B9296').attr('dx', 10).attr('dy', 3).style('pointer-events','none');
+    .attr('fill','#8b96ab').attr('dx', 10).attr('dy', 3).style('pointer-events','none');
 
   const tooltip = document.getElementById('netTooltip');
   node.on('mouseenter', (ev,d)=>{
@@ -1624,7 +1624,7 @@ function sparklineSvg(series, color){
   const pts = values.map((v,i)=> `${(i/(values.length-1))*w},${h-((v-min)/range)*h}`).join(' ');
   return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:44px;display:block;margin-top:8px;"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="3"/></svg>`;
 }
-function badgeColor(status){ return {normal:'#3E9098', elevated:'#D9A441', spike:'#BD5138', loading:'#5E6669', error:'#BD5138'}[status] || '#5E6669'; }
+function badgeColor(status){ return {normal:'#00f5d4', elevated:'#ffe600', spike:'#ff2d6a', loading:'#4a5568', error:'#ff2d6a'}[status] || '#4a5568'; }
 
 function renderSignalGrid(){
   const grid = document.getElementById('signalGrid');
@@ -1872,21 +1872,21 @@ function renderTrendChart(){
   const events = D.outbreaks.map(o=>({...o, dateObj:new Date(o.date)}));
   const x = d3.scaleTime().domain(d3.extent(events, d=>d.dateObj)).range([margin.left, width-margin.right]);
   const y = d3.scaleLinear().domain([0.5,4.5]).range([height-margin.bottom, margin.top]);
-  const colors = {1:'#3E9098',2:'#D9A441',3:'#C97A3B',4:'#BD5138'};
+  const colors = {1:'#00f5d4',2:'#ffe600',3:'#ff9f1c',4:'#ff2d6a'};
 
   [1,2,3,4].forEach(l=>{
-    svg.append('line').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',y(l)).attr('y2',y(l)).attr('stroke','#2A3234').attr('stroke-width',1);
-    svg.append('text').attr('x',margin.left-8).attr('y',y(l)+3).attr('text-anchor','end').attr('font-family','IBM Plex Mono').attr('font-size',9).attr('fill','#5E6669').text('L'+l);
+    svg.append('line').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',y(l)).attr('y2',y(l)).attr('stroke','#2a3350').attr('stroke-width',1);
+    svg.append('text').attr('x',margin.left-8).attr('y',y(l)+3).attr('text-anchor','end').attr('font-family','IBM Plex Mono').attr('font-size',9).attr('fill','#4a5568').text('L'+l);
   });
   const xAxis = d3.axisBottom(x).ticks(Math.min(6, events.length)).tickFormat(d3.timeFormat('%b %y'));
   const gx = svg.append('g').attr('transform',`translate(0,${height-margin.bottom})`).call(xAxis);
-  gx.selectAll('text').attr('font-family','IBM Plex Mono').attr('font-size',9).attr('fill','#8B9296');
-  gx.selectAll('line,path').attr('stroke','#2A3234');
+  gx.selectAll('text').attr('font-family','IBM Plex Mono').attr('font-size',9).attr('fill','#8b96ab');
+  gx.selectAll('line,path').attr('stroke','#2a3350');
 
   svg.selectAll('circle').data(events).join('circle')
     .attr('class','trend-dot')
     .attr('cx', d=> x(d.dateObj)).attr('cy', d=> y(d.level))
-    .attr('r', 6).attr('fill', d=> colors[d.level]).attr('stroke','#0E1213').attr('stroke-width',1.5)
+    .attr('r', 6).attr('fill', d=> colors[d.level]).attr('stroke','#05060b').attr('stroke-width',1.5)
     .on('click', (ev,d)=> goTo('outbreaks', d.id))
     .append('title').text(d=> d.title + ' — ' + d.date);
 
@@ -1897,12 +1897,12 @@ function renderTrendChart(){
     .attr('class','gov-marker')
     .attr('d', d3.symbol().type(d3.symbolDiamond).size(50))
     .attr('transform', d=> `translate(${x(d.dateObj)},${govY})`)
-    .attr('fill', '#D9A441').attr('stroke','#0E1213').attr('stroke-width',1)
+    .attr('fill', '#ffe600').attr('stroke','#05060b').attr('stroke-width',1)
     .style('cursor','pointer')
     .on('click', ()=> goTo('governance'))
     .append('title').text(d=> `Policy action: ${d.title} — ${d.date}`);
   if(govEvents.length){
-    svg.append('text').attr('x', margin.left).attr('y', govY-8).attr('font-family','IBM Plex Mono').attr('font-size',8.5).attr('fill','#D9A441').text('◆ policy/governance actions (response-lag overlay)');
+    svg.append('text').attr('x', margin.left).attr('y', govY-8).attr('font-family','IBM Plex Mono').attr('font-size',8.5).attr('fill','#ffe600').text('◆ policy/governance actions (response-lag overlay)');
   }
 }
 function renderAnalysis(){
@@ -1932,18 +1932,18 @@ function initHistMap(){
     setTimeout(()=> histMap && histMap.invalidateSize(), 500);
   }catch(e){
     console.error('[Historical Incidents Map] failed to initialize:', e);
-    document.getElementById('histmap').innerHTML = `<div style="padding:20px;color:#BD5138;font-family:var(--mono);font-size:12px;">Map failed to load: ${e.message}. Open the browser console (F12) for details.</div>`;
+    document.getElementById('histmap').innerHTML = `<div style="padding:20px;color:#ff2d6a;font-family:var(--mono);font-size:12px;">Map failed to load: ${e.message}. Open the browser console (F12) for details.</div>`;
   }
 }
 function refreshHistMarkers(){
   histMarkers.forEach(m=>histMap.removeLayer(m));
   histMarkers = [];
-  const colors = {A:"#3E9098", B:"#BD5138"};
+  const colors = {A:"#00f5d4", B:"#ff2d6a"};
   D.historicalIncidents.forEach(h=>{
     if(histCatFilter!=='all' && h.cat!==histCatFilter) return;
     const m = L.circleMarker([h.lat,h.lng], {
       radius:7, color:colors[h.cat], fillColor:colors[h.cat], fillOpacity:0.8, weight:1.5
-    }).addTo(histMap).bindPopup(`<b>${h.title}</b><br><span style="font-family:IBM Plex Mono;font-size:10.5px;color:${colors[h.cat]}">CATEGORY ${h.cat} · ${h.date}</span><p style="font-size:11.5px;max-width:220px;margin-top:6px;">${h.desc}</p><a href="#" onclick="window.gotoHistCountry('${h.country}');return false;" style="font-family:IBM Plex Mono;font-size:10px;color:#3E9098;">📍 View ${h.country} in Analysis →</a>`);
+    }).addTo(histMap).bindPopup(`<b>${h.title}</b><br><span style="font-family:IBM Plex Mono;font-size:10.5px;color:${colors[h.cat]}">CATEGORY ${h.cat} · ${h.date}</span><p style="font-size:11.5px;max-width:220px;margin-top:6px;">${h.desc}</p><a href="#" onclick="window.gotoHistCountry('${h.country}');return false;" style="font-family:IBM Plex Mono;font-size:10px;color:#00f5d4;">📍 View ${h.country} in Analysis →</a>`);
     histMarkers.push(m);
   });
 }
@@ -2001,7 +2001,7 @@ function computeGauge(){
   score = Math.min(100, score + 10);
   let level = score>=70?4:score>=45?3:score>=22?2:1;
   const verdicts = {1:"LOW — monitored baseline",2:"MODERATE — watchlist",3:"ELEVATED — convergence-driven",4:"CRITICAL — active convergence"};
-  const colors = {1:'#3E9098',2:'#D9A441',3:'#C97A3B',4:'#BD5138'};
+  const colors = {1:'#00f5d4',2:'#ffe600',3:'#ff9f1c',4:'#ff2d6a'};
   const dash = 252 - (252 * score/100);
   document.getElementById('gaugeArc').setAttribute('stroke-dashoffset', dash);
   document.getElementById('gaugeArc').setAttribute('stroke', colors[level]);
