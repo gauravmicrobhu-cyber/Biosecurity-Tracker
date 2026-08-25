@@ -81,12 +81,28 @@ input,textarea{font-family:inherit;}
 .hstat b{display:block; font-family:var(--mono); font-size:21px; color:var(--text);}
 .hstat span{font-size:13px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.06em;}
 
-.toggles{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;}
-.toggle{display:flex; align-items:center; gap:7px; background:var(--panel-2); border:1px solid var(--line); padding:6px 10px; border-radius:16px; font-size:13.5px; color:var(--muted); user-select:none;}
-.switch{width:26px; height:14px; border-radius:8px; background:var(--muted-2); position:relative; transition:background .15s; flex-shrink:0;}
-.switch::after{content:''; position:absolute; width:10px; height:10px; border-radius:50%; background:#fff; top:2px; left:2px; transition:left .15s;}
-.toggle.on .switch{background:var(--teal);}
-.toggle.on .switch::after{left:14px;}
+/* ---------- Convergence diagram (replaces the old flat toggle pills) ---------- */
+#convergenceDiagram{width:100%; height:auto; margin-top:18px; overflow:visible;}
+.conv-line{fill:none; stroke:var(--l1); stroke-width:2; stroke-dasharray:7 6; opacity:0.85; transition:opacity .3s ease, stroke .3s ease; animation:convFlow 1.1s linear infinite;}
+.conv-line.off{stroke:var(--muted-2); opacity:0.15; animation-play-state:paused;}
+#cline-aicap{stroke:var(--amber);}
+#cline-screening{stroke:var(--l1);}
+#cline-governance{stroke:var(--brick);}
+#cline-outbreak{stroke:var(--brick);}
+@keyframes convFlow{ to{ stroke-dashoffset:-26; } }
+.conv-node{cursor:pointer;}
+.conv-node circle{fill:var(--panel-2); stroke:var(--muted-2); stroke-width:1.5; transition:all .2s ease;}
+.conv-node.off circle{stroke:var(--muted-2); fill:var(--panel);}
+.conv-node.on circle{stroke:var(--amber); fill:rgba(217,164,65,0.12);}
+.conv-node:hover circle{stroke:var(--text); transform-origin:center; transform:scale(1.08);}
+.conv-icon{text-anchor:middle; font-size:14px; fill:var(--text); pointer-events:none;}
+.conv-node.off .conv-icon{fill:var(--muted-2);}
+.conv-label{text-anchor:middle; font-family:var(--mono); font-size:8.5px; fill:var(--muted); letter-spacing:0.03em; pointer-events:none;}
+#conv-hub{fill:var(--amber); transition:fill .3s ease;}
+#conv-hub-glow{fill:var(--amber); opacity:0.18; animation:hubPulse 1.6s ease-in-out infinite;}
+@keyframes hubPulse{ 0%,100%{ r:16; opacity:0.12; } 50%{ r:24; opacity:0.28; } }
+.conv-hub-label{text-anchor:middle; font-family:var(--mono); font-size:9px; font-weight:700; fill:var(--amber); letter-spacing:0.06em;}
+.conv-hint{font-size:11.5px; color:var(--muted-2); margin-top:6px;}
 
 /* ---------- Cards / generic ---------- */
 .grid{display:grid; gap:14px;}
@@ -534,12 +550,38 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
           <div class="hstat"><b>36/38</b><span>synth providers missed red-team flags</span></div>
           <div class="hstat"><b>90%</b><span>BSL-3 host states w/o DURC oversight</span></div>
         </div>
-        <div class="toggles" id="toggles">
-          <div class="toggle on" data-factor="screening"><div class="switch"></div>Synthesis screening compliance</div>
-          <div class="toggle on" data-factor="aicap"><div class="switch"></div>AI capability acceleration</div>
-          <div class="toggle on" data-factor="governance"><div class="switch"></div>Governance response lag</div>
-          <div class="toggle on" data-factor="outbreak"><div class="switch"></div>Active PHEIC events</div>
-        </div>
+        <svg id="convergenceDiagram" viewBox="0 0 560 150">
+          <path id="cline-outbreak" class="conv-line" d="M60,32 Q60,110 270,120"/>
+          <path id="cline-aicap" class="conv-line" d="M213,32 Q230,90 270,120"/>
+          <path id="cline-screening" class="conv-line" d="M346,32 Q330,90 290,120"/>
+          <path id="cline-governance" class="conv-line" d="M500,32 Q500,110 290,120"/>
+
+          <g id="cnode-outbreak" class="conv-node" data-factor="outbreak">
+            <circle cx="60" cy="24" r="15"/>
+            <text x="60" y="29" class="conv-icon">⚠</text>
+            <text x="60" y="52" class="conv-label">ACTIVE<tspan x="60" dy="11">PHEIC</tspan></text>
+          </g>
+          <g id="cnode-aicap" class="conv-node" data-factor="aicap">
+            <circle cx="213" cy="24" r="15"/>
+            <text x="213" y="29" class="conv-icon">◆</text>
+            <text x="213" y="52" class="conv-label">AI CAPABILITY<tspan x="213" dy="11">ACCELERATION</tspan></text>
+          </g>
+          <g id="cnode-screening" class="conv-node" data-factor="screening">
+            <circle cx="346" cy="24" r="15"/>
+            <text x="346" y="29" class="conv-icon">⬡</text>
+            <text x="346" y="52" class="conv-label">SYNTHESIS<tspan x="346" dy="11">SCREENING</tspan></text>
+          </g>
+          <g id="cnode-governance" class="conv-node" data-factor="governance">
+            <circle cx="500" cy="24" r="15"/>
+            <text x="500" y="29" class="conv-icon">▤</text>
+            <text x="500" y="52" class="conv-label">GOVERNANCE<tspan x="500" dy="11">RESPONSE LAG</tspan></text>
+          </g>
+
+          <circle id="conv-hub-glow" cx="280" cy="122" r="20"/>
+          <circle id="conv-hub" cx="280" cy="122" r="9"/>
+          <text x="280" y="142" class="conv-hub-label">INDEX</text>
+        </svg>
+        <p class="conv-hint">Each node feeds the composite index live — click any factor to see how removing it changes the reading above.</p>
       </div>
     </section>
 
@@ -1628,12 +1670,27 @@ function toggleSignalDetail(id){
 async function checkSignals(){
   const statusEl = document.getElementById('signalsStatus');
   const btn = document.getElementById('checkSignalsBtn');
+
+  // Cooldown safeguard: don't let repeated clicks (or repeated page loads) hammer GDELT
+  // while it may already be rate-limiting us — this is what likely got us blocked before.
+  const lastCheck = await storageGet('lastSignalCheck');
+  const COOLDOWN_MS = 90000;
+  if(lastCheck){
+    const elapsed = Date.now() - parseInt(lastCheck);
+    if(elapsed < COOLDOWN_MS){
+      const waitSec = Math.ceil((COOLDOWN_MS-elapsed)/1000);
+      statusEl.textContent = `Please wait ${waitSec}s before checking again — protects against GDELT's rate limit.`;
+      return;
+    }
+  }
+  await storageSet('lastSignalCheck', String(Date.now()));
+
   btn.disabled = true;
   const estSeconds = SIGNAL_KEYWORDS.length * 5.5;
   statusEl.textContent = `Checking 0/${SIGNAL_KEYWORDS.length}… (GDELT allows ~1 request/5s, so this takes about ${Math.ceil(estSeconds)}s)`;
   signalData = {};
   renderSignalGrid();
-  let done = 0;
+  let done = 0, fetchFailCount = 0;
   for(const k of SIGNAL_KEYWORDS){
     if(done>0) await new Promise(r=>setTimeout(r, 5500)); // GDELT: "limit requests to one every 5 seconds"
     try{
@@ -1641,13 +1698,16 @@ async function checkSignals(){
       const signal = computeSignal(series);
       signalData[k.id] = {series, signal};
     }catch(e){
+      if(/failed to fetch/i.test(e.message)) fetchFailCount++;
       signalData[k.id] = {error: e.message};
     }
     done++;
     statusEl.textContent = `Checking ${done}/${SIGNAL_KEYWORDS.length}…`;
     renderSignalGrid();
   }
-  statusEl.textContent = `Last checked ${new Date().toLocaleTimeString()}`;
+  statusEl.textContent = fetchFailCount===SIGNAL_KEYWORDS.length
+    ? `All requests failed — GDELT may still be rate-limiting this connection from earlier testing. Try again in a while.`
+    : `Last checked ${new Date().toLocaleTimeString()}`;
   btn.disabled = false;
   signalsChecked = true;
   computeCorroboration();
@@ -1948,6 +2008,8 @@ function computeGauge(){
   document.getElementById('gaugeText').textContent = 'L'+level;
   document.getElementById('gaugeVerdict').textContent = verdicts[level];
   document.getElementById('gaugeVerdict').style.color = colors[level];
+  const hub = document.getElementById('conv-hub'), hubGlow = document.getElementById('conv-hub-glow');
+  if(hub){ hub.style.fill = colors[level]; hubGlow.style.fill = colors[level]; }
 }
 
 /* ================= COMMAND PALETTE ================= */
@@ -2104,14 +2166,17 @@ document.getElementById('exportCsvBtn').onclick = ()=>{
   showToast('CSV downloaded');
 };
 
-document.querySelectorAll('#toggles .toggle').forEach(t=>{
-  t.addEventListener('click', ()=>{
-    const f = t.dataset.factor;
+document.querySelectorAll('.conv-node').forEach(node=>{
+  node.addEventListener('click', ()=>{
+    const f = node.dataset.factor;
     factors[f] = !factors[f];
-    t.classList.toggle('on', factors[f]);
+    node.classList.toggle('on', factors[f]);
+    node.classList.toggle('off', !factors[f]);
+    document.getElementById('cline-'+f)?.classList.toggle('off', !factors[f]);
     computeGauge();
   });
 });
+document.querySelectorAll('.conv-node').forEach(node=> node.classList.add('on'));
 
 /* init */
 loadData().then(()=>{
