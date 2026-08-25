@@ -320,6 +320,19 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 /* ---------- HUD readout ---------- */
 .hud-readout{font-family:var(--mono); font-size:9.5px; color:var(--l1); margin-top:8px; letter-spacing:0.03em;}
 
+/* ---------- Priority ribbon ---------- */
+.priority-ribbon{display:flex; align-items:center; gap:12px; background:linear-gradient(90deg, rgba(189,81,56,0.16), rgba(189,81,56,0.08)); border-bottom:1px solid rgba(189,81,56,0.4); padding:8px 0; overflow:hidden; animation:ribbonPulse 2.4s ease-in-out infinite;}
+@keyframes ribbonPulse{ 0%,100%{border-bottom-color:rgba(189,81,56,0.4);} 50%{border-bottom-color:rgba(189,81,56,0.85);} }
+.ribbon-label{flex-shrink:0; font-family:var(--mono); font-weight:700; font-size:11px; color:var(--brick); letter-spacing:0.06em; padding:0 14px; border-right:1px solid rgba(189,81,56,0.35); white-space:nowrap;}
+.ribbon-viewport{flex:1; overflow:hidden; white-space:nowrap; position:relative;}
+.ribbon-track{display:inline-flex; animation:ribbonScroll 28s linear infinite;}
+.ribbon-viewport:hover .ribbon-track{animation-play-state:paused;}
+@keyframes ribbonScroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.ribbon-item{display:inline-flex; align-items:center; gap:8px; padding:0 32px; font-size:12px; color:var(--text); cursor:pointer; white-space:nowrap;}
+.ribbon-item:hover{color:var(--brick);}
+.ribbon-item b{color:var(--brick);}
+.ribbon-sep{color:var(--muted-2); opacity:0.5;}
+
 /* ---------- Shortcuts modal ---------- */
 .shortcut-row{display:flex; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--line); font-size:12.5px; color:var(--muted);}
 .shortcut-row:last-child{border-bottom:none;}
@@ -452,6 +465,13 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
         <button class="iconbtn" id="shortcutsBtn" title="Keyboard shortcuts (?)">?</button>
         <button class="iconbtn" id="shareBtn" title="Copy deep link to this view">🔗</button>
         <button class="iconbtn" id="paletteBtn2" title="Search (⌘K)">⌘K</button>
+      </div>
+    </div>
+
+    <div id="priorityRibbon" class="priority-ribbon" hidden>
+      <span class="ribbon-label">⚠ ACTIVE PHEIC</span>
+      <div class="ribbon-viewport">
+        <div class="ribbon-track" id="ribbonTrack"></div>
       </div>
     </div>
 
@@ -1266,6 +1286,24 @@ function applyScrubber(){
   });
 }
 
+/* ================= PRIORITY RIBBON (PHEIC / L4 alerts) ================= */
+function renderPriorityRibbon(){
+  const ribbon = document.getElementById('priorityRibbon');
+  const track = document.getElementById('ribbonTrack');
+  if(!ribbon || !track) return;
+  const critical = D.outbreaks.filter(o=> o.level===4);
+  if(!critical.length){ ribbon.hidden = true; return; }
+  ribbon.hidden = false;
+  const itemsHtml = critical.map(o=>
+    `<span class="ribbon-item" data-id="${o.id}"><b>${o.status || 'PHEIC'}</b> — ${o.title}</span><span class="ribbon-sep">◆</span>`
+  ).join('');
+  // duplicate content back-to-back for a seamless scrolling loop
+  track.innerHTML = itemsHtml + itemsHtml;
+  track.querySelectorAll('.ribbon-item').forEach(item=>{
+    item.onclick = ()=> goTo('outbreaks', item.dataset.id);
+  });
+}
+
 /* ================= WALKTHROUGH, QUESTION ROUTING, RIGHT-NOW STRIP ================= */
 async function initWalkthrough(){
   try{
@@ -1864,6 +1902,7 @@ function renderPaletteResults(q){
 
 /* ================= WIRE UP ================= */
 function renderAll(){
+  renderPriorityRibbon();
   renderOverview();
   renderOutbreakFilters(); renderOutbreaks();
   renderAibio(); renderSynthesis();
