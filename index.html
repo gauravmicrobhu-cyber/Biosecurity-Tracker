@@ -81,28 +81,20 @@ input,textarea{font-family:inherit;}
 .hstat b{display:block; font-family:var(--mono); font-size:21px; color:var(--text);}
 .hstat span{font-size:13px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.06em;}
 
-/* ---------- Convergence diagram (replaces the old flat toggle pills) ---------- */
-#convergenceDiagram{width:100%; height:auto; margin-top:18px; overflow:visible;}
-.conv-line{fill:none; stroke:var(--l1); stroke-width:2; stroke-dasharray:7 6; opacity:0.85; transition:opacity .3s ease, stroke .3s ease; animation:convFlow 1.1s linear infinite;}
-.conv-line.off{stroke:var(--muted-2); opacity:0.15; animation-play-state:paused;}
-#cline-aicap{stroke:var(--amber);}
-#cline-screening{stroke:var(--l1);}
-#cline-governance{stroke:var(--brick);}
-#cline-outbreak{stroke:var(--brick);}
-@keyframes convFlow{ to{ stroke-dashoffset:-26; } }
-.conv-node{cursor:pointer;}
-.conv-node circle{fill:var(--panel-2); stroke:var(--muted-2); stroke-width:1.5; transition:all .2s ease;}
-.conv-node.off circle{stroke:var(--muted-2); fill:var(--panel);}
-.conv-node.on circle{stroke:var(--amber); fill:rgba(217,164,65,0.12);}
-.conv-node:hover circle{stroke:var(--text); transform-origin:center; transform:scale(1.08);}
-.conv-icon{text-anchor:middle; font-size:14px; fill:var(--text); pointer-events:none;}
-.conv-node.off .conv-icon{fill:var(--muted-2);}
-.conv-label{text-anchor:middle; font-family:var(--mono); font-size:8.5px; fill:var(--muted); letter-spacing:0.03em; pointer-events:none;}
-#conv-hub{fill:var(--amber); transition:fill .3s ease;}
-#conv-hub-glow{fill:var(--amber); opacity:0.18; animation:hubPulse 1.6s ease-in-out infinite;}
-@keyframes hubPulse{ 0%,100%{ r:16; opacity:0.12; } 50%{ r:24; opacity:0.28; } }
-.conv-hub-label{text-anchor:middle; font-family:var(--mono); font-size:9px; font-weight:700; fill:var(--amber); letter-spacing:0.06em;}
-.conv-hint{font-size:11.5px; color:var(--muted-2); margin-top:6px;}
+/* ---------- Radar/spider convergence chart ---------- */
+.radar-wrap{display:flex; justify-content:center; margin-top:16px;}
+#radarChart{width:100%; max-width:280px; height:auto; overflow:visible;}
+.radar-ring{fill:none; stroke:var(--line); stroke-width:1;}
+.radar-axis{stroke:var(--line); stroke-width:1;}
+.radar-poly{fill:rgba(255,45,106,0.16); stroke:var(--brick); stroke-width:2; transition:all .4s ease; filter:drop-shadow(0 0 6px rgba(255,45,106,0.35));}
+.radar-pt{r:4; fill:var(--brick); stroke:var(--bg); stroke-width:1.5; transition:all .4s ease;}
+.radar-label{cursor:pointer;}
+.radar-label-icon{font-size:13px; fill:var(--text); pointer-events:none; transition:fill .2s ease;}
+.radar-label-text{font-family:var(--mono); font-size:7.5px; fill:var(--muted); letter-spacing:0.02em; pointer-events:none; transition:fill .2s ease;}
+.radar-label.off .radar-label-icon{fill:var(--muted-2);}
+.radar-label.off .radar-label-text{fill:var(--muted-2);}
+.radar-label:hover .radar-label-text{fill:var(--text);}
+.conv-hint{font-size:11.5px; color:var(--muted-2); margin-top:6px; text-align:center;}
 
 /* ---------- Cards / generic ---------- */
 .grid{display:grid; gap:14px;}
@@ -550,38 +542,43 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
           <div class="hstat"><b>36/38</b><span>synth providers missed red-team flags</span></div>
           <div class="hstat"><b>90%</b><span>BSL-3 host states w/o DURC oversight</span></div>
         </div>
-        <svg id="convergenceDiagram" viewBox="0 0 560 150">
-          <path id="cline-outbreak" class="conv-line" d="M60,32 Q60,110 270,120"/>
-          <path id="cline-aicap" class="conv-line" d="M213,32 Q230,90 270,120"/>
-          <path id="cline-screening" class="conv-line" d="M346,32 Q330,90 290,120"/>
-          <path id="cline-governance" class="conv-line" d="M500,32 Q500,110 290,120"/>
-
-          <g id="cnode-outbreak" class="conv-node" data-factor="outbreak">
-            <circle cx="60" cy="24" r="15"/>
-            <text x="60" y="29" class="conv-icon">⚠</text>
-            <text x="60" y="52" class="conv-label">ACTIVE<tspan x="60" dy="11">PHEIC</tspan></text>
-          </g>
-          <g id="cnode-aicap" class="conv-node" data-factor="aicap">
-            <circle cx="213" cy="24" r="15"/>
-            <text x="213" y="29" class="conv-icon">◆</text>
-            <text x="213" y="52" class="conv-label">AI CAPABILITY<tspan x="213" dy="11">ACCELERATION</tspan></text>
-          </g>
-          <g id="cnode-screening" class="conv-node" data-factor="screening">
-            <circle cx="346" cy="24" r="15"/>
-            <text x="346" y="29" class="conv-icon">⬡</text>
-            <text x="346" y="52" class="conv-label">SYNTHESIS<tspan x="346" dy="11">SCREENING</tspan></text>
-          </g>
-          <g id="cnode-governance" class="conv-node" data-factor="governance">
-            <circle cx="500" cy="24" r="15"/>
-            <text x="500" y="29" class="conv-icon">▤</text>
-            <text x="500" y="52" class="conv-label">GOVERNANCE<tspan x="500" dy="11">RESPONSE LAG</tspan></text>
-          </g>
-
-          <circle id="conv-hub-glow" cx="280" cy="122" r="20"/>
-          <circle id="conv-hub" cx="280" cy="122" r="9"/>
-          <text x="280" y="142" class="conv-hub-label">INDEX</text>
-        </svg>
-        <p class="conv-hint">Each node feeds the composite index live — click any factor to see how removing it changes the reading above.</p>
+        <div class="radar-wrap">
+          <svg id="radarChart" viewBox="0 0 260 260">
+            <!-- reference grid rings -->
+            <circle class="radar-ring" cx="130" cy="130" r="90"/>
+            <circle class="radar-ring" cx="130" cy="130" r="60"/>
+            <circle class="radar-ring" cx="130" cy="130" r="30"/>
+            <!-- axis lines -->
+            <line class="radar-axis" x1="130" y1="130" x2="130" y2="40"/>
+            <line class="radar-axis" x1="130" y1="130" x2="220" y2="130"/>
+            <line class="radar-axis" x1="130" y1="130" x2="130" y2="220"/>
+            <line class="radar-axis" x1="130" y1="130" x2="40" y2="130"/>
+            <!-- data polygon, redrawn by JS on toggle -->
+            <polygon id="radarPoly" class="radar-poly" points="130,40 220,130 130,220 40,130"/>
+            <circle id="radarPt-outbreak" class="radar-pt" cx="130" cy="40"/>
+            <circle id="radarPt-aicap" class="radar-pt" cx="220" cy="130"/>
+            <circle id="radarPt-screening" class="radar-pt" cx="130" cy="220"/>
+            <circle id="radarPt-governance" class="radar-pt" cx="40" cy="130"/>
+            <!-- clickable axis labels -->
+            <g class="radar-label" data-factor="outbreak" id="radarLabel-outbreak">
+              <text x="130" y="24" text-anchor="middle" class="radar-label-icon">⚠</text>
+              <text x="130" y="15" text-anchor="middle" class="radar-label-text">ACTIVE PHEIC</text>
+            </g>
+            <g class="radar-label" data-factor="aicap" id="radarLabel-aicap">
+              <text x="238" y="126" text-anchor="start" class="radar-label-icon">◆</text>
+              <text x="238" y="140" text-anchor="start" class="radar-label-text">AI CAPABILITY</text>
+            </g>
+            <g class="radar-label" data-factor="screening" id="radarLabel-screening">
+              <text x="130" y="242" text-anchor="middle" class="radar-label-icon">⬡</text>
+              <text x="130" y="253" text-anchor="middle" class="radar-label-text">SCREENING GAP</text>
+            </g>
+            <g class="radar-label" data-factor="governance" id="radarLabel-governance">
+              <text x="22" y="126" text-anchor="end" class="radar-label-icon">▤</text>
+              <text x="22" y="140" text-anchor="end" class="radar-label-text">GOVERNANCE LAG</text>
+            </g>
+          </svg>
+        </div>
+        <p class="conv-hint">Each axis is a factor's contribution to the composite index — click a label to toggle it off and watch the shape (and the score above) shrink.</p>
       </div>
     </section>
 
@@ -2008,8 +2005,10 @@ function computeGauge(){
   document.getElementById('gaugeText').textContent = 'L'+level;
   document.getElementById('gaugeVerdict').textContent = verdicts[level];
   document.getElementById('gaugeVerdict').style.color = colors[level];
-  const hub = document.getElementById('conv-hub'), hubGlow = document.getElementById('conv-hub-glow');
-  if(hub){ hub.style.fill = colors[level]; hubGlow.style.fill = colors[level]; }
+  const poly = document.getElementById('radarPoly');
+  if(poly){ poly.style.stroke = colors[level]; poly.style.fill = colors[level]+'29'; poly.style.filter = `drop-shadow(0 0 6px ${colors[level]}59)`; }
+  document.querySelectorAll('.radar-pt').forEach(p=> p.style.fill = colors[level]);
+  renderRadar();
 }
 
 /* ================= COMMAND PALETTE ================= */
@@ -2166,17 +2165,46 @@ document.getElementById('exportCsvBtn').onclick = ()=>{
   showToast('CSV downloaded');
 };
 
-document.querySelectorAll('.conv-node').forEach(node=>{
-  node.addEventListener('click', ()=>{
-    const f = node.dataset.factor;
+/* ================= RADAR CHART ================= */
+function computeRadarPoints(){
+  const cx=130, cy=130;
+  const axes = [
+    {factor:'outbreak', angle:-90, active: factors.outbreak},
+    {factor:'aicap', angle:0, active: factors.aicap},
+    {factor:'screening', angle:90, active: !factors.screening},
+    {factor:'governance', angle:180, active: !factors.governance},
+  ];
+  return axes.map(a=>{
+    const r = a.active ? 88 : 22;
+    const rad = a.angle * Math.PI/180;
+    return { x: cx + r*Math.cos(rad), y: cy + r*Math.sin(rad), factor: a.factor };
+  });
+}
+function renderRadar(){
+  const poly = document.getElementById('radarPoly');
+  if(!poly) return;
+  const pts = computeRadarPoints();
+  poly.setAttribute('points', pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' '));
+  pts.forEach(p=>{
+    const el = document.getElementById('radarPt-'+p.factor);
+    if(el){ el.setAttribute('cx',p.x.toFixed(1)); el.setAttribute('cy',p.y.toFixed(1)); }
+  });
+  const riskState = {
+    outbreak: factors.outbreak, aicap: factors.aicap,
+    screening: !factors.screening, governance: !factors.governance
+  };
+  Object.keys(riskState).forEach(f=>{
+    document.getElementById('radarLabel-'+f)?.classList.toggle('off', !riskState[f]);
+  });
+}
+document.querySelectorAll('.radar-label').forEach(label=>{
+  label.addEventListener('click', ()=>{
+    const f = label.dataset.factor;
     factors[f] = !factors[f];
-    node.classList.toggle('on', factors[f]);
-    node.classList.toggle('off', !factors[f]);
-    document.getElementById('cline-'+f)?.classList.toggle('off', !factors[f]);
     computeGauge();
+    renderRadar();
   });
 });
-document.querySelectorAll('.conv-node').forEach(node=> node.classList.add('on'));
 
 /* init */
 loadData().then(()=>{
