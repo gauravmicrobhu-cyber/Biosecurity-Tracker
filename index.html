@@ -89,6 +89,8 @@ input,textarea{font-family:inherit;}
 .radar-poly{fill:rgba(255,45,106,0.16); stroke:var(--brick); stroke-width:2; transition:all .4s ease; filter:drop-shadow(0 0 6px rgba(255,45,106,0.35));}
 .radar-pt{r:4; fill:var(--brick); stroke:var(--bg); stroke-width:1.5; transition:all .4s ease;}
 .radar-label{cursor:pointer;}
+.radar-hit{fill:transparent; pointer-events:all;}
+.radar-label:hover .radar-hit{fill:rgba(255,255,255,0.04);}
 .radar-label-icon{font-size:13px; fill:var(--text); pointer-events:none; transition:fill .2s ease;}
 .radar-label-text{font-family:var(--mono); font-size:7.5px; fill:var(--muted); letter-spacing:0.02em; pointer-events:none; transition:fill .2s ease;}
 .radar-label.off .radar-label-icon{fill:var(--muted-2);}
@@ -561,18 +563,22 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
             <circle id="radarPt-governance" class="radar-pt" cx="40" cy="130"/>
             <!-- clickable axis labels -->
             <g class="radar-label" data-factor="outbreak" id="radarLabel-outbreak">
+              <circle class="radar-hit" cx="130" cy="18" r="22"/>
               <text x="130" y="24" text-anchor="middle" class="radar-label-icon">⚠</text>
               <text x="130" y="15" text-anchor="middle" class="radar-label-text">ACTIVE PHEIC</text>
             </g>
             <g class="radar-label" data-factor="aicap" id="radarLabel-aicap">
+              <circle class="radar-hit" cx="248" cy="133" r="22"/>
               <text x="238" y="126" text-anchor="start" class="radar-label-icon">◆</text>
               <text x="238" y="140" text-anchor="start" class="radar-label-text">AI CAPABILITY</text>
             </g>
             <g class="radar-label" data-factor="screening" id="radarLabel-screening">
+              <circle class="radar-hit" cx="130" cy="247" r="22"/>
               <text x="130" y="242" text-anchor="middle" class="radar-label-icon">⬡</text>
               <text x="130" y="253" text-anchor="middle" class="radar-label-text">SCREENING GAP</text>
             </g>
             <g class="radar-label" data-factor="governance" id="radarLabel-governance">
+              <circle class="radar-hit" cx="12" cy="133" r="22"/>
               <text x="22" y="126" text-anchor="end" class="radar-label-icon">▤</text>
               <text x="22" y="140" text-anchor="end" class="radar-label-text">GOVERNANCE LAG</text>
             </g>
