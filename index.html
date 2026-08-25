@@ -244,6 +244,43 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
 .new-badge{background:var(--amber); color:#14181A; font-family:var(--mono); font-size:8.5px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; letter-spacing:0.03em;}
 
+/* ---------- Walkthrough card ---------- */
+.walkthrough{background:linear-gradient(135deg, rgba(217,164,65,0.08), rgba(62,144,152,0.05)); border:1px solid var(--line); border-radius:8px; padding:18px 20px; margin-bottom:20px; position:relative;}
+.walkthrough-close{position:absolute; top:12px; right:14px; background:none; border:none; color:var(--muted-2); font-size:16px; cursor:pointer; line-height:1;}
+.walkthrough h3{font-family:var(--cond); font-size:16px; margin-bottom:10px; color:var(--text);}
+.wt-steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:10px;}
+.wt-step{font-size:11.5px; color:var(--muted); border-left:2px solid var(--amber); padding-left:9px;}
+.wt-step b{display:block; color:var(--text); font-size:12px; margin-bottom:2px;}
+
+/* ---------- Question routing ---------- */
+.question-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-bottom:22px;}
+.question-card{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 18px; cursor:pointer; transition:border-color .15s;}
+.question-card:hover{border-color:var(--amber);}
+.question-card .qnum{font-family:var(--mono); font-size:10px; color:var(--amber); letter-spacing:0.08em;}
+.question-card h4{font-family:var(--cond); font-size:15px; margin:6px 0 4px 0;}
+.question-card p{font-size:11.5px; color:var(--muted);}
+
+/* ---------- Right-now strip ---------- */
+.rightnow-strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin-bottom:24px;}
+.rn-card{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px;}
+.rn-card .rn-label{font-family:var(--mono); font-size:9.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;}
+.rn-card .rn-value{font-size:13px; color:var(--text); font-weight:600; line-height:1.4;}
+.rn-card .rn-sub{font-size:11px; color:var(--muted); margin-top:3px;}
+.rn-card.clickable{cursor:pointer;}
+.rn-card.clickable:hover{border-color:var(--muted-2);}
+
+/* ---------- Corroboration chip ---------- */
+.corrob-chip{font-family:var(--mono); font-size:9px; font-weight:600; padding:2px 7px; border-radius:4px; margin-top:6px; display:inline-block;}
+.corrob-chip.yes{background:rgba(62,144,152,0.14); color:var(--l1);}
+.corrob-chip.no{background:rgba(217,164,65,0.1); color:var(--muted);}
+
+/* ---------- Sources page ---------- */
+.src-group{margin-bottom:22px;}
+.src-group h3{font-family:var(--cond); font-size:16px; color:var(--amber); margin-bottom:10px; border-bottom:1px solid var(--line); padding-bottom:6px;}
+.src-item{font-size:12px; color:var(--muted); padding:6px 0; border-bottom:1px solid var(--line); line-height:1.5;}
+.src-item:last-child{border-bottom:none;}
+.src-item b{color:var(--text);}
+
 .foot{padding:30px 28px 60px 28px; border-top:1px solid var(--line); margin-top:10px;}
 .foot p{font-size:11.5px; color:var(--muted-2); max-width:720px; line-height:1.6;}
 
@@ -306,6 +343,10 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <div class="navitem" data-target="governance"><span class="navdot"></span>Policy Timeline</div>
     </div>
     <div class="navgroup">
+      <div class="navgroup-label">Reference</div>
+      <div class="navitem" data-target="sources"><span class="navdot"></span>Sources &amp; Methodology</div>
+    </div>
+    <div class="navgroup">
       <div class="navgroup-label">Research</div>
       <div class="navitem" data-target="briefing"><span class="navdot"></span>Briefing</div>
       <div class="navitem" data-target="analysis"><span class="navdot"></span>Analysis</div>
@@ -355,8 +396,32 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     </section>
 
     <section class="section" id="overview">
+      <div class="walkthrough" id="walkthroughCard">
+        <button class="walkthrough-close" id="walkthroughClose" title="Dismiss">×</button>
+        <h3>New here? What this tracker actually does, in under a minute.</h3>
+        <div class="wt-steps">
+          <div class="wt-step"><b>It's four layers, not one</b>Outbreaks, AI-bio capability, synthesis screening, and governance response — tracked together because the gaps between them are the point.</div>
+          <div class="wt-step"><b>Everything links</b>Click any country tag, map marker, or scorecard row and related data across every module surfaces automatically.</div>
+          <div class="wt-step"><b>Search anything</b>Press Ctrl/Cmd+K to jump straight to any entry, in any module, by name.</div>
+          <div class="wt-step"><b>Nothing is invented</b>Every fact is sourced. Composite scores are labeled as illustrative models, not official ratings — check the Sources page for the full list.</div>
+        </div>
+      </div>
+
+      <div class="question-row">
+        <div class="question-card" data-q="risk"><span class="qnum">01 · COUNTRY RISK</span><h4>Check a country's dual-use risk</h4><p>Composite score blending governance, outbreaks, facilities, and historical incidents.</p></div>
+        <div class="question-card" data-q="verify"><span class="qnum">02 · VERIFY</span><h4>Verify an active outbreak</h4><p>Jump straight to current L3–L4 events in the surveillance feed.</p></div>
+        <div class="question-card" data-q="new"><span class="qnum">03 · WHAT'S NEW</span><h4>See what's changed</h4><p>Compiled briefing: new items, active signals, flagged entries.</p></div>
+      </div>
+
+      <div class="rightnow-strip" id="rightNowStrip"></div>
+
       <div class="section-head"><h2>Global Status</h2><p>Snapshot across the four tracked convergence layers, using the same L1–L4 containment-level idiom biosafety labs already use to rank severity.</p></div>
       <div class="grid grid-2" id="overviewGrid"></div>
+    </section>
+
+    <section class="section" id="sources" hidden>
+      <div class="section-head"><h2>Sources &amp; Methodology</h2><p>Every citation used across the tracker, in one place — so the sourcing behind any number or claim can be checked without hunting through nine tabs.</p></div>
+      <div id="sourcesOut"></div>
     </section>
 
     <section class="section" id="outbreaks" hidden>
@@ -836,6 +901,7 @@ function goTo(moduleId, itemId){
   if(moduleId==='analysis'){ setTimeout(()=>{ renderAnalysis(); analysisInitialized = true; }, 60); }
   if(moduleId==='signals' && !signalsChecked){ setTimeout(()=>{ renderSignalGrid(); }, 60); }
   if(moduleId==='briefing'){ setTimeout(generateBriefing, 60); }
+  if(moduleId==='sources'){ setTimeout(renderSources, 60); }
   if(itemId){
     setTimeout(()=>{
       const el = document.querySelector(`[data-id="${itemId}"]`);
@@ -859,6 +925,7 @@ function parseHash(){
 
 /* ================= RENDER: OVERVIEW ================= */
 function renderOverview(){
+  renderRightNowStrip();
   const items = [
     {title:"Active Grade-1 / PHEIC Events", level:4, txt:"Ebola (Bundibugyo virus), DRC/Uganda — declared PHEIC 17 May 2026, ongoing with cross-border spread risk."},
     {title:"Screening Gap — AI-Designed Sequences", level:3, txt:"Homology-based screening can miss AI-generated sequence variants that retain toxin function."},
@@ -1035,6 +1102,67 @@ function applyScrubber(){
   });
 }
 
+/* ================= WALKTHROUGH, QUESTION ROUTING, RIGHT-NOW STRIP ================= */
+async function initWalkthrough(){
+  try{
+    const dismissed = await storageGet('walkthroughDismissed');
+    if(dismissed==='1') document.getElementById('walkthroughCard').style.display = 'none';
+  }catch(e){}
+}
+document.getElementById('walkthroughClose')?.addEventListener('click', async ()=>{
+  document.getElementById('walkthroughCard').style.display = 'none';
+  await storageSet('walkthroughDismissed', '1');
+});
+document.querySelectorAll('.question-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const q = card.dataset.q;
+    if(q==='risk') goTo('analysis');
+    if(q==='verify') goTo('outbreaks');
+    if(q==='new') goTo('briefing');
+  });
+});
+function renderRightNowStrip(){
+  const el = document.getElementById('rightNowStrip');
+  if(!el) return;
+  const topOutbreak = D.outbreaks.slice().sort((a,b)=> b.level-a.level || new Date(b.date)-new Date(a.date))[0];
+  const totalNew = newItemIds.size;
+  const flaggedCount = Object.values(bookmarks).filter(b=>b.starred).length;
+  const spikes = Object.values(signalData).filter(d=> d.signal && (d.signal.status==='spike'||d.signal.status==='elevated'));
+  const signalText = Object.keys(signalData).length ? (spikes.length? `${spikes.length} above baseline` : 'Nothing above baseline') : 'Not checked this session';
+
+  el.innerHTML = `
+    <div class="rn-card clickable" data-goto="outbreaks"><div class="rn-label">Top Active Event</div><div class="rn-value">${clFmt(topOutbreak.level)} ${topOutbreak.title}</div><div class="rn-sub">${topOutbreak.status}</div></div>
+    <div class="rn-card clickable" data-goto="briefing"><div class="rn-label">New Since Last Visit</div><div class="rn-value">${totalNew}</div><div class="rn-sub">item${totalNew===1?'':'s'} added</div></div>
+    <div class="rn-card clickable" data-goto="signals"><div class="rn-label">Signal Detection</div><div class="rn-value">${signalText}</div><div class="rn-sub">click to check now</div></div>
+    <div class="rn-card clickable" data-goto="flagged"><div class="rn-label">Flagged for Report</div><div class="rn-value">${flaggedCount}</div><div class="rn-sub">item${flaggedCount===1?'':'s'} starred</div></div>
+  `;
+  el.querySelectorAll('[data-goto]').forEach(c=> c.onclick = ()=> goTo(c.dataset.goto));
+}
+
+/* ================= SOURCES & METHODOLOGY PAGE ================= */
+function renderSources(){
+  const el = document.getElementById('sourcesOut');
+  if(!el) return;
+  const groups = [
+    {label:'Outbreak Surveillance', items: D.outbreaks.map(o=>o.src)},
+    {label:'AI-Bio Capability Watch', items: D.aibio.map(a=>a.src)},
+    {label:'DNA/RNA Synthesis Screening', items: D.synthesis.map(s=>s.src)},
+    {label:'Historical Dual-Use Incidents', items: D.historicalIncidents.map(h=>h.src)},
+  ];
+  const datasets = [
+    {name:'WHO Disease Outbreak News / CDC HAN', note:'Official public health reporting — outbreak feed baseline.'},
+    {name:'GDELT (Global Database of Events, Language, and Tone)', note:'Free public news-monitoring API — powers the Signal Detection module\'s anomaly checks.'},
+    {name:'ReliefWeb / OCHA API', note:'Public, documented, no-key-required API — used for the automated refresh script.'},
+    {name:'Global Terrorism Database (START, University of Maryland)', note:'Kaggle-hosted mirror (through 2017) used for Historical Incidents sourcing; official portal covers through 2020.'},
+    {name:'Global BioLabs Report', note:'Methodology basis for the illustrative country biorisk scorecards.'},
+    {name:'U.S. Bureau of Industry and Security (BIS)', note:'Export-control enforcement records — Category A historical incidents.'},
+  ];
+  el.innerHTML = groups.map(g=>{
+    const unique = [...new Set(g.items)];
+    return `<div class="src-group"><h3>${g.label} (${unique.length} unique source${unique.length===1?'':'s'})</h3>${unique.map(s=>`<div class="src-item">${s}</div>`).join('')}</div>`;
+  }).join('') + `<div class="src-group"><h3>Datasets &amp; APIs</h3>${datasets.map(d=>`<div class="src-item"><b>${d.name}</b> — ${d.note}</div>`).join('')}</div>`;
+}
+
 /* ================= RENDER: NETWORK GRAPH ================= */
 let netSim = null, netInitialized = false, netTypeFilter = null, analysisInitialized = false;
 function renderNetFilters(){
@@ -1185,6 +1313,7 @@ function signalCardHtml(k, sig, errorMsg, series){
     <div class="signal-card-head"><span class="signal-title">${k.label}</span><span class="signal-badge ${status}">${label}</span></div>
     ${series ? sparklineSvg(series, badgeColor(status)) : ''}
     ${sig?.z!=null ? `<div class="signal-meta">z-score: ${sig.z.toFixed(2)} · latest: ${sig.latest?.toFixed(2)}% · baseline mean: ${sig.mean?.toFixed(2)}%</div>` : ''}
+    ${sig?.corrobNote ? `<div class="corrob-chip ${sig.corroborated?'yes':'no'}">${sig.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${sig.corrobNote}</div>` : ''}
     ${errorMsg ? `<div class="signal-error-msg">${errorMsg}</div>` : ''}
   </div>`;
 }
@@ -1229,6 +1358,33 @@ async function checkSignals(){
   statusEl.textContent = `Last checked ${new Date().toLocaleTimeString()}`;
   btn.disabled = false;
   signalsChecked = true;
+  computeCorroboration();
+  renderSignalGrid();
+}
+function computeCorroboration(){
+  // WorldMonitor-style corroboration rule: don't trust an isolated spike. Escalate to
+  // "corroborated" only if the signal matches an already-confirmed tracked outbreak, or
+  // if multiple independent keywords are elevated/spiking at the same time.
+  const elevatedIds = Object.entries(signalData).filter(([id,d])=> d.signal && (d.signal.status==='elevated'||d.signal.status==='spike')).map(([id])=>id);
+  elevatedIds.forEach(id=>{
+    const k = SIGNAL_KEYWORDS.find(x=>x.id===id);
+    const keyTerms = k.label.toLowerCase().split(/[\s—-]+/).filter(w=>w.length>4);
+    const matchedOutbreak = D.outbreaks.find(o=>
+      o.tags.some(t=> keyTerms.some(w=> t.toLowerCase().includes(w) || w.includes(t.toLowerCase())))
+    );
+    const otherElevated = elevatedIds.filter(x=>x!==id).length;
+    const d = signalData[id];
+    if(matchedOutbreak){
+      d.signal.corroborated = true;
+      d.signal.corrobNote = `Matches tracked outbreak: "${matchedOutbreak.title}"`;
+    } else if(otherElevated > 0){
+      d.signal.corroborated = true;
+      d.signal.corrobNote = `${otherElevated} other keyword${otherElevated===1?'':'s'} also elevated simultaneously`;
+    } else {
+      d.signal.corroborated = false;
+      d.signal.corrobNote = 'Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution.';
+    }
+  });
 }
 
 /* ================= BRIEFING GENERATOR ================= */
@@ -1664,6 +1820,7 @@ document.querySelectorAll('#toggles .toggle').forEach(t=>{
 loadData().then(()=>{
   Promise.all([loadBookmarks(), checkNewSinceLastVisit()]).then(()=>{
     renderAll();
+    initWalkthrough();
     parseHash();
     if(!location.hash) goTo('overview');
   });
