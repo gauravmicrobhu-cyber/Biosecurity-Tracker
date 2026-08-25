@@ -282,6 +282,49 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .src-item b{color:var(--text);}
 
 .foot{padding:30px 28px 60px 28px; border-top:1px solid var(--line); margin-top:10px;}
+
+/* ---------- Boot sequence ---------- */
+#bootScreen{position:fixed; inset:0; background:var(--bg); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .5s ease; overflow:hidden;}
+#bootScreen.hide{opacity:0; pointer-events:none;}
+
+#bootRadar{position:absolute; width:640px; height:640px; border-radius:50%; border:1px solid rgba(62,144,152,0.12);}
+#bootRadar::before{content:''; position:absolute; inset:60px; border-radius:50%; border:1px solid rgba(62,144,152,0.1);}
+#bootRadar::after{content:''; position:absolute; inset:0; border-radius:50%; background:conic-gradient(from 0deg, transparent 0deg, rgba(62,144,152,0.22) 25deg, transparent 60deg); animation:radarSpin 3.2s linear infinite;}
+@keyframes radarSpin{ to{ transform:rotate(360deg); } }
+
+#bootVisual{position:relative; width:220px; height:220px; display:flex; align-items:center; justify-content:center; margin-bottom:22px;}
+#bootHelix{width:110px; height:200px; perspective:500px; position:relative; z-index:2;}
+#helixGroup{transform-origin:80px 100px; animation:helixSpin 2.4s linear infinite;}
+@keyframes helixSpin{ 0%{transform:rotateY(0deg);} 100%{transform:rotateY(360deg);} }
+.helix-strand.strand-a{stroke:var(--l1); stroke-width:2.5;}
+.helix-strand.strand-b{stroke:var(--amber); stroke-width:2.5;}
+.helix-rung{stroke:var(--muted-2); stroke-width:1; opacity:0.5;}
+.helix-node{fill:var(--text);}
+
+#bootNetwork{position:absolute; inset:0; z-index:1; opacity:0.55;}
+.net-dot{fill:var(--amber); animation:netPulse 1.8s ease-in-out infinite;}
+.net-line{stroke:var(--l1); stroke-width:0.6; opacity:0.35;}
+@keyframes netPulse{ 0%,100%{opacity:0.25; r:1.6;} 50%{opacity:0.9; r:2.6;} }
+
+#bootLines{font-family:var(--mono); font-size:12.5px; color:var(--l1); text-align:left; min-width:300px;}
+#bootLines div{opacity:0; animation:bootFadeIn .35s forwards; margin-bottom:7px;}
+#bootLines div::before{content:'> '; color:var(--amber);}
+@keyframes bootFadeIn{ to{ opacity:1; } }
+
+#bootProgressWrap{margin-top:20px; width:280px; display:flex; align-items:center; gap:10px;}
+#bootProgressBar{flex:1; height:3px; background:var(--panel-2); border-radius:2px; overflow:hidden; position:relative;}
+#bootProgressBar::after{content:''; position:absolute; left:0; top:0; bottom:0; width:0%; background:linear-gradient(90deg, var(--l1), var(--amber)); border-radius:2px; animation:bootFill 4s linear forwards;}
+@keyframes bootFill{ from{width:0%;} to{width:100%;} }
+#bootProgressPct{font-family:var(--mono); font-size:10px; color:var(--muted-2); min-width:34px; text-align:right;}
+
+/* ---------- HUD readout ---------- */
+.hud-readout{font-family:var(--mono); font-size:9.5px; color:var(--l1); margin-top:8px; letter-spacing:0.03em;}
+
+/* ---------- Shortcuts modal ---------- */
+.shortcut-row{display:flex; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--line); font-size:12.5px; color:var(--muted);}
+.shortcut-row:last-child{border-bottom:none;}
+.shortcut-row kbd{font-family:var(--mono); font-size:10.5px; background:var(--panel-2); border:1px solid var(--line); padding:2px 6px; border-radius:4px; color:var(--text);}
+.shortcut-row span{margin-left:auto;}
 .foot p{font-size:11.5px; color:var(--muted-2); max-width:720px; line-height:1.6;}
 
 @media (max-width:880px){
@@ -307,11 +350,56 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 </head>
 <body>
 
+<div id="bootScreen">
+  <div id="bootRadar"></div>
+  <div id="bootVisual">
+    <svg id="bootHelix" viewBox="0 0 160 200">
+      <g id="helixGroup">
+        <path class="helix-strand strand-a" d="M20,0 C60,25 100,25 140,0 M20,50 C60,75 100,75 140,50 M20,100 C60,125 100,125 140,100 M20,150 C60,175 100,175 140,150 M20,200 C60,225 100,225 140,200" fill="none"/>
+        <path class="helix-strand strand-b" d="M140,0 C100,25 60,25 20,0 M140,50 C100,75 60,75 20,50 M140,100 C100,125 60,125 20,100 M140,150 C100,175 60,175 20,150 M140,200 C100,225 60,225 20,200" fill="none"/>
+        <line class="helix-rung" x1="20" y1="0" x2="140" y2="0"/>
+        <line class="helix-rung" x1="20" y1="50" x2="140" y2="50"/>
+        <line class="helix-rung" x1="20" y1="100" x2="140" y2="100"/>
+        <line class="helix-rung" x1="20" y1="150" x2="140" y2="150"/>
+        <line class="helix-rung" x1="20" y1="200" x2="140" y2="200"/>
+        <circle class="helix-node" cx="20" cy="0" r="3.5"/><circle class="helix-node" cx="140" cy="0" r="3.5"/>
+        <circle class="helix-node" cx="20" cy="50" r="3.5"/><circle class="helix-node" cx="140" cy="50" r="3.5"/>
+        <circle class="helix-node" cx="20" cy="100" r="3.5"/><circle class="helix-node" cx="140" cy="100" r="3.5"/>
+        <circle class="helix-node" cx="20" cy="150" r="3.5"/><circle class="helix-node" cx="140" cy="150" r="3.5"/>
+        <circle class="helix-node" cx="20" cy="200" r="3.5"/><circle class="helix-node" cx="140" cy="200" r="3.5"/>
+      </g>
+    </svg>
+    <svg id="bootNetwork" viewBox="0 0 240 240">
+      <g id="netGroup"></g>
+    </svg>
+  </div>
+  <div id="bootLines"></div>
+  <div id="bootProgressWrap">
+    <div id="bootProgressBar"></div>
+    <div id="bootProgressPct">0%</div>
+  </div>
+</div>
+
+<div class="palette-overlay" id="shortcutsOverlay">
+  <div class="palette" style="max-width:400px;">
+    <div style="padding:16px 18px;border-bottom:1px solid var(--line);font-family:var(--cond);font-size:16px;font-weight:600;">Keyboard Shortcuts</div>
+    <div style="padding:16px 18px;">
+      <div class="shortcut-row"><kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd><span>Search everything</span></div>
+      <div class="shortcut-row"><kbd>?</kbd><span>Show this panel</span></div>
+      <div class="shortcut-row"><kbd>Esc</kbd><span>Close any open panel</span></div>
+      <div class="shortcut-row"><kbd>↑</kbd> <kbd>↓</kbd><span>Navigate search results</span></div>
+      <div class="shortcut-row"><kbd>Enter</kbd><span>Jump to selected result</span></div>
+    </div>
+  </div>
+</div>
+
+
 <div class="app">
   <nav class="sidebar" id="sidebar">
     <div class="brand">
       <div class="brand-mark"><span class="dot"></span>CONTAINMENT</div>
       <div class="brand-sub">Biosecurity · AI-Bio · Dual-Use Monitor</div>
+      <div class="hud-readout" id="hudReadout">— · — · —</div>
     </div>
     <button class="searchbtn" id="paletteBtn">🔍 Search everything<kbd>⌘K</kbd></button>
     <div class="navgroup">
@@ -359,7 +447,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <button class="menu-btn" id="menuBtn">☰</button>
       <div class="topbar-title" id="topTitle">Global Status</div>
       <div class="topbar-right">
+        <span id="utcClock" style="font-family:var(--mono);font-size:9.5px;color:var(--muted-2);white-space:nowrap;"></span>
         <span id="dataFreshness" style="font-family:var(--mono);font-size:9.5px;color:var(--muted-2);white-space:nowrap;"></span>
+        <button class="iconbtn" id="shortcutsBtn" title="Keyboard shortcuts (?)">?</button>
         <button class="iconbtn" id="shareBtn" title="Copy deep link to this view">🔗</button>
         <button class="iconbtn" id="paletteBtn2" title="Search (⌘K)">⌘K</button>
       </div>
@@ -815,6 +905,80 @@ function renderDataFreshness(){
   } else {
     el.textContent = `EMBEDDED SEED DATA · no data.json found alongside this file`;
   }
+}
+
+/* ================= BOOT SEQUENCE ================= */
+(function runBootSequence(){
+  const TOTAL_MS = 4000;
+  const lines = ['VERIFYING SOURCES...', 'LOADING SURVEILLANCE FEED...', 'CALIBRATING CONTAINMENT INDEX...', 'READY'];
+  const stagger = Math.floor((TOTAL_MS - 500) / lines.length);
+  const el = document.getElementById('bootLines');
+  lines.forEach((text,i)=>{
+    const d = document.createElement('div');
+    d.textContent = text;
+    d.style.animationDelay = (i*stagger/1000)+'s';
+    el.appendChild(d);
+  });
+
+  // Neural-network overlay: scatter of dots with connecting lines, AI-motif ambiance behind the helix
+  const netGroup = document.getElementById('netGroup');
+  const pts = [];
+  for(let i=0;i<14;i++){
+    pts.push({x: 20+Math.random()*200, y: 20+Math.random()*200});
+  }
+  pts.forEach((p,i)=>{
+    // connect each point to its nearest 1-2 neighbors for a network look
+    const dists = pts.map((q,j)=> j===i ? Infinity : Math.hypot(p.x-q.x,p.y-q.y));
+    const nearest = dists.indexOf(Math.min(...dists));
+    const q = pts[nearest];
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('class','net-line');
+    line.setAttribute('x1',p.x); line.setAttribute('y1',p.y);
+    line.setAttribute('x2',q.x); line.setAttribute('y2',q.y);
+    netGroup.appendChild(line);
+  });
+  pts.forEach((p,i)=>{
+    const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('class','net-dot');
+    dot.setAttribute('cx',p.x); dot.setAttribute('cy',p.y); dot.setAttribute('r','2');
+    dot.style.animationDelay = (Math.random()*1.8)+'s';
+    netGroup.appendChild(dot);
+  });
+
+  // Progress percentage counter, synced to the 4s fill animation
+  const pctEl = document.getElementById('bootProgressPct');
+  const startTime = Date.now();
+  const pctTimer = setInterval(()=>{
+    const pct = Math.min(100, Math.round((Date.now()-startTime)/TOTAL_MS*100));
+    pctEl.textContent = pct+'%';
+    if(pct>=100) clearInterval(pctTimer);
+  }, 60);
+
+  setTimeout(()=>{
+    document.getElementById('bootScreen').classList.add('hide');
+    setTimeout(()=> document.getElementById('bootScreen')?.remove(), 500);
+  }, TOTAL_MS);
+})();
+
+/* ================= LIVE UTC CLOCK ================= */
+function tickClock(){
+  const el = document.getElementById('utcClock');
+  if(!el) return;
+  el.textContent = new Date().toUTCString().slice(17,25) + ' UTC';
+}
+tickClock();
+setInterval(tickClock, 1000);
+
+/* ================= KEYBOARD SHORTCUTS MODAL ================= */
+document.getElementById('shortcutsBtn')?.addEventListener('click', ()=> document.getElementById('shortcutsOverlay').classList.add('show'));
+document.getElementById('shortcutsOverlay')?.addEventListener('click', e=>{ if(e.target.id==='shortcutsOverlay') e.target.classList.remove('show'); });
+
+/* ================= HUD READOUT ================= */
+function updateHudReadout(){
+  const el = document.getElementById('hudReadout');
+  if(!el) return;
+  const modules = document.querySelectorAll('.navitem').length;
+  el.textContent = `${modules} MODULES · ${D.outbreaks.length} OUTBREAKS · ${D.historicalIncidents.length} INCIDENTS · ${D.labs.length} LABS`;
 }
 
 /* ================= NEW-SINCE-LAST-VISIT TRACKING ================= */
@@ -1721,7 +1885,11 @@ document.getElementById('paletteOverlay').addEventListener('click', e=>{ if(e.ta
 document.getElementById('paletteInput').addEventListener('input', e=> renderPaletteResults(e.target.value));
 document.addEventListener('keydown', e=>{
   if((e.metaKey||e.ctrlKey) && e.key==='k'){ e.preventDefault(); openPalette(); }
-  if(e.key==='Escape') closePalette();
+  if(e.key==='Escape'){ closePalette(); document.getElementById('shortcutsOverlay')?.classList.remove('show'); }
+  if(e.key==='?' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){
+    e.preventDefault();
+    document.getElementById('shortcutsOverlay')?.classList.toggle('show');
+  }
   if(document.getElementById('paletteOverlay').classList.contains('show')){
     const results = renderPaletteResults._results || [];
     if(e.key==='ArrowDown'){ e.preventDefault(); paletteSel = Math.min(paletteSel+1, results.length-1); updatePaletteSel(); }
@@ -1821,6 +1989,7 @@ loadData().then(()=>{
   Promise.all([loadBookmarks(), checkNewSinceLastVisit()]).then(()=>{
     renderAll();
     initWalkthrough();
+    updateHudReadout();
     parseHash();
     if(!location.hash) goTo('overview');
   });
