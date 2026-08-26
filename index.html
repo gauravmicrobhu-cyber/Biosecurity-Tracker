@@ -1504,6 +1504,31 @@ function renderSynthesis(){
 
 /* ================= RENDER: MAP ================= */
 let leafletMap = null, mapMarkers = [];
+
+/* ---- Shared pulsing-marker system: one rAF loop drives every halo on every map, for efficiency ---- */
+let pulseHalos = []; // {halo, map}
+function registerPulseHalo(map, targetMarker, latlng, color){
+  const halo = L.circleMarker(latlng, {radius:10, color, weight:0, fillColor:color, fillOpacity:0.35, interactive:false}).addTo(map);
+  pulseHalos.push({halo, map});
+}
+function clearPulseHalos(map){
+  if(!map) return;
+  pulseHalos = pulseHalos.filter(p=>{
+    if(p.map === map){ map.removeLayer(p.halo); return false; }
+    return true;
+  });
+}
+const PULSE_PERIOD_MS = 1800;
+function tickPulseHalos(now){
+  if(pulseHalos.length){
+    const t = (now % PULSE_PERIOD_MS) / PULSE_PERIOD_MS;
+    const radius = 8 + t*10, opacity = 0.5 * (1-t);
+    pulseHalos.forEach(p=>{ p.halo.setRadius(radius); p.halo.setStyle({fillOpacity:opacity, opacity}); });
+  }
+  requestAnimationFrame(tickPulseHalos);
+}
+requestAnimationFrame(tickPulseHalos);
+
 function renderMapFilters(){
   const tiers = [["strong","Strong"],["moderate","Moderate"],["weak","Weak"]];
   let html = `<button class="chip ${!state.levelFilter?'active':''}" data-tier="">All tiers</button>`;
@@ -1531,15 +1556,21 @@ function refreshMapMarkers(){
   if(!leafletMap) return;
   mapMarkers.forEach(m=>leafletMap.removeLayer(m));
   mapMarkers = [];
+  clearPulseHalos(leafletMap);
   const colors = {strong:"#00f5d4", moderate:"#ffe600", weak:"#ff2d6a"};
+  let flyTarget = null;
   D.labs.forEach(l=>{
     if(state.levelFilter && l.tier !== state.levelFilter) return;
     const matched = state.countryFilter && l.country.includes(state.countryFilter);
+    if(matched && !flyTarget) flyTarget = [l.lat, l.lng];
     const m = L.circleMarker([l.lat,l.lng], {
       radius: matched?10:7, color:colors[l.tier], fillColor:colors[l.tier], fillOpacity:0.8, weight: matched?3:1.5
     }).addTo(leafletMap).bindPopup(`<b>${l.n}</b><br><span style="font-family:IBM Plex Mono;font-size:11px;color:${colors[l.tier]}">${l.tier.toUpperCase()} governance tier</span>`);
     mapMarkers.push(m);
+    if(l.tier === 'weak') registerPulseHalo(leafletMap, m, [l.lat, l.lng], colors.weak);
   });
+  if(flyTarget) leafletMap.flyTo(flyTarget, 5, {duration:1.3});
+  else if(state.countryFilter) leafletMap.flyTo([25,10], 2, {duration:1.1}); // no facility for this country — ease back to world view rather than sitting on a stale position
 }
 
 /* ================= RENDER: SCORECARDS ================= */
@@ -1757,11 +1788,28 @@ function renderNetwork(){
   node.on('mouseenter', (ev,d)=>{
     tooltip.style.opacity = 1;
     tooltip.innerHTML = `<span class="ntype">${d.type}</span><b>${d.label}</b>${d.note?d.note:''}`;
+    const connected = new Set([d.id]);
+    links.forEach(l=>{
+      const sId = l.source.id ?? l.source, tId = l.target.id ?? l.target;
+      if(sId===d.id) connected.add(tId);
+      if(tId===d.id) connected.add(sId);
+    });
+    node.transition().duration(200).style('opacity', n=> connected.has(n.id) ? 1 : 0.12);
+    label.transition().duration(200).style('opacity', n=> connected.has(n.id) ? 1 : 0.08);
+    link.transition().duration(200)
+      .attr('stroke', l=> (l.source.id??l.source)===d.id || (l.target.id??l.target)===d.id ? '#ff9f1c' : '#3A4345')
+      .attr('stroke-opacity', l=> (l.source.id??l.source)===d.id || (l.target.id??l.target)===d.id ? 0.95 : 0.08)
+      .attr('stroke-width', l=> (l.source.id??l.source)===d.id || (l.target.id??l.target)===d.id ? 2.2 : 1.2);
   }).on('mousemove', (ev)=>{
     const rect = document.getElementById('netwrap').getBoundingClientRect();
     tooltip.style.left = (ev.clientX-rect.left+14)+'px';
     tooltip.style.top = (ev.clientY-rect.top+10)+'px';
-  }).on('mouseleave', ()=> tooltip.style.opacity = 0)
+  }).on('mouseleave', ()=>{
+    tooltip.style.opacity = 0;
+    node.transition().duration(250).style('opacity', 1);
+    label.transition().duration(250).style('opacity', 1);
+    link.transition().duration(250).attr('stroke', '#3A4345').attr('stroke-opacity', 0.6).attr('stroke-width', 1.2);
+  })
   .on('click', (ev,d)=>{
     if(d.type==='country'){ state.countryFilter = d.label; showToast('Linked: '+d.label); renderNetwork(); }
   });
@@ -2019,14 +2067,21 @@ function initHistMap(){
 function refreshHistMarkers(){
   histMarkers.forEach(m=>histMap.removeLayer(m));
   histMarkers = [];
+  clearPulseHalos(histMap);
   const colors = {A:"#00f5d4", B:"#ff2d6a", C:"#2f9bff"};
+  let flyTarget = null;
   D.historicalIncidents.forEach(h=>{
     if(histCatFilter!=='all' && h.cat!==histCatFilter) return;
+    const matched = state.countryFilter && h.country===state.countryFilter;
+    if(matched && !flyTarget) flyTarget = [h.lat, h.lng];
     const m = L.circleMarker([h.lat,h.lng], {
       radius:7, color:colors[h.cat], fillColor:colors[h.cat], fillOpacity:0.8, weight:1.5
     }).addTo(histMap).bindPopup(`<b>${h.title}</b><br><span style="font-family:IBM Plex Mono;font-size:10.5px;color:${colors[h.cat]}">CATEGORY ${h.cat} · ${h.date}</span><p style="font-size:11.5px;max-width:220px;margin-top:6px;">${h.desc}</p><a href="#" onclick="window.gotoHistCountry('${h.country}');return false;" style="font-family:IBM Plex Mono;font-size:10px;color:#00f5d4;">📍 View ${h.country} in Analysis →</a>`);
     histMarkers.push(m);
+    if(h.cat === 'B') registerPulseHalo(histMap, m, [h.lat, h.lng], colors.B);
   });
+  if(flyTarget) histMap.flyTo(flyTarget, 5, {duration:1.3});
+  else if(state.countryFilter) histMap.flyTo([30,0], 2, {duration:1.1});
 }
 function renderHistList(){
   const list = D.historicalIncidents
@@ -2264,15 +2319,41 @@ function computeRadarPoints(){
     return { x: cx + r*Math.cos(rad), y: cy + r*Math.sin(rad), factor: a.factor };
   });
 }
-function renderRadar(){
+let radarTweenFrame = null;
+function readCurrentRadarPoints(){
   const poly = document.getElementById('radarPoly');
-  if(!poly) return;
-  const pts = computeRadarPoints();
-  poly.setAttribute('points', pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' '));
+  const raw = poly?.getAttribute('points');
+  if(!raw) return null;
+  return raw.trim().split(/\s+/).map(pair=>{ const [x,y] = pair.split(',').map(Number); return {x,y}; });
+}
+function applyRadarPoints(pts){
+  const poly = document.getElementById('radarPoly');
+  if(poly) poly.setAttribute('points', pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' '));
   pts.forEach(p=>{
     const el = document.getElementById('radarPt-'+p.factor);
     if(el){ el.setAttribute('cx',p.x.toFixed(1)); el.setAttribute('cy',p.y.toFixed(1)); }
   });
+}
+function renderRadar(){
+  const poly = document.getElementById('radarPoly');
+  if(!poly) return;
+  const target = computeRadarPoints();
+  const start = readCurrentRadarPoints() || target; // no prior state (first paint) — snap instead of tweening from nothing
+  if(radarTweenFrame) cancelAnimationFrame(radarTweenFrame);
+  const startTime = performance.now(), DURATION = 450;
+  function frame(now){
+    const t = Math.min(1, (now-startTime)/DURATION);
+    const eased = 1 - Math.pow(1-t, 3); // easeOutCubic — SVG polygon "points" isn't CSS-animatable in most browsers, so this has to be a real JS tween, not a CSS transition
+    const interpolated = target.map((p,i)=>({
+      x: (start[i]?.x ?? p.x) + (p.x - (start[i]?.x ?? p.x))*eased,
+      y: (start[i]?.y ?? p.y) + (p.y - (start[i]?.y ?? p.y))*eased,
+      factor: p.factor,
+    }));
+    applyRadarPoints(interpolated);
+    if(t<1) radarTweenFrame = requestAnimationFrame(frame);
+  }
+  radarTweenFrame = requestAnimationFrame(frame);
+
   const riskState = {
     outbreak: factors.outbreak, aicap: factors.aicap,
     screening: !factors.screening, governance: !factors.governance
