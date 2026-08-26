@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T18:24:53.753740+00:00",
+    "updatedAt": "2026-08-26T18:36:16.300388+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-26T18:24:53.753706+00:00",
+    "checkedAt": "2026-08-26T18:36:16.300364+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -487,24 +487,24 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.33 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error timed out>",
+        "status": "normal",
+        "note": "z-score -1.29 against 60-day baseline (mean 0.005%, latest 0.002%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.81 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
