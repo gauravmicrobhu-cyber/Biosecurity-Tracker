@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T15:00:00Z",
-    "source": "Manual refresh via Claude \u2014 GovAI \"A Biosafety Agenda for AI-Bio Governance\" cross-reference, 25 Aug 2026 \u2014 added Delhi H1N1 seasonal monitoring entry \u2014 added Claude-checked signals data, replacing live GDELT fetch \u2014 added Bangladesh measles and W/Central Africa + Myanmar cholera outbreaks (surfaced via signal check) \u2014 added country tags to governance timeline",
+    "updatedAt": "2026-08-26T16:00:00Z",
+    "source": "Manual refresh via Claude \u2014 GovAI \"A Biosafety Agenda for AI-Bio Governance\" cross-reference, 25 Aug 2026 \u2014 added Delhi H1N1 seasonal monitoring entry \u2014 added Claude-checked signals data, replacing live GDELT fetch \u2014 added Bangladesh measles and W/Central Africa + Myanmar cholera outbreaks (surfaced via signal check) \u2014 added country tags to governance timeline \u2014 added EU/China/Russia/India governance entries",
     "generator": "manual"
   },
   "outbreaks": [
@@ -360,6 +360,14 @@
       "country": "Global"
     },
     {
+      "id": "china-ai-pharma-plan-2026",
+      "date": "2026-07-07",
+      "sortDate": "2026-07-07",
+      "title": "China's National Health Development Plan \u2014 AI-Pharma Provisions",
+      "country": "China",
+      "desc": "China's National Health Development Plan for the 15th Five-Year Plan Period, officially released 7 Jul 2026, explicitly proposes promoting AI-enabled upgrading across the entire pharmaceutical industry value chain. Chinese regulators are concurrently building a multi-layered regulatory framework spanning data, algorithms, cybersecurity, biosafety, and healthcare regulation for this expansion."
+    },
+    {
       "id": "g0b",
       "date": "2026-07-01",
       "sortDate": "2026-07-01",
@@ -384,6 +392,22 @@
       "country": "Singapore"
     },
     {
+      "id": "eu-biotech-act-2025",
+      "date": "2025-12-16",
+      "sortDate": "2025-12-16",
+      "title": "EU Biotech Act \u2014 Biosecurity & Biodefence Provisions (Pillar 7)",
+      "country": "Europe",
+      "desc": "European Commission legislative proposal COM(2025) 1022, Pillar 7, amends multiple existing EU health and food regulations to boost biodefence and biosecurity and help prevent biotechnology misuse. Stakeholder consultation (14 May\u201311 Jun 2025) gathered 222 contributions from industry, NGOs, and public authorities."
+    },
+    {
+      "id": "russia-mfa-ai-bio-statement-2025",
+      "date": "2025-12-01",
+      "sortDate": "2025-12-01",
+      "title": "Russian MFA Statement on AI-Enabled Biological Risk (BWC Conference)",
+      "country": "Russia",
+      "desc": "At a BWC 50th-anniversary conference held in New Delhi, Russia's Deputy Director-General for Non-Proliferation and Arms Control formally flagged that new AI models could enable researchers to design a wider range of molecules/proteins, modify microorganisms to be undetectable, and develop new bioagents and toxins \u2014 calling for export-control attention to dual-use gene-editing platforms. References Russia's own recurring Sochi biosecurity forum (Rospotrebnadzor + MFA, most recently 10\u201311 Jun 2025)."
+    },
+    {
       "id": "g3",
       "date": "2025-05-05",
       "sortDate": "2025-05-05",
@@ -400,12 +424,12 @@
       "country": "USA"
     },
     {
-      "id": "g5",
-      "date": "2024-04-29",
-      "sortDate": "2024-04-29",
-      "title": "OSTP Framework for Nucleic Acid Synthesis Screening issued",
-      "desc": "Established as a voluntary-turned-conditional requirement tied to federal life-sciences funding eligibility.",
-      "country": "USA"
+      "id": "india-biosecurity-gap-orf",
+      "date": "2024-08-19",
+      "sortDate": "2024-08-19",
+      "title": "India's Biosecurity Governance Gap (documented, not yet acted on)",
+      "country": "India",
+      "desc": "ORF's 'Biosecurity blueprint for India' documents that India has no dedicated biosecurity-specific law or agency \u2014 biological risk is currently governed only through general instruments (Environment Protection Act 1986, WMD Act 2005, Biosafety Rules 1989/rDNA Guidelines 2017), which address biosafety and non-proliferation but not biosecurity as a distinct function. ORF recommends a dedicated biosecurity agency, drawing on the US's NSCEB model. This gap remains undocumented as closed as of this tracker's last check \u2014 tracked here as a standing recommendation, not a completed action."
     },
     {
       "id": "g6",
@@ -414,6 +438,14 @@
       "title": "IBBIS Common Mechanism launched",
       "desc": "Free, open-source, globally available DNA/RNA synthesis screening software released.",
       "country": "Global"
+    },
+    {
+      "id": "g5",
+      "date": "2024-04-29",
+      "sortDate": "2024-04-29",
+      "title": "OSTP Framework for Nucleic Acid Synthesis Screening issued",
+      "desc": "Established as a voluntary-turned-conditional requirement tied to federal life-sciences funding eligibility.",
+      "country": "USA"
     },
     {
       "id": "g7",
