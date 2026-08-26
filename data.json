@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T16:00:00Z",
-    "source": "Manual refresh via Claude \u2014 GovAI \"A Biosafety Agenda for AI-Bio Governance\" cross-reference, 25 Aug 2026 \u2014 added Delhi H1N1 seasonal monitoring entry \u2014 added Claude-checked signals data, replacing live GDELT fetch \u2014 added Bangladesh measles and W/Central Africa + Myanmar cholera outbreaks (surfaced via signal check) \u2014 added country tags to governance timeline \u2014 added EU/China/Russia/India governance entries",
+    "updatedAt": "2026-08-26T18:06:48.662150+00:00",
+    "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
   "outbreaks": [
@@ -465,54 +465,54 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-26T13:00:00Z",
-    "checkedBy": "Claude \u2014 manual research pass (web search), replacing live GDELT fetch after persistent network-level blocking",
+    "checkedAt": "2026-08-26T18:06:48.662099+00:00",
+    "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "elevated",
-        "note": "Heavy ongoing coverage \u2014 but expected, sustained reporting on the already-tracked confirmed Ebola (Bundibugyo virus) PHEIC, not a new anomaly.",
-        "corroborated": true,
-        "corrobNote": "Matches tracked outbreak: Ebola (Bundibugyo virus) \u2014 DRC/Uganda"
+        "status": "error",
+        "note": "Fetch failed: <urlopen error timed out>",
+        "corroborated": false,
+        "corrobNote": ""
       },
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "No current cluster found in a live search \u2014 matching coverage found was historical (2019\u20132023 China/Wuhan events), not current.",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "spike",
-        "note": "Surfaced a major active outbreak not yet in this tracker: the 2026 Bangladesh measles outbreak (DGHS-reported, 849+ deaths, 130,000+ suspected cases, 16,500+ confirmed as of early Aug 2026) \u2014 one of the world's largest current outbreaks. Also: WHO SEARO's 12 Aug bulletin flags Chandipura virus disease activity in Gujarat/Rajasthan, India, and a Kerala Nipah case confirmed 11 Jun 2026.",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
-        "corrobNote": "Not yet matched to a tracked Outbreak Feed entry \u2014 recommend adding Bangladesh measles as a new entry."
+        "corrobNote": ""
       },
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "spike",
-        "note": "Surfaced a major active cross-border outbreak not yet in this tracker: cholera spreading across 6 West/Central African countries (Nigeria >50,000 cases/338 deaths; DRC ~700 deaths/30,400+ cases) per UNICEF/WHO, 12\u201320 Aug 2026, plus a separate Myanmar outbreak (3 deaths, hundreds ill, reported 18 Aug).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
-        "corrobNote": "Not yet matched to a tracked Outbreak Feed entry \u2014 recommend adding as a new entry."
+        "corrobNote": ""
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "Steady-state sporadic human H5N1/H9N2 cases per WHO's routine human-animal interface reporting (7 Aug 2026) \u2014 no unusual spike, WHO risk assessment unchanged at low.",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "No new incidents found beyond what's already tracked (Unicamp BSL-3 theft, Jan 2026, already on the Historical Incidents map).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": ""
       }
