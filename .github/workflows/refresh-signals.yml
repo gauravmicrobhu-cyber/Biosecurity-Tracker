@@ -1,0 +1,32 @@
+name: Refresh live signal data
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run fetch script
+        env:
+          RELIEFWEB_APPNAME: ${{ secrets.RELIEFWEB_APPNAME }}
+        run: python3 fetch_data.py
+
+      - name: Commit updated data.json (if changed)
+        run: |
+          git config user.name "containment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data.json
+          git diff --cached --quiet || git commit -m "chore: automated signal/data refresh [skip ci]"
+          git push
