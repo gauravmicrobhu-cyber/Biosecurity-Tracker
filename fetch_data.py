@@ -129,19 +129,23 @@ def compute_corroboration(signal_id, label, status, outbreaks, other_statuses):
     return False, "Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution."
 
 
-def fetch_with_retry(query, max_retries=2, backoff_sec=40):
+def fetch_with_retry(query, max_retries=3, backoff_sec=25):
     last_err = None
     for attempt in range(max_retries + 1):
         try:
             return fetch_gdelt_timeline(query)
         except Exception as e:
             last_err = e
-            is_429 = "429" in str(e)
-            if attempt < max_retries and is_429:
-                log(f"  429 received, backing off {backoff_sec}s before retry {attempt+1}/{max_retries}...")
+            msg = str(e).lower()
+            # Retry on rate-limiting AND on plain network flakiness (timeouts, SSL handshake
+            # stalls) — live testing showed 3 of 6 keywords failed this way and were almost
+            # certainly transient, since other keywords in the same run succeeded fine.
+            is_retryable = "429" in msg or "timed out" in msg or "timeout" in msg
+            if attempt < max_retries and is_retryable:
+                log(f"  {type(e).__name__} ({e}), retrying in {backoff_sec}s ({attempt+1}/{max_retries})...")
                 time.sleep(backoff_sec)
-            elif not is_429:
-                break  # don't retry non-rate-limit errors (timeouts, bad response shape, etc.)
+            elif not is_retryable:
+                break  # don't retry on errors that clearly won't resolve by waiting (e.g. malformed query)
     raise last_err
 
 
