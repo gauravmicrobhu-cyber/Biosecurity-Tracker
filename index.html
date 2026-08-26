@@ -317,6 +317,19 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .src-item:last-child{border-bottom:none;}
 .src-item b{color:var(--text);}
 
+/* ---------- Country data tables (AI-Bio, Governance) ---------- */
+.country-table-wrap{background:linear-gradient(160deg, var(--panel-2) 0%, var(--panel) 55%); border:1px solid var(--line); border-radius:8px; padding:18px 20px; margin-bottom:20px; overflow-x:auto;}
+.country-table-wrap h3{font-family:var(--cond); font-size:17.5px; margin-bottom:4px; color:var(--text);}
+.country-table-wrap .ct-sub{font-size:12.5px; color:var(--muted-2); margin-bottom:14px;}
+.country-data-table{width:100%; border-collapse:collapse; min-width:480px;}
+.country-data-table th{text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); font-weight:500; padding:8px 12px; border-bottom:1px solid var(--line);}
+.country-data-table td{padding:10px 12px; border-bottom:1px solid var(--line); font-size:14px; color:var(--text); vertical-align:top;}
+.country-data-table tr:last-child td{border-bottom:none;}
+.country-data-table tr{cursor:pointer; transition:background .15s ease;}
+.country-data-table tr:hover td{background:rgba(0,245,212,0.04);}
+.ct-count{font-family:var(--mono); color:var(--l1); font-weight:600;}
+.ct-items{font-size:12.5px; color:var(--muted); line-height:1.5;}
+
 .foot{padding:30px 28px 60px 28px; border-top:1px solid var(--line); margin-top:10px;}
 
 /* ---------- Boot sequence ---------- */
@@ -665,6 +678,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
     <section class="section" id="aibio" hidden>
       <div class="section-head"><h2>AI-Bio Capability Watch</h2><p>Generative protein-design and structure-prediction tools, and the research examining where capability outruns safeguards.</p></div>
+      <div class="country-table-wrap" id="aibioCountryTableWrap"></div>
       <div class="grid grid-2" id="aibioGrid"></div>
     </section>
 
@@ -733,6 +747,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
     <section class="section" id="governance" hidden>
       <div class="section-head"><h2>Policy &amp; Export Control Timeline</h2><p>Drag the scrubber to see what was in force "as of" a given date.</p></div>
+      <div class="country-table-wrap" id="govCountryTableWrap"></div>
       <div class="scrubber-wrap">
         <div class="scrubber-label">AS OF: <b id="scrubDate">19 Aug 2026</b></div>
         <input type="range" id="scrubber" min="0" max="100" value="100">
@@ -931,16 +946,16 @@ const D = {
     {country:"Russia", biosafety:42, biosecurity:38, dualuse:28},
   ],
   governance:[
-    {id:"g0", date:"2026-07-22", sortDate:"2026-07-22", title:"OpenAI \"Biodefense in the Intelligence Age\" action plan", desc:"An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit — positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk."},
-    {id:"g0b", date:"2026-07-01", sortDate:"2026-07-01", title:"US Policy for Stopping High-Risk Life Sciences Research", desc:"Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect."},
-    {id:"g1", date:"2026-01-29", sortDate:"2026-01-29", title:"Biosecurity Modernization and Innovation Act (S.3741) introduced", desc:"Introduced in the US Senate; read twice and referred to the Committee on Commerce, Science, and Transportation."},
-    {id:"g2", date:"2026-01-20", sortDate:"2026-01-20", title:"IBBIS International Standards Initiative launched (Singapore)", desc:"Meeting convened stakeholders from industry, government, academia and standards bodies to push consistent global adoption of DNA synthesis screening."},
-    {id:"g3", date:"2025-05-05", sortDate:"2025-05-05", title:"Executive Order 14292", desc:"Directs revision or replacement of the 2024 OSTP nucleic-acid synthesis screening framework."},
-    {id:"g4", date:"2025-04-26", sortDate:"2025-04-26", title:"OSTP Screening Framework takes effect for purchases", desc:"Nucleic acid synthesis screening becomes a live requirement for purchases (condition of federal life-sciences research funding)."},
-    {id:"g5", date:"2024-04-29", sortDate:"2024-04-29", title:"OSTP Framework for Nucleic Acid Synthesis Screening issued", desc:"Established as a voluntary-turned-conditional requirement tied to federal life-sciences funding eligibility."},
-    {id:"g6", date:"2024-05-01", sortDate:"2024-05-01", title:"IBBIS Common Mechanism launched", desc:"Free, open-source, globally available DNA/RNA synthesis screening software released; incubated from a 2019 NTI/World Economic Forum consortium."},
-    {id:"g7", date:"2024-02-01", sortDate:"2024-02-01", title:"IBBIS founded as independent Swiss foundation", desc:"Incubated out of NTI | bio; headquartered Geneva, tasked with international biosecurity tooling and standards."},
-    {id:"g8", date:"2010-01-01", sortDate:"2010-01-01", title:"HHS voluntary synthesis-screening guidance", desc:"Baseline (non-binding) starting point for US gene-synthesis screening policy, superseded by the 2024 OSTP framework."},
+    {id:"g0", date:"2026-07-22", sortDate:"2026-07-22", title:"OpenAI \"Biodefense in the Intelligence Age\" action plan", country:"Global", desc:"An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit — positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk."},
+    {id:"g0b", date:"2026-07-01", sortDate:"2026-07-01", title:"US Policy for Stopping High-Risk Life Sciences Research", country:"USA", desc:"Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect."},
+    {id:"g1", date:"2026-01-29", sortDate:"2026-01-29", title:"Biosecurity Modernization and Innovation Act (S.3741) introduced", country:"USA", desc:"Introduced in the US Senate; read twice and referred to the Committee on Commerce, Science, and Transportation."},
+    {id:"g2", date:"2026-01-20", sortDate:"2026-01-20", title:"IBBIS International Standards Initiative launched (Singapore)", country:"Singapore", desc:"Meeting convened stakeholders from industry, government, academia and standards bodies to push consistent global adoption of DNA synthesis screening."},
+    {id:"g3", date:"2025-05-05", sortDate:"2025-05-05", title:"Executive Order 14292", country:"USA", desc:"Directs revision or replacement of the 2024 OSTP nucleic-acid synthesis screening framework."},
+    {id:"g4", date:"2025-04-26", sortDate:"2025-04-26", title:"OSTP Screening Framework takes effect for purchases", country:"USA", desc:"Nucleic acid synthesis screening becomes a live requirement for purchases (condition of federal life-sciences research funding)."},
+    {id:"g5", date:"2024-04-29", sortDate:"2024-04-29", title:"OSTP Framework for Nucleic Acid Synthesis Screening issued", country:"USA", desc:"Established as a voluntary-turned-conditional requirement tied to federal life-sciences funding eligibility."},
+    {id:"g6", date:"2024-05-01", sortDate:"2024-05-01", title:"IBBIS Common Mechanism launched", country:"Global", desc:"Free, open-source, globally available DNA/RNA synthesis screening software released; incubated from a 2019 NTI/World Economic Forum consortium."},
+    {id:"g7", date:"2024-02-01", sortDate:"2024-02-01", title:"IBBIS founded as independent Swiss foundation", country:"Switzerland", desc:"Incubated out of NTI | bio; headquartered Geneva, tasked with international biosecurity tooling and standards."},
+    {id:"g8", date:"2010-01-01", sortDate:"2010-01-01", title:"HHS voluntary synthesis-screening guidance", country:"USA", desc:"Baseline (non-binding) starting point for US gene-synthesis screening policy, superseded by the 2024 OSTP framework."},
   ].sort((a,b)=> new Date(b.sortDate) - new Date(a.sortDate))
 };
 
@@ -1401,6 +1416,37 @@ function renderOutbreaks(){
 }
 
 /* ================= RENDER: AIBIO / SYNTHESIS ================= */
+function renderAibioCountryTable(){
+  const wrap = document.getElementById('aibioCountryTableWrap');
+  if(!wrap) return;
+  const byCountry = {};
+  D.aibio.forEach(a=>{
+    (a.country || []).forEach(c=>{
+      (byCountry[c] = byCountry[c] || []).push(a);
+    });
+  });
+  const rows = Object.entries(byCountry).sort((a,b)=> b[1].length-a[1].length);
+  if(!rows.length){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  wrap.innerHTML = `
+    <h3>Country-Specific AI-Bio Activity</h3>
+    <p class="ct-sub">Entries in this module tagged to a specific country — most AI-Bio entries are global/multi-national and aren't included here. Click a row to open that country's full profile.</p>
+    <table class="country-data-table">
+      <tr><th>Country</th><th>Entries</th><th>Highest Level</th><th>Details</th></tr>
+      ${rows.map(([country, items])=>{
+        const maxLevel = Math.max(...items.map(i=>i.level));
+        return `<tr data-country="${country}">
+          <td><b>${country}</b></td>
+          <td class="ct-count">${items.length}</td>
+          <td>${clFmt(maxLevel)}</td>
+          <td class="ct-items">${items.map(i=>i.title).join('; ')}</td>
+        </tr>`;
+      }).join('')}
+    </table>`;
+  wrap.querySelectorAll('tr[data-country]').forEach(tr=>{
+    tr.onclick = ()=>{ state.countryFilter = tr.dataset.country; goTo('analysis'); };
+  });
+}
 function renderAibio(){
   document.getElementById('aibioGrid').innerHTML = D.aibio.map(a=>`
     <div class="card card-aibio" data-id="${a.id}">
@@ -1413,6 +1459,7 @@ function renderAibio(){
     </div>`).join('');
   document.querySelectorAll('#aibioGrid [data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
   document.querySelectorAll('#aibioGrid [data-goto-country]').forEach(el=> el.onclick = ()=>{ state.countryFilter = el.dataset.gotoCountry; goTo('labmap-section'); });
+  renderAibioCountryTable();
 }
 function renderSynthesis(){
   document.getElementById('synthesisGrid').innerHTML = `<div class="grid grid-2">` + D.synthesis.map(s=>`
@@ -1495,6 +1542,36 @@ function renderScorecards(){
 }
 
 /* ================= RENDER: GOVERNANCE TIMELINE + SCRUBBER ================= */
+function renderGovCountryTable(){
+  const wrap = document.getElementById('govCountryTableWrap');
+  if(!wrap) return;
+  const byCountry = {};
+  D.governance.forEach(g=>{
+    const c = g.country || 'Unspecified';
+    (byCountry[c] = byCountry[c] || []).push(g);
+  });
+  const rows = Object.entries(byCountry).sort((a,b)=> b[1].length-a[1].length);
+  if(!rows.length){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  wrap.innerHTML = `
+    <h3>Policy Actions by Country / Region</h3>
+    <p class="ct-sub">Every tracked governance action, grouped by the country or region it applies to. Click a row to open that country's full profile.</p>
+    <table class="country-data-table">
+      <tr><th>Country / Region</th><th>Actions</th><th>Most Recent</th><th>Details</th></tr>
+      ${rows.map(([country, items])=>{
+        const sorted = items.slice().sort((a,b)=> new Date(b.sortDate)-new Date(a.sortDate));
+        return `<tr data-country="${country}">
+          <td><b>${country}</b></td>
+          <td class="ct-count">${items.length}</td>
+          <td style="font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;">${new Date(sorted[0].date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td>
+          <td class="ct-items">${items.map(i=>i.title).join('; ')}</td>
+        </tr>`;
+      }).join('')}
+    </table>`;
+  wrap.querySelectorAll('tr[data-country]').forEach(tr=>{
+    tr.onclick = ()=>{ state.countryFilter = tr.dataset.country; goTo('analysis'); };
+  });
+}
 function renderGovernance(){
   document.getElementById('govTimeline').innerHTML = D.governance.map(g=>`
     <div class="tl-item" data-id="${g.id}" data-date="${g.sortDate}">
@@ -1502,6 +1579,7 @@ function renderGovernance(){
       <h4>${g.title}${newBadge(g.id)}</h4><p>${g.desc}</p>
     </div>`).join('');
   applyScrubber();
+  renderGovCountryTable();
 }
 function applyScrubber(){
   const min = new Date("2010-01-01").getTime();
@@ -1754,6 +1832,7 @@ function allCountries(){
   D.aibio.forEach(a=> a.country && a.country.forEach(c=> set.add(c)));
   D.synthesis.forEach(s=> s.country && s.country.forEach(c=> set.add(c)));
   D.historicalIncidents.forEach(h=> set.add(h.country));
+  D.governance.forEach(g=> g.country && set.add(g.country));
   return [...set].sort();
 }
 function populateCountrySelect(){
@@ -1771,6 +1850,7 @@ function renderCountryAnalysis(country){
   const score = D.scorecards.find(s=> s.country===country);
   const histIncidents = D.historicalIncidents.filter(h=> h.country===country);
   const histA = histIncidents.filter(h=>h.cat==='A').length, histB = histIncidents.filter(h=>h.cat==='B').length;
+  const govActions = D.governance.filter(g=> g.country===country);
   const maxLevel = outbreaks.length ? Math.max(...outbreaks.map(o=>o.level)) : 0;
   const activeCount = outbreaks.filter(o=> o.status && /active|pheic|monitoring/i.test(o.status)).length;
 
@@ -1805,6 +1885,9 @@ function renderCountryAnalysis(country){
   if(histIncidents.length){
     parts.push(` The historical incidents map records ${histIncidents.length} entr${histIncidents.length===1?'y':'ies'} here: ${histB} confirmed biocrime/bioterrorism incident${histB===1?'':'s'} and ${histA} instance${histA===1?'':'s'} of flagged dual-use research or export-control enforcement.`);
   }
+  if(govActions.length){
+    parts.push(` ${govActions.length} tracked governance action${govActions.length===1?'':'s'} apply here — most recently "${govActions.slice().sort((a,b)=> new Date(b.sortDate)-new Date(a.sortDate))[0].title}".`);
+  }
   const narrative = `${country} ${parts.join('')}`;
 
   out.innerHTML = `
@@ -1824,10 +1907,13 @@ function renderCountryAnalysis(country){
     ${histIncidents.length? `<div style="margin-top:14px;"><span class="eyebrow">Historical dual-use incidents</span>${histIncidents.map(h=>`
       <div class="mini-timeline-row" data-goto-hist="${h.id}"><span class="hist-cat-chip ${h.cat}">CAT ${h.cat}</span><span>${new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</span><span style="color:var(--muted)">${h.title}</span></div>`).join('')}</div>` : ''}
     ${labs.length? `<div style="margin-top:14px;"><span class="eyebrow">Tracked facilities</span>${labs.map(l=>`<div class="mini-timeline-row" data-goto-lab="${l.id}"><span style="width:8px;height:8px;border-radius:50%;background:${l.tier==='strong'?'var(--l1)':l.tier==='moderate'?'var(--l2)':'var(--l4)'};display:inline-block;"></span><span style="color:var(--muted)">${l.n}</span></div>`).join('')}</div>` : ''}
+    ${govActions.length? `<div style="margin-top:14px;"><span class="eyebrow">Governance actions</span>${govActions.slice().sort((a,b)=> new Date(b.sortDate)-new Date(a.sortDate)).map(g=>`
+      <div class="mini-timeline-row" data-goto-gov="${g.id}"><span>${new Date(g.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</span><span style="color:var(--muted)">${g.title}</span></div>`).join('')}</div>` : ''}
   `;
   out.querySelectorAll('[data-goto-outbreak]').forEach(el=> el.onclick = ()=> goTo('outbreaks', el.dataset.gotoOutbreak));
   out.querySelectorAll('[data-goto-lab]').forEach(el=> el.onclick = ()=> goTo('labmap-section'));
   out.querySelectorAll('[data-goto-hist]').forEach(el=> el.onclick = ()=> goTo('histmap-section', el.dataset.gotoHist));
+  out.querySelectorAll('[data-goto-gov]').forEach(el=> el.onclick = ()=> goTo('governance', el.dataset.gotoGov));
 }
 function renderTrendChart(){
   const svgEl = document.getElementById('trendChart');
