@@ -163,6 +163,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
 /* ---------- Map ---------- */
 #labmap{height:440px; border-radius:8px; border:1px solid var(--line); background:#10151A;}
+/* CARTO's free dark tiles now require an API key (policy change on their end) — using standard,
+   always-free OpenStreetMap tiles instead, run through a CSS filter to match the dark theme. */
+.map-tiles-dark{filter:invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);}
 .leaflet-popup-content-wrapper{background:var(--panel); color:var(--text); border-radius:6px;}
 .leaflet-popup-tip{background:var(--panel);}
 .map-legend{display:flex; gap:16px; flex-wrap:wrap; margin-top:12px; font-size:13.5px; color:var(--muted);}
@@ -1547,7 +1550,7 @@ function renderMapFilters(){
 function initMap(){
   if(leafletMap) { refreshMapMarkers(); return; }
   leafletMap = L.map('labmap', {scrollWheelZoom:false}).setView([25,10], 2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19}).addTo(leafletMap);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:'&copy; OpenStreetMap contributors', subdomains:'abc', maxZoom:19, className:'map-tiles-dark'}).addTo(leafletMap);
   refreshMapMarkers();
   setTimeout(()=> leafletMap && leafletMap.invalidateSize(), 120);
   setTimeout(()=> leafletMap && leafletMap.invalidateSize(), 500);
@@ -2052,7 +2055,7 @@ function initHistMap(){
   try{
     if(!histMap){
       histMap = L.map('histmap', {scrollWheelZoom:false}).setView([30,0], 2);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19}).addTo(histMap);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:'&copy; OpenStreetMap contributors', subdomains:'abc', maxZoom:19, className:'map-tiles-dark'}).addTo(histMap);
     }
     refreshHistMarkers();
     renderHistList();
