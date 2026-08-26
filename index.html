@@ -686,10 +686,10 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     </section>
 
     <section class="section" id="signals" hidden>
-      <div class="section-head"><h2>Signal Detection</h2><p>Qualitative news-coverage check across biosecurity-relevant keywords — a leading indicator layer, separate from the confirmed WHO/CDC feed.</p></div>
-      <div class="signal-warn">⚠ <b>Unverified signals, not confirmed outbreaks.</b> These reflect a research pass, not a live statistical anomaly detector — elevated coverage can be driven by a single article, an unrelated event sharing keywords, or genuine early outbreak chatter. Cross-check against the Outbreak Feed and primary sources before treating any of this as actionable.</div>
+      <div class="section-head"><h2>Signal Detection</h2><p>Live news-volume anomaly detection via GDELT — a real z-score computed against each keyword's 60-day baseline, refreshed automatically every 12 hours. A leading indicator layer, separate from the confirmed WHO/CDC feed.</p></div>
+      <div class="signal-warn">⚠ <b>Unverified signals, not confirmed outbreaks.</b> These are statistical anomalies in news-mention volume — they can be driven by a single viral article, an unrelated event sharing keywords, or genuine early outbreak chatter. Cross-check against the Outbreak Feed and primary sources before treating any of this as actionable. A spike is a prompt to look closer, not a finding.</div>
       <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;" id="signalsFreshness"></p>
-      <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;">Not live-fetched: browser-side calls to GDELT's API were persistently blocked from this network across multiple tests. This module is now checked manually via search, the same way the Outbreak Feed is refreshed — ask in a chat with Claude for an updated check.</p>
+      <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;">Fetched automatically by a scheduled GitHub Actions job — not by your browser, which is why this works reliably regardless of your network. Browser-side calls to GDELT were persistently blocked across multiple tests; running the same fetch server-side, correctly paced (up to ~45s between requests, with retries on rate-limit/timeout responses), resolved it.</p>
       <div class="signal-grid" id="signalGrid"></div>
     </section>
 
