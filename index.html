@@ -245,6 +245,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .signal-badge.spike{background:rgba(255,45,106,0.14); color:var(--l4);}
 .signal-badge.loading{background:var(--panel-2); color:var(--muted-2);}
 .signal-badge.error{background:rgba(255,45,106,0.14); color:var(--brick);}
+.signal-badge.insufficient{background:var(--panel-2); color:var(--muted-2); border:1px solid var(--line);}
 .signal-meta{font-family:var(--mono); font-size:12px; color:var(--muted-2); margin-top:6px;}
 .signal-detail{margin-top:14px; padding-top:14px; border-top:1px solid var(--line);}
 .signal-error-msg{font-size:13.5px; color:var(--muted); margin-top:8px; line-height:1.5;}
@@ -329,6 +330,21 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .country-data-table tr:hover td{background:rgba(0,245,212,0.04);}
 .ct-count{font-family:var(--mono); color:var(--l1); font-weight:600;}
 .ct-items{font-size:12.5px; color:var(--muted); line-height:1.5;}
+
+/* ---------- Illustrative-data watermarking (screenshots strip context, so this can't rely on nearby text) ---------- */
+.illustrative-card{position:relative; border:1.5px dashed rgba(255,159,28,0.55) !important; overflow:hidden;}
+.illustrative-card::before{
+  content:'ILLUSTRATIVE MODEL — NOT AN OFFICIAL RATING';
+  position:absolute; top:38%; left:-18%; width:140%; text-align:center;
+  transform:rotate(-18deg); font-family:var(--mono); font-size:15px; font-weight:700;
+  letter-spacing:0.08em; color:rgba(255,159,28,0.14); pointer-events:none; z-index:0; white-space:nowrap;
+}
+.illustrative-card > *{position:relative; z-index:1;}
+.not-official-chip{
+  display:inline-flex; align-items:center; gap:4px; font-family:var(--mono); font-size:9px; font-weight:700;
+  letter-spacing:0.04em; color:#ff9f1c; background:rgba(255,159,28,0.14); border:1px solid rgba(255,159,28,0.4);
+  padding:2px 6px; border-radius:4px; white-space:nowrap; vertical-align:middle;
+}
 
 .foot{padding:30px 28px 60px 28px; border-top:1px solid var(--line); margin-top:10px;}
 
@@ -567,11 +583,12 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
     <section class="hero" id="hero">
       <div class="gauge-wrap">
-        <svg width="220" height="130" viewBox="0 0 220 130">
+        <svg width="220" height="144" viewBox="0 0 220 144">
           <path d="M20,120 A90,90 0 0,1 200,120" fill="none" stroke="#2a3350" stroke-width="14" stroke-linecap="round"/>
           <path id="gaugeArc" d="M20,120 A90,90 0 0,1 200,120" fill="none" stroke="#ff9f1c" stroke-width="14" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="63" style="transition:stroke-dashoffset .4s, stroke .4s;"/>
           <text id="gaugeText" x="110" y="100" text-anchor="middle" font-family="IBM Plex Mono" font-size="30" fill="#c9d1d9" font-weight="600">L3</text>
           <text x="110" y="118" text-anchor="middle" font-family="IBM Plex Serif" font-size="11" fill="#8b96ab" letter-spacing="1">CONTAINMENT INDEX</text>
+          <text x="110" y="134" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#ff9f1c" font-weight="700" letter-spacing="0.5">⚠ ILLUSTRATIVE MODEL — NOT OFFICIAL</text>
         </svg>
         <div class="gauge-label">Composite Global Biorisk Posture</div>
         <div class="gauge-value" id="gaugeVerdict">ELEVATED — convergence-driven</div>
@@ -721,13 +738,13 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     </section>
 
     <section class="section" id="scorecards" hidden>
-      <div class="section-head"><h2>Biorisk Governance Scorecards</h2><p>Illustrative composite bars following Global BioLabs methodology (biosafety / biosecurity / dual-use oversight). Click a row to see related labs and outbreaks for that country.</p></div>
+      <div class="section-head"><h2>Biorisk Governance Scorecards <span class="not-official-chip">⚠ NOT OFFICIAL GLOBAL BIOLABS DATA</span></h2><p>Illustrative composite bars <b>built by this tracker</b>, following Global BioLabs' published methodology — these are not Global BioLabs' own scores. Click a row to see related labs and outbreaks for that country.</p></div>
       <div class="linkbanner" id="scoreLinkBanner"></div>
-      <div class="card">
+      <div class="card illustrative-card">
         <div class="score-labels"><span>Biosafety</span><span>Biosecurity</span><span>Dual-Use Oversight</span></div>
         <div id="scoreRows"></div>
       </div>
-      <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:720px;">Directional illustration from Global BioLabs Report qualitative findings — not the report's raw published scores. See globalbiolabs.org for primary scorecards.</p>
+      <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:720px;"><b style="color:#ff9f1c;">Not official data:</b> this is a directional illustration built from Global BioLabs Report qualitative findings by this tracker — it is not the report's raw published scores, and should not be cited or shared as if it were. See globalbiolabs.org for the primary, official scorecards.</p>
     </section>
 
     <section class="section" id="network" hidden>
@@ -1781,7 +1798,7 @@ function renderSignalGrid(){
 }
 function signalCardHtml(sig){
   const status = sig.status || 'normal';
-  const label = {normal:'NORMAL', elevated:'ELEVATED', spike:'SPIKE'}[status] || status.toUpperCase();
+  const label = {normal:'NORMAL', elevated:'ELEVATED', spike:'SPIKE', error:'ERROR', insufficient:'INSUFFICIENT DATA'}[status] || status.toUpperCase();
   return `<div class="signal-card" data-id="${sig.id}">
     <div class="signal-card-head"><span class="signal-title">${sig.label}</span><span class="signal-badge ${status}">${label}</span></div>
     ${sig.note ? `<div class="signal-meta" style="margin-top:8px;">${sig.note}</div>` : ''}
@@ -1902,9 +1919,9 @@ function renderCountryAnalysis(country){
 
   out.innerHTML = `
     <div class="narrative"><p>${narrative}</p></div>
-    <div class="card" style="margin:14px 0;border-color:${compositeColor};">
-      <div class="card-head"><span class="card-title">Composite Dual-Use Risk Index</span><span class="cl" style="background:${compositeColor}22;color:${compositeColor}">L${compositeLevel} · ${composite}/100</span></div>
-      <p style="font-size:11.5px;color:var(--muted-2);">Illustrative blend: governance scorecard (30%) + outbreak severity (25%) + facility risk tier (20%) + historical incident record (25%). Not an official rating — a synthesis tool for spotting where to look closer.</p>
+    <div class="card illustrative-card" style="margin:14px 0;">
+      <div class="card-head"><span class="card-title">Composite Dual-Use Risk Index <span class="not-official-chip">⚠ NOT OFFICIAL</span></span><span class="cl" style="background:${compositeColor}22;color:${compositeColor}">L${compositeLevel} · ${composite}/100</span></div>
+      <p style="font-size:11.5px;color:var(--muted-2);">Illustrative blend, built by this tracker: governance scorecard (30%) + outbreak severity (25%) + facility risk tier (20%) + historical incident record (25%). Not published by any official body — a synthesis tool for spotting where to look closer, not a citable rating.</p>
     </div>
     <div class="stat-strip">
       <div class="stat-box"><b>${outbreaks.length}</b><span>Outbreak events</span></div>
