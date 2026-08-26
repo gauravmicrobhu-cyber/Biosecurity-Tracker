@@ -656,11 +656,10 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     </section>
 
     <section class="section" id="signals" hidden>
-      <div class="section-head"><h2>Signal Detection</h2><p>News-volume anomaly detection via GDELT — flags keyword clusters running above their recent baseline. This is a leading indicator layer, separate from the confirmed WHO/CDC feed.</p></div>
-      <div class="signal-warn">⚠ <b>Unverified signals, not confirmed outbreaks.</b> These are statistical anomalies in news-mention volume — they can be driven by a single viral article, an unrelated event sharing keywords, or genuine early outbreak chatter. Cross-check against the Outbreak Feed and primary sources before treating any of this as actionable. A spike is a prompt to look closer, not a finding.</div>
-      <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;">Checks run one keyword every 5+ seconds, per GDELT's stated rate limit for their free API — a full check takes about half a minute. <a href="https://blog.gdeltproject.org/using-the-new-web-ngrams-dataset-to-find-relevant-coverage/" target="_blank" rel="noopener" style="color:var(--l1);">GDELT's own note on higher-volume access ↗</a></p>
-      <button class="smallbtn" id="checkSignalsBtn" style="margin-bottom:16px;">🔄 Check signals now</button>
-      <span id="signalsStatus" style="font-family:var(--mono);font-size:10.5px;color:var(--muted-2);margin-left:10px;"></span>
+      <div class="section-head"><h2>Signal Detection</h2><p>Qualitative news-coverage check across biosecurity-relevant keywords — a leading indicator layer, separate from the confirmed WHO/CDC feed.</p></div>
+      <div class="signal-warn">⚠ <b>Unverified signals, not confirmed outbreaks.</b> These reflect a research pass, not a live statistical anomaly detector — elevated coverage can be driven by a single article, an unrelated event sharing keywords, or genuine early outbreak chatter. Cross-check against the Outbreak Feed and primary sources before treating any of this as actionable.</div>
+      <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;" id="signalsFreshness"></p>
+      <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;">Not live-fetched: browser-side calls to GDELT's API were persistently blocked from this network across multiple tests. This module is now checked manually via search, the same way the Outbreak Feed is refreshed — ask in a chat with Claude for an updated check.</p>
       <div class="signal-grid" id="signalGrid"></div>
     </section>
 
@@ -797,6 +796,21 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 /* ================= DATA ================= */
 const D = {
   outbreaks:[
+    {id:"h1n1-delhi-2026", date:"2026-08-22", sortDate:"2026-08-22", title:"H1N1 (Seasonal Influenza) — Delhi, India", level:1, status:"Endemic/Seasonal monitoring", country:["India"],
+     desc:"Delhi has recorded 1,777 H1N1 cases in 2026 (114 new on 20 Aug alone), roughly 6–8x the 229 cases recorded in the same period in 2025, per NCDC/Delhi Health Department data. Union Health Minister JP Nadda reviewed national H1N1 preparedness on 21 Aug. Health authorities characterize this as seasonal influenza activity — H1N1 has circulated as an endemic seasonal strain in India since the 2009 pandemic, typically surging July–November — not a novel outbreak.",
+     more:"Officially, zero deaths have been confirmed: Delhi's Health Minister stated this on 6 Aug, and the Union Health Ministry's position held through 22 Aug. One local outlet (Dainik Jagran, via a secondary repost) reported two deaths in a single family tied to H1N1, but this claim is explicitly disputed by authorities and could not be independently corroborated — noted here, not treated as confirmed, consistent with this tracker's standard for uncorroborated claims.",
+     src:"NCDC/Delhi Health Department data via Outlook India, 20–25 Aug 2026; Union Ministry of Health & Family Welfare statements, 21–22 Aug 2026", tags:["H1N1","Influenza","Seasonal","India","Delhi"]},
+    {id:"cholera-wc-africa-2026", date:"2026-08-20", sortDate:"2026-08-20", title:"Cholera — West and Central Africa (Multi-country)", level:3, status:"Active — cross-border spread", country:["Nigeria","DRC","Republic of Congo","Cameroon","Chad","CAR"],
+     desc:"Cholera is spreading across two transmission corridors in West and Central Africa, active in six countries per UNICEF/WHO (12 Aug 2026): the Lake Chad Basin (Chad, Cameroon, Nigeria — sharing the same Vibrio cholerae O1 Ogawa strain) and the Congo River Basin (DRC, Republic of Congo, CAR). Nigeria has the region's largest outbreak — over 50,000 cases and 338 deaths since 1 January. DRC has recorded the highest death toll — nearly 700 deaths from more than 30,400 cases.",
+     more:"Seasonal rains, flooding, population displacement, and cross-border movement along shared rivers and trade routes are accelerating spread. Children are disproportionately affected: in CAR, children under 10 account for 44% of reported cases; in Chad, nearly two-thirds of infections are in children under 15; in Cameroon, the median patient age is just 10. UNICEF is calling for $15 million in additional funding to scale up its six-month response.",
+     src:"UNICEF/UN News, 12 Aug 2026; Cameroon Cholera Situation Report #3 via ReliefWeb, 20 Aug 2026", tags:["Cholera","West Africa","Central Africa","Multi-country","Waterborne"]},
+    {id:"cholera-myanmar-2026", date:"2026-08-18", sortDate:"2026-08-18", title:"Cholera Outbreak — Myanmar", level:2, status:"Active", country:["Myanmar"],
+     desc:"A cholera outbreak has killed at least three people in Myanmar and hospitalized hundreds more with diarrhea — one death in Yangon, two in Sittwe (Rakhine State) — straining a health system already affected by civil war and economic disruption. A separate, smaller outbreak from the West/Central Africa cluster tracked above.",
+     more:"", src:"Bloomberg, 18 Aug 2026", tags:["Cholera","Myanmar","Waterborne"]},
+    {id:"bangladesh-measles-2026", date:"2026-08-12", sortDate:"2026-08-12", title:"Measles Outbreak — Bangladesh", level:3, status:"Active — national health emergency response", country:["Bangladesh"],
+     desc:"Bangladesh's Directorate General of Health Services (DGHS) has recorded 873 confirmed and suspected measles deaths and 17,115 laboratory-confirmed cases (131,946+ suspected as of early Aug) since the outbreak began in early 2026 — currently one of the largest active measles outbreaks in the world. An emergency mass-vaccination campaign for children aged 6–59 months began 5 April 2026.",
+     more:"A Global Centre for Democratic Governance report attributes the outbreak to vaccine-supply disruptions and missed routine immunizations during 2024–2025, when measles vaccination coverage fell to 56.2% — its lowest level 2017–2025 — amid administrative delays in procurement under the prior interim government. UNICEF says it repeatedly warned officials about the impending vaccine shortage through 5–6 formal letters and roughly 10 meetings. Bangladesh's cabinet approved a return to direct UNICEF procurement in June 2026 to stabilize supply.",
+     src:"Bangladesh DGHS via Think Global Health, 4 Aug 2026; Global Centre for Democratic Governance report via regional press, ~12 Aug 2026", tags:["Measles","Bangladesh","Vaccine-preventable","Mass vaccination"]},
     {id:"ebola-drc", date:"2026-08-13", sortDate:"2026-08-13", title:"Ebola (Bundibugyo virus) — DRC / Uganda", level:4, status:"PHEIC · Active", country:["DRC","Uganda"], cases:5290, deaths:2516, hospitalized:837,
      desc:"Outbreak continues to expand; five Central African states (CAR, DRC, Republic of Congo, South Sudan, Uganda) have stood up cross-border surveillance and mobile lab deployment. Since 17 Jul DON, DRC alone reported 1,481 additional confirmed cases and 759 deaths. Uganda declared its national outbreak over 28 Jul but remains at re-importation risk.",
      more:"First zoonotic spillover event confirmed for this outbreak strain — a novel transmission pathway for BVD. WHO's moderate projection has the outbreak peaking within six months; severe scenario could stretch 9–12 months (Al Jazeera, citing WHO emergency operations lead).",
@@ -1082,6 +1096,7 @@ async function loadData(){
       const j = await res.json();
       if(j.outbreaks) D.outbreaks = j.outbreaks;
       if(j.governance) D.governance = j.governance.sort((a,b)=> new Date(b.sortDate) - new Date(a.sortDate));
+      if(j.signals) D.signals = j.signals;
       if(j.meta) DATA_META = j.meta;
     }
   }catch(e){ /* file:// or missing data.json — fall back silently to embedded seed above */ }
@@ -1254,7 +1269,7 @@ function goTo(moduleId, itemId){
   if(moduleId==='histmap-section') setTimeout(initHistMap, 60);
   if(moduleId==='network'){ setTimeout(()=>{ renderNetFilters(); renderNetwork(); netInitialized = true; }, 60); }
   if(moduleId==='analysis'){ setTimeout(()=>{ renderAnalysis(); analysisInitialized = true; }, 60); }
-  if(moduleId==='signals' && !signalsChecked){ setTimeout(()=>{ renderSignalGrid(); }, 60); }
+  if(moduleId==='signals'){ setTimeout(()=>{ renderSignalGrid(); }, 60); }
   if(moduleId==='briefing'){ setTimeout(generateBriefing, 60); }
   if(moduleId==='sources'){ setTimeout(renderSources, 60); }
   if(itemId){
@@ -1539,8 +1554,8 @@ function renderRightNowStrip(){
   if(!el) return;
   const topOutbreak = D.outbreaks.slice().sort((a,b)=> b.level-a.level || new Date(b.date)-new Date(a.date))[0];
   const flaggedCount = Object.values(bookmarks).filter(b=>b.starred).length;
-  const spikes = Object.values(signalData).filter(d=> d.signal && (d.signal.status==='spike'||d.signal.status==='elevated'));
-  const signalText = Object.keys(signalData).length ? (spikes.length? `${spikes.length} above baseline` : 'Nothing above baseline') : 'Not checked this session';
+  const spikes = (D.signals?.items || []).filter(s=> s.status==='spike'||s.status==='elevated');
+  const signalText = D.signals?.items?.length ? (spikes.length? `${spikes.length} above baseline` : 'Nothing above baseline') : 'Not yet checked';
 
   el.innerHTML = `
     <div class="rn-card clickable" data-goto="outbreaks"><div class="rn-label">Top Active Event</div><div class="rn-value">${clFmt(topOutbreak.level)} ${topOutbreak.title}</div><div class="rn-sub">${topOutbreak.status}</div></div>
@@ -1659,173 +1674,36 @@ function renderNetwork(){
 }
 
 /* ================= SIGNAL DETECTION (GDELT news-volume anomaly) ================= */
-const SIGNAL_KEYWORDS = [
-  {id:'hemfever-drc', label:'Hemorrhagic fever — Central Africa', query:'hemorrhagic fever (DRC OR Congo OR Uganda OR "South Sudan")'},
-  {id:'unknown-pneumonia', label:'Unknown pneumonia / mystery illness cluster', query:'("unknown pneumonia" OR "mystery illness") outbreak'},
-  {id:'mass-illness-sasia', label:'Mass illness — South Asia', query:'("mass illness" OR "unknown disease") (India OR Pakistan OR Bangladesh)'},
-  {id:'cholera-global', label:'Cholera outbreak — Global', query:'cholera outbreak'},
-  {id:'avian-flu-human', label:'Avian influenza — human cases', query:'"avian influenza" human case'},
-  {id:'lab-biosafety', label:'Lab biosafety incident / breach', query:'laboratory biosafety (incident OR breach OR leak)'},
-];
-let signalData = {}; // id -> {series, signal, error}
-let signalsChecked = false;
-
-function parseGdeltDate(s){
-  if(typeof s === 'string' && /^\d{14}$/.test(s)) return new Date(`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}T00:00:00Z`);
-  const d = new Date(s); return isNaN(d) ? null : d;
-}
-async function fetchGdeltTimeline(query, timespan='60d'){
-  const url = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(query)}&mode=timelinevol&format=json&timespan=${timespan}`;
-  const res = await fetch(url);
-  const text = await res.text();
-  if(!res.ok) throw new Error(`HTTP ${res.status}`);
-  let json;
-  try{ json = JSON.parse(text); }
-  catch(e){
-    // GDELT sends plain-text (not JSON) when it's rate-limiting or has another server-side complaint —
-    // surface that text directly rather than a cryptic "unexpected token" parse error.
-    if(/limit|5 second/i.test(text)) throw new Error('Rate limited by GDELT — requests must be ≥5s apart. Try "Check signals now" again shortly.');
-    throw new Error('GDELT returned a non-JSON response: ' + text.slice(0,120));
-  }
-  console.log('[GDELT raw response]', query, json); // left in deliberately — inspect here if parsing fails
-  const raw = json?.timeline?.[0]?.data;
-  if(!Array.isArray(raw) || !raw.length) throw new Error('Unexpected response shape (see console)');
-  return raw.map(d => ({ date: parseGdeltDate(d.date), value: Number(d.value ?? d.count ?? 0) }))
-             .filter(d => d.date);
-}
-function computeSignal(series){
-  if(series.length < 8) return {status:'insufficient', z:null};
-  const values = series.map(d=>d.value);
-  const latest = values[values.length-1];
-  const baseline = values.slice(0,-1);
-  const mean = baseline.reduce((a,b)=>a+b,0)/baseline.length;
-  const variance = baseline.reduce((a,b)=>a+Math.pow(b-mean,2),0)/baseline.length;
-  const sd = Math.sqrt(variance) || 0.0001;
-  const z = (latest-mean)/sd;
-  const status = z>=3 ? 'spike' : z>=1.75 ? 'elevated' : 'normal';
-  return {status, z, mean, sd, latest};
-}
-function sparklineSvg(series, color){
-  const values = series.map(d=>d.value);
-  const max = Math.max(...values, 0.0001), min = Math.min(...values, 0);
-  const range = (max-min) || 1;
-  const w = 100, h = 100;
-  const pts = values.map((v,i)=> `${(i/(values.length-1))*w},${h-((v-min)/range)*h}`).join(' ');
-  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:44px;display:block;margin-top:8px;"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="3"/></svg>`;
-}
-function badgeColor(status){ return {normal:'#00f5d4', elevated:'#ffe600', spike:'#ff2d6a', loading:'#4a5568', error:'#ff2d6a'}[status] || '#4a5568'; }
+function badgeColor(status){ return {normal:'#00f5d4', elevated:'#ffe600', spike:'#ff2d6a'}[status] || '#4a5568'; }
 
 function renderSignalGrid(){
   const grid = document.getElementById('signalGrid');
   if(!grid) return;
-  grid.innerHTML = SIGNAL_KEYWORDS.map(k=>{
-    const d = signalData[k.id];
-    if(!d) return signalCardHtml(k, {status:'loading'});
-    if(d.error) return signalCardHtml(k, {status:'error'}, d.error);
-    return signalCardHtml(k, d.signal, null, d.series);
-  }).join('');
+  const items = D.signals?.items || [];
+  const freshnessEl = document.getElementById('signalsFreshness');
+  if(freshnessEl){
+    freshnessEl.textContent = D.signals?.checkedAt
+      ? `Last checked: ${new Date(D.signals.checkedAt).toUTCString().slice(0,22)} · ${D.signals.checkedBy || ''}`
+      : 'Not yet checked — ask Claude in a chat to run a check.';
+  }
+  grid.innerHTML = items.map(sig=> signalCardHtml(sig)).join('') || '<p style="color:var(--muted-2);font-size:12.5px;">No signal check on record yet.</p>';
   grid.querySelectorAll('.signal-card').forEach(card=>{
     card.onclick = ()=> toggleSignalDetail(card.dataset.id);
   });
 }
-function signalCardHtml(k, sig, errorMsg, series){
-  const status = sig?.status || 'loading';
-  const label = {normal:'NORMAL', elevated:'ELEVATED', spike:'SPIKE', loading:'CHECKING…', error:'ERROR', insufficient:'INSUFFICIENT DATA'}[status] || status.toUpperCase();
-  return `<div class="signal-card" data-id="${k.id}">
-    <div class="signal-card-head"><span class="signal-title">${k.label}</span><span class="signal-badge ${status}">${label}</span></div>
-    ${series ? sparklineSvg(series, badgeColor(status)) : ''}
-    ${sig?.z!=null ? `<div class="signal-meta">z-score: ${sig.z.toFixed(2)} · latest: ${sig.latest?.toFixed(2)}% · baseline mean: ${sig.mean?.toFixed(2)}%</div>` : ''}
-    ${sig?.corrobNote ? `<div class="corrob-chip ${sig.corroborated?'yes':'no'}">${sig.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${sig.corrobNote}</div>` : ''}
-    ${errorMsg ? `<div class="signal-error-msg">${errorMsg}</div>` : ''}
+function signalCardHtml(sig){
+  const status = sig.status || 'normal';
+  const label = {normal:'NORMAL', elevated:'ELEVATED', spike:'SPIKE'}[status] || status.toUpperCase();
+  return `<div class="signal-card" data-id="${sig.id}">
+    <div class="signal-card-head"><span class="signal-title">${sig.label}</span><span class="signal-badge ${status}">${label}</span></div>
+    ${sig.note ? `<div class="signal-meta" style="margin-top:8px;">${sig.note}</div>` : ''}
+    ${sig.corrobNote ? `<div class="corrob-chip ${sig.corroborated?'yes':'no'}">${sig.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${sig.corrobNote}</div>` : ''}
   </div>`;
 }
 function toggleSignalDetail(id){
   const card = document.querySelector(`.signal-card[data-id="${id}"]`);
   if(!card) return;
-  const already = card.classList.contains('expanded');
-  document.querySelectorAll('.signal-card.expanded').forEach(c=>c.classList.remove('expanded'));
-  document.querySelectorAll('.signal-card .signal-detail').forEach(e=>e.remove());
-  if(already) return;
-  card.classList.add('expanded');
-  const k = SIGNAL_KEYWORDS.find(x=>x.id===id);
-  const d = signalData[id];
-  const detail = document.createElement('div');
-  detail.className = 'signal-detail';
-  const gdeltUrl = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(k.query)}&mode=artlist&format=html`;
-  detail.innerHTML = `<p style="font-size:12px;color:var(--muted);">Query: <span style="font-family:var(--mono);color:var(--text)">${k.query}</span></p>
-    <a href="${gdeltUrl}" target="_blank" rel="noopener" class="smallbtn" style="display:inline-block;margin-top:10px;text-decoration:none;">View matching articles on GDELT ↗</a>`;
-  card.appendChild(detail);
-}
-async function checkSignals(){
-  const statusEl = document.getElementById('signalsStatus');
-  const btn = document.getElementById('checkSignalsBtn');
-
-  // Cooldown safeguard: don't let repeated clicks (or repeated page loads) hammer GDELT
-  // while it may already be rate-limiting us — this is what likely got us blocked before.
-  const lastCheck = await storageGet('lastSignalCheck');
-  const COOLDOWN_MS = 90000;
-  if(lastCheck){
-    const elapsed = Date.now() - parseInt(lastCheck);
-    if(elapsed < COOLDOWN_MS){
-      const waitSec = Math.ceil((COOLDOWN_MS-elapsed)/1000);
-      statusEl.textContent = `Please wait ${waitSec}s before checking again — protects against GDELT's rate limit.`;
-      return;
-    }
-  }
-  await storageSet('lastSignalCheck', String(Date.now()));
-
-  btn.disabled = true;
-  const estSeconds = SIGNAL_KEYWORDS.length * 5.5;
-  statusEl.textContent = `Checking 0/${SIGNAL_KEYWORDS.length}… (GDELT allows ~1 request/5s, so this takes about ${Math.ceil(estSeconds)}s)`;
-  signalData = {};
-  renderSignalGrid();
-  let done = 0, fetchFailCount = 0;
-  for(const k of SIGNAL_KEYWORDS){
-    if(done>0) await new Promise(r=>setTimeout(r, 5500)); // GDELT: "limit requests to one every 5 seconds"
-    try{
-      const series = await fetchGdeltTimeline(k.query);
-      const signal = computeSignal(series);
-      signalData[k.id] = {series, signal};
-    }catch(e){
-      if(/failed to fetch/i.test(e.message)) fetchFailCount++;
-      signalData[k.id] = {error: e.message};
-    }
-    done++;
-    statusEl.textContent = `Checking ${done}/${SIGNAL_KEYWORDS.length}…`;
-    renderSignalGrid();
-  }
-  statusEl.textContent = fetchFailCount===SIGNAL_KEYWORDS.length
-    ? `All requests failed — GDELT may still be rate-limiting this connection from earlier testing. Try again in a while.`
-    : `Last checked ${new Date().toLocaleTimeString()}`;
-  btn.disabled = false;
-  signalsChecked = true;
-  computeCorroboration();
-  renderSignalGrid();
-}
-function computeCorroboration(){
-  // WorldMonitor-style corroboration rule: don't trust an isolated spike. Escalate to
-  // "corroborated" only if the signal matches an already-confirmed tracked outbreak, or
-  // if multiple independent keywords are elevated/spiking at the same time.
-  const elevatedIds = Object.entries(signalData).filter(([id,d])=> d.signal && (d.signal.status==='elevated'||d.signal.status==='spike')).map(([id])=>id);
-  elevatedIds.forEach(id=>{
-    const k = SIGNAL_KEYWORDS.find(x=>x.id===id);
-    const keyTerms = k.label.toLowerCase().split(/[\s—-]+/).filter(w=>w.length>4);
-    const matchedOutbreak = D.outbreaks.find(o=>
-      o.tags.some(t=> keyTerms.some(w=> t.toLowerCase().includes(w) || w.includes(t.toLowerCase())))
-    );
-    const otherElevated = elevatedIds.filter(x=>x!==id).length;
-    const d = signalData[id];
-    if(matchedOutbreak){
-      d.signal.corroborated = true;
-      d.signal.corrobNote = `Matches tracked outbreak: "${matchedOutbreak.title}"`;
-    } else if(otherElevated > 0){
-      d.signal.corroborated = true;
-      d.signal.corrobNote = `${otherElevated} other keyword${otherElevated===1?'':'s'} also elevated simultaneously`;
-    } else {
-      d.signal.corroborated = false;
-      d.signal.corrobNote = 'Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution.';
-    }
-  });
+  card.classList.toggle('expanded');
 }
 
 /* ================= BRIEFING GENERATOR ================= */
@@ -1839,7 +1717,7 @@ function generateBriefing(){
   const newSynth = D.synthesis.filter(s=> newItemIds.has(s.id));
   const totalNew = newOutbreaks.length+newGov.length+newHist.length+newAibio.length+newSynth.length;
   const flaggedCount = Object.values(bookmarks).filter(b=>b.starred).length;
-  const spikes = Object.entries(signalData).filter(([id,d])=> d.signal && (d.signal.status==='spike'||d.signal.status==='elevated'));
+  const spikes = (D.signals?.items || []).filter(s=> s.status==='spike'||s.status==='elevated');
 
   const html = `
     <p style="font-family:var(--mono);font-size:10.5px;color:var(--muted-2);margin-bottom:16px;">GENERATED ${now.toUTCString().slice(0,25)} UTC ${lastVisitDate? '· PREVIOUS VISIT: '+new Date(lastVisitDate).toUTCString().slice(0,22):''}</p>
@@ -1857,7 +1735,7 @@ function generateBriefing(){
     ` : `<p style="font-size:12.5px;color:var(--muted-2);">${lastVisitDate? 'Nothing new since your last visit.' : 'First recorded visit — nothing to compare against yet.'}</p>`}
 
     <h3 style="font-family:var(--cond);font-size:17px;margin:18px 0 8px;">Signal Detection</h3>
-    ${Object.keys(signalData).length ? (spikes.length? spikes.map(([id,d])=>{ const k=SIGNAL_KEYWORDS.find(x=>x.id===id); return `<p style="font-size:12.5px;">⚠ <b>${k.label}</b> — ${d.signal.status.toUpperCase()} (z=${d.signal.z.toFixed(2)})</p>`; }).join('') : '<p style="font-size:12.5px;color:var(--muted-2);">Checked — nothing above baseline.</p>') : '<p style="font-size:12.5px;color:var(--muted-2);">Not checked this session — visit Signal Detection and click "Check signals now".</p>'}
+    ${D.signals?.items?.length ? (spikes.length? spikes.map(s=> `<p style="font-size:12.5px;">⚠ <b>${s.label}</b> — ${s.status.toUpperCase()}${s.note? ': '+s.note : ''}</p>`).join('') : '<p style="font-size:12.5px;color:var(--muted-2);">Checked — nothing above baseline.</p>') : '<p style="font-size:12.5px;color:var(--muted-2);">Not yet checked — ask Claude to run a check.</p>'}
 
     <h3 style="font-family:var(--cond);font-size:17px;margin:18px 0 8px;">Flagged for Report</h3>
     <p style="font-size:12.5px;">${flaggedCount} item${flaggedCount===1?'':'s'} currently starred.</p>
@@ -2114,7 +1992,7 @@ function buildIndex(){
   D.scorecards.forEach(s=> idx.push({type:'Scorecard', title:s.country+' biorisk scorecard', module:'scorecards', id:s.country}));
   D.governance.forEach(g=> idx.push({type:'Policy', title:g.title, module:'governance', id:g.id}));
   D.netBodies.forEach(b=> idx.push({type:'Network', title:b.label, module:'network', id:'body:'+b.id}));
-  SIGNAL_KEYWORDS.forEach(k=> idx.push({type:'Signal', title:k.label, module:'signals', id:k.id}));
+  (D.signals?.items || []).forEach(s=> idx.push({type:'Signal', title:s.label, module:'signals', id:s.id}));
   D.historicalIncidents.forEach(h=> idx.push({type:'Historical Incident', title:h.title, module:'histmap-section', id:h.id}));
   return idx;
 }
@@ -2148,6 +2026,7 @@ function renderPaletteResults(q){
 function renderAll(){
   renderPriorityRibbon();
   renderOverview();
+  renderSignalGrid();
   renderOutbreakFilters(); renderOutbreaks(); renderImpactChart();
   renderAibio(); renderSynthesis();
   renderMapFilters(); if(leafletMap) refreshMapMarkers();
@@ -2191,7 +2070,6 @@ document.getElementById('shareBtn').onclick = ()=>{
   navigator.clipboard?.writeText(location.href).then(()=> showToast('Deep link copied')).catch(()=> showToast(location.hash));
 };
 
-document.getElementById('checkSignalsBtn')?.addEventListener('click', checkSignals);
 document.getElementById('genBriefingBtn')?.addEventListener('click', generateBriefing);
 document.getElementById('copyBriefingBtn')?.addEventListener('click', ()=>{
   const text = document.getElementById('briefingOut').innerText;
