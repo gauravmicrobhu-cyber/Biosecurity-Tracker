@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updatedAt": "2026-08-25T09:00:00Z",
-    "source": "Manual refresh via Claude \u2014 WHO DON-615, WHO 2nd IHR Emergency Committee (18 Aug 2026), ECDC (20 Aug 2026) \u2014 added structured case/death figures for outbreaks with published counts",
+    "updatedAt": "2026-08-25T18:00:00Z",
+    "source": "Manual refresh via Claude \u2014 GovAI \"A Biosafety Agenda for AI-Bio Governance\" cross-reference, 25 Aug 2026",
     "generator": "manual"
   },
   "outbreaks": [
@@ -271,6 +271,13 @@
       "sortDate": "2026-07-22",
       "title": "OpenAI \"Biodefense in the Intelligence Age\" action plan",
       "desc": "An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit \u2014 positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk."
+    },
+    {
+      "id": "g0b",
+      "date": "2026-07-01",
+      "sortDate": "2026-07-01",
+      "title": "US Policy for Stopping High-Risk Life Sciences Research",
+      "desc": "Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect."
     },
     {
       "id": "g1",
