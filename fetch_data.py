@@ -69,7 +69,11 @@ SIGNAL_KEYWORDS = [
      "query": "laboratory biosafety (incident OR breach OR leak)"},
 ]
 
-REQUEST_SPACING_SEC = 6  # GDELT: "limit requests to one every 5 seconds" — 6s for margin
+REQUEST_SPACING_SEC = 45  # widened after live testing: GitHub's shared cloud IP pool got HTTP 429
+                           # (a real rate-limit response, not a ban) even at 6s spacing — GDELT is
+                           # likely throttling that IP range harder due to unrelated traffic from
+                           # other GitHub Actions users sharing it. This runs unattended, so the
+                           # extra ~4 minutes costs nothing.
 
 
 def log(msg):
@@ -79,7 +83,7 @@ def log(msg):
 def fetch_gdelt_timeline(query, timespan="60d"):
     url = f"{GDELT_ENDPOINT}?query={urllib.parse.quote(query)}&mode=timelinevol&format=json&timespan={timespan}"
     req = urllib.request.Request(url, headers={"User-Agent": "prism-containment-tracker/1.0"})
-    with urllib.request.urlopen(req, timeout=25) as resp:
+    with urllib.request.urlopen(req, timeout=35) as resp:
         text = resp.read().decode("utf-8", errors="replace")
     try:
         data = json.loads(text)
@@ -125,6 +129,22 @@ def compute_corroboration(signal_id, label, status, outbreaks, other_statuses):
     return False, "Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution."
 
 
+def fetch_with_retry(query, max_retries=2, backoff_sec=40):
+    last_err = None
+    for attempt in range(max_retries + 1):
+        try:
+            return fetch_gdelt_timeline(query)
+        except Exception as e:
+            last_err = e
+            is_429 = "429" in str(e)
+            if attempt < max_retries and is_429:
+                log(f"  429 received, backing off {backoff_sec}s before retry {attempt+1}/{max_retries}...")
+                time.sleep(backoff_sec)
+            elif not is_429:
+                break  # don't retry non-rate-limit errors (timeouts, bad response shape, etc.)
+    raise last_err
+
+
 def run_gdelt_pass(data):
     outbreaks = data.get("outbreaks", [])
     results = {}
@@ -133,7 +153,7 @@ def run_gdelt_pass(data):
         if i > 0:
             time.sleep(REQUEST_SPACING_SEC)
         try:
-            series = fetch_gdelt_timeline(kw["query"])
+            series = fetch_with_retry(kw["query"])
             sig = compute_signal(series)
             results[kw["id"]] = {"label": kw["label"], **sig}
             statuses[kw["id"]] = sig["status"]
