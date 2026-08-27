@@ -192,6 +192,101 @@ def run_gdelt_pass(data):
     return data
 
 
+CDC_NWSS_ENDPOINT = "https://data.cdc.gov/resource/2ew6-ywp6.json"  # NWSS Public SARS-CoV-2 Wastewater Metric Data (Socrata)
+BIORXIV_ENDPOINT = "https://api.biorxiv.org/details"
+
+# Small, defensible keyword set for the preprint-volume check — kept short since each
+# term needs its own date-range scan across two servers (bioRxiv + medRxiv).
+PREPRINT_KEYWORDS = ["ebola", "cholera", "measles", "avian influenza"]
+
+
+def run_wastewater_pass(data):
+    """CDC NWSS wastewater coverage snapshot. Deliberately conservative: this reports
+    record/site COUNTS only, not a computed trend — the exact field names in this
+    Socrata dataset weren't verifiable from this environment (same domain-allowlist
+    restriction that's affected every live API test in this project), so rather than
+    guess at a field name and silently compute a wrong trend, this only reports what
+    can be safely derived from any reasonable shape: how many records came back and
+    how many distinct site-like values appear in them."""
+    try:
+        url = f"{CDC_NWSS_ENDPOINT}?$limit=500&$order=date_end%20DESC"
+        req = urllib.request.Request(url, headers={"User-Agent": "prism-containment-tracker/1.0"})
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            records = json.loads(resp.read().decode("utf-8", errors="replace"))
+        if not isinstance(records, list) or not records:
+            raise RuntimeError("empty or unexpected response shape")
+        site_field = next((k for k in records[0] if "key_plot_id" in k or "wwtp" in k.lower() or "site" in k.lower()), None)
+        distinct_sites = len({r.get(site_field) for r in records if site_field and r.get(site_field)}) if site_field else None
+        date_field = next((k for k in records[0] if "date" in k.lower()), None)
+        latest_date = max((r.get(date_field, "") for r in records), default="") if date_field else ""
+        data["upstreamIndicators"] = data.get("upstreamIndicators", {})
+        data["upstreamIndicators"]["wastewater"] = {
+            "status": "ok",
+            "recordCount": len(records),
+            "distinctSites": distinct_sites,
+            "mostRecentDate": latest_date,
+            "note": f"{len(records)} recent CDC NWSS wastewater records" +
+                    (f" across {distinct_sites} distinct sites" if distinct_sites else "") +
+                    ". Coverage snapshot only — not a computed trend, since this dataset's exact field "
+                    "schema wasn't independently verified before building this integration.",
+        }
+        log(f"OK  wastewater: {len(records)} records, {distinct_sites} sites")
+    except Exception as e:
+        data["upstreamIndicators"] = data.get("upstreamIndicators", {})
+        data["upstreamIndicators"]["wastewater"] = {"status": "error", "note": f"Fetch failed: {e}"}
+        log(f"FAIL wastewater: {e}")
+    return data
+
+
+def fetch_preprint_count(keyword, start_date, end_date):
+    total = 0
+    for server in ("biorxiv", "medrxiv"):
+        cursor = 0
+        while True:
+            url = f"{BIORXIV_ENDPOINT}/{server}/{start_date}/{end_date}/{cursor}"
+            req = urllib.request.Request(url, headers={"User-Agent": "prism-containment-tracker/1.0"})
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                payload = json.loads(resp.read().decode("utf-8", errors="replace"))
+            items = payload.get("collection", [])
+            for it in items:
+                text = (it.get("title", "") + " " + it.get("abstract", "")).lower()
+                if keyword.lower() in text:
+                    total += 1
+            if len(items) < 100:
+                break
+            cursor += 100
+            if cursor > 300:  # hard cap — keep this bounded, it's a volume check not a full census
+                break
+    return total
+
+
+def run_preprint_pass(data):
+    from datetime import timedelta
+    today = datetime.now(timezone.utc).date()
+    recent_start, recent_end = (today - timedelta(days=14)).isoformat(), today.isoformat()
+    prior_start, prior_end = (today - timedelta(days=28)).isoformat(), (today - timedelta(days=15)).isoformat()
+    results = {}
+    for kw in PREPRINT_KEYWORDS:
+        try:
+            recent = fetch_preprint_count(kw, recent_start, recent_end)
+            time.sleep(3)
+            prior = fetch_preprint_count(kw, prior_start, prior_end)
+            time.sleep(3)
+            ratio = (recent / prior) if prior > 0 else (float("inf") if recent > 0 else 1.0)
+            status = "elevated" if (recent >= 3 and ratio >= 2.0) else "normal"
+            results[kw] = {
+                "status": status, "recentCount": recent, "priorCount": prior,
+                "note": f"{recent} preprint(s) mentioning '{kw}' in the last 14 days (bioRxiv+medRxiv), vs {prior} in the prior 14 days.",
+            }
+            log(f"OK  preprint/{kw}: recent={recent} prior={prior} status={status}")
+        except Exception as e:
+            results[kw] = {"status": "error", "note": f"Fetch failed: {e}"}
+            log(f"FAIL preprint/{kw}: {e}")
+    data["upstreamIndicators"] = data.get("upstreamIndicators", {})
+    data["upstreamIndicators"]["preprints"] = results
+    return data
+
+
 def run_reliefweb_pass(data):
     appname = os.environ.get("RELIEFWEB_APPNAME", "").strip()
     if not appname:
@@ -244,6 +339,8 @@ def main():
         data = json.load(f)
 
     data = run_gdelt_pass(data)
+    data = run_wastewater_pass(data)
+    data = run_preprint_pass(data)
     data = run_reliefweb_pass(data)
 
     data["meta"]["updatedAt"] = datetime.now(timezone.utc).isoformat()
