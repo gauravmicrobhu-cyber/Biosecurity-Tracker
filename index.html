@@ -782,7 +782,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <div class="section-head"><h2>Policy &amp; Export Control Timeline</h2><p>Drag the scrubber to see what was in force "as of" a given date.</p></div>
       <div class="country-table-wrap" id="govCountryTableWrap"></div>
       <div class="scrubber-wrap">
-        <div class="scrubber-label">AS OF: <b id="scrubDate">19 Aug 2026</b></div>
+        <div class="scrubber-label">AS OF: <b id="scrubDate">19 Aug 2026</b>
+          <button class="smallbtn" id="scrubPlayBtn" style="margin-left:12px;padding:4px 10px;font-size:12px;">▶ Play</button>
+        </div>
         <input type="range" id="scrubber" min="0" max="100" value="100">
       </div>
       <div class="card"><div class="timeline" id="govTimeline"></div></div>
@@ -2384,7 +2386,32 @@ document.getElementById('copyBriefingBtn')?.addEventListener('click', ()=>{
 });
 document.getElementById('printBriefingBtn')?.addEventListener('click', ()=> window.print());
 
-document.getElementById('scrubber').addEventListener('input', applyScrubber);
+document.getElementById('scrubber').addEventListener('input', ()=>{
+  if(scrubPlayInterval){ clearInterval(scrubPlayInterval); scrubPlayInterval = null; document.getElementById('scrubPlayBtn').textContent = '▶ Play'; }
+  applyScrubber();
+});
+let scrubPlayInterval = null;
+document.getElementById('scrubPlayBtn')?.addEventListener('click', ()=>{
+  const btn = document.getElementById('scrubPlayBtn');
+  const slider = document.getElementById('scrubber');
+  if(scrubPlayInterval){
+    clearInterval(scrubPlayInterval); scrubPlayInterval = null;
+    btn.textContent = '▶ Play';
+    return;
+  }
+  if(Number(slider.value) >= 100) slider.value = 0; // if already at the end, restart from the beginning
+  btn.textContent = '⏸ Pause';
+  scrubPlayInterval = setInterval(()=>{
+    let v = Number(slider.value) + 1;
+    if(v >= 100){
+      v = 100;
+      clearInterval(scrubPlayInterval); scrubPlayInterval = null;
+      btn.textContent = '▶ Play';
+    }
+    slider.value = v;
+    applyScrubber();
+  }, 90); // ~9s full sweep — slow enough to read dates as governance entries appear, fast enough not to drag
+});
 
 document.getElementById('countrySelect')?.addEventListener('change', e=>{
   state.countryFilter = e.target.value || null;
