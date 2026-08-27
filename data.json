@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-08-26T18:36:16.300388+00:00",
-    "source": "Automated — GitHub Actions (GDELT live signals, ReliefWeb skipped — no appname)",
+    "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
   "outbreaks": [
@@ -9,15 +9,15 @@
       "id": "h1n1-delhi-2026",
       "date": "2026-08-22",
       "sortDate": "2026-08-22",
-      "title": "H1N1 (Seasonal Influenza) — Delhi, India",
+      "title": "H1N1 (Seasonal Influenza) \u2014 Delhi, India",
       "level": 1,
       "status": "Endemic/Seasonal monitoring",
       "country": [
         "India"
       ],
-      "desc": "Delhi has recorded 1,777 H1N1 cases in 2026 (114 new on 20 Aug alone), roughly 6–8x the 229 cases recorded in the same period in 2025, per NCDC/Delhi Health Department data. Union Health Minister JP Nadda reviewed national H1N1 preparedness on 21 Aug. Health authorities characterize this as seasonal influenza activity — H1N1 has circulated as an endemic seasonal strain in India since the 2009 pandemic, typically surging July–November — not a novel outbreak.",
-      "more": "Officially, zero deaths have been confirmed: Delhi's Health Minister stated this on 6 Aug, and the Union Health Ministry's position held through 22 Aug. One local outlet (Dainik Jagran, via a secondary repost) reported two deaths in a single family tied to H1N1, but this claim is explicitly disputed by authorities and could not be independently corroborated — noted here, not treated as confirmed, consistent with this tracker's standard for uncorroborated claims.",
-      "src": "NCDC/Delhi Health Department data via Outlook India, 20–25 Aug 2026; Union Ministry of Health & Family Welfare statements, 21–22 Aug 2026",
+      "desc": "Delhi has recorded 1,777 H1N1 cases in 2026 (114 new on 20 Aug alone), roughly 6\u20138x the 229 cases recorded in the same period in 2025, per NCDC/Delhi Health Department data. Union Health Minister JP Nadda reviewed national H1N1 preparedness on 21 Aug. Health authorities characterize this as seasonal influenza activity \u2014 H1N1 has circulated as an endemic seasonal strain in India since the 2009 pandemic, typically surging July\u2013November \u2014 not a novel outbreak.",
+      "more": "Officially, zero deaths have been confirmed: Delhi's Health Minister stated this on 6 Aug, and the Union Health Ministry's position held through 22 Aug. One local outlet (Dainik Jagran, via a secondary repost) reported two deaths in a single family tied to H1N1, but this claim is explicitly disputed by authorities and could not be independently corroborated \u2014 noted here, not treated as confirmed, consistent with this tracker's standard for uncorroborated claims.",
+      "src": "NCDC/Delhi Health Department data via Outlook India, 20\u201325 Aug 2026; Union Ministry of Health & Family Welfare statements, 21\u201322 Aug 2026",
       "tags": [
         "H1N1",
         "Influenza",
@@ -30,9 +30,9 @@
       "id": "cholera-wc-africa-2026",
       "date": "2026-08-20",
       "sortDate": "2026-08-20",
-      "title": "Cholera — West and Central Africa (Multi-country)",
+      "title": "Cholera \u2014 West and Central Africa (Multi-country)",
       "level": 3,
-      "status": "Active — cross-border spread",
+      "status": "Active \u2014 cross-border spread",
       "country": [
         "Nigeria",
         "DRC",
@@ -41,7 +41,7 @@
         "Chad",
         "CAR"
       ],
-      "desc": "Cholera is spreading across two transmission corridors in West and Central Africa, active in six countries per UNICEF/WHO (12 Aug 2026): the Lake Chad Basin (Chad, Cameroon, Nigeria — sharing the same Vibrio cholerae O1 Ogawa strain) and the Congo River Basin (DRC, Republic of Congo, CAR). Nigeria has the region's largest outbreak — over 50,000 cases and 338 deaths since 1 January. DRC has recorded the highest death toll — nearly 700 deaths from more than 30,400 cases.",
+      "desc": "Cholera is spreading across two transmission corridors in West and Central Africa, active in six countries per UNICEF/WHO (12 Aug 2026): the Lake Chad Basin (Chad, Cameroon, Nigeria \u2014 sharing the same Vibrio cholerae O1 Ogawa strain) and the Congo River Basin (DRC, Republic of Congo, CAR). Nigeria has the region's largest outbreak \u2014 over 50,000 cases and 338 deaths since 1 January. DRC has recorded the highest death toll \u2014 nearly 700 deaths from more than 30,400 cases.",
       "more": "Seasonal rains, flooding, population displacement, and cross-border movement along shared rivers and trade routes are accelerating spread. Children are disproportionately affected: in CAR, children under 10 account for 44% of reported cases; in Chad, nearly two-thirds of infections are in children under 15; in Cameroon, the median patient age is just 10. UNICEF is calling for $15 million in additional funding to scale up its six-month response.",
       "src": "UNICEF/UN News, 12 Aug 2026; Cameroon Cholera Situation Report #3 via ReliefWeb, 20 Aug 2026",
       "tags": [
@@ -56,13 +56,13 @@
       "id": "cholera-myanmar-2026",
       "date": "2026-08-18",
       "sortDate": "2026-08-18",
-      "title": "Cholera Outbreak — Myanmar",
+      "title": "Cholera Outbreak \u2014 Myanmar",
       "level": 2,
       "status": "Active",
       "country": [
         "Myanmar"
       ],
-      "desc": "A cholera outbreak has killed at least three people in Myanmar and hospitalized hundreds more with diarrhea — one death in Yangon, two in Sittwe (Rakhine State) — straining a health system already affected by civil war and economic disruption. A separate, smaller outbreak from the West/Central Africa cluster tracked above.",
+      "desc": "A cholera outbreak has killed at least three people in Myanmar and hospitalized hundreds more with diarrhea \u2014 one death in Yangon, two in Sittwe (Rakhine State) \u2014 straining a health system already affected by civil war and economic disruption. A separate, smaller outbreak from the West/Central Africa cluster tracked above.",
       "more": "",
       "src": "Bloomberg, 18 Aug 2026",
       "tags": [
@@ -75,15 +75,15 @@
       "id": "ebola-drc",
       "date": "2026-08-20",
       "sortDate": "2026-08-20",
-      "title": "Ebola (Bundibugyo virus) — DRC / Uganda",
+      "title": "Ebola (Bundibugyo virus) \u2014 DRC / Uganda",
       "level": 4,
-      "status": "PHEIC · Active — regional risk assessed HIGH",
+      "status": "PHEIC \u00b7 Active \u2014 regional risk assessed HIGH",
       "country": [
         "DRC",
         "Uganda"
       ],
-      "desc": "As of 20 August 2026 (data to 19 Aug), DRC has reported 5,290 confirmed cases and 2,516 deaths, with 837 patients currently hospitalised in isolation — an increase of 81 cases and 40 deaths in a single day, concentrated in Ituri (56), North Kivu (18), and Haut-Uele (7). With more confirmed cases than the 2018–2020 outbreak (3,317 cases), this is now the largest Ebola outbreak ever documented in DRC, and per the WHO Director-General's own 18 August remarks, the second-largest Ebola outbreak ever recorded worldwide — moving faster than any previous Ebola outbreak. A second IHR Emergency Committee met 18 August 2026 and issued updated, more detailed temporary recommendations (surveillance, case investigation, infection control, and — new — social measures/mass gatherings/domestic mobility guidance); the Committee did not lift the PHEIC. WHO/AFRO assessed regional risk as 'High' as of 14 August 2026.",
-      "more": "For the first time, two vaccines designed specifically against Bundibugyo virus have entered human trials; a third, cross-protective vaccine is moving toward a phase 3 trial after animal-study success. The WHO-sponsored PARTNERS treatment trial has enrolled 100 patients — no vaccine or treatment is yet approved. Temporary recommendations now extend to Angola, Burundi, CAR, Republic of Congo, Rwanda, and South Sudan in addition to DRC and Uganda. Imported-case status: France's case (24 Jun) has shown no secondary transmission (41 days post-discharge as of 14 Aug); Uganda's most recent imported case was discharged 16 Jul, with 42-day enhanced monitoring ending 27 Aug; two DRC-diagnosed cases have been treated in Germany. WHO DG's 18 Aug remarks stressed the epidemic is 'far from being under control' and is being fuelled by insecurity, displacement, and population movement along roads, rivers, and mining routes, with many deaths occurring at home, outside treatment centres and known contact lists.",
+      "desc": "As of 20 August 2026 (data to 19 Aug), DRC has reported 5,290 confirmed cases and 2,516 deaths, with 837 patients currently hospitalised in isolation \u2014 an increase of 81 cases and 40 deaths in a single day, concentrated in Ituri (56), North Kivu (18), and Haut-Uele (7). With more confirmed cases than the 2018\u20132020 outbreak (3,317 cases), this is now the largest Ebola outbreak ever documented in DRC, and per the WHO Director-General's own 18 August remarks, the second-largest Ebola outbreak ever recorded worldwide \u2014 moving faster than any previous Ebola outbreak. A second IHR Emergency Committee met 18 August 2026 and issued updated, more detailed temporary recommendations (surveillance, case investigation, infection control, and \u2014 new \u2014 social measures/mass gatherings/domestic mobility guidance); the Committee did not lift the PHEIC. WHO/AFRO assessed regional risk as 'High' as of 14 August 2026.",
+      "more": "For the first time, two vaccines designed specifically against Bundibugyo virus have entered human trials; a third, cross-protective vaccine is moving toward a phase 3 trial after animal-study success. The WHO-sponsored PARTNERS treatment trial has enrolled 100 patients \u2014 no vaccine or treatment is yet approved. Temporary recommendations now extend to Angola, Burundi, CAR, Republic of Congo, Rwanda, and South Sudan in addition to DRC and Uganda. Imported-case status: France's case (24 Jun) has shown no secondary transmission (41 days post-discharge as of 14 Aug); Uganda's most recent imported case was discharged 16 Jul, with 42-day enhanced monitoring ending 27 Aug; two DRC-diagnosed cases have been treated in Germany. WHO DG's 18 Aug remarks stressed the epidemic is 'far from being under control' and is being fuelled by insecurity, displacement, and population movement along roads, rivers, and mining routes, with many deaths occurring at home, outside treatment centres and known contact lists.",
       "src": "WHO DON-2026-DON615 (1 Aug 2026); WHO 2nd IHR Emergency Committee temporary recommendations (24 Aug 2026 posting, meeting held 18 Aug); WHO DG opening remarks, 18 Aug 2026; ECDC Ebola outbreak update, 20 Aug 2026",
       "tags": [
         "Ebola",
@@ -101,14 +101,14 @@
       "id": "bangladesh-measles-2026",
       "date": "2026-08-12",
       "sortDate": "2026-08-12",
-      "title": "Measles Outbreak — Bangladesh",
+      "title": "Measles Outbreak \u2014 Bangladesh",
       "level": 3,
-      "status": "Active — national health emergency response",
+      "status": "Active \u2014 national health emergency response",
       "country": [
         "Bangladesh"
       ],
-      "desc": "Bangladesh's Directorate General of Health Services (DGHS) has recorded 873 confirmed and suspected measles deaths and 17,115 laboratory-confirmed cases (131,946+ suspected as of early Aug) since the outbreak began in early 2026 — currently one of the largest active measles outbreaks in the world. An emergency mass-vaccination campaign for children aged 6–59 months began 5 April 2026.",
-      "more": "A Global Centre for Democratic Governance report attributes the outbreak to vaccine-supply disruptions and missed routine immunizations during 2024–2025, when measles vaccination coverage fell to 56.2% — its lowest level 2017–2025 — amid administrative delays in procurement under the prior interim government. UNICEF says it repeatedly warned officials about the impending vaccine shortage through 5–6 formal letters and roughly 10 meetings. Bangladesh's cabinet approved a return to direct UNICEF procurement in June 2026 to stabilize supply.",
+      "desc": "Bangladesh's Directorate General of Health Services (DGHS) has recorded 873 confirmed and suspected measles deaths and 17,115 laboratory-confirmed cases (131,946+ suspected as of early Aug) since the outbreak began in early 2026 \u2014 currently one of the largest active measles outbreaks in the world. An emergency mass-vaccination campaign for children aged 6\u201359 months began 5 April 2026.",
+      "more": "A Global Centre for Democratic Governance report attributes the outbreak to vaccine-supply disruptions and missed routine immunizations during 2024\u20132025, when measles vaccination coverage fell to 56.2% \u2014 its lowest level 2017\u20132025 \u2014 amid administrative delays in procurement under the prior interim government. UNICEF says it repeatedly warned officials about the impending vaccine shortage through 5\u20136 formal letters and roughly 10 meetings. Bangladesh's cabinet approved a return to direct UNICEF procurement in June 2026 to stabilize supply.",
       "src": "Bangladesh DGHS via Think Global Health, 4 Aug 2026; Global Centre for Democratic Governance report via regional press, ~12 Aug 2026",
       "tags": [
         "Measles",
@@ -121,13 +121,13 @@
       "id": "avian-h5n5-us",
       "date": "2025-12-05",
       "sortDate": "2025-12-05",
-      "title": "Avian Influenza A(H5N5) — United States of America",
+      "title": "Avian Influenza A(H5N5) \u2014 United States of America",
       "level": 3,
       "status": "Monitoring",
       "country": [
         "USA"
       ],
-      "desc": "WHO Disease Outbreak News on avian influenza A(H5N5) detection in the United States — tracked alongside ongoing H5N1 surveillance as part of WHO's broader avian influenza monitoring.",
+      "desc": "WHO Disease Outbreak News on avian influenza A(H5N5) detection in the United States \u2014 tracked alongside ongoing H5N1 surveillance as part of WHO's broader avian influenza monitoring.",
       "more": "",
       "src": "WHO DON, 5 Dec 2025",
       "tags": [
@@ -140,7 +140,7 @@
       "id": "mpox-broader-dec25",
       "date": "2025-12-05",
       "sortDate": "2025-12-05",
-      "title": "Broader Transmission of Mpox (Clade Ib MPXV) — Global Situation",
+      "title": "Broader Transmission of Mpox (Clade Ib MPXV) \u2014 Global Situation",
       "level": 3,
       "status": "Active",
       "country": [
@@ -159,7 +159,7 @@
       "id": "food-safety-mar26",
       "date": "2026-03-13",
       "sortDate": "2026-03-13",
-      "title": "Infant Formula Contaminated with Cereulide Toxin — Multi-country",
+      "title": "Infant Formula Contaminated with Cereulide Toxin \u2014 Multi-country",
       "level": 3,
       "status": "Active recall/investigation",
       "country": [
@@ -178,7 +178,7 @@
       "id": "hanta-cruise",
       "date": "2026-07-02",
       "sortDate": "2026-07-02",
-      "title": "Andes Hantavirus — Cruise Ship (M/V Hondius), Multi-country",
+      "title": "Andes Hantavirus \u2014 Cruise Ship (M/V Hondius), Multi-country",
       "level": 3,
       "status": "Closed",
       "country": [
@@ -202,7 +202,7 @@
       "id": "marburg-eth",
       "date": "2026-01-26",
       "sortDate": "2026-01-26",
-      "title": "Marburg Virus Disease — Ethiopia (closed)",
+      "title": "Marburg Virus Disease \u2014 Ethiopia (closed)",
       "level": 2,
       "status": "Closed",
       "country": [
@@ -224,13 +224,13 @@
       "id": "mpox-recomb",
       "date": "2026-02-14",
       "sortDate": "2026-02-14",
-      "title": "Mpox — Recombinant Clade Ib/IIb Virus, Global",
+      "title": "Mpox \u2014 Recombinant Clade Ib/IIb Virus, Global",
       "level": 2,
       "status": "Monitoring",
       "country": [
         "Global"
       ],
-      "desc": "WHO DON flags a recombinant mpox virus carrying genomic elements of both clade Ib and clade IIb — a genetic-mixing signal of concern for surveillance systems tracking lineage-specific countermeasures.",
+      "desc": "WHO DON flags a recombinant mpox virus carrying genomic elements of both clade Ib and clade IIb \u2014 a genetic-mixing signal of concern for surveillance systems tracking lineage-specific countermeasures.",
       "more": "",
       "src": "WHO DON, 14 Feb 2026",
       "tags": [
@@ -243,7 +243,7 @@
       "id": "nipah-bd",
       "date": "2026-02-06",
       "sortDate": "2026-02-06",
-      "title": "Nipah Virus — Bangladesh",
+      "title": "Nipah Virus \u2014 Bangladesh",
       "level": 2,
       "status": "Seasonal",
       "country": [
@@ -261,7 +261,7 @@
       "id": "nipah-in",
       "date": "2026-01-30",
       "sortDate": "2026-01-30",
-      "title": "Nipah Virus — India",
+      "title": "Nipah Virus \u2014 India",
       "level": 2,
       "status": "Seasonal",
       "country": [
@@ -279,7 +279,7 @@
       "id": "mers-global",
       "date": "2025-12-24",
       "sortDate": "2025-12-24",
-      "title": "MERS-CoV — Global Update",
+      "title": "MERS-CoV \u2014 Global Update",
       "level": 1,
       "status": "Endemic monitoring",
       "country": [
@@ -297,7 +297,7 @@
       "id": "seasonal-flu-dec25",
       "date": "2025-12-10",
       "sortDate": "2025-12-10",
-      "title": "Seasonal Influenza — Global Situation",
+      "title": "Seasonal Influenza \u2014 Global Situation",
       "level": 1,
       "status": "Seasonal monitoring",
       "country": [
@@ -315,7 +315,7 @@
       "id": "diphtheria-afro",
       "date": "2025-11-21",
       "sortDate": "2025-11-21",
-      "title": "Diphtheria — African Region (AFRO)",
+      "title": "Diphtheria \u2014 African Region (AFRO)",
       "level": 2,
       "status": "Active",
       "country": [
@@ -333,7 +333,7 @@
       "id": "rvf-mauritania-senegal",
       "date": "2025-11-05",
       "sortDate": "2025-11-05",
-      "title": "Rift Valley Fever — Mauritania and Senegal",
+      "title": "Rift Valley Fever \u2014 Mauritania and Senegal",
       "level": 2,
       "status": "Active",
       "country": [
@@ -352,26 +352,18 @@
   ],
   "governance": [
     {
-      "id": "rand-defense-in-depth-2026",
-      "date": "2026-08-01",
-      "sortDate": "2026-08-01",
-      "title": "RAND: \"Building a Defense-in-Depth Biosecurity Strategy for the AI Era\" (RRA4999-1)",
-      "country": "Global",
-      "desc": "Nine-mitigation, four-class prevention framework for AI-enabled biological risk, developed from an initial pool of 67 candidate mitigations. Central finding: no single mitigation is sufficient — different threat-actor profiles are susceptible to different mitigation classes (disruption-oriented vs. deterrence-oriented), which is the report's case for a layered strategy. Publication date is approximate — the document's front matter carries no specific month; internal references place drafting through Jul–Aug 2026. See this tracker's Mitigation Coverage module for the full breakdown."
-    },
-    {
       "id": "g0",
       "date": "2026-07-22",
       "sortDate": "2026-07-22",
       "title": "OpenAI \"Biodefense in the Intelligence Age\" action plan",
-      "desc": "An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit — positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk.",
+      "desc": "An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit \u2014 positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk.",
       "country": "Global"
     },
     {
       "id": "china-ai-pharma-plan-2026",
       "date": "2026-07-07",
       "sortDate": "2026-07-07",
-      "title": "China's National Health Development Plan — AI-Pharma Provisions",
+      "title": "China's National Health Development Plan \u2014 AI-Pharma Provisions",
       "country": "China",
       "desc": "China's National Health Development Plan for the 15th Five-Year Plan Period, officially released 7 Jul 2026, explicitly proposes promoting AI-enabled upgrading across the entire pharmaceutical industry value chain. Chinese regulators are concurrently building a multi-layered regulatory framework spanning data, algorithms, cybersecurity, biosafety, and healthcare regulation for this expansion."
     },
@@ -403,9 +395,9 @@
       "id": "eu-biotech-act-2025",
       "date": "2025-12-16",
       "sortDate": "2025-12-16",
-      "title": "EU Biotech Act — Biosecurity & Biodefence Provisions (Pillar 7)",
+      "title": "EU Biotech Act \u2014 Biosecurity & Biodefence Provisions (Pillar 7)",
       "country": "Europe",
-      "desc": "European Commission legislative proposal COM(2025) 1022, Pillar 7, amends multiple existing EU health and food regulations to boost biodefence and biosecurity and help prevent biotechnology misuse. Stakeholder consultation (14 May–11 Jun 2025) gathered 222 contributions from industry, NGOs, and public authorities."
+      "desc": "European Commission legislative proposal COM(2025) 1022, Pillar 7, amends multiple existing EU health and food regulations to boost biodefence and biosecurity and help prevent biotechnology misuse. Stakeholder consultation (14 May\u201311 Jun 2025) gathered 222 contributions from industry, NGOs, and public authorities."
     },
     {
       "id": "russia-mfa-ai-bio-statement-2025",
@@ -413,7 +405,7 @@
       "sortDate": "2025-12-01",
       "title": "Russian MFA Statement on AI-Enabled Biological Risk (BWC Conference)",
       "country": "Russia",
-      "desc": "At a BWC 50th-anniversary conference held in New Delhi, Russia's Deputy Director-General for Non-Proliferation and Arms Control formally flagged that new AI models could enable researchers to design a wider range of molecules/proteins, modify microorganisms to be undetectable, and develop new bioagents and toxins — calling for export-control attention to dual-use gene-editing platforms. References Russia's own recurring Sochi biosecurity forum (Rospotrebnadzor + MFA, most recently 10–11 Jun 2025)."
+      "desc": "At a BWC 50th-anniversary conference held in New Delhi, Russia's Deputy Director-General for Non-Proliferation and Arms Control formally flagged that new AI models could enable researchers to design a wider range of molecules/proteins, modify microorganisms to be undetectable, and develop new bioagents and toxins \u2014 calling for export-control attention to dual-use gene-editing platforms. References Russia's own recurring Sochi biosecurity forum (Rospotrebnadzor + MFA, most recently 10\u201311 Jun 2025)."
     },
     {
       "id": "g3",
@@ -437,7 +429,7 @@
       "sortDate": "2024-08-19",
       "title": "India's Biosecurity Governance Gap (documented, not yet acted on)",
       "country": "India",
-      "desc": "ORF's 'Biosecurity blueprint for India' documents that India has no dedicated biosecurity-specific law or agency — biological risk is currently governed only through general instruments (Environment Protection Act 1986, WMD Act 2005, Biosafety Rules 1989/rDNA Guidelines 2017), which address biosafety and non-proliferation but not biosecurity as a distinct function. ORF recommends a dedicated biosecurity agency, drawing on the US's NSCEB model. This gap remains undocumented as closed as of this tracker's last check — tracked here as a standing recommendation, not a completed action."
+      "desc": "ORF's 'Biosecurity blueprint for India' documents that India has no dedicated biosecurity-specific law or agency \u2014 biological risk is currently governed only through general instruments (Environment Protection Act 1986, WMD Act 2005, Biosafety Rules 1989/rDNA Guidelines 2017), which address biosafety and non-proliferation but not biosecurity as a distinct function. ORF recommends a dedicated biosecurity agency, drawing on the US's NSCEB model. This gap remains undocumented as closed as of this tracker's last check \u2014 tracked here as a standing recommendation, not a completed action."
     },
     {
       "id": "g6",
@@ -474,11 +466,11 @@
   ],
   "signals": {
     "checkedAt": "2026-08-26T18:36:16.300364+00:00",
-    "checkedBy": "Automated — GitHub Actions + live GDELT z-score (mode=timelinevol)",
+    "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
-        "label": "Hemorrhagic fever — Central Africa",
+        "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
         "note": "z-score -0.66 against 60-day baseline (mean 0.007%, latest 0.003%).",
         "corroborated": false,
@@ -494,7 +486,7 @@
       },
       {
         "id": "mass-illness-sasia",
-        "label": "Mass illness — South Asia",
+        "label": "Mass illness \u2014 South Asia",
         "status": "normal",
         "note": "z-score -0.33 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
@@ -502,7 +494,7 @@
       },
       {
         "id": "cholera-global",
-        "label": "Cholera outbreak — Global",
+        "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
         "note": "z-score -1.29 against 60-day baseline (mean 0.005%, latest 0.002%).",
         "corroborated": false,
@@ -510,7 +502,7 @@
       },
       {
         "id": "avian-flu-human",
-        "label": "Avian influenza — human cases",
+        "label": "Avian influenza \u2014 human cases",
         "status": "normal",
         "note": "z-score -0.81 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
@@ -529,7 +521,7 @@
   "upstreamIndicators": {
     "wastewater": {
       "status": "pending",
-      "note": "Not yet checked — runs automatically with the next scheduled GitHub Actions job."
+      "note": "Not yet checked \u2014 runs automatically with the next scheduled GitHub Actions job."
     },
     "preprints": {}
   }
