@@ -517,5 +517,12 @@
         "corrobNote": ""
       }
     ]
+  },
+  "upstreamIndicators": {
+    "wastewater": {
+      "status": "pending",
+      "note": "Not yet checked \u2014 runs automatically with the next scheduled GitHub Actions job."
+    },
+    "preprints": {}
   }
 }
