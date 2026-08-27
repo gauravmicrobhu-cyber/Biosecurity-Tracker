@@ -668,6 +668,10 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
     <section class="section" id="sources" hidden>
       <div class="section-head"><h2>Sources &amp; Methodology</h2><p>Every citation used across the tracker, in one place — so the sourcing behind any number or claim can be checked without hunting through nine tabs.</p></div>
+      <div style="margin-bottom:18px;">
+        <button class="smallbtn" id="exportFullJsonBtn">⬇ Export full dataset (JSON)</button>
+        <span style="font-size:11.5px;color:var(--muted-2);margin-left:10px;">Every tracked entry across every module — not just your flagged items — for use in other analysis tools.</span>
+      </div>
       <div id="sourcesOut"></div>
     </section>
 
@@ -694,6 +698,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;" id="signalsFreshness"></p>
       <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;">Fetched automatically by a scheduled GitHub Actions job — not by your browser, which is why this works reliably regardless of your network. Browser-side calls to GDELT were persistently blocked across multiple tests; running the same fetch server-side, correctly paced (up to ~45s between requests, with retries on rate-limit/timeout responses), resolved it.</p>
       <div class="signal-grid" id="signalGrid"></div>
+      <h3 style="font-family:var(--cond);font-size:20px;margin:28px 0 6px 0;">Upstream Indicators</h3>
+      <p style="font-size:13px;color:var(--muted-2);margin-bottom:14px;max-width:680px;">Earlier-stage signals than news volume: wastewater surveillance coverage (CDC NWSS) and preprint-volume trends (bioRxiv/medRxiv). Same automated pipeline as Signal Detection above — also unverified, also a prompt to look closer, not a finding.</p>
+      <div class="signal-grid" id="upstreamGrid"></div>
     </section>
 
     <section class="section" id="aibio" hidden>
@@ -761,8 +768,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
         <span><i style="background:#ffe600"></i>Facility</span>
         <span><i style="background:#00f5d4"></i>Country</span>
         <span><i style="background:#ff2d6a"></i>Governance / standards body</span>
+        <span><i style="background:#b57bee"></i>Pathogen (from Outbreak Feed)</span>
       </div>
-      <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:720px;">Edges shown are documented relationships (facility location, standards adoption, reporting/oversight ties) — not funding flows. Per-facility funding sources aren't independently verified here, so they're deliberately left out rather than estimated.</p>
+      <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;max-width:720px;">Edges shown are documented relationships (facility location, standards adoption, reporting/oversight ties, outbreak-to-pathogen links) — not funding flows. Per-facility funding sources aren't independently verified here, so they're deliberately left out rather than estimated.</p>
     </section>
 
     <section class="section" id="governance" hidden>
@@ -1003,94 +1011,94 @@ D.netCountries = ["USA","Canada","UK","France","Germany","Netherlands","Sweden",
 /* ---- Historical dual-use incidents (Category A: flagged research/export control; Category B: confirmed biocrime) ---- */
 D.historicalIncidents = [
   // Category A — flagged research / export-control enforcement (no attack occurred)
-  {id:"h5n1-rotterdam", cat:"A", title:"H5N1 Ferret-Transmissibility Study (Fouchier)", lat:51.917, lng:4.470, date:"2011-09-01", country:"Netherlands",
+  {id:"h5n1-rotterdam", cat:"A", title:"H5N1 Ferret-Transmissibility Study (Fouchier)", lat:51.917, lng:4.470, date:"2011-09-01", country:"Netherlands", mechanism:"Research publication (dual-use)",
    desc:"Erasmus MC modified H5N1 avian flu to transmit between ferrets via respiratory droplets. Triggered NSABB review and a voluntary international research moratorium (Jan 2012–Jan 2013) over publication-safety concerns.",
    src:"Herfst et al., Science, 2012; Science.org NIH coverage"},
-  {id:"h5n1-madison", cat:"A", title:"H5N1 Ferret-Transmissibility Study (Kawaoka)", lat:43.0766, lng:-89.4125, date:"2011-09-01", country:"USA",
+  {id:"h5n1-madison", cat:"A", title:"H5N1 Ferret-Transmissibility Study (Kawaoka)", lat:43.0766, lng:-89.4125, date:"2011-09-01", country:"USA", mechanism:"Research publication (dual-use)",
    desc:"Parallel study at UW-Madison achieving similar H5N1 mammalian transmissibility results, published alongside the Fouchier study — together the two triggered the DURC publication debate.",
    src:"Imai et al., Nature, 2012"},
-  {id:"gof-pause-cdc", cat:"A", title:"CDC H5N1 Contamination Incident → US GOF Funding Pause", lat:33.797, lng:-84.324, date:"2014-10-17", country:"USA",
+  {id:"gof-pause-cdc", cat:"A", title:"CDC H5N1 Contamination Incident → US GOF Funding Pause", lat:33.797, lng:-84.324, date:"2014-10-17", country:"USA", mechanism:"Laboratory accident (containment failure)",
    desc:"A CDC Atlanta lab incident (a benign avian flu sample inadvertently contaminated with H5N1) was one of several biosafety lapses that led OSTP to pause federal funding for 18–21 gain-of-function projects at ~14 institutions nationwide, Oct 2014–Dec 2017.",
    src:"NIH Notice NOT-OD-17-071; Congress.gov CRS R47114"},
-  {id:"butler-plague", cat:"A", title:"Unlicensed Export of Yersinia pestis (Plague)", lat:33.5779, lng:-101.8552, date:"2003-01-01", country:"USA",
+  {id:"butler-plague", cat:"A", title:"Unlicensed Export of Yersinia pestis (Plague)", lat:33.5779, lng:-101.8552, date:"2003-01-01", country:"USA", mechanism:"Unlicensed export",
    desc:"Texas Tech professor Thomas Butler exported plague bacterium to Tanzania without the required Commerce Department license. Convicted on export-control charges.",
    src:"BIS charging documents, Aug 2006; UMBC Export Control Case Studies"},
-  {id:"iu-toxin-flies", cat:"A", title:"Unlicensed Export of Toxin-Producing GM Organisms", lat:39.1653, lng:-86.5264, date:"2025-06-01", country:"USA",
+  {id:"iu-toxin-flies", cat:"A", title:"Unlicensed Export of Toxin-Producing GM Organisms", lat:39.1653, lng:-86.5264, date:"2025-06-01", country:"USA", mechanism:"Unlicensed export",
    desc:"BIS settled with Indiana University over 42 violations: its Bloomington Drosophila Stock Center shipped fruit flies genetically modified to produce a subunit of a controlled toxin to research institutions worldwide, without required export licenses.",
    src:"BIS official press release, bis.gov"},
 
   // Category B — confirmed use of a biological agent
-  {id:"sverdlovsk", cat:"B", title:"Sverdlovsk Anthrax Leak", lat:56.8431, lng:60.6454, date:"1979-04-02", country:"Russia",
+  {id:"sverdlovsk", cat:"B", title:"Sverdlovsk Anthrax Leak", lat:56.8431, lng:60.6454, date:"1979-04-02", country:"Russia", mechanism:"Laboratory accident (containment failure)",
    desc:"Accidental release of aerosolized B. anthracis from Compound 19, a Soviet military bioweapons facility. At least 66–68 confirmed deaths. Denied by the USSR for 13 years as tainted meat; confirmed as a weapons-facility accident by Yeltsin in 1992.",
    src:"Meselson et al., Science, 1994 (peer-reviewed); PBS Frontline"},
-  {id:"dark-harvest-porton", cat:"B", title:"Dark Harvest Commando — Porton Down Delivery", lat:51.128, lng:-1.696, date:"1981-10-10", country:"UK",
+  {id:"dark-harvest-porton", cat:"B", title:"Dark Harvest Commando — Porton Down Delivery", lat:51.128, lng:-1.696, date:"1981-10-10", country:"UK", mechanism:"Material delivery (protest)",
    desc:"Group calling itself Dark Harvest Commando left a container of Gruinard Island soil, confirmed to contain live B. anthracis, outside the UK's Chemical Defence Establishment, protesting the island's undecontaminated WWII bioweapons-test status. 0 casualties.",
    src:"Wikipedia (cross-verified via Scotland's History Scot, The Ferret)"},
-  {id:"dark-harvest-blackpool", cat:"B", title:"Dark Harvest Commando — Blackpool Delivery", lat:53.8175, lng:-3.0357, date:"1981-10-14", country:"UK",
+  {id:"dark-harvest-blackpool", cat:"B", title:"Dark Harvest Commando — Blackpool Delivery", lat:53.8175, lng:-3.0357, date:"1981-10-14", country:"UK", mechanism:"Material delivery (protest)",
    desc:"A second soil container, matching Gruinard Island's soil type but testing negative for anthrax, was left at the Conservative Party conference venue. Part of the same protest campaign as the Porton Down delivery.",
    src:"History Scot (National Records of Scotland); GTD"},
-  {id:"aum-yokohama", cat:"B", title:"Aum Shinrikyo Botulinum Attempt — Yokosuka Naval Base area", lat:35.4437, lng:139.6380, date:"1990-04-15", country:"Japan",
+  {id:"aum-yokohama", cat:"B", title:"Aum Shinrikyo Botulinum Attempt — Yokosuka Naval Base area", lat:35.4437, lng:139.6380, date:"1990-04-15", country:"Japan", mechanism:"Aerosol release (attempted)",
    desc:"Early, little-known failed attempt — cult sprayed botulinum toxin near a US naval base as part of a wider 1990 campaign that also targeted the Imperial Palace and Japan's Diet. Predates the better-known 1993 Kameido anthrax incident. 0 casualties (technical failure).",
    src:"GTD; ASPI Strategist"},
-  {id:"aum-narita", cat:"B", title:"Aum Shinrikyo Botulinum Attempt — Narita Airport", lat:35.7722, lng:140.3218, date:"1990-04-15", country:"Japan",
+  {id:"aum-narita", cat:"B", title:"Aum Shinrikyo Botulinum Attempt — Narita Airport", lat:35.7722, lng:140.3218, date:"1990-04-15", country:"Japan", mechanism:"Aerosol release (attempted)",
    desc:"Same April 1990 campaign, targeting Narita International Airport. 0 casualties.",
    src:"GTD"},
-  {id:"aum-kameido", cat:"B", title:"Kameido Anthrax Incident", lat:35.7010, lng:139.8288, date:"1993-06-29", country:"Japan",
+  {id:"aum-kameido", cat:"B", title:"Kameido Anthrax Incident", lat:35.7010, lng:139.8288, date:"1993-06-29", country:"Japan", mechanism:"Aerosol release (attempted)",
    desc:"Aum Shinrikyo aerosolized B. anthracis from the roof of its 8-story Kameido headquarters. Later analysis found the strain was the non-virulent veterinary vaccine strain — zero confirmed human casualties despite the attempt.",
    src:"Emerging Infectious Diseases (CDC, peer-reviewed), Jan 2004"},
-  {id:"rajneeshee", cat:"B", title:"Rajneeshee Bioterror Attack", lat:45.6011, lng:-121.1828, date:"1984-09-09", country:"USA",
+  {id:"rajneeshee", cat:"B", title:"Rajneeshee Bioterror Attack", lat:45.6011, lng:-121.1828, date:"1984-09-09", country:"USA", mechanism:"Food/water contamination",
    desc:"Election-sabotage plot: Salmonella Typhimurium in restaurant salad bars, The Dalles, Oregon. GTD records this as a 4-stage escalating campaign (small test-runs 15 Jul, 29 Aug, and a larger dose 9 Sep, before the large 20 Sep attack that produced 751 confirmed cases, 45 hospitalized, 0 deaths).",
    src:"FBI; Oregon Health Authority investigation; GTD"},
-  {id:"amerithrax-trenton", cat:"B", title:"Amerithrax — Mailing Origin", lat:40.2171, lng:-74.7429, date:"2001-09-18", country:"USA",
+  {id:"amerithrax-trenton", cat:"B", title:"Amerithrax — Mailing Origin", lat:40.2171, lng:-74.7429, date:"2001-09-18", country:"USA", mechanism:"Mail-delivered",
    desc:"Anthrax-laced letters postmarked from Trenton, NJ, sent to media outlets and US senators. FBI concluded Dr. Bruce Ivins of USAMRIID (Fort Detrick) acted alone; investigation formally closed 2010.",
    src:"FBI/DOJ Amerithrax Investigative Summary, 2010"},
-  {id:"amerithrax-bocaraton", cat:"B", title:"Amerithrax — Boca Raton, FL", lat:26.3683, lng:-80.1289, date:"2001-10-02", country:"USA",
+  {id:"amerithrax-bocaraton", cat:"B", title:"Amerithrax — Boca Raton, FL", lat:26.3683, lng:-80.1289, date:"2001-10-02", country:"USA", mechanism:"Mail-delivered",
    desc:"American Media Inc. (National Enquirer). First fatality: photo editor Bob Stevens, first confirmed inhalational anthrax death.",
    src:"CNN; FBI"},
-  {id:"amerithrax-dc", cat:"B", title:"Amerithrax — Washington, DC", lat:38.9072, lng:-77.0369, date:"2001-10-15", country:"USA",
+  {id:"amerithrax-dc", cat:"B", title:"Amerithrax — Washington, DC", lat:38.9072, lng:-77.0369, date:"2001-10-15", country:"USA", mechanism:"Mail-delivered",
    desc:"Letter to Sen. Tom Daschle's office; Brentwood postal facility contamination killed two postal workers, Thomas Morris Jr. and Joseph Curseen.",
    src:"FBI/DOJ Amerithrax Investigative Summary"},
-  {id:"amerithrax-nyc", cat:"B", title:"Amerithrax — New York City", lat:40.7128, lng:-74.0060, date:"2001-10-12", country:"USA",
+  {id:"amerithrax-nyc", cat:"B", title:"Amerithrax — New York City", lat:40.7128, lng:-74.0060, date:"2001-10-12", country:"USA", mechanism:"Mail-delivered",
    desc:"Letters to NBC News (Tom Brokaw), ABC, CBS, New York Post. Kathy Nguyen, a hospital worker with no identified direct exposure link, died of inhalational anthrax in late October.",
    src:"FBI/DOJ Amerithrax Investigative Summary"},
-  {id:"amerithrax-oxford", cat:"B", title:"Amerithrax — Oxford, CT", lat:41.4459, lng:-73.1287, date:"2001-11-14", country:"USA",
+  {id:"amerithrax-oxford", cat:"B", title:"Amerithrax — Oxford, CT", lat:41.4459, lng:-73.1287, date:"2001-11-14", country:"USA", mechanism:"Mail-delivered (secondary/cross-contamination)",
    desc:"Ottilie Lundgren, 94, died of inhalational anthrax with no identified direct exposure — believed a victim of cross-contaminated mail. Fifth and final fatality.",
    src:"FBI/DOJ Amerithrax Investigative Summary"},
-  {id:"ricin-dc", cat:"B", title:"2013 Ricin Letters — Washington, DC", lat:38.9072, lng:-77.0369, date:"2013-05-20", country:"USA",
+  {id:"ricin-dc", cat:"B", title:"2013 Ricin Letters — Washington, DC", lat:38.9072, lng:-77.0369, date:"2013-05-20", country:"USA", mechanism:"Mail-delivered (intercepted)",
    desc:"Ricin-laced letters addressed to President Obama and Mark Glaze (director, Mayors Against Illegal Guns), tied to the post-Sandy Hook gun-control debate. Intercepted by mail screening before delivery — 0 casualties.",
    src:"GTD; DOJ press statements"},
-  {id:"ricin-nyc", cat:"B", title:"2013 Ricin Letters — New York City", lat:40.7128, lng:-74.0060, date:"2013-05-20", country:"USA",
+  {id:"ricin-nyc", cat:"B", title:"2013 Ricin Letters — New York City", lat:40.7128, lng:-74.0060, date:"2013-05-20", country:"USA", mechanism:"Mail-delivered (intercepted)",
    desc:"Companion ricin letter addressed to NYC Mayor Michael Bloomberg, part of the same mailing campaign. Intercepted, 0 casualties.",
    src:"GTD; DOJ press statements"},
 
   // Category B addition — confirmed deliberate harm
-  {id:"aralsk-smallpox", cat:"B", title:"Aralsk Smallpox Incident", lat:45.9667, lng:59.9333, date:"1971-07-30", country:"Kazakhstan",
+  {id:"aralsk-smallpox", cat:"B", title:"Aralsk Smallpox Incident", lat:45.9667, lng:59.9333, date:"1971-07-30", country:"Kazakhstan", mechanism:"Field test exposure",
    desc:"A USSR open-air Variola major (smallpox) field test on Vozrozhdeniya Island exposed a passing research vessel's crew member. The outbreak spread to the nearby town of Aralsk — approximately 10 cases, 3 deaths — before being contained by mass vaccination and quarantine.",
    src:"Tucker & Zilinskas, The Nonproliferation Review, 2002 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
 
   // Category C — accidental biosafety failures (no deliberate intent, real containment/material-control lapses)
-  {id:"pirbright-fmd", cat:"C", title:"Pirbright Foot-and-Mouth Leak", lat:51.2367, lng:-0.6667, date:"2007-08-03", country:"UK",
+  {id:"pirbright-fmd", cat:"C", title:"Pirbright Foot-and-Mouth Leak", lat:51.2367, lng:-0.6667, date:"2007-08-03", country:"UK", mechanism:"Laboratory accident (containment failure)",
    desc:"Viral leakage from drainage pipes at the high-containment Pirbright facility caused a foot-and-mouth disease outbreak, resulting in the culling of more than 2,000 animals. A failure at a well-resourced, high-containment site, not a research or export flag.",
    src:"Anderson, UK Stationery Office, 2008 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"cdc-anthrax-2014", cat:"C", title:"CDC Anthrax Exposure Incident", lat:33.797, lng:-84.324, date:"2014-06-19", country:"USA",
+  {id:"cdc-anthrax-2014", cat:"C", title:"CDC Anthrax Exposure Incident", lat:33.797, lng:-84.324, date:"2014-06-19", country:"USA", mechanism:"Laboratory accident (containment failure)",
    desc:"75 CDC workers were potentially exposed to live Bacillus anthracis after failed inactivation of samples in a BSL-3 laboratory before transfer to a lower-containment setting.",
    src:"Malakoff, Science, 19 Jun 2014 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"dugway-anthrax-2015", cat:"C", title:"Dugway Proving Ground Anthrax Shipment", lat:40.1996, lng:-112.9377, date:"2015-05-27", country:"USA",
+  {id:"dugway-anthrax-2015", cat:"C", title:"Dugway Proving Ground Anthrax Shipment", lat:40.1996, lng:-112.9377, date:"2015-05-27", country:"USA", mechanism:"Material-control failure (mislabeled shipment)",
    desc:"A US Army laboratory mistakenly shipped live Bacillus anthracis samples, believed to have been inactivated, to 51 laboratories across 17 US states and recipients in 3 foreign countries.",
    src:"US Department of Defense press briefing, Jan 2016 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"lanzhou-brucellosis", cat:"C", title:"Zhongmu Lanzhou Biopharmaceutical Plant Escape", lat:36.0611, lng:103.8343, date:"2019-07-24", country:"China",
+  {id:"lanzhou-brucellosis", cat:"C", title:"Zhongmu Lanzhou Biopharmaceutical Plant Escape", lat:36.0611, lng:103.8343, date:"2019-07-24", country:"China", mechanism:"Industrial accident (containment failure)",
    desc:"An escape of Brucella from the Zhongmu Lanzhou Biopharmaceutical Plant led to brucellosis infections among more than 10,000 people in the surrounding area — an accidental release from a commercial biopharmaceutical facility, not a research laboratory.",
    src:"Lina et al., Global Biosecurity, 2021 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"queensland-missing-samples", cat:"C", title:"Queensland Laboratory Missing Samples", lat:-27.4698, lng:153.0251, date:"2021-01-01", country:"Australia",
+  {id:"queensland-missing-samples", cat:"C", title:"Queensland Laboratory Missing Samples", lat:-27.4698, lng:153.0251, date:"2021-01-01", country:"Australia", mechanism:"Material-control failure (missing inventory)",
    desc:"323 virus samples — reportedly including Hendra virus, Lyssavirus, and Hantavirus — were found missing from a Queensland public health laboratory. The breach was uncovered more than two years later, in August 2023, illustrating how material-control failures can go undetected for extended periods.",
    src:"Slattery, ABC News, 9 Dec 2024 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"reedley-biolab", cat:"C", title:"Reedley Unauthorized Private Laboratory", lat:36.5966, lng:-119.4499, date:"2023-12-01", country:"USA",
+  {id:"reedley-biolab", cat:"C", title:"Reedley Unauthorized Private Laboratory", lat:36.5966, lng:-119.4499, date:"2023-12-01", country:"USA", mechanism:"Unauthorized/unregulated handling (grey-zone lab)",
    desc:"Local officials discovered an unauthorized private biological laboratory storing at least 20 infectious agents — including HIV, tuberculosis, and malaria — together with laboratory mice and counterfeit medical-testing materials. Grey-zone activity outside any standard biosafety oversight, not a registered facility.",
    src:"Howell, Lawfare, 18 Mar 2026 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"las-vegas-biolab", cat:"C", title:"Las Vegas Unauthorized Private Laboratory", lat:36.1699, lng:-115.1398, date:"2026-01-01", country:"USA",
+  {id:"las-vegas-biolab", cat:"C", title:"Las Vegas Unauthorized Private Laboratory", lat:36.1699, lng:-115.1398, date:"2026-01-01", country:"USA", mechanism:"Unauthorized/unregulated handling (grey-zone lab)",
    desc:"A suspected unauthorized private biological laboratory was discovered in a residential garage, linked to the Reedley case, after several visitors to the home became unwell. More than 1,000 samples were sent for bioforensic testing.",
    src:"Howell, Lawfare, 18 Mar 2026 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
-  {id:"unicamp-theft", cat:"C", title:"Unicamp BSL-3 Sample Theft", lat:-22.9099, lng:-47.0626, date:"2026-01-15", country:"Brazil",
+  {id:"unicamp-theft", cat:"C", title:"Unicamp BSL-3 Sample Theft", lat:-22.9099, lng:-47.0626, date:"2026-01-15", country:"Brazil", mechanism:"Insider theft/diversion",
    desc:"Samples of dangerous viruses — including chikungunya, dengue, and influenza — were reportedly stolen from a BSL-3 laboratory at the State University of Campinas (Unicamp). The reported motive was academic rivalry and personal financial benefit, not weaponization; samples were recovered, but the case shows how competitive pressure can drive unauthorized handling of biological materials.",
    src:"Lenharo, Nature, 2026 (via Sudarshan & Hersman, GovAI, Aug 2026)"},
 ];
@@ -1117,6 +1125,21 @@ function buildNetworkGraph(){
   links.push({source:"country:Singapore", target:"body:ACHS", kind:"headquartered (NUS)"});
   links.push({source:"body:ACHS", target:"body:IBBIS", kind:"advisory board connection (S. Namdeo)"});
   links.push({source:"body:ACHS", target:"country:India", kind:"fellow affiliation (S. Namdeo, IISc)"});
+
+  // Pathogen nodes, linked to the countries reporting them — extends the graph beyond
+  // governance-only relationships into the outbreak data this tracker already holds.
+  D.outbreaks.forEach(o=>{
+    const pathogenTag = o.tags && o.tags[0];
+    if(!pathogenTag) return;
+    const pid = "pathogen:"+pathogenTag;
+    if(!nodes.find(n=>n.id===pid)) nodes.push({id:pid, label:pathogenTag, type:"pathogen", note:`Tracked in Outbreak Feed: ${o.title}`});
+    (o.country||[]).forEach(c=>{
+      if(c==='Global' || c==='Multi-country' || c==='Unspecified') return;
+      const cid = "country:"+c;
+      if(!nodes.find(n=>n.id===cid)) nodes.push({id:cid, label:c, type:"country"});
+      if(!links.find(l=> l.source===cid && l.target===pid)) links.push({source:cid, target:pid, kind:"outbreak reported"});
+    });
+  });
   return {nodes, links};
 }
 
@@ -1142,6 +1165,7 @@ async function loadData(){
       if(j.outbreaks) D.outbreaks = j.outbreaks;
       if(j.governance) D.governance = j.governance.sort((a,b)=> new Date(b.sortDate) - new Date(a.sortDate));
       if(j.signals) D.signals = j.signals;
+      if(j.upstreamIndicators) D.upstreamIndicators = j.upstreamIndicators;
       if(j.meta) DATA_META = j.meta;
     }
   }catch(e){ /* file:// or missing data.json — fall back silently to embedded seed above */ }
@@ -1734,7 +1758,7 @@ function renderSources(){
 /* ================= RENDER: NETWORK GRAPH ================= */
 let netSim = null, netInitialized = false, netTypeFilter = null, analysisInitialized = false;
 function renderNetFilters(){
-  const types = [["","All"],["facility","Facilities"],["country","Countries"],["body","Governance bodies"]];
+  const types = [["","All"],["facility","Facilities"],["country","Countries"],["body","Governance bodies"],["pathogen","Pathogens"]];
   document.getElementById('netFilters').innerHTML = types.map(([k,l])=>
     `<button class="chip ${netTypeFilter===k||( !netTypeFilter && !k)?'active':''}" data-t="${k}">${l}</button>`).join('');
   document.querySelectorAll('#netFilters .chip').forEach(c=>{
@@ -1766,8 +1790,8 @@ function renderNetwork(){
     nodes.forEach(n=> n._linked = (n.id===cid));
   }
 
-  const colors = {facility:"#ffe600", country:"#00f5d4", body:"#ff2d6a"};
-  const radii = {facility:5, country:7, body:9};
+  const colors = {facility:"#ffe600", country:"#00f5d4", body:"#ff2d6a", pathogen:"#b57bee"};
+  const radii = {facility:5, country:7, body:9, pathogen:6};
 
   const link = g.append('g').attr('stroke', '#3A4345').attr('stroke-opacity',0.6)
     .selectAll('line').data(links).join('line').attr('stroke-width', 1.2);
@@ -1846,6 +1870,23 @@ function renderSignalGrid(){
   grid.querySelectorAll('.signal-card').forEach(card=>{
     card.onclick = ()=> toggleSignalDetail(card.dataset.id);
   });
+  renderUpstreamIndicators();
+}
+function renderUpstreamIndicators(){
+  const grid = document.getElementById('upstreamGrid');
+  if(!grid) return;
+  const ww = D.upstreamIndicators?.wastewater;
+  const preprints = D.upstreamIndicators?.preprints || {};
+  const cards = [];
+  if(ww){
+    const status = ww.status === 'ok' ? 'normal' : ww.status === 'pending' ? 'insufficient' : 'error';
+    cards.push(`<div class="signal-card"><div class="signal-card-head"><span class="signal-title">CDC Wastewater Coverage (NWSS)</span><span class="signal-badge ${status}">${ww.status.toUpperCase()}</span></div><div class="signal-meta" style="margin-top:8px;">${ww.note||''}</div></div>`);
+  }
+  Object.entries(preprints).forEach(([kw, p])=>{
+    const status = p.status || 'error';
+    cards.push(`<div class="signal-card"><div class="signal-card-head"><span class="signal-title">Preprint volume — "${kw}"</span><span class="signal-badge ${status}">${status.toUpperCase()}</span></div><div class="signal-meta" style="margin-top:8px;">${p.note||''}</div></div>`);
+  });
+  grid.innerHTML = cards.join('') || '<p style="color:var(--muted-2);font-size:12.5px;">Not yet checked — runs with the next scheduled GitHub Actions job.</p>';
 }
 function signalCardHtml(sig){
   const status = sig.status || 'normal';
@@ -2086,21 +2127,36 @@ function refreshHistMarkers(){
   if(flyTarget) histMap.flyTo(flyTarget, 5, {duration:1.3});
   else if(state.countryFilter) histMap.flyTo([30,0], 2, {duration:1.1});
 }
+function sourceConfidence(src){
+  if(!src) return {count:0, label:'Unsourced'};
+  // Heuristic: count semicolon-separated citations, and treat "X via Y" as 2 (original + how we found it)
+  const parts = src.split(';').map(s=>s.trim()).filter(Boolean);
+  let count = parts.length;
+  if(src.toLowerCase().includes(' via ') && count===1) count = 2;
+  return {count, label: count>=2 ? `${count} sources` : 'Single source'};
+}
 function renderHistList(){
   const list = D.historicalIncidents
     .filter(h=> histCatFilter==='all' || h.cat===histCatFilter)
     .slice().sort((a,b)=> new Date(a.date) - new Date(b.date));
-  document.getElementById('histList').innerHTML = list.map(h=>`
+  document.getElementById('histList').innerHTML = list.map(h=>{
+    const conf = sourceConfidence(h.src);
+    return `
     <div class="hist-entry" data-id="${h.id}">
       <div class="hist-date">${new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div>
       <div class="hist-body">
         <h4><span class="hist-cat-chip ${h.cat}">CAT ${h.cat}</span> ${h.title}${newBadge(h.id)}</h4>
         <p>${h.desc}</p>
         <span class="src">Source: ${h.src}</span>
-        <span class="tag" style="cursor:pointer;border-color:var(--teal);color:var(--teal);display:inline-block;margin-top:6px;" data-goto-country="${h.country}">📍 ${h.country}</span>
+        <div class="tag-row" style="margin-top:6px;">
+          <span class="tag" style="cursor:pointer;border-color:var(--teal);color:var(--teal);" data-goto-country="${h.country}">📍 ${h.country}</span>
+          ${h.mechanism? `<span class="tag" style="border-color:#ff9f1c;color:#ff9f1c;">⚙ ${h.mechanism}</span>` : ''}
+          <span class="tag ${conf.count>=2?'':'corrob-low'}" style="border-color:${conf.count>=2?'var(--l1)':'var(--muted-2)'};color:${conf.count>=2?'var(--l1)':'var(--muted-2)'};">${conf.count>=2?'✓':'⚠'} ${conf.label}</span>
+        </div>
       </div>
       ${starHtml(h.id, h.title, h.cat==='A'?'Flagged Research':'Confirmed Incident')}
-    </div>`).join('');
+    </div>`;
+  }).join('');
   document.querySelectorAll('#histList [data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
   document.querySelectorAll('#histList [data-goto-country]').forEach(el=> el.onclick = ()=>{ state.countryFilter = el.dataset.gotoCountry; goTo('analysis'); });
 }
@@ -2289,6 +2345,16 @@ function findSrcForExport(id){
   const h = D.historicalIncidents.find(x=>x.id===id); if(h) return h.src;
   return '';
 }
+document.getElementById('exportFullJsonBtn')?.addEventListener('click', ()=>{
+  const fullDataset = {
+    exportedAt: new Date().toISOString(),
+    outbreaks: D.outbreaks, governance: D.governance, aibio: D.aibio, synthesis: D.synthesis,
+    labs: D.labs, scorecards: D.scorecards, historicalIncidents: D.historicalIncidents,
+    signals: D.signals || null, upstreamIndicators: D.upstreamIndicators || null,
+  };
+  downloadBlob(JSON.stringify(fullDataset, null, 2), 'containment-full-dataset.json', 'application/json');
+  showToast('Full dataset downloaded');
+});
 document.getElementById('exportJsonBtn').onclick = ()=>{
   const flagged = Object.entries(bookmarks).filter(([id,b])=>b.starred).map(([id,b])=>({
     id, title:b.label, type:b.type, note:b.note||'', source:findSrcForExport(id)
