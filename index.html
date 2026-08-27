@@ -538,6 +538,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <div class="navgroup-label">Convergence</div>
       <div class="navitem" data-target="aibio"><svg class="navicon" viewBox="0 0 14 14"><path d="M2,4 L7,1.3 L12,4 L12,10 L7,12.7 L2,10 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="1.6" fill="currentColor"/></svg>AI-Bio Capability Watch</div>
       <div class="navitem" data-target="synthesis"><svg class="navicon" viewBox="0 0 14 14"><path d="M5.5,1.5 L5.5,5.5 L2,11.5 Q1.5,12.5 3,12.5 L11,12.5 Q12.5,12.5 12,11.5 L8.5,5.5 L8.5,1.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="4.5" y1="1.5" x2="9.5" y2="1.5" stroke="currentColor" stroke-width="1.2"/></svg>DNA Synthesis Screening</div>
+      <div class="navitem" data-target="mitigations"><svg class="navicon" viewBox="0 0 14 14"><path d="M7,1 L12.5,3.5 L12.5,7.5 C12.5,10.5 10,12.3 7,13 C4,12.3 1.5,10.5 1.5,7.5 L1.5,3.5 Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M4.5,7 L6.2,8.7 L9.5,5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mitigation Coverage</div>
     </div>
     <div class="navgroup">
       <div class="navgroup-label">Infrastructure</div>
@@ -717,6 +718,20 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
     <section class="section" id="synthesis" hidden>
       <div class="section-head"><h2>DNA / RNA Synthesis Screening Compliance</h2><p>The chokepoint layer: what fraction of providers actually screen orders, and how regulation is closing gaps.</p></div>
       <div class="grid" id="synthesisGrid"></div>
+    </section>
+
+    <section class="section" id="mitigations" hidden>
+      <div class="section-head"><h2>Mitigation Coverage <span class="not-official-chip">⚠ ILLUSTRATIVE — TRACKER'S OWN MAPPING</span></h2><p>Nine priority mitigations for AI-enabled biological risk, and where each one bites: which stage of the risk pathway, which class of threat actor, and how technically/institutionally ready it is. Framework and feasibility ratings follow RAND's own analysis (RRA4999-1, 2026) — the mapping below is this tracker's rendering of it, not an official RAND product. Click a row to flag it.</p></div>
+      <div class="country-table-wrap" id="mitigationsTableWrap"></div>
+      <h3 style="font-family:var(--cond);font-size:20px;margin:28px 0 6px 0;">Threat Actor Profiles</h3>
+      <p style="font-size:13px;color:var(--muted-2);margin-bottom:14px;max-width:760px;">RAND's six priority actor profiles — qualitative combinations of expertise, resource access, and motivation, not precise measurements. The tracker's own takeaway: some actors are easy to disrupt (access/material controls) but hard to deter; others are the reverse — which is the report's core case for a layered strategy rather than any single intervention.</p>
+      <div class="grid grid-2" id="actorProfileGrid"></div>
+      <div class="card" style="margin-top:22px;padding:20px 22px;">
+        <div class="card-head"><span class="card-title">Key Complementarity Clusters</span></div>
+        <div id="clusterList"></div>
+        <p style="font-size:11.5px;color:var(--muted-2);margin-top:12px;">Two mitigations are foundational across the whole set per RAND's analysis: the <b style="color:#ff9f1c;">centralized AI x Bio information-sharing nexus</b> (integrates signals from most of the other eight) and <b style="color:#ff9f1c;">biological precursor screening</b> (the only mitigation that adds friction at the digital-to-physical divide).</p>
+      </div>
+      <p style="font-size:11.5px;color:var(--muted-2);margin-top:14px;max-width:760px;">Source: Guerra, Attal-Juncqua, Tarangelo, Aveggio, Dammer &amp; Glickstein, <i>Building a Defense-in-Depth Biosecurity Strategy for the AI Era</i>, RAND Corporation, RRA4999-1, 2026.</p>
     </section>
 
     <section class="section" id="labmap-section" hidden>
@@ -931,6 +946,12 @@ const D = {
     {id:"achs-convergence-biotech-ai", title:"Convergence of Biotechnologies and Artificial Intelligence: Implications on Biological Security", level:2, country:["Singapore"],
      desc:"Asia Centre for Health Security (ACHS) policy publication examining how the convergence of biotechnology and AI creates novel biological security risks, situating AI-bio capability advances within a broader Asia-Pacific governance context.",
      src:"Asia Centre for Health Security, Saw Swee Hock School of Public Health, NUS"},
+    {id:"rand-openweight-lag", title:"Open-Weight Biological AI: A Narrowing but Real Capability Lag", level:2,
+     desc:"RAND assesses open-weight biological AI models (LLMs and design tools) as currently trailing frontier closed-weight counterparts by roughly six to twelve months on capability benchmarks — though the estimate is disputed and the gap is treated as unstable rather than durable. Standard post-training \"unlearning\" of dangerous capabilities has proven reversible under fine-tuning; pretraining-stage filtering (\"deep ignorance\") shows more resistance to adversarial retraining in early studies but is unvalidated at frontier scale.",
+     src:"Guerra et al., RAND Corporation, RRA4999-1, 2026"},
+    {id:"rand-monitoring-vs-blocking", title:"Real-Time Misuse Monitoring vs. Query Blocking", level:2,
+     desc:"RAND argues monitoring has structural advantages over outright blocking as a biosecurity safeguard: a blocked query alerts the actor and changes their behavior, while an unalerted actor under monitoring keeps generating usable signal, and ambiguous flags can escalate to human review instead of a binary real-time block/allow call — at the cost of requiring privacy-preserving detection infrastructure most providers don't yet have at scale.",
+     src:"Guerra et al., RAND Corporation, RRA4999-1, 2026"},
   ],
   synthesis:[
     {id:"fbi-redteam", title:"FBI Red-Team Result — 1918 Influenza Fragment Test", level:4,
@@ -957,6 +978,12 @@ const D = {
     {id:"function-based-screening", title:"Beyond Sequence Similarity: Function-Based Screening", level:2,
      desc:"Direct proposed fix to the screening-gap problem above: since AI biodesign tools can decouple biological function from sequence similarity to known threats, the authors argue for screening that detects hazardous *function* directly rather than homology to a known-sequence database — starting with toxins as the most tractable target before expanding to more complex pathogenic functions.",
      src:"Abel, Alexanian, Bartling et al., Frontiers in Bioengineering and Biotechnology, 14 May 2026"},
+    {id:"rand-split-order-detection", title:"Split-Order Detection: The Cross-Vendor Screening Gap", level:3,
+     desc:"RAND flags split ordering — a nefarious actor dividing a dangerous synthesis request across multiple vendors so no single provider's screening threshold is tripped — as a gap current provider-by-provider screening can't see. The proposed fix is common know-your-customer standards and coordinated cross-provider data-sharing, which would make escalating or split procurement patterns visible only in aggregate — the same underlying logic as the tracker's Centralized AI x Bio Nexus mitigation entry.",
+     src:"Guerra et al., RAND Corporation, RRA4999-1, 2026"},
+    {id:"rand-benchtop-synthesizer-gap", title:"Benchtop DNA Synthesizer Proliferation", level:3,
+     desc:"Distinct from the oligo coverage gap above: as on-site benchtop DNA synthesizers become more distributed and accessible, they bypass centralized commercial screening entirely. RAND argues screening needs to move into the synthesizer's own hardware/software so the physical instrument enforces checks regardless of which commercial channel (or none) supplied the design.",
+     src:"Guerra et al., RAND Corporation, RRA4999-1, 2026"},
   ],
   labs:[
     {id:"lab-cdc", n:"CDC — Atlanta, USA", lat:33.797, lng:-84.324, tier:"strong", country:"USA"},
@@ -987,6 +1014,7 @@ const D = {
     {country:"Russia", biosafety:42, biosecurity:38, dualuse:28},
   ],
   governance:[
+    {id:"rand-defense-in-depth-2026", date:"2026-08-01", sortDate:"2026-08-01", title:"RAND: \"Building a Defense-in-Depth Biosecurity Strategy for the AI Era\" (RRA4999-1)", country:"Global", desc:"Nine-mitigation, four-class prevention framework for AI-enabled biological risk, developed from an initial pool of 67 candidate mitigations. Central finding: no single mitigation is sufficient — different threat-actor profiles are susceptible to different mitigation classes (disruption-oriented vs. deterrence-oriented), which is the report's case for a layered strategy. Publication date is approximate — the document's front matter carries no specific month; internal references place drafting through Jul–Aug 2026. See this tracker's Mitigation Coverage module for the full breakdown."},
     {id:"g0", date:"2026-07-22", sortDate:"2026-07-22", title:"OpenAI \"Biodefense in the Intelligence Age\" action plan", country:"Global", desc:"An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit — positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk."},
     {id:"china-ai-pharma-plan-2026", date:"2026-07-07", sortDate:"2026-07-07", title:"China's National Health Development Plan — AI-Pharma Provisions", country:"China", desc:"China's National Health Development Plan for the 15th Five-Year Plan Period, officially released 7 Jul 2026, explicitly proposes promoting AI-enabled upgrading across the entire pharmaceutical industry value chain. Chinese regulators are concurrently building a multi-layered regulatory framework spanning data, algorithms, cybersecurity, biosafety, and healthcare regulation for this expansion."},
     {id:"eu-biotech-act-2025", date:"2025-12-16", sortDate:"2025-12-16", title:"EU Biotech Act — Biosecurity & Biodefence Provisions (Pillar 7)", country:"Europe", desc:"European Commission legislative proposal COM(2025) 1022, Pillar 7, amends multiple existing EU health and food regulations to boost biodefence and biosecurity and help prevent biotechnology misuse. Stakeholder consultation (14 May–11 Jun 2025) gathered 222 contributions from industry, NGOs, and public authorities."},
@@ -1012,6 +1040,7 @@ D.netBodies = [
   {id:"OSTP", label:"US OSTP Screening Framework", note:"US federal nucleic-acid synthesis screening policy, condition of federal life-sciences funding since Apr 2025."},
   {id:"GBL", label:"Global BioLabs Initiative", note:"KCL/George Mason collaboration producing BSL-4 biorisk governance scorecards."},
   {id:"ACHS", label:"Asia Centre for Health Security (NUS)", note:"Singapore-based biosecurity research center at NUS's Saw Swee Hock School of Public Health; produces Asia-Pacific policy research on AI-biotech convergence and BWC governance, and runs a biosecurity fellowship program."},
+  {id:"AIxBioNexus", label:"AI x Bio Info-Sharing Nexus (PROPOSED)", note:"Not yet established anywhere. RAND (RRA4999-1, 2026) proposes a centralized clearinghouse aggregating misuse signals across AI developers, synthesis providers, and cloud labs — flagged here as a governance gap this tracker is watching for, not an operating entity."},
 ];
 D.netCountries = ["USA","Canada","UK","France","Germany","Netherlands","Sweden","Italy","Japan","South Korea","Australia","China","Russia","India","South Africa","DRC","Uganda","Ethiopia","Bangladesh","Singapore"];
 
@@ -1054,6 +1083,68 @@ D.tgs = [
   {id:"tgs-program-scale-2026", date:"2026-01-30", title:"TGS Program Scale: 16 Airports, 1M+ Participants, 2,600+ Aircraft Wastewater Samples",
    desc:"Operating at 16 major US gateways (JFK, ATL, SFO, DFW, IAD among them), combining anonymous international-traveler nasal swabs with aircraft wastewater sampling (lavatory waste via triturator devices — not airport terminal waste). Expanded beyond SARS-CoV-2 to influenza, RSV, and other pathogens; CDC has signaled plans for expanded airport coverage ahead of the 2026 World Cup.",
    src:"CDC press release, 30 Jan 2026; MMWR 72(8), Feb 2023 (program methodology)"},
+];
+
+/* ---- RAND RRA4999-1 (2026) mitigation strategy + threat actor profiles ---- */
+D.mitigations = [
+  {id:"m-openweight-safeguards", title:"Tamper-Resistant Safeguards for Open-Weight AI Models", cls:"Manage access", feas:4,
+   stages:["Intention","Ideation","Design","Build","Test","Learn","Weaponization"],
+   desc:"Erode dangerous base capabilities during/before training rather than after release, so open-weight models resist adversarial fine-tuning. Standard post-training \"unlearning\" has proven reversible; pretraining-stage filtering (\"deep ignorance\") shows more promise but is unvalidated at frontier scale.",
+   actors:"Moderately capable nonstate actors; technically skilled lone actors fine-tuning on dangerous data",
+   limitation:"No US-side safeguard can constrain open-weight releases by developers operating in other countries."},
+  {id:"m-bio-data-protection", title:"Protection of Sensitive Biological Data", cls:"Manage access", feas:3,
+   stages:["Design","Build","Test","Learn"],
+   desc:"Restrict access to laboratory-validated, high-risk biological datasets (e.g. viral-variant libraries) via managed-access credentialing, publication norms, and secure repositories — denying the fuel needed to fine-tune a model toward dangerous capability.",
+   actors:"Actors seeking to fine-tune AI models toward pathogen design; individuals without independent lab capacity",
+   limitation:"Tension with open-science norms (NSDD-189); becomes moot if synthetic/in-silico data ever matches lab-validated data's utility."},
+  {id:"m-access-control", title:"Access-Control Platforms for Dual-Use AI Systems", cls:"Manage access", feas:3,
+   stages:["Intention","Ideation","Design","Build","Test","Learn","Weaponization"],
+   desc:"Tiered credentialing, time-limited and justified-use access, and audit logging for GPAI models and biological-design tools — structured so legitimate research still flows while sensitive capability requires verified purpose.",
+   actors:"Nonstate groups and lone actors without preexisting biological expertise who rely on AI for uplift",
+   limitation:"Doesn't touch actors for whom information access was never the bottleneck; insider threats need recredentialing, not just onboarding checks."},
+  {id:"m-precursor-screening", title:"Biological Precursor Screening", cls:"Disrupt materials", feas:1,
+   stages:["Build"],
+   desc:"Universalize order screening and know-your-customer checks across gene-synthesis providers, cloud labs, repositories, and contract research orgs — the one mitigation that adds friction at the digital-to-physical divide. A 2026 FBI-overseen red-team found 36 of 38 tested providers shipped a 1918-flu gene fragment undetected.",
+   actors:"Lone actors and resource-limited nonstate groups relying on commercial synthesis channels",
+   limitation:"Irrelevant to state programs with indigenous synthesis capability; AI-designed sequences can evade homology-based screening, and split orders across vendors can dodge single-provider thresholds."},
+  {id:"m-bioattribution", title:"Bioattribution and Forensics", cls:"Deter nefarious activity", feas:4,
+   stages:["Intention","Ideation"],
+   desc:"Pair biological forensics (genetic/phenotypic signatures of a weaponized agent) with digital forensics (AI-platform audit trails) to credibly trace an attack or misuse back to an actor — raising the perceived cost of getting caught.",
+   actors:"State-sponsored and state-adjacent programs, and ideologically motivated groups with reputational stakes — actors who care about exposure",
+   limitation:"Validated methods for attributing AI-assisted pathogen design don't yet exist; deterrent value depends on visible government follow-through, not just technical capability."},
+  {id:"m-early-warning", title:"Pathogen Early-Warning Systems", cls:"Deter nefarious activity", feas:2,
+   stages:["Intention"],
+   desc:"Passive, pathogen-agnostic surveillance (wastewater epidemiology plus metagenomic sequencing) that compresses the release-to-detection window, strengthening downstream attribution and deterrence by consequence.",
+   actors:"State and nonstate actors with deterrable motivations",
+   limitation:"Requires costly national-scale infrastructure; a sufficiently targeted/localized release can still fall below sparse-network detection thresholds."},
+  {id:"m-rapid-response", title:"Demonstrated Rapid-Response & Consequence-Mitigation Capabilities", cls:"Deter nefarious activity", feas:2,
+   stages:["Intention","Ideation"],
+   desc:"Deterrence by denial: repeatedly demonstrated (not just theoretical) capacity to rapidly deploy countermeasures — adaptable MCM platforms, PPE stockpiles, surge production — reduces an attacker's confidence that an attack achieves its intended scale.",
+   actors:"Broad range of actor types, especially highly capable actors who are hard to detect or disrupt pre-attack",
+   limitation:"Some biological threats could still outpace response timelines; manufacturing and logistics constraints are real-world limits on \"rapid.\""},
+  {id:"m-realtime-monitoring", title:"Real-Time Monitoring of Closed-Weight GPAI Misuse", cls:"Detect misuse", feas:2,
+   stages:["Intention","Ideation","Design","Build","Test","Learn","Weaponization"],
+   desc:"Detect misuse patterns across user sessions rather than only blocking harmful queries outright — an unalerted actor doesn't change behavior, generating more useful signal, and ambiguous cases can escalate to human review instead of forcing a binary block/allow call.",
+   actors:"Actors relying on closed-weight-model uplift for ideation/planning who lack preexisting biological expertise",
+   limitation:"No effect on actors with sufficient existing expertise who don't need frontier-model uplift; value scales with cross-platform data-sharing, which doesn't yet exist at scale."},
+  {id:"m-aixbio-nexus", title:"Centralized AI x Bio Information-Sharing Nexus", cls:"Detect misuse", feas:3,
+   stages:["Intention","Ideation","Design","Build","Test","Learn","Weaponization"],
+   desc:"A proposed clearinghouse aggregating misuse signals across AI developers, synthesis providers, and cloud labs — individually ambiguous signals (probing multiple models, sourcing from separate vendors) become an identifiable pattern only in aggregate. Not yet established anywhere.",
+   actors:"Broad variety of actor types who interact with multiple nodes of the AI-bio ecosystem across planning and execution",
+   limitation:"The most institutionally complex mitigation in the set — needs binding legal authority, dedicated federal resourcing, and international coordination to avoid jurisdictional gaps."},
+];
+D.actorProfiles = [
+  {id:"ap-radicalized-life-scientist", name:"Radicalized Life Science Expert", note:"Biological training/lab access, plus intent to cause harm — the profile precursor-screening and lab-access controls are built to catch."},
+  {id:"ap-radicalized-ai-expert", name:"Radicalized AI Expert", note:"Advanced AI/ML capability and compute access, weaker independent biological expertise — the profile AI-side guardrails and access controls target most directly."},
+  {id:"ap-lower-resourced", name:"Lower-Resourced Individual or Group", note:"Nonstate lone actor or small group, highly motivated but lacking both AI and life-science expertise — most exposed to information- and materials-access mitigations."},
+  {id:"ap-highly-resourced-nonstate", name:"Highly Resourced Nonstate Group", note:"Motivated group whose members bring both AI and biology expertise — harder to disrupt via access controls alone; deterrence mitigations matter more here."},
+  {id:"ap-nearpeer-state", name:"Near-Peer State Actor", note:"AI and life-science research capability on par with the US — largely immune to access/materials controls; RAND's analysis says this profile is hard to disrupt but comparatively deterrable."},
+  {id:"ap-other-state", name:"Other State Actor", note:"AI and/or life-science capability substantially behind the US — still largely insulated from commercial-channel controls given state resourcing."},
+];
+D.mitigationClusters = [
+  {name:"Cluster 1 — Reduce capacity to execute AI-enabled design workflows", members:"Open-weight safeguards + biological data protection + access-control platforms", note:"Targets the ability to design a novel biological threat in the first place, by limiting the data and tools with the highest misuse potential to verified legitimate users."},
+  {name:"Cluster 2 — Reinforce proactive misuse detection", members:"Precursor screening + real-time monitoring + centralized information-sharing nexus", note:"The nexus is the linchpin: it turns screening/monitoring signals that are individually ambiguous into an aggregate, actionable pattern connected to government authorities."},
+  {name:"Cluster 3 — Compounding deterrence signal", members:"Bioattribution + early warning + rapid-response infrastructure", note:"For actors access controls can't reach (state programs, well-resourced groups): attribution raises expected cost of getting caught, early warning feeds attribution, rapid response reduces expected payoff of an attack."},
 ];
 
 /* ---- Historical dual-use incidents (Category A: flagged research/export control; Category B: confirmed biocrime) ---- */
@@ -1173,6 +1264,8 @@ function buildNetworkGraph(){
   links.push({source:"country:Singapore", target:"body:ACHS", kind:"headquartered (NUS)"});
   links.push({source:"body:ACHS", target:"body:IBBIS", kind:"advisory board connection (S. Namdeo)"});
   links.push({source:"body:ACHS", target:"country:India", kind:"fellow affiliation (S. Namdeo, IISc)"});
+  links.push({source:"body:AIxBioNexus", target:"body:IBBIS", kind:"proposed to complement (RAND RRA4999-1)"});
+  links.push({source:"body:AIxBioNexus", target:"body:OSTP", kind:"proposed reporting/coordination tie"});
 
   // Pathogen nodes, linked to the countries reporting them — extends the graph beyond
   // governance-only relationships into the outbreak data this tracker already holds.
@@ -1362,6 +1455,8 @@ function updateFlagCount(){
 /* ================= HELPERS ================= */
 function clFmt(n){ return `<span class="cl cl-${n}">L${n}</span>`; }
 function levelColor(n){ return {1:'#00f5d4',2:'#ffe600',3:'#ff9f1c',4:'#ff2d6a'}[n] || '#4a5568'; }
+const FEAS_LABELS = {1:"Established, gaps remain", 2:"Technically feasible, early development", 3:"Technically tractable, institutionally complex", 4:"Nascent — more research needed"};
+function feasFmt(n){ return `<span class="cl cl-${n}" title="${FEAS_LABELS[n]}">T${n}</span>`; }
 function starHtml(id,label,type){
   const on = bookmarks[id] && bookmarks[id].starred;
   return `<button class="starbtn ${on?'starred':''}" data-star="${id}" data-label="${label.replace(/"/g,'&quot;')}" data-type="${type}" title="Flag for report">${on?'★':'☆'}</button>`;
@@ -1598,6 +1693,44 @@ function renderSynthesis(){
   document.querySelectorAll('#synthesisGrid [data-goto-country]').forEach(el=> el.onclick = ()=>{ state.countryFilter = el.dataset.gotoCountry; goTo('labmap-section'); });
 }
 
+/* ================= RENDER: MITIGATION COVERAGE ================= */
+const STAGE_ORDER = ["Intention","Ideation","Design","Build","Test","Learn","Weaponization"];
+function renderMitigations(){
+  const wrap = document.getElementById('mitigationsTableWrap');
+  if(!wrap) return;
+  wrap.innerHTML = `
+    <h3>Nine Priority Mitigations</h3>
+    <p class="ct-sub">Feasibility badges (T1–T4) run from most to least mature per RAND's own tiering — T1 established with gaps, T4 nascent and still to be proven. Hover a badge for the full label. Stage chips show risk-pathway coverage (Intention → Weaponization); a highlighted chip means this mitigation adds friction at that stage.</p>
+    <table class="country-data-table">
+      <tr><th>Mitigation</th><th>Class</th><th>Feasibility</th><th>Stage coverage</th><th>Most affected / key limitation</th></tr>
+      ${D.mitigations.map(m=>`
+        <tr data-id="${m.id}">
+          <td><b>${m.title}</b><br><span style="font-size:11.5px;color:var(--muted-2);">${m.desc}</span></td>
+          <td class="ct-items">${m.cls}</td>
+          <td>${feasFmt(m.feas)}</td>
+          <td class="ct-items">${STAGE_ORDER.map(s=>`<span class="tag" style="${m.stages.includes(s)?'border-color:var(--teal);color:var(--teal);':'opacity:0.3;'}margin:2px 3px 2px 0;font-size:10px;padding:2px 6px;">${s}</span>`).join('')}</td>
+          <td class="ct-items"><b>${m.actors}</b><br><span style="font-size:11.5px;color:var(--muted-2);">${m.limitation}</span></td>
+        </tr>`).join('')}
+    </table>`;
+  wrap.querySelectorAll('tr[data-id]').forEach(tr=>{
+    const m = D.mitigations.find(x=>x.id===tr.dataset.id);
+    tr.style.cursor = 'pointer';
+    tr.onclick = ()=> toggleStar(m.id, m.title, 'Mitigation');
+  });
+  document.getElementById('actorProfileGrid').innerHTML = D.actorProfiles.map(a=>`
+    <div class="card" data-id="${a.id}" style="padding:16px 18px;">
+      <div class="card-head"><span class="card-title" style="font-size:14px;">${a.name}</span>${starHtml(a.id, a.name, 'Actor Profile')}</div>
+      <p style="font-size:12.5px;color:var(--muted);">${a.note}</p>
+    </div>`).join('');
+  document.querySelectorAll('#actorProfileGrid [data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
+  document.getElementById('clusterList').innerHTML = D.mitigationClusters.map(c=>`
+    <div style="padding:10px 0;border-top:1px solid var(--line);">
+      <div style="font-family:var(--cond);font-size:14.5px;color:var(--text);">${c.name}</div>
+      <div style="font-size:11.5px;color:var(--muted-2);margin:2px 0 4px 0;font-family:var(--mono);">${c.members}</div>
+      <div style="font-size:12.5px;color:var(--muted);">${c.note}</div>
+    </div>`).join('');
+}
+
 /* ================= RENDER: MAP ================= */
 let leafletMap = null, mapMarkers = [];
 
@@ -1806,6 +1939,7 @@ function renderSources(){
     {label:'Outbreak Surveillance', items: D.outbreaks.map(o=>o.src)},
     {label:'AI-Bio Capability Watch', items: D.aibio.map(a=>a.src)},
     {label:'DNA/RNA Synthesis Screening', items: D.synthesis.map(s=>s.src)},
+    {label:'Mitigation Coverage', items: D.mitigations.map(()=>'Guerra et al., RAND Corporation, RRA4999-1, 2026')},
     {label:'Historical Dual-Use Incidents', items: D.historicalIncidents.map(h=>h.src)},
   ];
   const datasets = [
@@ -1817,6 +1951,7 @@ function renderSources(){
     {name:'U.S. Bureau of Industry and Security (BIS)', note:'Export-control enforcement records — Category A historical incidents.'},
     {name:'Asia Centre for Health Security (ACHS), NUS', note:'Singapore-based biosecurity policy research center — source for AI-biotech convergence and BWC synthetic-nucleic-acid governance publications cited in this tracker.'},
     {name:'GovAI (Centre for the Governance of AI)', note:'"A Biosafety Agenda for AI-Bio Governance" (Sudarshan & Hersman, Aug 2026) — source for the accidental-biosafety-failure (Category C) historical incidents, frontier AI-bio product tracking, and AI-bio adoption growth statistics.'},
+    {name:'RAND Corporation — Center on AI, Security, and Technology', note:'Guerra, Attal-Juncqua, Tarangelo, Aveggio, Dammer &amp; Glickstein, "Building a Defense-in-Depth Biosecurity Strategy for the AI Era," RRA4999-1, 2026 — source for the Mitigation Coverage module\u2019s nine-mitigation framework, threat-actor profiles, and complementarity clusters; also informs two new entries each in AI-Bio Capability Watch and DNA Synthesis Screening.'},
   ];
   el.innerHTML = groups.map(g=>{
     const unique = [...new Set(g.items)];
@@ -2297,6 +2432,8 @@ function buildIndex(){
   D.outbreaks.forEach(o=> idx.push({type:'Outbreak', title:o.title, module:'outbreaks', id:o.id}));
   D.aibio.forEach(a=> idx.push({type:'AI-Bio', title:a.title, module:'aibio', id:a.id}));
   D.synthesis.forEach(s=> idx.push({type:'Synthesis', title:s.title, module:'synthesis', id:s.id}));
+  D.mitigations.forEach(m=> idx.push({type:'Mitigation', title:m.title, module:'mitigations', id:m.id}));
+  D.actorProfiles.forEach(a=> idx.push({type:'Actor Profile', title:a.name, module:'mitigations', id:a.id}));
   D.labs.forEach(l=> idx.push({type:'Lab', title:l.n, module:'labmap-section', id:l.id}));
   D.scorecards.forEach(s=> idx.push({type:'Scorecard', title:s.country+' biorisk scorecard', module:'scorecards', id:s.country}));
   D.governance.forEach(g=> idx.push({type:'Policy', title:g.title, module:'governance', id:g.id}));
@@ -2337,7 +2474,7 @@ function renderAll(){
   renderOverview();
   renderSignalGrid();
   renderOutbreakFilters(); renderOutbreaks(); renderImpactChart();
-  renderAibio(); renderSynthesis();
+  renderAibio(); renderSynthesis(); renderMitigations();
   renderMapFilters(); if(leafletMap) refreshMapMarkers();
   renderScorecards();
   renderGovernance();
