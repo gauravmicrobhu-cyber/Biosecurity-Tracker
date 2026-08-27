@@ -709,6 +709,7 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 
     <section class="section" id="aibio" hidden>
       <div class="section-head"><h2>AI-Bio Capability Watch</h2><p>Generative protein-design and structure-prediction tools, and the research examining where capability outruns safeguards.</p></div>
+      <div class="country-table-wrap" id="guardrailMatrixWrap"></div>
       <div class="country-table-wrap" id="aibioCountryTableWrap"></div>
       <div class="grid grid-2" id="aibioGrid"></div>
     </section>
@@ -1016,6 +1017,34 @@ D.netCountries = ["USA","Canada","UK","France","Germany","Netherlands","Sweden",
    Distinct from CDC NWSS (community wastewater, automated above): TGS combines anonymous
    nasal swabs from international travelers with AIRCRAFT wastewater sampling at major US
    airport gateways, specifically to catch pathogens at the border before community spread. ---- */
+/* ---- AI-Bio model biosecurity guardrail matrix — each fact independently verified, not inferred ---- */
+D.aiGuardrails = [
+  {model:"AlphaFold 3", developer:"Google DeepMind / Isomorphic Labs",
+   access:"Web server (rate-limited) plus downloadable model weights",
+   kyc:"No — license acceptance only, no identity verification",
+   openSource:"Partial — weights released, but under a non-commercial-use license that doesn't meet the Open Source Initiative's own definition (field-of-use restricted)",
+   screening:"Pre-release risk assessment only (50+ external biosecurity/bioethics experts consulted); DeepMind's own biosecurity note says this work is meant to \"inform potential screening systems for future, more powerful models\" — i.e. no confirmed active output screening exists for AF3 itself",
+   src:"Google DeepMind, \"Our approach to biosecurity for AlphaFold 3,\" May 2024; AlphaFold3 GitHub Prohibited Use Policy, Nov 2024"},
+  {model:"ESM3", developer:"EvolutionaryScale",
+   access:"Tiered — 1.4B-parameter \"ESM3-open\" freely downloadable; 7B and 98B versions gated behind the Forge API (application/approval required, described as \"closed Beta\")",
+   kyc:"No — application-based gating on the larger models, not identity verification",
+   openSource:"Partial — only the smallest (1.4B) version is open, under a non-commercial license",
+   screening:"Larger gated models include stated \"safety filtering\"; EvolutionaryScale is a signatory to the Responsible AI x Biodesign community framework (160+ signatories)",
+   src:"evolutionaryscale.ai; \"The Case for ESM3 as a General-Purpose AI Model with Systemic Risk Under the EU AI Act,\" arXiv 2605.01611, May 2026"},
+  {model:"OpenCRISPR-1", developer:"Profluent",
+   access:"Fully open — available via GitHub and AddGene, no application or approval gate",
+   kyc:"No",
+   openSource:"Marketed as open-source, though its license bars a \"Restricted Purpose\" (germline editing, and anything \"generally considered unethical\") — a use-restriction clause that technically places it outside the OSI's own open-source definition",
+   screening:"None found — the only constraint is the license's use-restriction clause, which is not technically enforced at the point of access",
+   src:"Profluent Bio press materials, Apr 2024; Lexology / Mishcon de Reya legal analysis of the license, May 2024"},
+  {model:"Evo 2", developer:"Arc Institute / Stanford / TogetherAI",
+   access:"Fully open source, no gating",
+   kyc:"No",
+   openSource:"Yes",
+   screening:"Sequences from pathogens infecting humans and other complex organisms were explicitly excluded from the training data — the team's own stated goal was to \"preempt the use of Evo for the development of bioweapons\" (announced Feb 2025)",
+   src:"Euronews, 18 Feb 2026, citing the Evo 2 team's Feb 2025 training-data announcement"},
+];
+
 D.tgs = [
   {id:"tgs-h3n2-earlywarning", date:"2026-01-30", title:"TGS Caught New H3N2 Influenza Subclades Days Before Elsewhere",
    desc:"CDC's own announcement of the program's 1-million-participant milestone cites a specific capability example: TGS identified new influenza H3N2 subclades and submitted sequences to public databases several days before they were detected through any other surveillance channel.",
@@ -1487,6 +1516,26 @@ function renderOutbreaks(){
 }
 
 /* ================= RENDER: AIBIO / SYNTHESIS ================= */
+function renderGuardrailMatrix(){
+  const wrap = document.getElementById('guardrailMatrixWrap');
+  if(!wrap) return;
+  wrap.innerHTML = `
+    <h3>AI-Bio Model Guardrail Matrix</h3>
+    <p class="ct-sub">How leading protein-design/gene-editing models are actually gated, independently verified per model — not a general claim about "AI models." Read across a row for one model's full guardrail profile.</p>
+    <table class="country-data-table">
+      <tr><th>Model</th><th>Access</th><th>KYC / Identity Check</th><th>Open-Source Status</th><th>Sequence/Output Screening</th></tr>
+      ${D.aiGuardrails.map(m=>`
+        <tr data-model="${m.model}">
+          <td><b>${m.model}</b><br><span style="font-size:11px;color:var(--muted-2);">${m.developer}</span></td>
+          <td class="ct-items">${m.access}</td>
+          <td class="ct-items">${m.kyc}</td>
+          <td class="ct-items">${m.openSource}</td>
+          <td class="ct-items">${m.screening}</td>
+        </tr>`).join('')}
+    </table>
+    <p style="font-size:11.5px;color:var(--muted-2);margin-top:10px;">One observed pattern across these four, worth flagging plainly: <b style="color:#ff9f1c;">none require identity verification of any kind</b> — gating, where it exists at all, is application- or license-based, not KYC. Sources per model, not aggregated: ${[...new Set(D.aiGuardrails.map(m=>m.src))].join(' · ')}</p>
+  `;
+}
 function renderAibioCountryTable(){
   const wrap = document.getElementById('aibioCountryTableWrap');
   if(!wrap) return;
@@ -1531,6 +1580,7 @@ function renderAibio(){
   document.querySelectorAll('#aibioGrid [data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
   document.querySelectorAll('#aibioGrid [data-goto-country]').forEach(el=> el.onclick = ()=>{ state.countryFilter = el.dataset.gotoCountry; goTo('labmap-section'); });
   renderAibioCountryTable();
+  renderGuardrailMatrix();
 }
 function renderSynthesis(){
   document.getElementById('synthesisGrid').innerHTML = `<div class="grid grid-2">` + D.synthesis.map(s=>`
