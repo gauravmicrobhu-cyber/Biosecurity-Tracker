@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T18:36:16.300388+00:00",
+    "updatedAt": "2026-08-28T06:40:12.499913+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,22 +465,22 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-26T18:36:16.300364+00:00",
+    "checkedAt": "2026-08-28T06:38:31.772653+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.66 against 60-day baseline (mean 0.007%, latest 0.003%).",
+        "note": "z-score -1.13 against 60-day baseline (mean 0.007%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.28 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
@@ -495,16 +495,16 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -1.29 against 60-day baseline (mean 0.005%, latest 0.002%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.81 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
@@ -520,9 +520,33 @@
   },
   "upstreamIndicators": {
     "wastewater": {
-      "status": "pending",
-      "note": "Not yet checked \u2014 runs automatically with the next scheduled GitHub Actions job."
+      "status": "ok",
+      "recordCount": 500,
+      "distinctSites": 48,
+      "mostRecentDate": "2025-08-24",
+      "note": "500 recent CDC NWSS wastewater records across 48 distinct sites. Coverage snapshot only \u2014 not a computed trend, since this dataset's exact field schema wasn't independently verified before building this integration."
     },
-    "preprints": {}
+    "preprints": {
+      "ebola": {
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+      },
+      "cholera": {
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+      },
+      "measles": {
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
+      },
+      "avian influenza": {
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
+      }
+    }
   }
 }
