@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-28T22:07:46.068908+00:00",
+    "updatedAt": "2026-08-29T00:11:35.246554+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-28T22:06:23.869256+00:00",
+    "checkedAt": "2026-08-29T00:10:11.158392+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -542,8 +542,8 @@
       "measles": {
         "status": "normal",
         "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "priorCount": 1,
+        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 1 in the prior 14 days."
       },
       "avian influenza": {
         "status": "normal",
