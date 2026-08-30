@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-30T00:29:36.848509+00:00",
+    "updatedAt": "2026-08-30T12:29:53.768982+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,30 +465,30 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-30T00:28:52.674257+00:00",
+    "checkedAt": "2026-08-30T12:29:11.152573+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.6 against 60-day baseline (mean 0.007%, latest 0.003%).",
+        "note": "z-score -1.1 against 60-day baseline (mean 0.007%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.28 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.33 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
@@ -504,7 +504,7 @@
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: <urlopen error timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
