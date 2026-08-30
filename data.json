@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-29T12:16:18.436756+00:00",
+    "updatedAt": "2026-08-30T00:29:36.848509+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,22 +465,22 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-29T12:15:54.835425+00:00",
+    "checkedAt": "2026-08-30T00:28:52.674257+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.38 against 60-day baseline (mean 0.007%, latest 0.005%).",
+        "note": "z-score -0.6 against 60-day baseline (mean 0.007%, latest 0.003%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.28 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
@@ -495,16 +495,16 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -0.88 against 60-day baseline (mean 0.005%, latest 0.002%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.88 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": ""
       },
@@ -534,12 +534,16 @@
         "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "cholera": {
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 503: Service Unavailable"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "measles": {
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 503: Service Unavailable"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "avian influenza": {
         "status": "normal",
