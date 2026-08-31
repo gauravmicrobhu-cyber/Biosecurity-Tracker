@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-31T00:29:05.760324+00:00",
+    "updatedAt": "2026-08-31T12:25:24.201172+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-31T00:27:41.368215+00:00",
+    "checkedAt": "2026-08-31T12:24:42.723952+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -479,16 +479,16 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.27 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error timed out>",
+        "status": "normal",
+        "note": "z-score -0.35 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": ""
       },
@@ -496,15 +496,15 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -1.62 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "note": "z-score -0.64 against 60-day baseline (mean 0.005%, latest 0.003%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.86 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
         "corroborated": false,
         "corrobNote": ""
       },
