@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-01T10:47:10.687499+00:00",
+    "updatedAt": "2026-09-01T11:48:02.642633+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-01T10:46:06.682791+00:00",
+    "checkedAt": "2026-09-01T11:47:15.680855+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -1.07 against 60-day baseline (mean 0.007%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error timed out>",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -489,8 +489,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error timed out>",
+        "status": "normal",
+        "note": "z-score -0.35 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -516,8 +516,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score 1.34 against 60-day baseline (mean 0.0%, latest 0.002%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
