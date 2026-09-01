@@ -1360,6 +1360,13 @@ function updateFlagCount(){
 }
 
 /* ================= HELPERS ================= */
+function escapeHtml(str){
+  // Any dynamic text (error messages especially) can contain characters like < or >
+  // that the browser will otherwise try to parse as real HTML tags and silently drop —
+  // this is exactly what happened with GDELT timeout messages like "<urlopen error timed out>".
+  if(str==null) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 function clFmt(n){ return `<span class="cl cl-${n}">L${n}</span>`; }
 function levelColor(n){ return {1:'#00f5d4',2:'#ffe600',3:'#ff9f1c',4:'#ff2d6a'}[n] || '#4a5568'; }
 function starHtml(id,label,type){
@@ -1949,11 +1956,11 @@ function renderUpstreamIndicators(){
   const cards = [];
   if(ww){
     const status = ww.status === 'ok' ? 'normal' : ww.status === 'pending' ? 'insufficient' : 'error';
-    cards.push(`<div class="signal-card"><div class="signal-card-head"><span class="signal-title">CDC Wastewater Coverage (NWSS)</span><span class="signal-badge ${status}">${ww.status.toUpperCase()}</span></div><div class="signal-meta" style="margin-top:8px;">${ww.note||''}</div></div>`);
+    cards.push(`<div class="signal-card"><div class="signal-card-head"><span class="signal-title">CDC Wastewater Coverage (NWSS)</span><span class="signal-badge ${status}">${ww.status.toUpperCase()}</span></div><div class="signal-meta" style="margin-top:8px;">${escapeHtml(ww.note)}</div></div>`);
   }
   Object.entries(preprints).forEach(([kw, p])=>{
     const status = p.status || 'error';
-    cards.push(`<div class="signal-card"><div class="signal-card-head"><span class="signal-title">Preprint volume — "${kw}"</span><span class="signal-badge ${status}">${status.toUpperCase()}</span></div><div class="signal-meta" style="margin-top:8px;">${p.note||''}</div></div>`);
+    cards.push(`<div class="signal-card"><div class="signal-card-head"><span class="signal-title">Preprint volume — "${escapeHtml(kw)}"</span><span class="signal-badge ${status}">${status.toUpperCase()}</span></div><div class="signal-meta" style="margin-top:8px;">${escapeHtml(p.note)}</div></div>`);
   });
   grid.innerHTML = cards.join('') || '<p style="color:var(--muted-2);font-size:12.5px;">Not yet checked — runs with the next scheduled GitHub Actions job.</p>';
   renderTgs();
@@ -1976,12 +1983,12 @@ function signalCardHtml(sig){
   const articles = sig.articles || [];
   return `<div class="signal-card" data-id="${sig.id}">
     <div class="signal-card-head"><span class="signal-title">${sig.label}</span><span class="signal-badge ${status}">${label}</span></div>
-    ${sig.note ? `<div class="signal-meta" style="margin-top:8px;">${sig.note}</div>` : ''}
-    ${sig.corrobNote ? `<div class="corrob-chip ${sig.corroborated?'yes':'no'}">${sig.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${sig.corrobNote}</div>` : ''}
+    ${sig.note ? `<div class="signal-meta" style="margin-top:8px;">${escapeHtml(sig.note)}</div>` : ''}
+    ${sig.corrobNote ? `<div class="corrob-chip ${sig.corroborated?'yes':'no'}">${sig.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${escapeHtml(sig.corrobNote)}</div>` : ''}
     ${articles.length ? `
       <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
         <span style="font-family:var(--mono);font-size:10px;color:var(--muted-2);letter-spacing:0.04em;">WHAT'S DRIVING THIS — REAL HEADLINES</span>
-        ${articles.map(a=>`<a href="${a.url}" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-size:12px;color:var(--l1);text-decoration:none;line-height:1.4;">↗ ${a.title}<span style="display:block;color:var(--muted-2);font-size:10.5px;">${a.domain}${a.date?' · '+a.date.slice(0,8):''}</span></a>`).join('')}
+        ${articles.map(a=>`<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-size:12px;color:var(--l1);text-decoration:none;line-height:1.4;">↗ ${escapeHtml(a.title)}<span style="display:block;color:var(--muted-2);font-size:10.5px;">${escapeHtml(a.domain)}${a.date?' · '+escapeHtml(a.date.slice(0,8)):''}</span></a>`).join('')}
       </div>
     ` : (status==='elevated'||status==='spike') ? `<div class="signal-meta" style="margin-top:8px;color:var(--muted-2);">No underlying headlines were retrieved for this spike — try again after the next scheduled refresh.</div>` : ''}
   </div>`;
