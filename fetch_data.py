@@ -171,6 +171,10 @@ def fetch_gdelt_articles(query, max_records=5, timespan="7d"):
 
 def run_gdelt_pass(data):
     outbreaks = data.get("outbreaks", [])
+    # Capture the PREVIOUS run's statuses before we overwrite anything — this is what lets
+    # us tell "just became elevated" apart from "has been elevated for three runs already",
+    # so the history log gets one entry per event, not one per 12-hour cycle it persists.
+    old_items_by_id = {i["id"]: i for i in data.get("signals", {}).get("items", [])}
     results = {}
     statuses = {}
     for i, kw in enumerate(SIGNAL_KEYWORDS):
@@ -214,6 +218,21 @@ def run_gdelt_pass(data):
             "articles": r.get("articles", []),
         }
         items.append(item)
+
+    # Log a history entry only on a fresh transition INTO elevated/spike — not on every
+    # run where an already-known spike is still ongoing, and not on a bare "error" reading.
+    history = data.get("signalHistory", [])
+    for item in items:
+        old_status = old_items_by_id.get(item["id"], {}).get("status")
+        if item["status"] in ("elevated", "spike") and old_status not in ("elevated", "spike"):
+            history.insert(0, {
+                "id": item["id"], "label": item["label"], "status": item["status"],
+                "note": item["note"], "corroborated": item["corroborated"], "corrobNote": item["corrobNote"],
+                "articles": item.get("articles", []),
+                "detectedAt": datetime.now(timezone.utc).isoformat(),
+            })
+            log(f"     NEW history entry logged for {item['id']} ({item['status']})")
+    data["signalHistory"] = history[:30]  # keep this bounded, not an ever-growing file
 
     data["signals"] = {
         "checkedAt": datetime.now(timezone.utc).isoformat(),
