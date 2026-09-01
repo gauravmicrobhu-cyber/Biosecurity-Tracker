@@ -149,6 +149,26 @@ def fetch_with_retry(query, max_retries=3, backoff_sec=25):
     raise last_err
 
 
+def fetch_gdelt_articles(query, max_records=5, timespan="7d"):
+    """Real headlines behind an elevated/spiking signal — only called when a signal is
+    already flagged, so this doesn't add extra load on every keyword every run."""
+    url = (f"{GDELT_ENDPOINT}?query={urllib.parse.quote(query)}&mode=artlist&format=json"
+           f"&maxrecords={max_records}&timespan={timespan}")
+    req = urllib.request.Request(url, headers={"User-Agent": "prism-containment-tracker/1.0"})
+    with urllib.request.urlopen(req, timeout=35) as resp:
+        text = resp.read().decode("utf-8", errors="replace")
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        raise RuntimeError(f"GDELT artlist returned non-JSON: {text[:150]}")
+    articles = data.get("articles", [])
+    return [
+        {"title": a.get("title", "Untitled"), "url": a.get("url", ""),
+         "domain": a.get("domain", ""), "date": a.get("seendate", "")}
+        for a in articles[:max_records]
+    ]
+
+
 def run_gdelt_pass(data):
     outbreaks = data.get("outbreaks", [])
     results = {}
@@ -162,6 +182,16 @@ def run_gdelt_pass(data):
             results[kw["id"]] = {"label": kw["label"], **sig}
             statuses[kw["id"]] = sig["status"]
             log(f"OK  {kw['id']}: {sig['status']} (z={sig.get('z')})")
+            # Only spend an extra request pulling real headlines when there's actually
+            # something worth explaining — no point fetching articles for a "normal" reading.
+            if sig["status"] in ("elevated", "spike"):
+                time.sleep(REQUEST_SPACING_SEC)
+                try:
+                    articles = fetch_gdelt_articles(kw["query"])
+                    results[kw["id"]]["articles"] = articles
+                    log(f"     +{len(articles)} article(s) fetched for {kw['id']}")
+                except Exception as e:
+                    log(f"     article fetch failed for {kw['id']}: {e}")
         except Exception as e:
             results[kw["id"]] = {"label": kw["label"], "status": "error", "note": f"Fetch failed: {e}"}
             statuses[kw["id"]] = "error"
@@ -181,6 +211,7 @@ def run_gdelt_pass(data):
             ),
             "corroborated": bool(corroborated),
             "corrobNote": corrob_note or "",
+            "articles": r.get("articles", []),
         }
         items.append(item)
 
