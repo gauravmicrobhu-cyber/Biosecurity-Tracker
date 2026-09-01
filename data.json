@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-31T12:25:24.201172+00:00",
+    "updatedAt": "2026-09-01T00:31:37.020663+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-08-31T12:24:42.723952+00:00",
+    "checkedAt": "2026-09-01T00:30:03.618319+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -496,25 +496,25 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -0.64 against 60-day baseline (mean 0.005%, latest 0.003%).",
+        "note": "z-score -0.18 against 60-day baseline (mean 0.005%, latest 0.005%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score 0.09 against 60-day baseline (mean 0.001%, latest 0.001%).",
         "corroborated": false,
         "corrobNote": ""
       },
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.45 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "elevated",
+        "note": "z-score 2.32 against 60-day baseline (mean 0.0%, latest 0.003%).",
         "corroborated": false,
-        "corrobNote": ""
+        "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution."
       }
     ]
   },
@@ -528,22 +528,16 @@
     },
     "preprints": {
       "ebola": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 503: Service Unavailable"
       },
       "cholera": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       },
       "measles": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       },
       "avian influenza": {
         "status": "normal",
