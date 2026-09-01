@@ -402,6 +402,15 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
 .ribbon-item b{color:var(--brick);}
 .ribbon-sep{color:var(--muted-2); opacity:0.5;}
 
+/* ---------- Signal-spike ribbon: same pattern, deliberately lower-key than the PHEIC ribbon —
+   amber not red, no pulse animation — since this is an unverified tier, not a confirmed one ---------- */
+.signal-ribbon{display:flex; align-items:center; gap:12px; background:linear-gradient(90deg, rgba(255,159,28,0.14), rgba(255,159,28,0.06)); border-bottom:1px solid rgba(255,159,28,0.35); padding:7px 0; overflow:hidden;}
+.signal-ribbon .ribbon-label{color:#ff9f1c; border-right-color:rgba(255,159,28,0.3); font-size:12px;}
+.signal-ribbon .ribbon-track{animation:ribbonScroll 24s linear infinite;}
+.signal-ribbon .ribbon-item{font-size:13px;}
+.signal-ribbon .ribbon-item b{color:#ff9f1c;}
+.signal-ribbon .ribbon-item:hover{color:#ff9f1c;}
+
 /* ---------- Impact comparison chart ---------- */
 .impact-metric-toggle{display:flex; gap:8px; margin-bottom:14px;}
 .impact-metric-toggle .cat-btn.active{background:rgba(255,230,0,0.14); color:var(--amber); border-color:var(--amber);}
@@ -585,6 +594,13 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       </div>
     </div>
 
+    <div id="signalRibbon" class="signal-ribbon" hidden>
+      <span class="ribbon-label">◆ UNVERIFIED SIGNAL</span>
+      <div class="ribbon-viewport">
+        <div class="ribbon-track" id="signalRibbonTrack"></div>
+      </div>
+    </div>
+
     <section class="hero" id="hero">
       <div class="gauge-wrap">
         <svg width="220" height="144" viewBox="0 0 220 144">
@@ -699,6 +715,9 @@ input[type=range]{width:100%; accent-color:var(--amber); background:transparent;
       <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;" id="signalsFreshness"></p>
       <p style="font-size:11px;color:var(--muted-2);margin:-6px 0 16px 0;">Fetched automatically by a scheduled GitHub Actions job — not by your browser, which is why this works reliably regardless of your network. Browser-side calls to GDELT were persistently blocked across multiple tests; running the same fetch server-side, correctly paced (up to ~45s between requests, with retries on rate-limit/timeout responses), resolved it.</p>
       <div class="signal-grid" id="signalGrid"></div>
+      <h3 style="font-family:var(--cond);font-size:20px;margin:28px 0 6px 0;">Signal History</h3>
+      <p style="font-size:13px;color:var(--muted-2);margin-bottom:14px;max-width:680px;">Past elevated/spike events, kept here even after the live reading above reverts to normal — the cards above only ever show the current snapshot, so without this log a spike you didn't happen to check in on would vanish without a trace. One entry per event (not one per 12-hour cycle it stayed elevated), each with the real headlines captured at the time.</p>
+      <div id="signalHistoryList"></div>
       <h3 style="font-family:var(--cond);font-size:20px;margin:28px 0 6px 0;">Upstream Indicators</h3>
       <p style="font-size:13px;color:var(--muted-2);margin-bottom:14px;max-width:680px;">Earlier-stage signals than news volume: wastewater surveillance coverage (CDC NWSS) and preprint-volume trends (bioRxiv/medRxiv). Same automated pipeline as Signal Detection above — also unverified, also a prompt to look closer, not a finding.</p>
       <div class="signal-grid" id="upstreamGrid"></div>
@@ -1214,6 +1233,7 @@ async function loadData(){
       if(j.governance) D.governance = j.governance.sort((a,b)=> new Date(b.sortDate) - new Date(a.sortDate));
       if(j.signals) D.signals = j.signals;
       if(j.upstreamIndicators) D.upstreamIndicators = j.upstreamIndicators;
+      if(j.signalHistory) D.signalHistory = j.signalHistory;
       if(j.meta) DATA_META = j.meta;
     }
   }catch(e){ /* file:// or missing data.json — fall back silently to embedded seed above */ }
@@ -1763,12 +1783,27 @@ function renderPriorityRibbon(){
   if(!critical.length){ ribbon.hidden = true; return; }
   ribbon.hidden = false;
   const itemsHtml = critical.map(o=>
-    `<span class="ribbon-item" data-id="${o.id}"><b>${o.status || 'PHEIC'}</b> — ${o.title}</span><span class="ribbon-sep">◆</span>`
+    `<span class="ribbon-item" data-id="${o.id}"><b>${escapeHtml(o.status || 'PHEIC')}</b> — ${escapeHtml(o.title)}</span><span class="ribbon-sep">◆</span>`
   ).join('');
   // duplicate content back-to-back for a seamless scrolling loop
   track.innerHTML = itemsHtml + itemsHtml;
   track.querySelectorAll('.ribbon-item').forEach(item=>{
     item.onclick = ()=> goTo('outbreaks', item.dataset.id);
+  });
+}
+function renderSignalRibbon(){
+  const ribbon = document.getElementById('signalRibbon');
+  const track = document.getElementById('signalRibbonTrack');
+  if(!ribbon || !track) return;
+  const active = (D.signals?.items || []).filter(s=> s.status==='elevated' || s.status==='spike');
+  if(!active.length){ ribbon.hidden = true; return; }
+  ribbon.hidden = false;
+  const itemsHtml = active.map(s=>
+    `<span class="ribbon-item" data-id="${s.id}"><b>${s.status.toUpperCase()}</b> — ${escapeHtml(s.label)} (unverified)</span><span class="ribbon-sep">◆</span>`
+  ).join('');
+  track.innerHTML = itemsHtml + itemsHtml;
+  track.querySelectorAll('.ribbon-item').forEach(item=>{
+    item.onclick = ()=> goTo('signals', item.dataset.id);
   });
 }
 
@@ -1946,7 +1981,32 @@ function renderSignalGrid(){
   grid.querySelectorAll('.signal-card').forEach(card=>{
     card.onclick = ()=> toggleSignalDetail(card.dataset.id);
   });
+  renderSignalHistory();
   renderUpstreamIndicators();
+  renderSignalRibbon();
+}
+function renderSignalHistory(){
+  const el = document.getElementById('signalHistoryList');
+  if(!el) return;
+  const hist = D.signalHistory || [];
+  if(!hist.length){
+    el.innerHTML = '<p style="color:var(--muted-2);font-size:12.5px;">No spike events logged yet — this fills in automatically the first time a keyword crosses the elevated/spike threshold.</p>';
+    return;
+  }
+  el.innerHTML = hist.map(h=>{
+    const articles = h.articles || [];
+    return `<div class="signal-card" style="margin-bottom:10px;">
+      <div class="signal-card-head"><span class="signal-title">${escapeHtml(h.label)}</span><span class="signal-badge ${h.status}">${h.status.toUpperCase()}</span></div>
+      <div class="signal-meta" style="margin-top:6px;color:var(--muted-2);font-family:var(--mono);font-size:10.5px;">Detected: ${new Date(h.detectedAt).toUTCString().slice(0,22)}</div>
+      ${h.note ? `<div class="signal-meta" style="margin-top:6px;">${escapeHtml(h.note)}</div>` : ''}
+      ${h.corrobNote ? `<div class="corrob-chip ${h.corroborated?'yes':'no'}" style="margin-top:6px;">${h.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${escapeHtml(h.corrobNote)}</div>` : ''}
+      ${articles.length ? `
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted-2);letter-spacing:0.04em;">HEADLINES CAPTURED AT THE TIME</span>
+          ${articles.map(a=>`<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-size:12px;color:var(--l1);text-decoration:none;line-height:1.4;">↗ ${escapeHtml(a.title)}<span style="display:block;color:var(--muted-2);font-size:10.5px;">${escapeHtml(a.domain)}</span></a>`).join('')}
+        </div>` : ''}
+    </div>`;
+  }).join('');
 }
 function renderUpstreamIndicators(){
   const grid = document.getElementById('upstreamGrid');
