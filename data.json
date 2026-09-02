@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-01T12:28:48.219054+00:00",
+    "updatedAt": "2026-09-02T00:29:07.370347+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-01T12:27:48.215162+00:00",
+    "checkedAt": "2026-09-02T00:26:55.772917+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.93 against 60-day baseline (mean 0.007%, latest 0.001%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -517,7 +517,7 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score 1.05 against 60-day baseline (mean 0.0%, latest 0.002%).",
+        "note": "z-score 0.39 against 60-day baseline (mean 0.0%, latest 0.001%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -546,16 +546,12 @@
         "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "measles": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       },
       "avian influenza": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'avian influenza' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       }
     }
   },
