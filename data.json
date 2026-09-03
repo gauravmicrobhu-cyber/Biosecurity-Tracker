@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-03T00:40:34.152384+00:00",
+    "updatedAt": "2026-09-03T12:36:46.837866+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-03T00:39:19.498337+00:00",
+    "checkedAt": "2026-09-03T12:35:35.270705+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error timed out>",
+        "status": "normal",
+        "note": "z-score -1.06 against 60-day baseline (mean 0.007%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -480,8 +480,8 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.27 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -489,8 +489,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.35 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error timed out>",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -498,8 +498,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -0.72 against 60-day baseline (mean 0.005%, latest 0.003%).",
+        "status": "error",
+        "note": "Fetch failed: <urlopen error _ssl.c:1064: The handshake operation timed out>",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -508,7 +508,7 @@
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
         "status": "normal",
-        "note": "z-score -0.84 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.82 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -516,11 +516,42 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.48 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "spike",
+        "note": "z-score 5.88 against 60-day baseline (mean 0.001%, latest 0.007%).",
         "corroborated": false,
-        "corrobNote": "",
-        "articles": []
+        "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
+        "articles": [
+          {
+            "title": "The threat of biological warfare is real \u2013 a new book describes the potential devastation - 01 - Sep - 2026",
+            "url": "https://home.nzcity.co.nz/news/article.aspx?id=453115&fm=psp,tst",
+            "domain": "home.nzcity.co.nz",
+            "date": "20260831T204500Z"
+          },
+          {
+            "title": "The threat of biological warfare is real \u2013 a new book describes the potential devastation - 01 - Sep - 2026",
+            "url": "https://home.nzcity.co.nz/news/article.aspx?id=453115&fm=psp,tsf",
+            "domain": "home.nzcity.co.nz",
+            "date": "20260831T204500Z"
+          },
+          {
+            "title": "Opinion : Forget about COVID - 19 origins . Focus on preventing the next pandemic",
+            "url": "https://www.mercurynews.com/2026/09/03/commentary-forget-about-covid-19s-origins-focus-on-preventing-the-next-pandemic/",
+            "domain": "mercurynews.com",
+            "date": "20260903T101500Z"
+          },
+          {
+            "title": "Forget about COVID - 19 origins",
+            "url": "https://www.newsday.com/opinion/commentary/covid-19-origins-next-pandemic-e1jpqjzb",
+            "domain": "newsday.com",
+            "date": "20260831T204500Z"
+          },
+          {
+            "title": "Il capo del CNR sta ostacolando la legge sul suicidio assistito",
+            "url": "https://www.ilpost.it/2026/07/03/andrea-lenzi-capo-cnr-pressioni-dimissioni-ostracismo-fine-vita/?homepagePosition=13.2&referrerPost=3668291",
+            "domain": "ilpost.it",
+            "date": "20260903T090000Z"
+          }
+        ]
       }
     ]
   },
@@ -559,5 +590,47 @@
       }
     }
   },
-  "signalHistory": []
+  "signalHistory": [
+    {
+      "id": "lab-biosafety",
+      "label": "Lab biosafety incident / breach",
+      "status": "spike",
+      "note": "z-score 5.88 against 60-day baseline (mean 0.001%, latest 0.007%).",
+      "corroborated": false,
+      "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
+      "articles": [
+        {
+          "title": "The threat of biological warfare is real \u2013 a new book describes the potential devastation - 01 - Sep - 2026",
+          "url": "https://home.nzcity.co.nz/news/article.aspx?id=453115&fm=psp,tst",
+          "domain": "home.nzcity.co.nz",
+          "date": "20260831T204500Z"
+        },
+        {
+          "title": "The threat of biological warfare is real \u2013 a new book describes the potential devastation - 01 - Sep - 2026",
+          "url": "https://home.nzcity.co.nz/news/article.aspx?id=453115&fm=psp,tsf",
+          "domain": "home.nzcity.co.nz",
+          "date": "20260831T204500Z"
+        },
+        {
+          "title": "Opinion : Forget about COVID - 19 origins . Focus on preventing the next pandemic",
+          "url": "https://www.mercurynews.com/2026/09/03/commentary-forget-about-covid-19s-origins-focus-on-preventing-the-next-pandemic/",
+          "domain": "mercurynews.com",
+          "date": "20260903T101500Z"
+        },
+        {
+          "title": "Forget about COVID - 19 origins",
+          "url": "https://www.newsday.com/opinion/commentary/covid-19-origins-next-pandemic-e1jpqjzb",
+          "domain": "newsday.com",
+          "date": "20260831T204500Z"
+        },
+        {
+          "title": "Il capo del CNR sta ostacolando la legge sul suicidio assistito",
+          "url": "https://www.ilpost.it/2026/07/03/andrea-lenzi-capo-cnr-pressioni-dimissioni-ostracismo-fine-vita/?homepagePosition=13.2&referrerPost=3668291",
+          "domain": "ilpost.it",
+          "date": "20260903T090000Z"
+        }
+      ],
+      "detectedAt": "2026-09-03T12:35:35.270685+00:00"
+    }
+  ]
 }
