@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-05T00:34:23.228573+00:00",
+    "updatedAt": "2026-09-05T12:24:58.177455+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-05T00:33:28.681302+00:00",
+    "checkedAt": "2026-09-05T12:24:13.240116+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -480,8 +480,8 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.27 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -489,8 +489,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.35 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -498,8 +498,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.15 against 60-day baseline (mean 0.005%, latest 0.005%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -507,8 +507,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.81 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -517,7 +517,7 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score -0.45 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.44 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
