@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-07T03:38:50.372466+00:00",
+    "updatedAt": "2026-09-07T17:41:54.198372+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-07T03:36:53.138753+00:00",
+    "checkedAt": "2026-09-07T17:40:20.247384+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -507,8 +507,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.77 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -534,10 +534,8 @@
     },
     "preprints": {
       "ebola": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       },
       "cholera": {
         "status": "normal",
@@ -546,16 +544,12 @@
         "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "measles": {
-        "status": "normal",
-        "recentCount": 1,
-        "priorCount": 0,
-        "note": "1 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       },
       "avian influenza": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 1,
-        "note": "0 preprint(s) mentioning 'avian influenza' in the last 14 days (bioRxiv+medRxiv), vs 1 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       }
     }
   },
