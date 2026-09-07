@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-06T12:27:43.437980+00:00",
+    "updatedAt": "2026-09-07T03:38:50.372466+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-06T12:26:16.434567+00:00",
+    "checkedAt": "2026-09-07T03:36:53.138753+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.99 against 60-day baseline (mean 0.006%, latest 0.0%).",
+        "note": "z-score -0.96 against 60-day baseline (mean 0.006%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -480,8 +480,8 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.23 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -489,24 +489,11 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "spike",
-        "note": "z-score 9.25 against 60-day baseline (mean 0.0%, latest 0.003%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
-        "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
-        "articles": [
-          {
-            "title": "\u0412 \u0418\u043d\u0434\u0438\u0438 \u043f\u043e\u0434\u0440\u043e\u0441\u0442\u043e\u043a \u043f\u044f\u0442\u044c \u043b\u0435\u0442 \u043f\u0440\u043e\u0432\u0435\u043b \u0432 \u043f\u0440\u0443\u0434\u0443 \u0438\u0437 - \u0437\u0430 \u0431\u043e\u043b\u0435\u0437\u043d\u0438 : \u043f\u043e\u0434\u0440\u043e\u0431\u043d\u043e\u0441\u0442\u0438",
-            "url": "https://iz.ru/2157770/v-indii-podrostok-piat-let-provel-v-prudu-iz-za-zagadochnoi-bolezni-kozhi-izi",
-            "domain": "iz.ru",
-            "date": "20260830T153000Z"
-          },
-          {
-            "title": "Tanzania Private Parts Theft Mob Violence ; Conspiracy Or Rumor ? ",
-            "url": "https://www.divyabhaskar.co.in/bhaskar-khaas/bhaskar-explainer/news/tanzania-private-parts-theft-mob-lynching-conspiracy-rumor-report-138942064.html",
-            "domain": "divyabhaskar.co.in",
-            "date": "20260906T034500Z"
-          }
-        ]
+        "corrobNote": "",
+        "articles": []
       },
       {
         "id": "cholera-global",
@@ -521,7 +508,7 @@
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
         "status": "normal",
-        "note": "z-score -0.8 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.77 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -553,14 +540,16 @@
         "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "cholera": {
-        "status": "error",
-        "note": "Fetch failed: The read operation timed out"
-      },
-      "measles": {
         "status": "normal",
         "recentCount": 0,
         "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+      },
+      "measles": {
+        "status": "normal",
+        "recentCount": 1,
+        "priorCount": 0,
+        "note": "1 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "avian influenza": {
         "status": "normal",
