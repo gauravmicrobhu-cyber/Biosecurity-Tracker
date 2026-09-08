@@ -1,23 +1,23 @@
 {
   "meta": {
-    "updatedAt": "2026-09-08T03:43:10.328137+00:00",
-    "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
+    "updatedAt": "2026-09-08T06:00:00Z",
+    "source": "Manual refresh via Claude \u2014 WHO/ECDC Ebola update (6 Sep), Bangladesh measles update (7 Sep), ECDC cholera update (26 Aug), Delhi H1N1 update (7 Sep)",
     "generator": "manual"
   },
   "outbreaks": [
     {
       "id": "h1n1-delhi-2026",
-      "date": "2026-08-22",
-      "sortDate": "2026-08-22",
+      "date": "2026-09-07",
+      "sortDate": "2026-09-07",
       "title": "H1N1 (Seasonal Influenza) \u2014 Delhi, India",
       "level": 1,
       "status": "Endemic/Seasonal monitoring",
       "country": [
         "India"
       ],
-      "desc": "Delhi has recorded 1,777 H1N1 cases in 2026 (114 new on 20 Aug alone), roughly 6\u20138x the 229 cases recorded in the same period in 2025, per NCDC/Delhi Health Department data. Union Health Minister JP Nadda reviewed national H1N1 preparedness on 21 Aug. Health authorities characterize this as seasonal influenza activity \u2014 H1N1 has circulated as an endemic seasonal strain in India since the 2009 pandemic, typically surging July\u2013November \u2014 not a novel outbreak.",
-      "more": "Officially, zero deaths have been confirmed: Delhi's Health Minister stated this on 6 Aug, and the Union Health Ministry's position held through 22 Aug. One local outlet (Dainik Jagran, via a secondary repost) reported two deaths in a single family tied to H1N1, but this claim is explicitly disputed by authorities and could not be independently corroborated \u2014 noted here, not treated as confirmed, consistent with this tracker's standard for uncorroborated claims.",
-      "src": "NCDC/Delhi Health Department data via Outlook India, 20\u201325 Aug 2026; Union Ministry of Health & Family Welfare statements, 21\u201322 Aug 2026",
+      "desc": "Delhi's H1N1 case count has largely plateaued rather than continuing to accelerate: 1,777 confirmed cases as of 20 August remains the most recent Delhi Health Department figure, with a 7 September report from Health Minister Pankaj Singh citing 1,349 confirmed cases \u2014 the discrepancy reflects different reporting cutoffs/channels rather than a declining trend. Both ICMR and Karnataka's Health Department have explicitly ruled out a new or antigenically-shifted H1N1 strain behind the rise, characterizing it as a sharper-than-usual seasonal pattern.",
+      "more": "Officially, still zero confirmed deaths as of 7 September \u2014 the Delhi government has continued to explicitly dispute media reports of H1N1-linked deaths. Karnataka's concurrent influenza count (4,212 cases as of 22 August) sits within that state's normal historical range per its own Health Department, reinforcing the seasonal-pattern reading over a novel-outbreak one.",
+      "src": "Outlook India, 21 Aug 2026; Coverfox/IHIP data, 22 Aug 2026; Nova Hospital Meerut citing Health Minister Pankaj Singh, 7 Sep 2026",
       "tags": [
         "H1N1",
         "Influenza",
@@ -28,8 +28,8 @@
     },
     {
       "id": "cholera-wc-africa-2026",
-      "date": "2026-08-20",
-      "sortDate": "2026-08-20",
+      "date": "2026-08-26",
+      "sortDate": "2026-08-26",
       "title": "Cholera \u2014 West and Central Africa (Multi-country)",
       "level": 3,
       "status": "Active \u2014 cross-border spread",
@@ -41,9 +41,9 @@
         "Chad",
         "CAR"
       ],
-      "desc": "Cholera is spreading across two transmission corridors in West and Central Africa, active in six countries per UNICEF/WHO (12 Aug 2026): the Lake Chad Basin (Chad, Cameroon, Nigeria \u2014 sharing the same Vibrio cholerae O1 Ogawa strain) and the Congo River Basin (DRC, Republic of Congo, CAR). Nigeria has the region's largest outbreak \u2014 over 50,000 cases and 338 deaths since 1 January. DRC has recorded the highest death toll \u2014 nearly 700 deaths from more than 30,400 cases.",
+      "desc": "Global cholera figures have continued climbing: 212,857 cases and 1,943 deaths reported worldwide since 1 January 2026, as of 26 August (ECDC). In the most recent 4-week reporting window alone (27 Jul\u201326 Aug), 42,717 new cases and 257 new deaths were recorded. Nigeria remains the single largest contributor by a wide margin (41,296 cases in that same window alone), with additional active transmission in Angola, Somalia, Mozambique, and Chad. DRC's regional death toll (per the earlier 6-country West/Central Africa figures) remains the highest at the country level.",
       "more": "Seasonal rains, flooding, population displacement, and cross-border movement along shared rivers and trade routes are accelerating spread. Children are disproportionately affected: in CAR, children under 10 account for 44% of reported cases; in Chad, nearly two-thirds of infections are in children under 15; in Cameroon, the median patient age is just 10. UNICEF is calling for $15 million in additional funding to scale up its six-month response.",
-      "src": "UNICEF/UN News, 12 Aug 2026; Cameroon Cholera Situation Report #3 via ReliefWeb, 20 Aug 2026",
+      "src": "ECDC Cholera Worldwide Overview, 26 Aug 2026 update; UNICEF/UN News, 12 Aug 2026 (regional breakdown)",
       "tags": [
         "Cholera",
         "West Africa",
@@ -73,18 +73,18 @@
     },
     {
       "id": "ebola-drc",
-      "date": "2026-08-20",
-      "sortDate": "2026-08-20",
+      "date": "2026-09-06",
+      "sortDate": "2026-09-06",
       "title": "Ebola (Bundibugyo virus) \u2014 DRC / Uganda",
       "level": 4,
-      "status": "PHEIC \u00b7 Active \u2014 regional risk assessed HIGH",
+      "status": "PHEIC \u00b7 Active \u2014 largest Ebola outbreak ever recorded in DRC",
       "country": [
         "DRC",
         "Uganda"
       ],
-      "desc": "As of 20 August 2026 (data to 19 Aug), DRC has reported 5,290 confirmed cases and 2,516 deaths, with 837 patients currently hospitalised in isolation \u2014 an increase of 81 cases and 40 deaths in a single day, concentrated in Ituri (56), North Kivu (18), and Haut-Uele (7). With more confirmed cases than the 2018\u20132020 outbreak (3,317 cases), this is now the largest Ebola outbreak ever documented in DRC, and per the WHO Director-General's own 18 August remarks, the second-largest Ebola outbreak ever recorded worldwide \u2014 moving faster than any previous Ebola outbreak. A second IHR Emergency Committee met 18 August 2026 and issued updated, more detailed temporary recommendations (surveillance, case investigation, infection control, and \u2014 new \u2014 social measures/mass gatherings/domestic mobility guidance); the Committee did not lift the PHEIC. WHO/AFRO assessed regional risk as 'High' as of 14 August 2026.",
-      "more": "For the first time, two vaccines designed specifically against Bundibugyo virus have entered human trials; a third, cross-protective vaccine is moving toward a phase 3 trial after animal-study success. The WHO-sponsored PARTNERS treatment trial has enrolled 100 patients \u2014 no vaccine or treatment is yet approved. Temporary recommendations now extend to Angola, Burundi, CAR, Republic of Congo, Rwanda, and South Sudan in addition to DRC and Uganda. Imported-case status: France's case (24 Jun) has shown no secondary transmission (41 days post-discharge as of 14 Aug); Uganda's most recent imported case was discharged 16 Jul, with 42-day enhanced monitoring ending 27 Aug; two DRC-diagnosed cases have been treated in Germany. WHO DG's 18 Aug remarks stressed the epidemic is 'far from being under control' and is being fuelled by insecurity, displacement, and population movement along roads, rivers, and mining routes, with many deaths occurring at home, outside treatment centres and known contact lists.",
-      "src": "WHO DON-2026-DON615 (1 Aug 2026); WHO 2nd IHR Emergency Committee temporary recommendations (24 Aug 2026 posting, meeting held 18 Aug); WHO DG opening remarks, 18 Aug 2026; ECDC Ebola outbreak update, 20 Aug 2026",
+      "desc": "DRC has reported 6,604 confirmed cases and 3,175 deaths as of 5 September 2026, with 851 patients hospitalized in isolation \u2014 an increase of 82 cases and 41 deaths in a single day (Ituri: 49, North Kivu: 31, Haut-Uele: 2). The outbreak has now spread to 60 health zones across 6 of DRC's 26 provinces (Bas-U\u00e9l\u00e9, Haut-U\u00e9l\u00e9, Ituri, North Kivu, South Kivu, Tshopo). This is confirmed as the largest Ebola outbreak ever recorded in DRC, surpassing the 2018\u20132020 outbreak. 85.7% of identified case contacts remain under follow-up. Uganda's outbreak \u2014 20 total cases between May and June \u2014 was declared over by WHO on 25 August 2026, following 42 days with no new confirmed case.",
+      "more": "WHO held a further high-level Member States briefing on 1 September 2026. Poor healthcare infrastructure and ongoing armed conflict in eastern DRC continue to hinder detection, treatment, and prevention; the true scale of the outbreak is considered likely to exceed confirmed figures. No vaccine is approved specifically for Bundibugyo virus \u2014 a macaque study suggests the Zaire ebolavirus vaccine (Ervebo) may offer partial protection, but WHO has judged the evidence insufficient and recommends against its use in this outbreak. Imported-case status unchanged: the US and France cases remain resolved with no secondary transmission.",
+      "src": "ECDC Ebola outbreak update, 6 Sep 2026; WHO DON-616, 26 Aug 2026; WHO situation page, 1 Sep 2026",
       "tags": [
         "Ebola",
         "Filovirus",
@@ -93,23 +93,23 @@
         "Cross-border",
         "Largest DRC outbreak on record"
       ],
-      "cases": 5290,
-      "deaths": 2516,
-      "hospitalized": 837
+      "cases": 6604,
+      "deaths": 3175,
+      "hospitalized": 851
     },
     {
       "id": "bangladesh-measles-2026",
-      "date": "2026-08-12",
-      "sortDate": "2026-08-12",
+      "date": "2026-09-07",
+      "sortDate": "2026-09-07",
       "title": "Measles Outbreak \u2014 Bangladesh",
       "level": 3,
-      "status": "Active \u2014 national health emergency response",
+      "status": "Active \u2014 described as one of Bangladesh's worst public health crises in recent history",
       "country": [
         "Bangladesh"
       ],
-      "desc": "Bangladesh's Directorate General of Health Services (DGHS) has recorded 873 confirmed and suspected measles deaths and 17,115 laboratory-confirmed cases (131,946+ suspected as of early Aug) since the outbreak began in early 2026 \u2014 currently one of the largest active measles outbreaks in the world. An emergency mass-vaccination campaign for children aged 6\u201359 months began 5 April 2026.",
-      "more": "A Global Centre for Democratic Governance report attributes the outbreak to vaccine-supply disruptions and missed routine immunizations during 2024\u20132025, when measles vaccination coverage fell to 56.2% \u2014 its lowest level 2017\u20132025 \u2014 amid administrative delays in procurement under the prior interim government. UNICEF says it repeatedly warned officials about the impending vaccine shortage through 5\u20136 formal letters and roughly 10 meetings. Bangladesh's cabinet approved a return to direct UNICEF procurement in June 2026 to stabilize supply.",
-      "src": "Bangladesh DGHS via Think Global Health, 4 Aug 2026; Global Centre for Democratic Governance report via regional press, ~12 Aug 2026",
+      "desc": "Bangladesh's measles outbreak has killed 997 children (confirmed and suspected combined) since mid-March 2026, with total suspected and confirmed cases surpassing 180,000 \u2014 now described by international observers as Bangladesh's deadliest measles outbreak in decades. Hospitals in Dhaka, including Shishu Hospital & Institute, report wards overwhelmed with critically ill infants. A further nationwide mass-vaccination campaign was announced 4 September 2026, set to launch by month's end, with vaccine supply confirmed secured this time.",
+      "more": "The Global Centre for Democratic Governance's report 'Preventable Tragedy: Bangladesh's 2026 Measles Outbreak' found the crisis was not epidemiologically unexpected \u2014 WHO had identified a nationwide measles-rubella vaccine stock-out during 2024\u20132025, and the resulting immunity decline among children, as the main drivers. Case fatality remains concentrated in children under 5 (79% of cases), with under-2s and unvaccinated children at highest risk.",
+      "src": "IANS/UNB, 6 Sep 2026; The Business Standard, 7 Sep 2026; AFP via Manila Times/Malay Mail, 5\u20136 Sep 2026",
       "tags": [
         "Measles",
         "Bangladesh",
