@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updatedAt": "2026-09-08T06:00:00Z",
-    "source": "Manual refresh via Claude \u2014 WHO/ECDC Ebola update (6 Sep), Bangladesh measles update (7 Sep), ECDC cholera update (26 Aug), Delhi H1N1 update (7 Sep)",
+    "updatedAt": "2026-09-08T16:24:05.805370+00:00",
+    "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
   "outbreaks": [
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-08T03:42:16.703963+00:00",
+    "checkedAt": "2026-09-08T16:22:46.726179+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.94 against 60-day baseline (mean 0.006%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -498,8 +498,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -1.68 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -516,8 +516,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.44 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
