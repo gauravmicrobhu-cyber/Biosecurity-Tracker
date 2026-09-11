@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-10T16:13:40.672984+00:00",
+    "updatedAt": "2026-09-11T03:42:39.227570+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-10T16:12:43.622685+00:00",
+    "checkedAt": "2026-09-11T03:42:38.191377+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.98 against 60-day baseline (mean 0.006%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -489,8 +489,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.38 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -499,7 +499,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -0.65 against 60-day baseline (mean 0.005%, latest 0.003%).",
+        "note": "z-score -1.57 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -507,17 +507,17 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
-        "corroborated": false,
-        "corrobNote": "",
+        "status": "spike",
+        "note": "z-score 5.94 against 60-day baseline (mean 0.001%, latest 0.006%).",
+        "corroborated": true,
+        "corrobNote": "Matches tracked outbreak: \"H1N1 (Seasonal Influenza) \u2014 Delhi, India\"",
         "articles": []
       },
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.44 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -534,32 +534,34 @@
     },
     "preprints": {
       "ebola": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: Expecting value: line 1 column 1 (char 0)"
       },
       "cholera": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: Expecting value: line 1 column 1 (char 0)"
       },
       "measles": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: Expecting value: line 1 column 1 (char 0)"
       },
       "avian influenza": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'avian influenza' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: Expecting value: line 1 column 1 (char 0)"
       }
     }
   },
   "signalHistory": [
+    {
+      "id": "avian-flu-human",
+      "label": "Avian influenza \u2014 human cases",
+      "status": "spike",
+      "note": "z-score 5.94 against 60-day baseline (mean 0.001%, latest 0.006%).",
+      "corroborated": true,
+      "corrobNote": "Matches tracked outbreak: \"H1N1 (Seasonal Influenza) \u2014 Delhi, India\"",
+      "articles": [],
+      "detectedAt": "2026-09-11T03:42:38.191364+00:00"
+    },
     {
       "id": "unknown-pneumonia",
       "label": "Unknown pneumonia / mystery illness cluster",
