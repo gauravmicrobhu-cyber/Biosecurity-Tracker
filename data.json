@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-11T16:17:58.674211+00:00",
+    "updatedAt": "2026-09-12T03:45:24.758035+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-11T16:14:53.021062+00:00",
+    "checkedAt": "2026-09-12T03:44:46.755725+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.62 against 60-day baseline (mean 0.005%, latest 0.002%).",
+        "note": "z-score -0.94 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -507,8 +507,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.58 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -534,12 +534,16 @@
     },
     "preprints": {
       "ebola": {
-        "status": "error",
-        "note": "Fetch failed: The read operation timed out"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "cholera": {
-        "status": "error",
-        "note": "Fetch failed: The read operation timed out"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "measles": {
         "status": "normal",
@@ -548,8 +552,10 @@
         "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "avian influenza": {
-        "status": "error",
-        "note": "Fetch failed: The read operation timed out"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'avian influenza' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       }
     }
   },
