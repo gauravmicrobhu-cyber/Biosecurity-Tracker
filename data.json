@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-12T15:21:52.728462+00:00",
+    "updatedAt": "2026-09-13T03:52:25.723598+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,14 +465,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-12T15:20:58.460793+00:00",
+    "checkedAt": "2026-09-13T03:51:33.934264+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.52 against 60-day baseline (mean 0.005%, latest 0.002%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -490,7 +490,7 @@
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
         "status": "normal",
-        "note": "z-score -0.38 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "note": "z-score -0.35 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -507,8 +507,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.59 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
