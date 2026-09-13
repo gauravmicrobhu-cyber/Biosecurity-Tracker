@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-13T03:52:25.723598+00:00",
+    "updatedAt": "2026-09-13T16:01:17.353815+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -465,7 +465,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-13T03:51:33.934264+00:00",
+    "checkedAt": "2026-09-13T15:59:52.404031+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -489,8 +489,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.35 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -552,10 +552,8 @@
         "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "avian influenza": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'avian influenza' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "status": "error",
+        "note": "Fetch failed: The read operation timed out"
       }
     }
   },
