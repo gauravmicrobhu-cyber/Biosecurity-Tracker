@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updatedAt": "2026-09-14T03:57:43.116433+00:00",
-    "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
+    "updatedAt": "2026-09-08T07:00:00Z",
+    "source": "Manual refresh via Claude \u2014 added OpenAI/Anthropic governance frameworks, mandatory-screening open letter, NTI input-screening tool; corrected g0b re: unfulfilled synthesis-screening mandate",
     "generator": "manual"
   },
   "outbreaks": [
@@ -352,6 +352,14 @@
   ],
   "governance": [
     {
+      "id": "nti-input-screening-tool-2026",
+      "date": "2026-08-11",
+      "sortDate": "2026-08-11",
+      "title": "NTI | bio Releases First Proactive Input-Screening Tool for AI Protein-Design Models",
+      "country": "Global",
+      "desc": "NTI | bio published a first-of-its-kind proof-of-concept input-screening method for AI-enabled protein-design tools \u2014 screening what goes INTO a biological AI model, rather than only screening synthesis orders on the way out. Directly responds to the finding (tracked in this tool's AI-Bio module) that open protein-design tools currently have almost no equivalent guardrails to those applied to DNA synthesis orders."
+    },
+    {
       "id": "g0",
       "date": "2026-07-22",
       "sortDate": "2026-07-22",
@@ -372,8 +380,32 @@
       "date": "2026-07-01",
       "sortDate": "2026-07-01",
       "title": "US Policy for Stopping High-Risk Life Sciences Research",
-      "desc": "Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect.",
+      "desc": "Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect. Per a 16 Jul 2026 Congressional Research Service report, this policy did NOT revise or replace the 2024 Framework for Nucleic Acid Synthesis Screening \u2014 the separate 90-day synthesis-screening revision mandated by EO 14292 remains, per CRS, unconfirmed as fulfilled.",
       "country": "USA"
+    },
+    {
+      "id": "mandatory-screening-open-letter-2026",
+      "date": "2026-06-15",
+      "sortDate": "2026-06-15",
+      "title": "Coalition Open Letter Calls for Mandatory (Not Voluntary) Synthesis Screening",
+      "country": "USA",
+      "desc": "A coalition of life-sciences researchers, AI companies, and biotechnology developers issued an open letter calling on Congress to make synthetic nucleic acid order screening legally mandatory, placing enforceable responsibility on DNA synthesis companies rather than relying on the current voluntary/self-governance model (IGSC, IBBIS Common Mechanism)."
+    },
+    {
+      "id": "anthropic-policy-framework-2026",
+      "date": "2026-06-01",
+      "sortDate": "2026-06-01",
+      "title": "Anthropic Proposes Government Accountability Framework for Frontier AI",
+      "country": "USA",
+      "desc": "Anthropic released a proposed policy framework recommending that frontier AI developers test models for catastrophic risks (including biological), publish findings, and be held accountable to a government agency \u2014 a call for external, not just self-imposed, oversight of the risk categories it and OpenAI both now publish internal assessments on."
+    },
+    {
+      "id": "openai-governance-framework-2026",
+      "date": "2026-05-01",
+      "sortDate": "2026-05-01",
+      "title": "OpenAI Publishes Governance Framework Covering CBRN Risk",
+      "country": "USA",
+      "desc": "OpenAI published a governance framework describing its risk assessment and mitigation processes across four categories: cyber offense; chemical, biological, radiological, and nuclear (CBRN) risks; harmful manipulation; and loss of control. Includes an active bounty program of up to $50,000 for researchers who find jailbreaks of ChatGPT's biosafety safeguards specifically."
     },
     {
       "id": "g1",
