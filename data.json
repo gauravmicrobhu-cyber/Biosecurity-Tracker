@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-16T04:01:57.473066+00:00",
+    "updatedAt": "2026-09-16T16:31:20.764035+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -497,14 +497,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-16T04:00:01.539012+00:00",
+    "checkedAt": "2026-09-16T16:30:36.911130+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.91 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -530,8 +530,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.45 against 60-day baseline (mean 0.005%, latest 0.003%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
