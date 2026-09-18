@@ -2050,6 +2050,30 @@ function renderTgs(){
     </div>`).join('');
   grid.querySelectorAll('[data-star]').forEach(b=> b.onclick = ()=> toggleStar(b.dataset.star, b.dataset.label, b.dataset.type));
 }
+/* Region-to-country mapping for signals with a genuine geographic anchor in their
+   query topic. Only signals with a real regional scope are mapped — topic-only
+   signals (e.g. "lab biosafety incident", "avian influenza — human cases") have no
+   fixed region and are deliberately left unmapped rather than force a false one. */
+const SIGNAL_REGION_MAP = {
+  'hemfever-drc': { label:'Central Africa', countries:['Democratic Republic of Congo','DRC','Central African Republic','Republic of Congo','Uganda','Rwanda','Burundi','Gabon','Cameroon'] },
+  'mass-illness-sasia': { label:'South Asia', countries:['India','Pakistan','Bangladesh','Nepal','Sri Lanka','Bhutan'] },
+};
+function getFacilityContext(sigId){
+  const region = SIGNAL_REGION_MAP[sigId];
+  if(!region) return null;
+  const matches = (D.labs||[]).filter(l=> region.countries.includes(l.country));
+  return { regionLabel: region.label, facilities: matches };
+}
+function facilityContextHtml(sig){
+  const ctx = getFacilityContext(sig.id);
+  if(!ctx) return '';
+  if(ctx.facilities.length === 0){
+    return `<div class="signal-meta" style="margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:11px;color:var(--muted-2);">No BSL-4 facility from this tracker's list falls in ${escapeHtml(ctx.regionLabel)} — this reflects the limited, illustrative facility sample tracked here, not a claim that none exist in the region.</div>`;
+  }
+  const tierColor = t => t==='weak' ? '#ff2d6a' : t==='moderate' ? '#ff9f1c' : '#00f5d4';
+  const list = ctx.facilities.map(f=> `<span style="color:${tierColor(f.tier)};">${escapeHtml(f.n)} (${f.tier} governance)</span>`).join(', ');
+  return `<div class="signal-meta" style="margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:11px;color:var(--muted-2);">Facility context — ${ctx.facilities.length} BSL-4 facilit${ctx.facilities.length===1?'y':'ies'} tracked in ${escapeHtml(ctx.regionLabel)}: ${list}. Region-level match, not point-precision — GDELT's geocoding for this topic doesn't support finer resolution.</div>`;
+}
 function signalCardHtml(sig){
   const status = sig.status || 'normal';
   const label = {normal:'NORMAL', elevated:'ELEVATED', spike:'SPIKE', error:'ERROR', insufficient:'INSUFFICIENT DATA'}[status] || status.toUpperCase();
@@ -2057,6 +2081,7 @@ function signalCardHtml(sig){
   return `<div class="signal-card" data-id="${sig.id}">
     <div class="signal-card-head"><span class="signal-title">${sig.label}</span><span class="signal-badge ${status}">${label}</span></div>
     ${sig.note ? `<div class="signal-meta" style="margin-top:8px;">${escapeHtml(sig.note)}</div>` : ''}
+    ${facilityContextHtml(sig)}
     ${sig.corrobNote ? `<div class="corrob-chip ${sig.corroborated?'yes':'no'}">${sig.corroborated?'✓ CORROBORATED':'⚠ UNCORROBORATED'}</div><div class="signal-meta" style="margin-top:2px;">${escapeHtml(sig.corrobNote)}</div>` : ''}
     ${articles.length ? `
       <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
