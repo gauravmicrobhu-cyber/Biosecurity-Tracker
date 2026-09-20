@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-19T15:46:01.452119+00:00",
+    "updatedAt": "2026-09-20T04:05:39.408900+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -497,7 +497,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-19T15:44:28.588463+00:00",
+    "checkedAt": "2026-09-20T04:04:51.657212+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
@@ -531,7 +531,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -0.44 against 60-day baseline (mean 0.005%, latest 0.003%).",
+        "note": "z-score -1.56 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -566,8 +566,10 @@
     },
     "preprints": {
       "ebola": {
-        "status": "error",
-        "note": "Fetch failed: The read operation timed out"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "cholera": {
         "status": "normal",
