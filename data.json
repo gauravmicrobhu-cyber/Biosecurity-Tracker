@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-21T04:02:10.910219+00:00",
+    "updatedAt": "2026-09-21T18:10:38.250409+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -497,14 +497,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-21T04:01:01.356524+00:00",
+    "checkedAt": "2026-09-21T18:08:23.906467+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.89 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -512,8 +512,8 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.2 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -521,8 +521,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.34 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -530,8 +530,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.06 against 60-day baseline (mean 0.005%, latest 0.005%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -539,8 +539,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.56 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -548,8 +548,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.65 against 60-day baseline (mean 0.001%, latest 0.002%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -584,8 +584,10 @@
         "note": "0 preprint(s) mentioning 'measles' in the last 14 days (bioRxiv+medRxiv), vs 1 in the prior 14 days."
       },
       "avian influenza": {
-        "status": "error",
-        "note": "Fetch failed: The read operation timed out"
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'avian influenza' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       }
     }
   },
