@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-25T04:03:46.725440+00:00",
+    "updatedAt": "2026-09-25T16:57:36.209035+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -497,14 +497,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-25T04:03:44.684981+00:00",
+    "checkedAt": "2026-09-25T16:57:35.466926+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.84 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -512,8 +512,8 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.2 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -521,8 +521,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.34 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -530,8 +530,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.71 against 60-day baseline (mean 0.005%, latest 0.007%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -549,7 +549,7 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score -0.41 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score 0.78 against 60-day baseline (mean 0.001%, latest 0.002%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
