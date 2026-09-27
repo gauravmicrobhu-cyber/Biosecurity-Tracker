@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-26T16:11:59.466938+00:00",
+    "updatedAt": "2026-09-27T04:23:00.680072+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -497,14 +497,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-26T16:11:57.552212+00:00",
+    "checkedAt": "2026-09-27T04:22:58.457470+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.81 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -512,8 +512,8 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.2 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -521,8 +521,8 @@
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.34 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -530,17 +530,17 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
-        "corroborated": false,
-        "corrobNote": "",
+        "status": "spike",
+        "note": "z-score 5.01 against 60-day baseline (mean 0.005%, latest 0.02%).",
+        "corroborated": true,
+        "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
         "articles": []
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.55 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -584,6 +584,16 @@
     }
   },
   "signalHistory": [
+    {
+      "id": "cholera-global",
+      "label": "Cholera outbreak \u2014 Global",
+      "status": "spike",
+      "note": "z-score 5.01 against 60-day baseline (mean 0.005%, latest 0.02%).",
+      "corroborated": true,
+      "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
+      "articles": [],
+      "detectedAt": "2026-09-27T04:22:58.457455+00:00"
+    },
     {
       "id": "avian-flu-human",
       "label": "Avian influenza \u2014 human cases",
