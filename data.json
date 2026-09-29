@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-29T04:56:37.512300+00:00",
+    "updatedAt": "2026-09-29T18:03:35.154356+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -545,14 +545,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-09-29T04:56:04.759341+00:00",
+    "checkedAt": "2026-09-29T18:02:50.660008+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.84 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "note": "z-score -0.68 against 60-day baseline (mean 0.005%, latest 0.001%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -560,17 +560,17 @@
       {
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
-        "status": "normal",
-        "note": "z-score -0.18 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "spike",
+        "note": "z-score 3.48 against 60-day baseline (mean 0.0%, latest 0.001%).",
         "corroborated": false,
-        "corrobNote": "",
+        "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
         "articles": []
       },
       {
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
-        "status": "normal",
-        "note": "z-score -0.34 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -587,8 +587,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.04 against 60-day baseline (mean 0.001%, latest 0.001%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -640,6 +640,16 @@
     }
   },
   "signalHistory": [
+    {
+      "id": "unknown-pneumonia",
+      "label": "Unknown pneumonia / mystery illness cluster",
+      "status": "spike",
+      "note": "z-score 3.48 against 60-day baseline (mean 0.0%, latest 0.001%).",
+      "corroborated": false,
+      "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
+      "articles": [],
+      "detectedAt": "2026-09-29T18:02:50.659993+00:00"
+    },
     {
       "id": "cholera-global",
       "label": "Cholera outbreak \u2014 Global",
