@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-02T04:43:40.734680+00:00",
+    "updatedAt": "2026-10-02T17:46:22.158582+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -545,14 +545,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-02T04:42:52.217477+00:00",
+    "checkedAt": "2026-10-02T17:45:32.524150+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.79 against 60-day baseline (mean 0.004%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -579,7 +579,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score 0.14 against 60-day baseline (mean 0.005%, latest 0.005%).",
+        "note": "z-score -0.13 against 60-day baseline (mean 0.005%, latest 0.004%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -587,8 +587,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.53 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -596,8 +596,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.39 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
