@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-05T04:44:30.935186+00:00",
+    "updatedAt": "2026-10-06T05:31:58.252160+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual"
   },
@@ -545,14 +545,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-05T04:43:39.516603+00:00",
+    "checkedAt": "2026-10-06T05:31:03.548855+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.75 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -579,7 +579,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -0.15 against 60-day baseline (mean 0.005%, latest 0.004%).",
+        "note": "z-score -0.11 against 60-day baseline (mean 0.005%, latest 0.004%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -596,8 +596,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.4 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -616,8 +616,8 @@
       "ebola": {
         "status": "normal",
         "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "priorCount": 1,
+        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 1 in the prior 14 days."
       },
       "cholera": {
         "status": "normal",
