@@ -10,29 +10,35 @@ separate reasons, not one:
      direct browser navigation (which bypasses CORS entirely), meaning it was
      the requesting network's IP being flagged, not a CORS issue. GitHub Actions
      runners use Microsoft/GitHub IP ranges, which are very unlikely to already
-     be caught up in that block — this is the actual reason this should work
-     where the browser-based version didn't, not just "server-to-server is
-     allowed."
+     be caught up in that block.
 
 WHAT THIS SCRIPT DOES:
-  - Fetches GDELT news-volume timelines for each tracked keyword (mode=timelinevol),
-    computes a real z-score against each keyword's own recent baseline, and writes
-    the result into data.json's "signals" block — replacing Claude's manual
-    qualitative check with an actual statistical one, now that live fetching is
-    viable from this environment.
-  - Attempts a ReliefWeb/OCHA supplement pull for new outbreak-relevant reports.
-    This requires a ReliefWeb-*approved* appname (their Nov 2025 policy change) —
-    if ARM_RELIEFWEB_APPNAME isn't set to a working value, this step is skipped
-    with a warning, not a hard failure, so the GDELT update still lands.
+  - GDELT news-volume z-scores for six tracked topics -> data.json "signals".
+    A raw z-score is NOT trusted on its own (see "WHY HEADLINES GATE THE SPIKES").
+  - CDC NWSS wastewater coverage snapshot and Europe PMC preprint-volume counts
+    -> data.json "upstreamIndicators".
+  - Optional ReliefWeb supplement (skipped unless RELIEFWEB_APPNAME is set).
+
+WHY HEADLINES GATE THE SPIKES (added after live data showed 3 of 5 logged spikes
+were noise):
+  These topics match only a handful of articles a day, so baselines are ~0.000-0.005%
+  and one extra headline can produce a z-score of 5-9. A z-score cannot tell one stray
+  op-ed from a real cluster. So when a topic crosses the threshold, the script pulls the
+  actual headlines and checks whether any of them mention the topic. If none do, the
+  spike is DISMISSED as noise (status returns to "normal", the raw z-score and the
+  reason stay visible in the note). If headlines cannot be retrieved at all, the spike
+  is kept but flagged unverified. Queries were also tightened (English-language,
+  health-context terms, "-COVID" for the lab topic), each with a legacy fallback query
+  in case GDELT rejects the new syntax.
 
 WHAT THIS SCRIPT DELIBERATELY DOES NOT DO:
   - It does NOT touch outbreaks, governance, AI-Bio, or synthesis-screening data
-    beyond the optional ReliefWeb supplement above. WHO's Disease Outbreak News
-    page is JavaScript-rendered from an undocumented internal API — a plain
-    requests.get() call gets an empty shell, not outbreak data. That content
-    stays on the existing manual "ask Claude to check" workflow.
-  - It does NOT assign containment levels to new ReliefWeb items intelligently —
-    they land tagged "needs-review" at level 2 until a human retags them.
+    beyond the optional ReliefWeb supplement. WHO's Disease Outbreak News is
+    JavaScript-rendered from an undocumented API. That content stays on the manual
+    "ask Claude to check" workflow.
+  - It does NOT overwrite meta.contentUpdatedAt / meta.contentSource. Those record when
+    the manually curated content was last refreshed. meta.updatedAt only means "the
+    automated layer last ran", so the two are kept apart on purpose.
 
 USAGE:
   python3 fetch_data.py                # updates ./data.json in place
@@ -44,36 +50,49 @@ import sys
 import time
 import urllib.request
 import urllib.parse
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 DATA_PATH = "data.json"
 GDELT_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 RELIEFWEB_ENDPOINT = "https://api.reliefweb.int/v2/reports"
+CDC_NWSS_ENDPOINT = "https://data.cdc.gov/resource/2ew6-ywp6.json"  # NWSS Public SARS-CoV-2 Wastewater Metric Data (Socrata)
+EUROPEPMC_ENDPOINT = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 
-# Same six keywords tracked in the dashboard's Signal Detection module.
-# Boolean OR groups must be wrapped in parentheses — GDELT rejects a bare OR
-# outside parens (this cost real debugging time before; documented here so it
-# isn't relearned the hard way again).
+# Six topics tracked in the dashboard's Signal Detection module.
+#   query          primary GDELT query (boolean OR groups must be wrapped in parentheses;
+#                  multiple groups are ANDed; "-term" excludes; sourcelang: restricts language)
+#   fallback_query legacy query, used only if GDELT rejects the primary as a syntax error
+#   match_terms    lower-case words used for (a) the headline-relevance check and
+#                  (b) corroboration against tracked outbreaks
 SIGNAL_KEYWORDS = [
     {"id": "hemfever-drc", "label": "Hemorrhagic fever — Central Africa",
-     "query": 'hemorrhagic fever (DRC OR Congo OR Uganda OR "South Sudan")'},
+     "query": 'hemorrhagic fever (DRC OR Congo OR Uganda OR "South Sudan")',
+     "match_terms": ["ebola", "marburg", "hemorrhagic", "haemorrhagic", "filovirus", "bundibugyo", "lassa", "crimean"]},
     {"id": "unknown-pneumonia", "label": "Unknown pneumonia / mystery illness cluster",
-     "query": '("unknown pneumonia" OR "mystery illness") outbreak'},
+     "query": '("unknown pneumonia" OR "mystery illness" OR "undiagnosed pneumonia") outbreak sourcelang:english',
+     "fallback_query": '("unknown pneumonia" OR "mystery illness") outbreak',
+     "match_terms": ["pneumonia", "mystery illness", "unknown illness", "unexplained", "undiagnosed", "mysterious"]},
     {"id": "mass-illness-sasia", "label": "Mass illness — South Asia",
-     "query": '("mass illness" OR "unknown disease") (India OR Pakistan OR Bangladesh)'},
+     "query": '("mass illness" OR "mysterious illness" OR "unknown disease") (India OR Pakistan OR Bangladesh) (hospitalized OR hospitalised OR outbreak OR "health officials") sourcelang:english',
+     "fallback_query": '("mass illness" OR "unknown disease") (India OR Pakistan OR Bangladesh)',
+     "match_terms": ["mass illness", "mysterious", "unknown disease", "mystery illness", "fall ill", "fell ill", "falls ill",
+                     "food poisoning", "hospitalised", "hospitalized"]},
     {"id": "cholera-global", "label": "Cholera outbreak — Global",
-     "query": "cholera outbreak"},
+     "query": "cholera outbreak",
+     "match_terms": ["cholera"]},
     {"id": "avian-flu-human", "label": "Avian influenza — human cases",
-     "query": '"avian influenza" human case'},
+     "query": '("avian influenza" OR "bird flu" OR H5N1) ("human case" OR "human cases" OR "human infection" OR "human infections") sourcelang:english',
+     "fallback_query": '"avian influenza" human case',
+     "match_terms": ["avian", "bird flu", "h5n1", "h5n5", "h9n2", "h5n6"]},
     {"id": "lab-biosafety", "label": "Lab biosafety incident / breach",
-     "query": "laboratory biosafety (incident OR breach OR leak)"},
+     "query": '("biosafety incident" OR "biosafety breach" OR "laboratory-acquired infection" OR "lab accident" OR "laboratory accident" OR biolab) -COVID sourcelang:english',
+     "fallback_query": "laboratory biosafety (incident OR breach OR leak)",
+     "match_terms": ["biosafety", "biolab", "laboratory", "lab leak", "lab accident", "lab worker", "lab-acquired", "lab exposure"]},
 ]
 
 REQUEST_SPACING_SEC = 45  # widened after live testing: GitHub's shared cloud IP pool got HTTP 429
-                           # (a real rate-limit response, not a ban) even at 6s spacing — GDELT is
-                           # likely throttling that IP range harder due to unrelated traffic from
-                           # other GitHub Actions users sharing it. This runs unattended, so the
-                           # extra ~4 minutes costs nothing.
+                           # (a real rate-limit response, not a ban) even at 6s spacing. This runs
+                           # unattended, so the extra minutes cost nothing.
 
 
 def log(msg):
@@ -115,13 +134,39 @@ def compute_signal(values):
     return {"status": status, "z": round(z, 2), "mean": round(mean, 3), "latest": round(latest, 3)}
 
 
-def compute_corroboration(signal_id, label, status, outbreaks, other_statuses):
+def title_matches(title, terms):
+    t = (title or "").lower()
+    return any(term in t for term in terms)
+
+
+def assess_headlines(articles, match_terms):
+    """Does the news behind a statistical spike actually mention the topic?
+    Returns (verdict, relevant_count):
+      unavailable  headlines could not be fetched (articles is None) — keep the spike, flag unverified
+      no-articles  fetch worked but GDELT returned nothing — the spike is a data artifact
+      unconfirmed  articles came back but none mention the topic — noise
+      confirmed    at least one headline mentions the topic
+    """
+    if articles is None:
+        return "unavailable", 0
+    if not articles:
+        return "no-articles", 0
+    relevant = sum(1 for a in articles if title_matches(a.get("title", ""), match_terms))
+    return ("confirmed" if relevant else "unconfirmed"), relevant
+
+
+def compute_corroboration(signal_id, match_terms, status, outbreaks, other_statuses):
+    """Corroborate against tracked outbreaks using topic-specific terms (NOT generic label
+    words: matching on words like 'influenza' or 'cases' linked an avian-flu spike to an
+    unrelated seasonal H1N1 entry). Closed outbreaks never corroborate a live spike."""
     if status not in ("elevated", "spike"):
         return None, None
-    key_terms = [w for w in label.lower().replace("—", " ").split() if len(w) > 4]
+    terms = [t.lower() for t in (match_terms or [])]
     for o in outbreaks:
-        tags = [t.lower() for t in o.get("tags", [])]
-        if any(any(w in t or t in w for w in key_terms) for t in tags):
+        if "closed" in (o.get("status") or "").lower():
+            continue
+        haystack = " ".join([o.get("title", ""), " ".join(o.get("tags", []))]).lower()
+        if any(t in haystack for t in terms):
             return True, f"Matches tracked outbreak: \"{o['title']}\""
     other_elevated = sum(1 for sid, s in other_statuses.items() if sid != signal_id and s in ("elevated", "spike"))
     if other_elevated:
@@ -129,24 +174,35 @@ def compute_corroboration(signal_id, label, status, outbreaks, other_statuses):
     return False, "Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution."
 
 
-def fetch_with_retry(query, max_retries=3, backoff_sec=25):
+def with_retry(fn, *args, max_retries=4, backoff_sec=45):
+    """Retry on rate limiting and plain network flakiness; fail fast on errors that waiting
+    won't fix (e.g. a rejected query)."""
     last_err = None
     for attempt in range(max_retries + 1):
         try:
-            return fetch_gdelt_timeline(query)
+            return fn(*args)
         except Exception as e:
             last_err = e
             msg = str(e).lower()
-            # Retry on rate-limiting AND on plain network flakiness (timeouts, SSL handshake
-            # stalls) — live testing showed 3 of 6 keywords failed this way and were almost
-            # certainly transient, since other keywords in the same run succeeded fine.
             is_retryable = "429" in msg or "timed out" in msg or "timeout" in msg
             if attempt < max_retries and is_retryable:
                 log(f"  {type(e).__name__} ({e}), retrying in {backoff_sec}s ({attempt+1}/{max_retries})...")
                 time.sleep(backoff_sec)
             elif not is_retryable:
-                break  # don't retry on errors that clearly won't resolve by waiting (e.g. malformed query)
+                break
     raise last_err
+
+
+def fetch_series_with_fallback(kw):
+    """Try the tightened query; if GDELT rejects it as a syntax problem (non-JSON reply),
+    fall back once to the legacy query so a bad guess can't silently kill a signal."""
+    try:
+        return with_retry(fetch_gdelt_timeline, kw["query"]), kw["query"], False
+    except Exception as e:
+        if kw.get("fallback_query") and "non-json" in str(e).lower():
+            log(f"  primary query rejected for {kw['id']} ({e}); using legacy fallback query")
+            return with_retry(fetch_gdelt_timeline, kw["fallback_query"]), kw["fallback_query"], True
+        raise
 
 
 def fetch_gdelt_articles(query, max_records=5, timespan="7d"):
@@ -171,31 +227,35 @@ def fetch_gdelt_articles(query, max_records=5, timespan="7d"):
 
 def run_gdelt_pass(data):
     outbreaks = data.get("outbreaks", [])
-    # Capture the PREVIOUS run's statuses before we overwrite anything — this is what lets
-    # us tell "just became elevated" apart from "has been elevated for three runs already",
-    # so the history log gets one entry per event, not one per 12-hour cycle it persists.
     old_items_by_id = {i["id"]: i for i in data.get("signals", {}).get("items", [])}
-    results = {}
-    statuses = {}
+    results, statuses = {}, {}
     for i, kw in enumerate(SIGNAL_KEYWORDS):
         if i > 0:
             time.sleep(REQUEST_SPACING_SEC)
         try:
-            series = fetch_with_retry(kw["query"])
+            series, used_query, used_fallback = fetch_series_with_fallback(kw)
             sig = compute_signal(series)
-            results[kw["id"]] = {"label": kw["label"], **sig}
-            statuses[kw["id"]] = sig["status"]
+            res = {"label": kw["label"], **sig, "usedFallback": used_fallback}
             log(f"OK  {kw['id']}: {sig['status']} (z={sig.get('z')})")
-            # Only spend an extra request pulling real headlines when there's actually
-            # something worth explaining — no point fetching articles for a "normal" reading.
             if sig["status"] in ("elevated", "spike"):
                 time.sleep(REQUEST_SPACING_SEC)
+                articles = None
                 try:
-                    articles = fetch_gdelt_articles(kw["query"])
-                    results[kw["id"]]["articles"] = articles
+                    articles = with_retry(fetch_gdelt_articles, used_query, 10, max_retries=2)
                     log(f"     +{len(articles)} article(s) fetched for {kw['id']}")
                 except Exception as e:
                     log(f"     article fetch failed for {kw['id']}: {e}")
+                verdict, relevant = assess_headlines(articles, kw["match_terms"])
+                res.update({"articles": articles or [], "headlineCheck": verdict, "relevantHeadlines": relevant})
+                if verdict in ("unconfirmed", "no-articles"):
+                    reason = ("none of the %d retrieved headlines mention this topic" % len(articles)
+                              if verdict == "unconfirmed"
+                              else "GDELT returned no matching articles for the last 7 days, so it is likely a data artifact")
+                    res.update({"rawStatus": sig["status"], "status": "normal", "dismissed": True,
+                                "dismissNote": f"Raw z-score {sig['z']} ({sig['status']}) dismissed as noise: {reason}."})
+                    log(f"     DISMISSED {kw['id']}: {reason}")
+            results[kw["id"]] = res
+            statuses[kw["id"]] = res["status"]
         except Exception as e:
             results[kw["id"]] = {"label": kw["label"], "status": "error", "note": f"Fetch failed: {e}"}
             statuses[kw["id"]] = "error"
@@ -204,50 +264,59 @@ def run_gdelt_pass(data):
     items = []
     for kw in SIGNAL_KEYWORDS:
         r = results[kw["id"]]
-        corroborated, corrob_note = compute_corroboration(kw["id"], kw["label"], r.get("status"), outbreaks, statuses)
-        item = {
-            "id": kw["id"],
-            "label": kw["label"],
-            "status": r.get("status", "error"),
-            "note": r.get("note") or (
-                f"z-score {r['z']} against 60-day baseline (mean {r['mean']}%, latest {r['latest']}%)."
-                if r.get("z") is not None else "Insufficient data points for a baseline."
-            ),
-            "corroborated": bool(corroborated),
-            "corrobNote": corrob_note or "",
+        corroborated, corrob_note = compute_corroboration(kw["id"], kw["match_terms"], r.get("status"), outbreaks, statuses)
+        if r.get("note"):
+            note = r["note"]
+        elif r.get("z") is None:
+            note = "Insufficient data points for a baseline."
+        else:
+            note = f"z-score {r['z']} against 60-day baseline (mean {r['mean']}%, latest {r['latest']}%)."
+            if r.get("dismissed"):
+                note += " " + r["dismissNote"]
+            elif r.get("headlineCheck") == "unavailable":
+                note += " Headline check unavailable this run — treat as unverified."
+            if r.get("usedFallback"):
+                note += " (Legacy query used — the refined query was rejected by GDELT.)"
+        items.append({
+            "id": kw["id"], "label": kw["label"], "status": r.get("status", "error"), "note": note,
+            "corroborated": bool(corroborated), "corrobNote": corrob_note or "",
             "articles": r.get("articles", []),
-        }
-        items.append(item)
+            "headlineCheck": r.get("headlineCheck"), "dismissed": bool(r.get("dismissed")),
+        })
 
-    # Log a history entry only on a fresh transition INTO elevated/spike — not on every
-    # run where an already-known spike is still ongoing, and not on a bare "error" reading.
+    # History: one entry per fresh transition INTO elevated/spike (not one per 12h cycle).
     history = data.get("signalHistory", [])
+    now = datetime.now(timezone.utc)
     for item in items:
         old_status = old_items_by_id.get(item["id"], {}).get("status")
         if item["status"] in ("elevated", "spike") and old_status not in ("elevated", "spike"):
             history.insert(0, {
                 "id": item["id"], "label": item["label"], "status": item["status"],
                 "note": item["note"], "corroborated": item["corroborated"], "corrobNote": item["corrobNote"],
-                "articles": item.get("articles", []),
-                "detectedAt": datetime.now(timezone.utc).isoformat(),
+                "articles": item.get("articles", []), "headlineCheck": item.get("headlineCheck"),
+                "detectedAt": now.isoformat(),
             })
             log(f"     NEW history entry logged for {item['id']} ({item['status']})")
-    data["signalHistory"] = history[:30]  # keep this bounded, not an ever-growing file
+        elif item["status"] in ("elevated", "spike") and item.get("articles"):
+            # Backfill: a spike logged earlier with no headlines (fetch failed) gets them if it is still live.
+            for h in history:
+                if h["id"] == item["id"] and not h.get("articles"):
+                    try:
+                        age = now - datetime.fromisoformat(h["detectedAt"])
+                    except Exception:
+                        break
+                    if age <= timedelta(hours=72):
+                        h["articles"], h["headlineCheck"] = item["articles"], item.get("headlineCheck")
+                        log(f"     backfilled headlines into history entry for {item['id']}")
+                    break
+    data["signalHistory"] = history[:30]
 
     data["signals"] = {
-        "checkedAt": datetime.now(timezone.utc).isoformat(),
-        "checkedBy": "Automated — GitHub Actions + live GDELT z-score (mode=timelinevol)",
+        "checkedAt": now.isoformat(),
+        "checkedBy": "Automated — GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
         "items": items,
     }
     return data
-
-
-CDC_NWSS_ENDPOINT = "https://data.cdc.gov/resource/2ew6-ywp6.json"  # NWSS Public SARS-CoV-2 Wastewater Metric Data (Socrata)
-BIORXIV_ENDPOINT = "https://api.biorxiv.org/details"
-
-# Small, defensible keyword set for the preprint-volume check — kept short since each
-# term needs its own date-range scan across two servers (bioRxiv + medRxiv).
-PREPRINT_KEYWORDS = ["ebola", "cholera", "measles", "avian influenza"]
 
 
 def run_wastewater_pass(data):
@@ -288,50 +357,60 @@ def run_wastewater_pass(data):
     return data
 
 
-def fetch_preprint_count(keyword, start_date, end_date):
-    total = 0
-    for server in ("biorxiv", "medrxiv"):
-        cursor = 0
-        while True:
-            url = f"{BIORXIV_ENDPOINT}/{server}/{start_date}/{end_date}/{cursor}"
-            req = urllib.request.Request(url, headers={"User-Agent": "prism-containment-tracker/1.0"})
-            with urllib.request.urlopen(req, timeout=25) as resp:
-                payload = json.loads(resp.read().decode("utf-8", errors="replace"))
-            items = payload.get("collection", [])
-            for it in items:
-                text = (it.get("title", "") + " " + it.get("abstract", "")).lower()
-                if keyword.lower() in text:
-                    total += 1
-            if len(items) < 100:
-                break
-            cursor += 100
-            if cursor > 300:  # hard cap — keep this bounded, it's a volume check not a full census
-                break
-    return total
+# ---- Preprint volume via Europe PMC ------------------------------------------------------
+# Replaces the earlier bioRxiv/medRxiv date-window scan, which only read the first ~400
+# records per server and so reported "0 preprints" for topics as large as Ebola. Europe PMC
+# returns an exact hitCount for a query (its preprint index includes bioRxiv and medRxiv),
+# so no pagination or sampling is needed.
+PREPRINT_TOPICS = [
+    {"label": "ebola / bundibugyo", "terms": ["ebola", "bundibugyo"]},
+    {"label": "cholera", "terms": ["cholera"]},
+    {"label": "measles", "terms": ["measles"]},
+    {"label": "avian influenza / H5N1", "terms": ["avian influenza", "H5N1"]},
+    {"label": "mpox", "terms": ["mpox", "monkeypox"]},
+    {"label": "nipah", "terms": ["nipah"]},
+]
+
+
+def europepmc_query(terms, start_date, end_date):
+    topic = " OR ".join(f'TITLE:"{t}" OR ABSTRACT:"{t}"' for t in terms)
+    return f"({topic}) AND (SRC:PPR) AND (FIRST_PDATE:[{start_date} TO {end_date}])"
+
+
+def fetch_preprint_count(terms, start_date, end_date):
+    params = urllib.parse.urlencode({"query": europepmc_query(terms, start_date, end_date),
+                                     "format": "json", "pageSize": 1, "resultType": "lite"})
+    req = urllib.request.Request(f"{EUROPEPMC_ENDPOINT}?{params}", headers={"User-Agent": "prism-containment-tracker/1.0"})
+    with urllib.request.urlopen(req, timeout=25) as resp:
+        payload = json.loads(resp.read().decode("utf-8", errors="replace"))
+    if "hitCount" not in payload:
+        raise RuntimeError("unexpected Europe PMC response (no hitCount)")
+    return int(payload["hitCount"])
 
 
 def run_preprint_pass(data):
-    from datetime import timedelta
     today = datetime.now(timezone.utc).date()
     recent_start, recent_end = (today - timedelta(days=14)).isoformat(), today.isoformat()
     prior_start, prior_end = (today - timedelta(days=28)).isoformat(), (today - timedelta(days=15)).isoformat()
     results = {}
-    for kw in PREPRINT_KEYWORDS:
+    for topic in PREPRINT_TOPICS:
+        label = topic["label"]
         try:
-            recent = fetch_preprint_count(kw, recent_start, recent_end)
-            time.sleep(3)
-            prior = fetch_preprint_count(kw, prior_start, prior_end)
-            time.sleep(3)
+            recent = with_retry(fetch_preprint_count, topic["terms"], recent_start, recent_end, max_retries=2, backoff_sec=10)
+            time.sleep(1.5)
+            prior = with_retry(fetch_preprint_count, topic["terms"], prior_start, prior_end, max_retries=2, backoff_sec=10)
+            time.sleep(1.5)
             ratio = (recent / prior) if prior > 0 else (float("inf") if recent > 0 else 1.0)
-            status = "elevated" if (recent >= 3 and ratio >= 2.0) else "normal"
-            results[kw] = {
-                "status": status, "recentCount": recent, "priorCount": prior,
-                "note": f"{recent} preprint(s) mentioning '{kw}' in the last 14 days (bioRxiv+medRxiv), vs {prior} in the prior 14 days.",
+            status = "elevated" if (recent >= 5 and ratio >= 2.0) else "normal"
+            results[label] = {
+                "status": status, "recentCount": recent, "priorCount": prior, "method": "europepmc",
+                "note": (f"{recent} preprint(s) with '{label}' in the title or abstract in the last 14 days, vs {prior} in the prior 14 days "
+                         f"(preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."),
             }
-            log(f"OK  preprint/{kw}: recent={recent} prior={prior} status={status}")
+            log(f"OK  preprint/{label}: recent={recent} prior={prior} status={status}")
         except Exception as e:
-            results[kw] = {"status": "error", "note": f"Fetch failed: {e}"}
-            log(f"FAIL preprint/{kw}: {e}")
+            results[label] = {"status": "error", "method": "europepmc", "note": f"Fetch failed: {e}"}
+            log(f"FAIL preprint/{label}: {e}")
     data["upstreamIndicators"] = data.get("upstreamIndicators", {})
     data["upstreamIndicators"]["preprints"] = results
     return data
@@ -393,7 +472,11 @@ def main():
     data = run_preprint_pass(data)
     data = run_reliefweb_pass(data)
 
-    data["meta"]["updatedAt"] = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(timezone.utc).isoformat()
+    # updatedAt / signalsUpdatedAt mean "the AUTOMATED layer last ran". meta.contentUpdatedAt and
+    # meta.contentSource (manual refresh of outbreaks/governance) are deliberately left untouched.
+    data["meta"]["updatedAt"] = now
+    data["meta"]["signalsUpdatedAt"] = now
     data["meta"]["source"] = "Automated — GitHub Actions (GDELT live signals" + \
         (" + ReliefWeb supplement)" if os.environ.get("RELIEFWEB_APPNAME") else ", ReliefWeb skipped — no appname)")
 
