@@ -1,23 +1,48 @@
 {
   "meta": {
-    "updatedAt": "2026-10-09T18:16:47.619433+00:00",
-    "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
-    "generator": "manual"
+    "updatedAt": "2026-10-10T03:48:35.508129+00:00",
+    "source": "Manual content refresh via Claude, 28 Sep 2026 (outbreaks, governance) · automated GitHub Actions (GDELT signals, upstream indicators)",
+    "generator": "manual",
+    "contentUpdatedAt": "2026-10-10T03:48:35.508129+00:00",
+    "contentSource": "Manual refresh via Claude, 10 Oct 2026 — added Irkutsk lab-death incident; other outbreak/governance entries last refreshed 28 Sep 2026",
+    "signalsUpdatedAt": "2026-09-28T04:18:07.214517+00:00"
   },
   "outbreaks": [
+    {
+      "id": "irkutsk-plague-lab-2026",
+      "date": "2026-10-06",
+      "sortDate": "2026-10-06",
+      "title": "Irkutsk Anti-Plague Institute — Technician Death, Suspected Lab Exposure (Russia)",
+      "level": 2,
+      "status": "Unconfirmed — cause of death disputed; ~200 contacts under observation",
+      "country": [
+        "Russia"
+      ],
+      "desc": "Darya Shipilova, 28, a technician at the Irkutsk Anti-Plague Research Institute of Siberia and the Far East, fell ill around 29–30 September and died on 2 October in a hospital in Shelekhov. Local and independent Russian media report she broke a test tube containing pneumonic-plague bacteria (Yersinia pestis) on 25 September; Russian authorities have not confirmed this. Rospotrebnadzor and Governor Igor Kobzev describe the cause as 'pneumonia of unknown etiology', say additional testing found no microorganisms linked to her work, and say no pathogen accidents have been recorded at the institute. Postmortem tests reportedly did not detect plague.",
+      "more": "Containment measures reported: about 200 contacts placed under observation or isolation, parts of the hospital cordoned off, and (per anonymous sources) more than 60 institute staff confined on site since 2 October. Rospotrebnadzor reported two COVID and two rhinovirus cases among contacts and no other infections; the governor said the situation is 'currently stable'. A mask mandate was introduced at the Irkutsk Aluminum Plant in Shelekhov on 3 October. The US State Department says it is monitoring with the CDC and has urged Russia to share accurate information; Secretary of State Rubio said he saw no cause for alarm. There is no public evidence of spread to residents and no public evidence linking the death to a weapons programme. Treat the plague-exposure account as UNCONFIRMED: it rests on Russian media and anonymous sources. Details are from press reports as of 6 October; no official pathogen identification has been published.",
+      "src": "RFE/RL, 'Siberian Anti-Plague Institute Staff Isolated After Worker's Death'; Al Jazeera, 6 Oct 2026; CBS News; WDAM/AP, 5 Oct 2026",
+      "tags": [
+        "Plague",
+        "Yersinia pestis",
+        "Lab biosafety",
+        "Russia",
+        "Unconfirmed",
+        "Pneumonia of unknown etiology"
+      ]
+    },
     {
       "id": "ebola-drc",
       "date": "2026-09-24",
       "sortDate": "2026-09-24",
-      "title": "Ebola (Bundibugyo virus) \u2014 DRC / Uganda",
+      "title": "Ebola (Bundibugyo virus) — DRC / Uganda",
       "level": 4,
-      "status": "PHEIC \u00b7 Active \u2014 second-largest Ebola outbreak on record; largest in DRC",
+      "status": "PHEIC · Active — second-largest Ebola outbreak on record; largest in DRC",
       "country": [
         "DRC",
         "Uganda"
       ],
-      "desc": "As of 23 September 2026 (reported 24 September), DRC has 7,890 confirmed cases and 3,799 deaths, with 893 patients hospitalized in isolation and 1,966 recovered. The latest daily report added 70 cases and 20 deaths (Ituri 31, North Kivu 31, Haut-U\u00e9l\u00e9 6, Bas-U\u00e9l\u00e9 1, Tshopo 1), and 83.4% of identified contacts are under follow-up. This is up from 6,604 cases and 3,175 deaths in the 5 September figures. WHO's last Disease Outbreak News (DON-617, data to 7 September) counted 61 health zones across six of DRC's 26 provinces; CDC and UK travel-health reporting now list a seventh, South Ubangi. WHO assesses the risk as very high in DRC, high in countries sharing a land border with it, and low elsewhere and globally. CDC notes the outbreak passed 1,000 confirmed cases within 40 days of response activation, versus roughly 235 days in 2018.",
-      "more": "Uganda's outbreak (20 confirmed cases and 2 deaths per WHO; 21 confirmed and probable cases and 3 deaths per CDC) was declared over on 25 August. Outside Africa, one case was confirmed in France (a healthcare worker returning from DRC) and two DRC-diagnosed patients, including an American aid worker, were treated in Germany; CDC states no Ebola cases have been confirmed in the United States. There is no licensed vaccine or treatment for Bundibugyo virus, and WHO published ten research priorities on 21 September. Secondary sources report inconsistently on whether the Zaire-species vaccine (Ervebo) is being used in this outbreak \u2014 check WHO guidance directly. Armed conflict, weak infrastructure and (per RIVM) health-worker strikes over unpaid salaries continue to hamper the response, and the true scale is likely higher than confirmed counts.",
+      "desc": "As of 23 September 2026 (reported 24 September), DRC has 7,890 confirmed cases and 3,799 deaths, with 893 patients hospitalized in isolation and 1,966 recovered. The latest daily report added 70 cases and 20 deaths (Ituri 31, North Kivu 31, Haut-Uélé 6, Bas-Uélé 1, Tshopo 1), and 83.4% of identified contacts are under follow-up. This is up from 6,604 cases and 3,175 deaths in the 5 September figures. WHO's last Disease Outbreak News (DON-617, data to 7 September) counted 61 health zones across six of DRC's 26 provinces; CDC and UK travel-health reporting now list a seventh, South Ubangi. WHO assesses the risk as very high in DRC, high in countries sharing a land border with it, and low elsewhere and globally. CDC notes the outbreak passed 1,000 confirmed cases within 40 days of response activation, versus roughly 235 days in 2018.",
+      "more": "Uganda's outbreak (20 confirmed cases and 2 deaths per WHO; 21 confirmed and probable cases and 3 deaths per CDC) was declared over on 25 August. Outside Africa, one case was confirmed in France (a healthcare worker returning from DRC) and two DRC-diagnosed patients, including an American aid worker, were treated in Germany; CDC states no Ebola cases have been confirmed in the United States. There is no licensed vaccine or treatment for Bundibugyo virus, and WHO published ten research priorities on 21 September. Secondary sources report inconsistently on whether the Zaire-species vaccine (Ervebo) is being used in this outbreak — check WHO guidance directly. Armed conflict, weak infrastructure and (per RIVM) health-worker strikes over unpaid salaries continue to hamper the response, and the true scale is likely higher than confirmed counts.",
       "src": "ECDC epidemiological update, 24 Sep 2026; WHO DON-617 (data to 7 Sep 2026); CDC Ebola situation summary; NaTHNaC/UKHSA, 21 Sep 2026; RIVM",
       "tags": [
         "Ebola",
@@ -35,13 +60,13 @@
       "id": "mpox-broader-dec25",
       "date": "2026-09-14",
       "sortDate": "2026-09-14",
-      "title": "Broader Transmission of Mpox (Clade Ib MPXV) \u2014 Global Situation",
+      "title": "Broader Transmission of Mpox (Clade Ib MPXV) — Global Situation",
       "level": 3,
-      "status": "Active \u2014 PHEIC lifted 5 Sep 2025; sustained transmission continues",
+      "status": "Active — PHEIC lifted 5 Sep 2025; sustained transmission continues",
       "country": [
         "Global"
       ],
-      "desc": "WHO's 69th mpox situation report (14 September 2026) counts 52,424 laboratory-confirmed cases and 238 deaths (CFR 0.5%) across 35 African countries between 1 January 2025 and 16 August 2026; in the latest six-week window (6 Jul\u201316 Aug) 11 African countries had active transmission, with 1,153 confirmed cases and 7 deaths. WHO lifted the mpox PHEIC on 5 September 2025 but continues to advise emergency preparedness, and clade Ib has since caused locally acquired cases in countries across four of six WHO regions.",
+      "desc": "WHO's 69th mpox situation report (14 September 2026) counts 52,424 laboratory-confirmed cases and 238 deaths (CFR 0.5%) across 35 African countries between 1 January 2025 and 16 August 2026; in the latest six-week window (6 Jul–16 Aug) 11 African countries had active transmission, with 1,153 confirmed cases and 7 deaths. WHO lifted the mpox PHEIC on 5 September 2025 but continues to advise emergency preparedness, and clade Ib has since caused locally acquired cases in countries across four of six WHO regions.",
       "more": "Madagascar has had the largest clade Ib outbreak to date (1,092 confirmed cases and 3 deaths by 19 April 2026, across 51 districts). South Africa reported 22 laboratory-confirmed cases as of 22 September 2026 (Western Cape 18, Gauteng 3, KwaZulu-Natal 1) in two clusters of close contacts, with clade Ib preliminarily involved; 13 of the Western Cape cases were confirmed since mid-August. Singapore reported its first clade Ib cases on 2 April 2026, and Estonia its first clade I case in August 2026.",
       "src": "WHO mpox external situation report #69 (14 Sep 2026) via NICD; NICD South Africa mpox update (22 Sep 2026); WHO situation report #65 (Apr 2026); WHO DON-587; NaTHNaC",
       "tags": [
@@ -54,15 +79,15 @@
       "id": "bangladesh-measles-2026",
       "date": "2026-09-10",
       "sortDate": "2026-09-10",
-      "title": "Measles Outbreak \u2014 Bangladesh",
+      "title": "Measles Outbreak — Bangladesh",
       "level": 3,
-      "status": "Active \u2014 world's largest current measles outbreak (per CDC)",
+      "status": "Active — world's largest current measles outbreak (per CDC)",
       "country": [
         "Bangladesh"
       ],
-      "desc": "Bangladesh's Directorate General of Health Services (DGHS) had recorded 1,009 measles deaths \u2014 100 among laboratory-confirmed cases and 909 among suspected cases \u2014 and about 187,500 cases since 15 March 2026, as of 9\u201310 September. It is the country's deadliest measles outbreak in decades (Bangladesh recorded 132 cases and no deaths in all of 2025), and CDC lists it as the world's largest current measles outbreak. The emergency measles-rubella campaign that began 5 April vaccinated roughly 18\u201319.75 million children against an 18 million target, but about four million children were missed; DGHS acknowledged herd immunity was not achieved and says a further campaign is being prepared.",
-      "more": "WHO and UNICEF link the crisis to gaps in Bangladesh's immunization programme that emerged in 2024\u20132025 after the political upheaval; the Health Minister told parliament in September that procurement-policy changes in that period created a vaccine shortage. Dhaka hospitals report overcrowded wards, and chronic child malnutrition is raising case fatality. 79% of early cases were in children under five (WHO DON-598, April 2026). No official figures newer than 10 September were located as of 28 September.",
-      "src": "Al Jazeera, 9 & 14 Sep 2026 (citing DGHS); AFP, 9\u201310 Sep 2026; The Daily Star; WHO DON-598 (Apr 2026)",
+      "desc": "Bangladesh's Directorate General of Health Services (DGHS) had recorded 1,009 measles deaths — 100 among laboratory-confirmed cases and 909 among suspected cases — and about 187,500 cases since 15 March 2026, as of 9–10 September. It is the country's deadliest measles outbreak in decades (Bangladesh recorded 132 cases and no deaths in all of 2025), and CDC lists it as the world's largest current measles outbreak. The emergency measles-rubella campaign that began 5 April vaccinated roughly 18–19.75 million children against an 18 million target, but about four million children were missed; DGHS acknowledged herd immunity was not achieved and says a further campaign is being prepared.",
+      "more": "WHO and UNICEF link the crisis to gaps in Bangladesh's immunization programme that emerged in 2024–2025 after the political upheaval; the Health Minister told parliament in September that procurement-policy changes in that period created a vaccine shortage. Dhaka hospitals report overcrowded wards, and chronic child malnutrition is raising case fatality. 79% of early cases were in children under five (WHO DON-598, April 2026). No official figures newer than 10 September were located as of 28 September.",
+      "src": "Al Jazeera, 9 & 14 Sep 2026 (citing DGHS); AFP, 9–10 Sep 2026; The Daily Star; WHO DON-598 (Apr 2026)",
       "tags": [
         "Measles",
         "Bangladesh",
@@ -74,14 +99,14 @@
       "id": "h1n1-delhi-2026",
       "date": "2026-09-07",
       "sortDate": "2026-09-07",
-      "title": "H1N1 (Seasonal Influenza) \u2014 Delhi, India",
+      "title": "H1N1 (Seasonal Influenza) — Delhi, India",
       "level": 1,
       "status": "Endemic/Seasonal monitoring",
       "country": [
         "India"
       ],
       "desc": "Delhi's H1N1 count has plateaued rather than kept accelerating: 1,777 confirmed cases as of 20 August remains the most recent Delhi Health Department cumulative figure (a 7 September ministerial statement cited 1,349, reflecting a different reporting cutoff, not a decline). Of 2,392 influenza A cases recorded to 20 August, 1,777 were H1N1, 138 H3, 37 H1 (subtype not further specified) and 440 other influenza A; a further 210 were influenza B. H1N1 has displaced H3N2 as the leading subtype this year. ICMR states that no new or more virulent strain is circulating and that circulating viruses match the Northern Hemisphere vaccine strains.",
-      "more": "An ICMR-led virological analysis reported in New Microbes and New Infections (via a secondary summary) identifies an A/Missouri/11/2025(H1N1)pdm09-like variant within the established pdm09 lineage \u2014 not a novel reassortant. Officially, there are still zero confirmed H1N1 deaths in Delhi; the government continues to dispute media reports of fatalities. No official case count newer than 7 September was located as of 28 September; India's post-monsoon influenza peak (August\u2013October) is a recognised seasonal pattern.",
+      "more": "An ICMR-led virological analysis reported in New Microbes and New Infections (via a secondary summary) identifies an A/Missouri/11/2025(H1N1)pdm09-like variant within the established pdm09 lineage — not a novel reassortant. Officially, there are still zero confirmed H1N1 deaths in Delhi; the government continues to dispute media reports of fatalities. No official case count newer than 7 September was located as of 28 September; India's post-monsoon influenza peak (August–October) is a recognised seasonal pattern.",
       "src": "Delhi Health Dept data via Newskarnataka, 23 Aug 2026; Outlook India, 21 Aug 2026; ICMR statements; bioengineer.org summary of New Microbes and New Infections, Sep 2026; Health Minister statement via Nova Hospital Meerut, 7 Sep 2026",
       "tags": [
         "H1N1",
@@ -95,13 +120,13 @@
       "id": "avian-zoonotic-flu-2026",
       "date": "2026-09-06",
       "sortDate": "2026-09-06",
-      "title": "Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary",
+      "title": "Avian & Zoonotic Influenza at the Human–Animal Interface — WHO Monthly Summary",
       "level": 1,
       "status": "Endemic/Seasonal monitoring",
       "country": [
         "Global"
       ],
-      "desc": "WHO's 6 September 2026 human\u2013animal interface summary records, for 8 August\u20136 September, one new human A(H5N1) case, three A(H9N2) cases (all reported by China; two in children under five and one aged 5\u201310) and two A(H1N2) variant swine-influenza cases. There is no sustained human-to-human transmission and WHO's assessment of overall risk remains low. In the first quarter of 2026 WHO tracked 13 avian and swine influenza human cases, including one previously unreported fatal H5N1 case in a child in Bangladesh.",
+      "desc": "WHO's 6 September 2026 human–animal interface summary records, for 8 August–6 September, one new human A(H5N1) case, three A(H9N2) cases (all reported by China; two in children under five and one aged 5–10) and two A(H1N2) variant swine-influenza cases. There is no sustained human-to-human transmission and WHO's assessment of overall risk remains low. In the first quarter of 2026 WHO tracked 13 avian and swine influenza human cases, including one previously unreported fatal H5N1 case in a child in Bangladesh.",
       "more": "H5N1 clade 2.3.4.4b continues to circulate in wild birds, poultry and (in the US) dairy cattle; CDC reports sporadic human cases among US dairy and poultry workers. More than 880 sporadic human H5N1 infections have been reported to WHO since 2003.",
       "src": "WHO influenza human-animal interface summary, 6 Sep 2026; CIDRAP, 29 Apr 2026; CDC H5 bird flu situation summary; WHO/Our World in Data H5N1 series",
       "tags": [
@@ -115,7 +140,7 @@
       "id": "mers-global",
       "date": "2026-08-31",
       "sortDate": "2026-08-31",
-      "title": "MERS-CoV \u2014 Global Update",
+      "title": "MERS-CoV — Global Update",
       "level": 1,
       "status": "Endemic monitoring",
       "country": [
@@ -133,9 +158,9 @@
       "id": "cholera-wc-africa-2026",
       "date": "2026-08-26",
       "sortDate": "2026-08-26",
-      "title": "Cholera \u2014 West and Central Africa (Multi-country)",
+      "title": "Cholera — West and Central Africa (Multi-country)",
       "level": 3,
-      "status": "Active \u2014 cross-border spread",
+      "status": "Active — cross-border spread",
       "country": [
         "Nigeria",
         "DRC",
@@ -144,7 +169,7 @@
         "Chad",
         "CAR"
       ],
-      "desc": "ECDC's latest monthly overview (as of 26 August 2026) counts 212,857 cholera cases and 1,943 deaths worldwide since 1 January 2026 \u2014 below the same point in 2025 (338,340 cases and 4,324 deaths). In the most recent four-week window (27 Jul\u201326 Aug) 42,717 new cases and 257 new deaths were reported, 41,296 cases and 242 deaths of them from Nigeria; a further 46,246 cases were reported retrospectively from before 27 July, so part of the apparent surge reflects backlog reporting rather than one month's transmission. Regional detail from UNICEF/WHO (12 Aug): cholera is active across six countries in two corridors \u2014 the Lake Chad Basin (Chad, Cameroon, Nigeria) and the Congo River Basin (DRC, Republic of Congo, CAR) \u2014 with Nigeria above 50,000 cases and 338 deaths since 1 January and DRC the highest death toll (about 700 deaths from 30,400+ cases).",
+      "desc": "ECDC's latest monthly overview (as of 26 August 2026) counts 212,857 cholera cases and 1,943 deaths worldwide since 1 January 2026 — below the same point in 2025 (338,340 cases and 4,324 deaths). In the most recent four-week window (27 Jul–26 Aug) 42,717 new cases and 257 new deaths were reported, 41,296 cases and 242 deaths of them from Nigeria; a further 46,246 cases were reported retrospectively from before 27 July, so part of the apparent surge reflects backlog reporting rather than one month's transmission. Regional detail from UNICEF/WHO (12 Aug): cholera is active across six countries in two corridors — the Lake Chad Basin (Chad, Cameroon, Nigeria) and the Congo River Basin (DRC, Republic of Congo, CAR) — with Nigeria above 50,000 cases and 338 deaths since 1 January and DRC the highest death toll (about 700 deaths from 30,400+ cases).",
       "more": "Outside this region, Afghanistan is the largest single-country contributor for the year (80,968 cases as of 20 July, ECDC). Seasonal rains, flooding, displacement and cross-border movement are accelerating spread in West and Central Africa; children are disproportionately affected (CAR: under-10s are 44% of cases; Chad: nearly two-thirds of infections in under-15s; Cameroon: median patient age 10). UNICEF is seeking $15 million to scale up its six-month response. A newer ECDC monthly update was not yet available as of 28 September.",
       "src": "ECDC Cholera Worldwide Overview (26 Aug 2026); UNICEF/UN News, 12 Aug 2026",
       "tags": [
@@ -159,13 +184,13 @@
       "id": "cholera-myanmar-2026",
       "date": "2026-08-18",
       "sortDate": "2026-08-18",
-      "title": "Cholera Outbreak \u2014 Myanmar",
+      "title": "Cholera Outbreak — Myanmar",
       "level": 2,
       "status": "Active",
       "country": [
         "Myanmar"
       ],
-      "desc": "A cholera outbreak has killed at least three people in Myanmar and hospitalized hundreds more with diarrhea \u2014 one death in Yangon, two in Sittwe (Rakhine State) \u2014 straining a health system already affected by civil war and economic disruption. A separate, smaller outbreak from the West/Central Africa cluster tracked above. ECDC counts only 272 cases in Myanmar as of 22 June 2026 (versus 1,888 at the same point in 2025), so this is a much smaller outbreak than last year's.",
+      "desc": "A cholera outbreak has killed at least three people in Myanmar and hospitalized hundreds more with diarrhea — one death in Yangon, two in Sittwe (Rakhine State) — straining a health system already affected by civil war and economic disruption. A separate, smaller outbreak from the West/Central Africa cluster tracked above. ECDC counts only 272 cases in Myanmar as of 22 June 2026 (versus 1,888 at the same point in 2025), so this is a much smaller outbreak than last year's.",
       "more": "",
       "src": "Bloomberg, 18 Aug 2026; ECDC Cholera Worldwide Overview",
       "tags": [
@@ -178,7 +203,7 @@
       "id": "hanta-cruise",
       "date": "2026-07-02",
       "sortDate": "2026-07-02",
-      "title": "Andes Hantavirus \u2014 Cruise Ship (M/V Hondius), Multi-country",
+      "title": "Andes Hantavirus — Cruise Ship (M/V Hondius), Multi-country",
       "level": 3,
       "status": "Closed",
       "country": [
@@ -202,13 +227,13 @@
       "id": "nipah-kerala-2026",
       "date": "2026-06-25",
       "sortDate": "2026-06-25",
-      "title": "Nipah Virus \u2014 Kerala, India (June 2026)",
+      "title": "Nipah Virus — Kerala, India (June 2026)",
       "level": 2,
-      "status": "Monitoring \u2014 single case, no secondary transmission reported",
+      "status": "Monitoring — single case, no secondary transmission reported",
       "country": [
         "India"
       ],
-      "desc": "Kerala's health department confirmed a laboratory-confirmed Nipah case in an adult male in Kozhikode district on 11 June 2026 (symptom onset 30 May; hospitalized 10 June with neurological manifestations and on ventilatory support in intensive care). As of 18 June, 104 contacts \u2014 including health and care workers \u2014 were under monitoring with no secondary cases, and as of 23 June there was still no evidence of secondary transmission. April\u2013September is Kerala's recognised Nipah high-alert period; roughly a dozen confirmed cases have been reported in Kerala over the past five years.",
+      "desc": "Kerala's health department confirmed a laboratory-confirmed Nipah case in an adult male in Kozhikode district on 11 June 2026 (symptom onset 30 May; hospitalized 10 June with neurological manifestations and on ventilatory support in intensive care). As of 18 June, 104 contacts — including health and care workers — were under monitoring with no secondary cases, and as of 23 June there was still no evidence of secondary transmission. April–September is Kerala's recognised Nipah high-alert period; roughly a dozen confirmed cases have been reported in Kerala over the past five years.",
       "more": "Kerala has had recurrent Nipah spillover since 2018 (2019, 2021, 2023, 2024 and 2025), typically single cases or small clusters contained quickly by state and central rapid-response teams. This event is separate from the January 2026 West Bengal healthcare-worker cluster tracked above.",
       "src": "WHO DON-609, 25 Jun 2026; npj Viruses, May 2026",
       "tags": [
@@ -222,7 +247,7 @@
       "id": "food-safety-mar26",
       "date": "2026-03-13",
       "sortDate": "2026-03-13",
-      "title": "Infant Formula Contaminated with Cereulide Toxin \u2014 Multi-country",
+      "title": "Infant Formula Contaminated with Cereulide Toxin — Multi-country",
       "level": 3,
       "status": "Active recall/investigation",
       "country": [
@@ -241,13 +266,13 @@
       "id": "mpox-recomb",
       "date": "2026-02-14",
       "sortDate": "2026-02-14",
-      "title": "Mpox \u2014 Recombinant Clade Ib/IIb Virus, Global",
+      "title": "Mpox — Recombinant Clade Ib/IIb Virus, Global",
       "level": 2,
       "status": "Monitoring",
       "country": [
         "Global"
       ],
-      "desc": "WHO DON flags a recombinant mpox virus carrying genomic elements of both clade Ib and clade IIb \u2014 a genetic-mixing signal of concern for surveillance systems tracking lineage-specific countermeasures.",
+      "desc": "WHO DON flags a recombinant mpox virus carrying genomic elements of both clade Ib and clade IIb — a genetic-mixing signal of concern for surveillance systems tracking lineage-specific countermeasures.",
       "more": "",
       "src": "WHO DON, 14 Feb 2026",
       "tags": [
@@ -260,7 +285,7 @@
       "id": "nipah-bd",
       "date": "2026-02-06",
       "sortDate": "2026-02-06",
-      "title": "Nipah Virus \u2014 Bangladesh",
+      "title": "Nipah Virus — Bangladesh",
       "level": 2,
       "status": "Seasonal",
       "country": [
@@ -278,7 +303,7 @@
       "id": "nipah-in",
       "date": "2026-01-30",
       "sortDate": "2026-01-30",
-      "title": "Nipah Virus \u2014 India",
+      "title": "Nipah Virus — India",
       "level": 2,
       "status": "Seasonal",
       "country": [
@@ -296,7 +321,7 @@
       "id": "marburg-eth",
       "date": "2026-01-26",
       "sortDate": "2026-01-26",
-      "title": "Marburg Virus Disease \u2014 Ethiopia (closed)",
+      "title": "Marburg Virus Disease — Ethiopia (closed)",
       "level": 2,
       "status": "Closed",
       "country": [
@@ -318,7 +343,7 @@
       "id": "seasonal-flu-dec25",
       "date": "2025-12-10",
       "sortDate": "2025-12-10",
-      "title": "Seasonal Influenza \u2014 Global Situation",
+      "title": "Seasonal Influenza — Global Situation",
       "level": 1,
       "status": "Seasonal monitoring",
       "country": [
@@ -336,13 +361,13 @@
       "id": "avian-h5n5-us",
       "date": "2025-12-05",
       "sortDate": "2025-12-05",
-      "title": "Avian Influenza A(H5N5) \u2014 United States of America",
+      "title": "Avian Influenza A(H5N5) — United States of America",
       "level": 3,
       "status": "Monitoring",
       "country": [
         "USA"
       ],
-      "desc": "WHO Disease Outbreak News on avian influenza A(H5N5) detection in the United States \u2014 tracked alongside ongoing H5N1 surveillance as part of WHO's broader avian influenza monitoring.",
+      "desc": "WHO Disease Outbreak News on avian influenza A(H5N5) detection in the United States — tracked alongside ongoing H5N1 surveillance as part of WHO's broader avian influenza monitoring.",
       "more": "",
       "src": "WHO DON, 5 Dec 2025",
       "tags": [
@@ -355,7 +380,7 @@
       "id": "diphtheria-afro",
       "date": "2025-11-21",
       "sortDate": "2025-11-21",
-      "title": "Diphtheria \u2014 African Region (AFRO)",
+      "title": "Diphtheria — African Region (AFRO)",
       "level": 2,
       "status": "Active",
       "country": [
@@ -373,7 +398,7 @@
       "id": "rvf-mauritania-senegal",
       "date": "2025-11-05",
       "sortDate": "2025-11-05",
-      "title": "Rift Valley Fever \u2014 Mauritania and Senegal",
+      "title": "Rift Valley Fever — Mauritania and Senegal",
       "level": 2,
       "status": "Active",
       "country": [
@@ -397,21 +422,21 @@
       "sortDate": "2026-08-11",
       "title": "NTI | bio Releases First Proactive Input-Screening Tool for AI Protein-Design Models",
       "country": "Global",
-      "desc": "NTI | bio published a first-of-its-kind proof-of-concept input-screening method for AI-enabled protein-design tools \u2014 screening what goes INTO a biological AI model, rather than only screening synthesis orders on the way out. Directly responds to the finding (tracked in this tool's AI-Bio module) that open protein-design tools currently have almost no equivalent guardrails to those applied to DNA synthesis orders."
+      "desc": "NTI | bio published a first-of-its-kind proof-of-concept input-screening method for AI-enabled protein-design tools — screening what goes INTO a biological AI model, rather than only screening synthesis orders on the way out. Directly responds to the finding (tracked in this tool's AI-Bio module) that open protein-design tools currently have almost no equivalent guardrails to those applied to DNA synthesis orders."
     },
     {
       "id": "g0",
       "date": "2026-07-22",
       "sortDate": "2026-07-22",
       "title": "OpenAI \"Biodefense in the Intelligence Age\" action plan",
-      "desc": "An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit \u2014 positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk.",
+      "desc": "An action plan for AI-powered biological resilience, published alongside OpenAI's own biodefense summit — positions frontier labs as active participants in defensive biosecurity infrastructure, not just sources of dual-use risk.",
       "country": "Global"
     },
     {
       "id": "china-ai-pharma-plan-2026",
       "date": "2026-07-07",
       "sortDate": "2026-07-07",
-      "title": "China's National Health Development Plan \u2014 AI-Pharma Provisions",
+      "title": "China's National Health Development Plan — AI-Pharma Provisions",
       "country": "China",
       "desc": "China's National Health Development Plan for the 15th Five-Year Plan Period, officially released 7 Jul 2026, explicitly proposes promoting AI-enabled upgrading across the entire pharmaceutical industry value chain. Chinese regulators are concurrently building a multi-layered regulatory framework spanning data, algorithms, cybersecurity, biosafety, and healthcare regulation for this expansion."
     },
@@ -420,7 +445,7 @@
       "date": "2026-07-01",
       "sortDate": "2026-07-01",
       "title": "US Policy for Stopping High-Risk Life Sciences Research",
-      "desc": "Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect. Per a 16 Jul 2026 Congressional Research Service report, this policy did NOT revise or replace the 2024 Framework for Nucleic Acid Synthesis Screening \u2014 the separate 90-day synthesis-screening revision mandated by EO 14292 remains, per CRS, unconfirmed as fulfilled.",
+      "desc": "Prohibits federally funded dangerous gain-of-function (DGOF) research and establishes new review requirements for potential DGOF research and international research of concern (IROC). Supersedes an earlier DURC/PEPP policy consolidation before it took effect. Per a 16 Jul 2026 Congressional Research Service report, this policy did NOT revise or replace the 2024 Framework for Nucleic Acid Synthesis Screening — the separate 90-day synthesis-screening revision mandated by EO 14292 remains, per CRS, unconfirmed as fulfilled.",
       "country": "USA"
     },
     {
@@ -437,7 +462,7 @@
       "sortDate": "2026-06-01",
       "title": "Anthropic Proposes Government Accountability Framework for Frontier AI",
       "country": "USA",
-      "desc": "Anthropic released a proposed policy framework recommending that frontier AI developers test models for catastrophic risks (including biological), publish findings, and be held accountable to a government agency \u2014 a call for external, not just self-imposed, oversight of the risk categories it and OpenAI both now publish internal assessments on."
+      "desc": "Anthropic released a proposed policy framework recommending that frontier AI developers test models for catastrophic risks (including biological), publish findings, and be held accountable to a government agency — a call for external, not just self-imposed, oversight of the risk categories it and OpenAI both now publish internal assessments on."
     },
     {
       "id": "openai-governance-framework-2026",
@@ -459,7 +484,7 @@
       "id": "s3741-biosecurity-modernization-2026",
       "date": "2026-01-29",
       "sortDate": "2026-01-29",
-      "title": "S.3741 Biosecurity Modernization and Innovation Act Introduced (Cotton\u2013Klobuchar)",
+      "title": "S.3741 Biosecurity Modernization and Innovation Act Introduced (Cotton–Klobuchar)",
       "country": "USA",
       "desc": "Bipartisan Senate bill that would direct the Secretary of Commerce to promulgate regulations on nucleic-acid synthesis security, making gene-synthesis order and customer screening a mandatory, federally enforceable near-term stopgap while a broader biosecurity strategy is developed (with exemptions for clearly non-hazardous sequences). As of the early-2026 commentary reviewed, it had not advanced beyond introduction."
     },
@@ -475,9 +500,9 @@
       "id": "eu-biotech-act-2025",
       "date": "2025-12-16",
       "sortDate": "2025-12-16",
-      "title": "EU Biotech Act \u2014 Biosecurity & Biodefence Provisions (Pillar 7)",
+      "title": "EU Biotech Act — Biosecurity & Biodefence Provisions (Pillar 7)",
       "country": "Europe",
-      "desc": "European Commission legislative proposal COM(2025) 1022, Pillar 7, amends multiple existing EU health and food regulations to boost biodefence and biosecurity and help prevent biotechnology misuse. Stakeholder consultation (14 May\u201311 Jun 2025) gathered 222 contributions from industry, NGOs, and public authorities."
+      "desc": "European Commission legislative proposal COM(2025) 1022, Pillar 7, amends multiple existing EU health and food regulations to boost biodefence and biosecurity and help prevent biotechnology misuse. Stakeholder consultation (14 May–11 Jun 2025) gathered 222 contributions from industry, NGOs, and public authorities."
     },
     {
       "id": "russia-mfa-ai-bio-statement-2025",
@@ -485,7 +510,7 @@
       "sortDate": "2025-12-01",
       "title": "Russian MFA Statement on AI-Enabled Biological Risk (BWC Conference)",
       "country": "Russia",
-      "desc": "At a BWC 50th-anniversary conference held in New Delhi, Russia's Deputy Director-General for Non-Proliferation and Arms Control formally flagged that new AI models could enable researchers to design a wider range of molecules/proteins, modify microorganisms to be undetectable, and develop new bioagents and toxins \u2014 calling for export-control attention to dual-use gene-editing platforms. References Russia's own recurring Sochi biosecurity forum (Rospotrebnadzor + MFA, most recently 10\u201311 Jun 2025)."
+      "desc": "At a BWC 50th-anniversary conference held in New Delhi, Russia's Deputy Director-General for Non-Proliferation and Arms Control formally flagged that new AI models could enable researchers to design a wider range of molecules/proteins, modify microorganisms to be undetectable, and develop new bioagents and toxins — calling for export-control attention to dual-use gene-editing platforms. References Russia's own recurring Sochi biosecurity forum (Rospotrebnadzor + MFA, most recently 10–11 Jun 2025)."
     },
     {
       "id": "g3",
@@ -509,7 +534,7 @@
       "sortDate": "2024-08-19",
       "title": "India's Biosecurity Governance Gap (documented, not yet acted on)",
       "country": "India",
-      "desc": "ORF's 'Biosecurity blueprint for India' documents that India has no dedicated biosecurity-specific law or agency \u2014 biological risk is currently governed only through general instruments (Environment Protection Act 1986, WMD Act 2005, Biosafety Rules 1989/rDNA Guidelines 2017), which address biosafety and non-proliferation but not biosecurity as a distinct function. ORF recommends a dedicated biosecurity agency, drawing on the US's NSCEB model. This gap remains undocumented as closed as of this tracker's last check \u2014 tracked here as a standing recommendation, not a completed action."
+      "desc": "ORF's 'Biosecurity blueprint for India' documents that India has no dedicated biosecurity-specific law or agency — biological risk is currently governed only through general instruments (Environment Protection Act 1986, WMD Act 2005, Biosafety Rules 1989/rDNA Guidelines 2017), which address biosafety and non-proliferation but not biosecurity as a distinct function. ORF recommends a dedicated biosecurity agency, drawing on the US's NSCEB model. This gap remains undocumented as closed as of this tracker's last check — tracked here as a standing recommendation, not a completed action."
     },
     {
       "id": "g6",
@@ -545,14 +570,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-09T18:16:04.766147+00:00",
-    "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol)",
+    "checkedAt": "2026-09-28T04:18:07.214517+00:00",
+    "checkedBy": "Automated — GitHub Actions + live GDELT z-score (mode=timelinevol)",
     "items": [
       {
         "id": "hemfever-drc",
-        "label": "Hemorrhagic fever \u2014 Central Africa",
+        "label": "Hemorrhagic fever — Central Africa",
         "status": "normal",
-        "note": "z-score -0.71 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "note": "z-score -0.82 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -561,34 +586,34 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "normal",
-        "note": "z-score -0.23 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "note": "z-score -0.2 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
       },
       {
         "id": "mass-illness-sasia",
-        "label": "Mass illness \u2014 South Asia",
+        "label": "Mass illness — South Asia",
         "status": "normal",
-        "note": "z-score -0.33 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "note": "z-score -0.34 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
       },
       {
         "id": "cholera-global",
-        "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -1.58 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "label": "Cholera outbreak — Global",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
       },
       {
         "id": "avian-flu-human",
-        "label": "Avian influenza \u2014 human cases",
+        "label": "Avian influenza — human cases",
         "status": "normal",
-        "note": "z-score -0.49 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.54 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -596,8 +621,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.4 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": []
@@ -610,20 +635,20 @@
       "recordCount": 500,
       "distinctSites": 48,
       "mostRecentDate": "2025-08-24",
-      "note": "500 recent CDC NWSS wastewater records across 48 distinct sites. Coverage snapshot only \u2014 not a computed trend, since this dataset's exact field schema wasn't independently verified before building this integration."
+      "note": "500 recent CDC NWSS wastewater records across 48 distinct sites. Coverage snapshot only — not a computed trend, since this dataset's exact field schema wasn't independently verified before building this integration."
     },
     "preprints": {
       "ebola": {
         "status": "normal",
         "recentCount": 0,
-        "priorCount": 1,
-        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 1 in the prior 14 days."
+        "priorCount": 0,
+        "note": "0 preprint(s) mentioning 'ebola' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
       },
       "cholera": {
         "status": "normal",
         "recentCount": 0,
-        "priorCount": 0,
-        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 0 in the prior 14 days."
+        "priorCount": 1,
+        "note": "0 preprint(s) mentioning 'cholera' in the last 14 days (bioRxiv+medRxiv), vs 1 in the prior 14 days."
       },
       "measles": {
         "status": "normal",
@@ -641,34 +666,52 @@
   },
   "signalHistory": [
     {
-      "id": "unknown-pneumonia",
-      "label": "Unknown pneumonia / mystery illness cluster",
-      "status": "spike",
-      "note": "z-score 3.48 against 60-day baseline (mean 0.0%, latest 0.001%).",
-      "corroborated": false,
-      "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
-      "articles": [],
-      "detectedAt": "2026-09-29T18:02:50.659993+00:00"
+      "id": "lab-biosafety",
+      "label": "Lab biosafety incident / breach",
+      "status": "confirmed",
+      "note": "Added manually 10 Oct 2026 from press reports (not an automated detection).",
+      "corroborated": true,
+      "corrobNote": "Matches tracked outbreak: \"Irkutsk Anti-Plague Institute — Technician Death, Suspected Lab Exposure (Russia)\" — cause unconfirmed",
+      "articles": [
+        {
+          "title": "Siberian Anti-Plague Institute Staff Isolated After Worker's Death",
+          "url": "https://www.rferl.org/a/russia-plague-warning-siberia-irkutsk-laboratory/33870385.html",
+          "domain": "rferl.org"
+        },
+        {
+          "title": "Russia plague quarantine following lab death: Should we be worried?",
+          "url": "https://www.aljazeera.com/news/2026/10/6/russia-plague-quarantine-following-lab-death-should-we-be-worried",
+          "domain": "aljazeera.com"
+        },
+        {
+          "title": "Russia plays down plague fears and denies lab accident, says scientist died of 'pneumonia of unknown origin'",
+          "url": "https://www.cbsnews.com/news/russia-plague-lab-death-pneumonia-of-unknown-origin/",
+          "domain": "cbsnews.com"
+        }
+      ],
+      "detectedAt": "2026-10-10T03:48:35.508129+00:00",
+      "manual": true
     },
     {
       "id": "cholera-global",
-      "label": "Cholera outbreak \u2014 Global",
+      "label": "Cholera outbreak — Global",
       "status": "spike",
       "note": "z-score 5.01 against 60-day baseline (mean 0.005%, latest 0.02%).",
       "corroborated": true,
-      "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
+      "corrobNote": "Matches tracked outbreak: \"Cholera — West and Central Africa (Multi-country)\"",
       "articles": [],
       "detectedAt": "2026-09-27T04:22:58.457455+00:00"
     },
     {
       "id": "avian-flu-human",
-      "label": "Avian influenza \u2014 human cases",
+      "label": "Avian influenza — human cases",
       "status": "spike",
       "note": "z-score 5.94 against 60-day baseline (mean 0.001%, latest 0.006%).",
       "corroborated": true,
-      "corrobNote": "Matches tracked outbreak: \"H1N1 (Seasonal Influenza) \u2014 Delhi, India\"",
+      "corrobNote": "Matches tracked outbreak: \"Avian & Zoonotic Influenza at the Human–Animal Interface — WHO Monthly Summary\"",
       "articles": [],
-      "detectedAt": "2026-09-11T03:42:38.191364+00:00"
+      "detectedAt": "2026-09-11T03:42:38.191364+00:00",
+      "reviewNote": "Reviewed 28 Sep 2026: this originally matched the seasonal H1N1 Delhi entry in error (the two share only the word 'influenza'); it now matches WHO's avian/zoonotic influenza entry. No headlines were captured for this spike."
     },
     {
       "id": "unknown-pneumonia",
@@ -676,20 +719,21 @@
       "status": "spike",
       "note": "z-score 7.52 against 60-day baseline (mean 0.0%, latest 0.001%).",
       "corroborated": false,
-      "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
+      "corrobNote": "Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution.",
       "articles": [],
-      "detectedAt": "2026-09-09T16:15:30.473016+00:00"
+      "detectedAt": "2026-09-09T16:15:30.473016+00:00",
+      "reviewNote": "Reviewed 28 Sep 2026: no headlines were captured, so this spike cannot be verified after the fact. The series is extremely sparse (baseline 0.0%), where one or two articles can produce a very high z-score."
     },
     {
       "id": "mass-illness-sasia",
-      "label": "Mass illness \u2014 South Asia",
+      "label": "Mass illness — South Asia",
       "status": "spike",
       "note": "z-score 9.25 against 60-day baseline (mean 0.0%, latest 0.003%).",
       "corroborated": false,
-      "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
+      "corrobNote": "Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution.",
       "articles": [
         {
-          "title": "\u0412 \u0418\u043d\u0434\u0438\u0438 \u043f\u043e\u0434\u0440\u043e\u0441\u0442\u043e\u043a \u043f\u044f\u0442\u044c \u043b\u0435\u0442 \u043f\u0440\u043e\u0432\u0435\u043b \u0432 \u043f\u0440\u0443\u0434\u0443 \u0438\u0437 - \u0437\u0430 \u0431\u043e\u043b\u0435\u0437\u043d\u0438 : \u043f\u043e\u0434\u0440\u043e\u0431\u043d\u043e\u0441\u0442\u0438",
+          "title": "В Индии подросток пять лет провел в пруду из - за болезни : подробности",
           "url": "https://iz.ru/2157770/v-indii-podrostok-piat-let-provel-v-prudu-iz-za-zagadochnoi-bolezni-kozhi-izi",
           "domain": "iz.ru",
           "date": "20260830T153000Z"
@@ -701,7 +745,8 @@
           "date": "20260906T034500Z"
         }
       ],
-      "detectedAt": "2026-09-06T12:26:16.434550+00:00"
+      "detectedAt": "2026-09-06T12:26:16.434550+00:00",
+      "reviewNote": "Reviewed 28 Sep 2026: the two captured headlines (a Russian-language human-interest piece about a teenager in India, and a story about a Tanzanian mob-violence rumour) do not describe a South Asian mass-illness event. Judged noise."
     },
     {
       "id": "lab-biosafety",
@@ -709,16 +754,16 @@
       "status": "spike",
       "note": "z-score 5.88 against 60-day baseline (mean 0.001%, latest 0.007%).",
       "corroborated": false,
-      "corrobNote": "Single, isolated signal \u2014 no matching tracked event or concurrent spike. Treat with extra caution.",
+      "corrobNote": "Single, isolated signal — no matching tracked event or concurrent spike. Treat with extra caution.",
       "articles": [
         {
-          "title": "The threat of biological warfare is real \u2013 a new book describes the potential devastation - 01 - Sep - 2026",
+          "title": "The threat of biological warfare is real – a new book describes the potential devastation - 01 - Sep - 2026",
           "url": "https://home.nzcity.co.nz/news/article.aspx?id=453115&fm=psp,tst",
           "domain": "home.nzcity.co.nz",
           "date": "20260831T204500Z"
         },
         {
-          "title": "The threat of biological warfare is real \u2013 a new book describes the potential devastation - 01 - Sep - 2026",
+          "title": "The threat of biological warfare is real – a new book describes the potential devastation - 01 - Sep - 2026",
           "url": "https://home.nzcity.co.nz/news/article.aspx?id=453115&fm=psp,tsf",
           "domain": "home.nzcity.co.nz",
           "date": "20260831T204500Z"
@@ -742,7 +787,8 @@
           "date": "20260903T090000Z"
         }
       ],
-      "detectedAt": "2026-09-03T12:35:35.270685+00:00"
+      "detectedAt": "2026-09-03T12:35:35.270685+00:00",
+      "reviewNote": "Reviewed 28 Sep 2026: the captured headlines are two opinion pieces on COVID-19 origins, a review of a book on biological warfare, and an unrelated Italian item — no laboratory incident is identified. Judged news chatter, not an event."
     }
   ]
 }
