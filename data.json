@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-10T05:13:52.124125+00:00",
+    "updatedAt": "2026-10-10T17:23:24.023734+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-10T03:48:35.508129+00:00",
     "contentSource": "Manual refresh via Claude, 10 Oct 2026 \u2014 added Irkutsk lab-death incident; other outbreak/governance entries last refreshed 28 Sep 2026",
-    "signalsUpdatedAt": "2026-10-10T05:13:52.124125+00:00"
+    "signalsUpdatedAt": "2026-10-10T17:23:24.023734+00:00"
   },
   "outbreaks": [
     {
@@ -570,14 +570,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-10T05:13:27.544420+00:00",
+    "checkedAt": "2026-10-10T17:22:57.920817+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.69 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -588,7 +588,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -599,7 +599,7 @@
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -621,7 +621,7 @@
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
         "status": "normal",
-        "note": "z-score -0.69 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.67 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
