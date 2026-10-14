@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-13T19:16:53.796784+00:00",
+    "updatedAt": "2026-10-14T04:17:48.107769+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-13T19:16:53.796784+00:00"
+    "signalsUpdatedAt": "2026-10-14T04:17:48.107769+00:00"
   },
   "outbreaks": [
     {
@@ -587,7 +587,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-13T19:16:24.512866+00:00",
+    "checkedAt": "2026-10-14T04:17:20.627169+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -626,8 +626,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -1.48 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -638,7 +638,7 @@
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
         "status": "normal",
-        "note": "z-score -0.64 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "note": "z-score -0.65 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -648,8 +648,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.85 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -669,17 +669,17 @@
     "preprints": {
       "ebola / bundibugyo": {
         "status": "normal",
-        "recentCount": 11,
+        "recentCount": 9,
         "priorCount": 12,
         "method": "europepmc",
-        "note": "11 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "9 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
         "status": "normal",
-        "recentCount": 5,
+        "recentCount": 4,
         "priorCount": 10,
         "method": "europepmc",
-        "note": "5 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 10 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 10 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "normal",
@@ -698,16 +698,16 @@
       "mpox": {
         "status": "normal",
         "recentCount": 5,
-        "priorCount": 7,
+        "priorCount": 6,
         "method": "europepmc",
-        "note": "5 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "5 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "normal",
-        "recentCount": 3,
-        "priorCount": 2,
+        "recentCount": 2,
+        "priorCount": 3,
         "method": "europepmc",
-        "note": "3 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "2 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       }
     }
   },
