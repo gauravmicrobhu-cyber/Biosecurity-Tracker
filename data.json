@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-15T16:52:33.889280+00:00",
+    "updatedAt": "2026-10-16T03:44:18.497480+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-15T16:52:33.889280+00:00"
+    "signalsUpdatedAt": "2026-10-16T03:44:18.497480+00:00"
   },
   "outbreaks": [
     {
@@ -587,14 +587,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-15T16:52:07.246249+00:00",
+    "checkedAt": "2026-10-16T03:43:52.932942+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.55 against 60-day baseline (mean 0.003%, latest 0.0%).",
+        "note": "z-score -0.57 against 60-day baseline (mean 0.002%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -626,8 +626,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -1.4 against 60-day baseline (mean 0.004%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -637,8 +637,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.65 against 60-day baseline (mean 0.0%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -648,12 +648,12 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "spike",
-        "note": "z-score 9.29 against 60-day baseline (mean 0.001%, latest 0.006%). Headline check unavailable this run \u2014 treat as unverified.",
-        "corroborated": true,
-        "corrobNote": "Matches tracked outbreak: \"Irkutsk Anti-Plague Institute \u2014 Technician Death, Suspected Lab Exposure (Russia)\"",
+        "status": "normal",
+        "note": "z-score -0.67 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "corroborated": false,
+        "corrobNote": "",
         "articles": [],
-        "headlineCheck": "unavailable",
+        "headlineCheck": null,
         "dismissed": false
       }
     ]
@@ -669,10 +669,10 @@
     "preprints": {
       "ebola / bundibugyo": {
         "status": "normal",
-        "recentCount": 9,
-        "priorCount": 8,
+        "recentCount": 7,
+        "priorCount": 9,
         "method": "europepmc",
-        "note": "9 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "7 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
         "status": "normal",
@@ -696,18 +696,18 @@
         "note": "6 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
-        "status": "normal",
+        "status": "elevated",
         "recentCount": 5,
-        "priorCount": 5,
+        "priorCount": 2,
         "method": "europepmc",
-        "note": "5 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "5 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "normal",
         "recentCount": 2,
-        "priorCount": 3,
+        "priorCount": 2,
         "method": "europepmc",
-        "note": "2 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "2 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       }
     }
   },
