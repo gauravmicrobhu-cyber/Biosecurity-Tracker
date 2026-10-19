@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-18T15:49:27.781654+00:00",
+    "updatedAt": "2026-10-19T03:57:38.086693+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-18T15:49:27.781654+00:00"
+    "signalsUpdatedAt": "2026-10-19T03:57:38.086693+00:00"
   },
   "outbreaks": [
     {
@@ -587,14 +587,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-18T15:49:00.745420+00:00",
+    "checkedAt": "2026-10-19T03:57:09.992045+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.59 against 60-day baseline (mean 0.002%, latest 0.0%).",
+        "note": "z-score -0.55 against 60-day baseline (mean 0.002%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -605,7 +605,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -626,19 +626,19 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
-        "corroborated": false,
-        "corrobNote": "",
+        "status": "spike",
+        "note": "z-score 21.5 against 60-day baseline (mean 0.004%, latest 0.069%). Headline check unavailable this run \u2014 treat as unverified.",
+        "corroborated": true,
+        "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
         "articles": [],
-        "headlineCheck": null,
+        "headlineCheck": "unavailable",
         "dismissed": false
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.62 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -648,8 +648,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.67 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -677,9 +677,9 @@
       "cholera": {
         "status": "normal",
         "recentCount": 4,
-        "priorCount": 10,
+        "priorCount": 9,
         "method": "europepmc",
-        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 10 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "normal",
@@ -698,9 +698,9 @@
       "mpox": {
         "status": "elevated",
         "recentCount": 6,
-        "priorCount": 2,
+        "priorCount": 1,
         "method": "europepmc",
-        "note": "6 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "6 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 1 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "normal",
@@ -712,6 +712,17 @@
     }
   },
   "signalHistory": [
+    {
+      "id": "cholera-global",
+      "label": "Cholera outbreak \u2014 Global",
+      "status": "spike",
+      "note": "z-score 21.5 against 60-day baseline (mean 0.004%, latest 0.069%). Headline check unavailable this run \u2014 treat as unverified.",
+      "corroborated": true,
+      "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
+      "articles": [],
+      "headlineCheck": "unavailable",
+      "detectedAt": "2026-10-19T03:57:09.992045+00:00"
+    },
     {
       "id": "lab-biosafety",
       "label": "Lab biosafety incident / breach",
