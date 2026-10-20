@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-20T04:06:26.247711+00:00",
+    "updatedAt": "2026-10-20T16:48:48.966337+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-20T04:06:26.247711+00:00"
+    "signalsUpdatedAt": "2026-10-20T16:48:48.966337+00:00"
   },
   "outbreaks": [
     {
@@ -587,14 +587,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-20T04:05:56.545457+00:00",
+    "checkedAt": "2026-10-20T16:48:22.034411+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.58 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -605,7 +605,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -616,7 +616,7 @@
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -627,7 +627,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -1.41 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "note": "z-score 0.84 against 60-day baseline (mean 0.004%, latest 0.007%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -637,8 +637,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "spike",
-        "note": "z-score 18.69 against 60-day baseline (mean 0.0%, latest 0.013%). Headline check unavailable this run \u2014 treat as unverified.",
+        "status": "elevated",
+        "note": "z-score 2.49 against 60-day baseline (mean 0.0%, latest 0.002%). Headline check unavailable this run \u2014 treat as unverified.",
         "corroborated": true,
         "corrobNote": "Matches tracked outbreak: \"Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary\"",
         "articles": [],
@@ -649,7 +649,7 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score -0.67 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score 0.39 against 60-day baseline (mean 0.001%, latest 0.001%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -704,10 +704,10 @@
       },
       "nipah": {
         "status": "normal",
-        "recentCount": 1,
+        "recentCount": 2,
         "priorCount": 3,
         "method": "europepmc",
-        "note": "1 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "2 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       }
     }
   },
