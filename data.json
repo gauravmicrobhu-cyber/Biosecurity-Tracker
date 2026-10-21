@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-21T04:02:50.830094+00:00",
+    "updatedAt": "2026-10-21T17:03:18.170242+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-21T04:02:50.830094+00:00"
+    "signalsUpdatedAt": "2026-10-21T17:03:18.170242+00:00"
   },
   "outbreaks": [
     {
@@ -587,17 +587,29 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-21T04:02:00.578728+00:00",
+    "checkedAt": "2026-10-21T17:02:53.350274+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "spike",
-        "note": "z-score 3.05 against 60-day baseline (mean 0.001%, latest 0.005%).",
+        "status": "elevated",
+        "note": "z-score 1.93 against 60-day baseline (mean 0.001%, latest 0.004%).",
         "corroborated": true,
         "corrobNote": "Matches tracked outbreak: \"Ebola (Bundibugyo virus) \u2014 DRC / Uganda\"",
         "articles": [
+          {
+            "title": "Africa CDC urges greater global solidarity to contain Ebola as Nigeria confirms 1st case - Xinhua",
+            "url": "https://english.news.cn/20261021/7fb6861b482a499c8a8bbab72ad7eb3a/c.html",
+            "domain": "english.news.cn",
+            "date": "20261021T121500Z"
+          },
+          {
+            "title": "Nigeria 1st Ebola case Bundibugyo strain",
+            "url": "https://www.hurriyetdailynews.com/nigerias-1st-ebola-case-bundibugyo-strain-228425",
+            "domain": "hurriyetdailynews.com",
+            "date": "20261021T110000Z"
+          },
           {
             "title": "Nigeria Confirms First Ebola Case Amid Growing Africa Outbreak",
             "url": "https://www.newsweek.com/nigeria-confirms-first-ebola-case-as-african-outbreak-spreads-12595717",
@@ -623,16 +635,16 @@
             "date": "20261021T021500Z"
           },
           {
-            "title": "\u041e\u0441\u043f\u0430 \u043e\u0431\u0435\u0437\u044c\u044f\u043d \u0441\u043d\u043e\u0432\u0430 \u043d\u0430\u043f\u043e\u043c\u043d\u0438\u043b\u0430 \u043e \u0441\u0435\u0431\u0435 . \u0427\u0442\u043e \u043d\u0430\u0434\u043e \u0437\u043d\u0430\u0442\u044c \u0442\u0443\u0440\u0438\u0441\u0442\u0430\u043c",
-            "url": "https://rg.ru/2026/10/21/virus-pod-podozreniem.html",
-            "domain": "rg.ru",
-            "date": "20261020T233000Z"
-          },
-          {
             "title": "Kenya Sa\u011fl\u0131k Bakanl\u0131\u011f\u0131 3  \u00fcnc\u00fc Ebola vakas\u0131n\u0131 do\u011frulad\u0131 , hasta 65 ya\u015f\u0131nda karantinada",
             "url": "https://www.haberler.com/dunya/kenya-saglik-bakanligi-3-uncu-ebola-vakasini-20339377-haberi/",
             "domain": "haberler.com",
             "date": "20261017T103000Z"
+          },
+          {
+            "title": "\u041e\u0441\u043f\u0430 \u043e\u0431\u0435\u0437\u044c\u044f\u043d \u0441\u043d\u043e\u0432\u0430 \u043d\u0430\u043f\u043e\u043c\u043d\u0438\u043b\u0430 \u043e \u0441\u0435\u0431\u0435 . \u0427\u0442\u043e \u043d\u0430\u0434\u043e \u0437\u043d\u0430\u0442\u044c \u0442\u0443\u0440\u0438\u0441\u0442\u0430\u043c",
+            "url": "https://rg.ru/2026/10/21/virus-pod-podozreniem.html",
+            "domain": "rg.ru",
+            "date": "20261020T233000Z"
           },
           {
             "title": "Madagascar : Pr\u00e9vention de l  \u00e9pid\u00e9mie Ebola - Une touriste en provenance de RDC intercept\u00e9e \u00e0 Ivato et imm\u00e9diatement refoul\u00e9e",
@@ -641,22 +653,10 @@
             "date": "20261016T141500Z"
           },
           {
-            "title": "  Il faut sattendre \u00e0 ce que dautres provinces soient touch\u00e9es  : faut - il sinqui\u00e9ter du virus du Nil , qui a fait deux victimes en Flandre ? ",
-            "url": "https://www.lalibre.be/planete/sante/2026/10/15/il-faut-sattendre-a-ce-que-dautres-provinces-soient-touchees-faut-il-sinquieter-du-virus-du-nil-qui-a-fait-deux-victimes-en-flandre-I4OQKRCAOZCHDEYSDS2BYHDUWI/",
-            "domain": "lalibre.be",
-            "date": "20261015T161500Z"
-          },
-          {
-            "title": "Update : Kenya confirms third Ebola case",
-            "url": "http://www.kenyastar.com/news/279379716/update-kenya-confirms-third-ebola-case",
-            "domain": "kenyastar.com",
-            "date": "20261016T223000Z"
-          },
-          {
-            "title": "\u4e1c\u975e\u4e4b\u65c5 - 01 \u4e03\u6708\u6218\u4e8b\u9163 \uff0c \u8fea\u62dc\u8f6c\u673a\u6dfb\u6050\u60e7 | www . wenxuecity . com",
-            "url": "https://www.wenxuecity.com/blog/202610/66893/11033.html",
-            "domain": "wenxuecity.com",
-            "date": "20261016T213000Z"
+            "title": "Ebola : un premier cas au Nigeria",
+            "url": "https://lecourrier.vn/ebola-un-premier-cas-au-nigeria/1357848.html",
+            "domain": "lecourrier.vn",
+            "date": "20261021T150000Z"
           }
         ],
         "headlineCheck": "confirmed",
@@ -666,7 +666,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -687,8 +687,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.1 against 60-day baseline (mean 0.004%, latest 0.005%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -709,12 +709,12 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "spike",
-        "note": "z-score 5.05 against 60-day baseline (mean 0.001%, latest 0.005%). Headline check unavailable this run \u2014 treat as unverified.",
-        "corroborated": true,
-        "corrobNote": "Matches tracked outbreak: \"Irkutsk Anti-Plague Institute \u2014 Technician Death, Suspected Lab Exposure (Russia)\"",
+        "status": "normal",
+        "note": "z-score 0.27 against 60-day baseline (mean 0.001%, latest 0.001%).",
+        "corroborated": false,
+        "corrobNote": "",
         "articles": [],
-        "headlineCheck": "unavailable",
+        "headlineCheck": null,
         "dismissed": false
       }
     ]
