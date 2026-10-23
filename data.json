@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-23T03:56:06.425033+00:00",
+    "updatedAt": "2026-10-23T16:53:57.811297+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-23T03:56:06.425033+00:00"
+    "signalsUpdatedAt": "2026-10-23T16:53:57.811297+00:00"
   },
   "outbreaks": [
     {
@@ -587,7 +587,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-23T03:55:41.241293+00:00",
+    "checkedAt": "2026-10-23T16:53:29.145152+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -605,7 +605,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -626,8 +626,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -1.48 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -648,8 +648,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.7 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
