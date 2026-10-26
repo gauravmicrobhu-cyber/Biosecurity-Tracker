@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-26T03:52:07.613305+00:00",
+    "updatedAt": "2026-10-26T18:41:57.847745+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-26T03:52:07.613305+00:00"
+    "signalsUpdatedAt": "2026-10-26T18:41:57.847745+00:00"
   },
   "outbreaks": [
     {
@@ -587,14 +587,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-26T03:51:41.959095+00:00",
+    "checkedAt": "2026-10-26T18:41:24.976494+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.65 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -605,7 +605,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -616,7 +616,7 @@
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -627,7 +627,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score 0.64 against 60-day baseline (mean 0.005%, latest 0.006%).",
+        "note": "z-score -1.54 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -637,56 +637,19 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "spike",
-        "note": "z-score 4.0 against 60-day baseline (mean 0.0%, latest 0.003%).",
-        "corroborated": true,
-        "corrobNote": "Matches tracked outbreak: \"Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary\"",
-        "articles": [
-          {
-            "title": "US records this year first human case of highly transmissible bird flu in Washington state man",
-            "url": "https://www.dailymail.com/health/article-16220677/washington-bird-flu-human-case.html",
-            "domain": "dailymail.com",
-            "date": "20261019T164500Z"
-          },
-          {
-            "title": "Bird flu outbreak at Utah mink farm sparks concerns about government response",
-            "url": "https://www.theguardian.com/us-news/2026/oct/25/bird-flu-utah-mink-farm-trump-administration",
-            "domain": "theguardian.com",
-            "date": "20261025T124500Z"
-          },
-          {
-            "title": "Livestock virus claims first human victim in France",
-            "url": "http://www.parisguardian.com/news/279392595/livestock-virus-claims-first-human-victim-in-france",
-            "domain": "parisguardian.com",
-            "date": "20261022T191500Z"
-          },
-          {
-            "title": "France reports first human case of livestock virus Shamonda after patient dies",
-            "url": "https://tribune.com.pk/story/2636360/france-reports-first-human-case-of-livestock-virus-shamonda-after-patient-dies",
-            "domain": "tribune.com.pk",
-            "date": "20261022T173000Z"
-          },
-          {
-            "title": "Fall Migration Brings Renewed Bird Flu Concerns to Missouri",
-            "url": "https://101theeagle.com/missouri-bird-flu-migration/",
-            "domain": "101theeagle.com",
-            "date": "20261020T013000Z"
-          },
-          {
-            "title": "Fall Migration Brings Renewed Bird Flu Concerns to Missouri",
-            "url": "https://979kickfm.com/ixp/463/p/missouri-bird-flu-migration/",
-            "domain": "979kickfm.com",
-            "date": "20261020T013000Z"
-          }
-        ],
-        "headlineCheck": "confirmed",
+        "status": "normal",
+        "note": "z-score -0.65 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "corroborated": false,
+        "corrobNote": "",
+        "articles": [],
+        "headlineCheck": null,
         "dismissed": false
       },
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score -0.67 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.66 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
