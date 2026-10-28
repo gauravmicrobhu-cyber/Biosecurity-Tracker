@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-28T04:40:26.143211+00:00",
+    "updatedAt": "2026-10-28T18:13:30.500445+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
     "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
-    "signalsUpdatedAt": "2026-10-28T04:40:26.143211+00:00"
+    "signalsUpdatedAt": "2026-10-28T18:13:30.500445+00:00"
   },
   "outbreaks": [
     {
@@ -587,7 +587,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-28T04:39:59.925341+00:00",
+    "checkedAt": "2026-10-28T18:13:26.336476+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -648,8 +648,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.62 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -668,46 +668,34 @@
     },
     "preprints": {
       "ebola / bundibugyo": {
-        "status": "normal",
-        "recentCount": 11,
-        "priorCount": 9,
+        "status": "error",
         "method": "europepmc",
-        "note": "11 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: HTTP Error 503: "
       },
       "cholera": {
-        "status": "normal",
-        "recentCount": 7,
-        "priorCount": 5,
+        "status": "error",
         "method": "europepmc",
-        "note": "7 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: HTTP Error 503: "
       },
       "measles": {
-        "status": "normal",
-        "recentCount": 4,
-        "priorCount": 6,
+        "status": "error",
         "method": "europepmc",
-        "note": "4 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: HTTP Error 503: "
       },
       "avian influenza / H5N1": {
-        "status": "normal",
-        "recentCount": 7,
-        "priorCount": 8,
+        "status": "error",
         "method": "europepmc",
-        "note": "7 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: HTTP Error 503: "
       },
       "mpox": {
-        "status": "normal",
-        "recentCount": 4,
-        "priorCount": 5,
+        "status": "error",
         "method": "europepmc",
-        "note": "4 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: HTTP Error 503: "
       },
       "nipah": {
-        "status": "normal",
-        "recentCount": 0,
-        "priorCount": 2,
+        "status": "error",
         "method": "europepmc",
-        "note": "0 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: HTTP Error 503: "
       }
     }
   },
