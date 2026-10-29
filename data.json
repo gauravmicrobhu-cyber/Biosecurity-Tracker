@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-28T18:13:30.500445+00:00",
+    "updatedAt": "2026-10-29T02:46:14.330481+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-10-28T18:13:30.500445+00:00"
+    "signalsUpdatedAt": "2026-10-29T02:46:14.330481+00:00"
   },
   "outbreaks": [
     {
@@ -656,14 +656,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-28T18:13:26.336476+00:00",
+    "checkedAt": "2026-10-29T02:45:46.533283+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.58 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.56 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -696,7 +696,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -1.45 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "note": "z-score -1.54 against 60-day baseline (mean 0.004%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -706,8 +706,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.62 against 60-day baseline (mean 0.0%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -717,8 +717,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.62 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -737,34 +737,46 @@
     },
     "preprints": {
       "ebola / bundibugyo": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 8,
+        "priorCount": 12,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "8 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 6,
+        "priorCount": 5,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "6 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 4,
+        "priorCount": 4,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "4 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 4 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "avian influenza / H5N1": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 7,
+        "priorCount": 8,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "7 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 4,
+        "priorCount": 5,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "4 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 0,
+        "priorCount": 2,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "0 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       }
     }
   },
