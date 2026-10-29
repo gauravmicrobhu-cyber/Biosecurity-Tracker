@@ -3,43 +3,52 @@
     "updatedAt": "2026-10-28T18:13:30.500445+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
-    "contentUpdatedAt": "2026-10-12T02:58:44.444542+00:00",
-    "contentSource": "Manual refresh via Claude, 12 Oct 2026 \u2014 outbreaks (Ebola, Irkutsk, Bangladesh measles, mpox, cholera, avian influenza, MERS), governance, AI-Bio; entries not listed had no newer source located",
+    "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
+    "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
     "signalsUpdatedAt": "2026-10-28T18:13:30.500445+00:00"
   },
   "outbreaks": [
     {
-      "id": "mpox-broader-dec25",
-      "date": "2026-10-08",
-      "sortDate": "2026-10-08",
-      "title": "Broader Transmission of Mpox (Clade Ib MPXV) \u2014 Global Situation",
-      "level": 3,
-      "status": "Active \u2014 PHEIC lifted 5 Sep 2025; sustained transmission continues",
+      "id": "ebola-drc",
+      "date": "2026-10-27",
+      "sortDate": "2026-10-27",
+      "title": "Ebola (Bundibugyo virus) \u2014 DRC, with spread to Kenya and Nigeria",
+      "level": 4,
+      "status": "PHEIC \u00b7 Active \u2014 10,000+ confirmed cases in DRC; Kenya cluster (9 cases) and first Nigeria case (20 Oct)",
       "country": [
-        "Global"
+        "DRC",
+        "Uganda",
+        "Kenya",
+        "Nigeria"
       ],
-      "desc": "WHO's 69th mpox situation report (14 September 2026) counts 52,424 laboratory-confirmed cases and 238 deaths (CFR 0.5%) across 35 African countries between 1 January 2025 and 16 August 2026; in the latest six-week window (6 Jul\u201316 Aug) 11 African countries had active transmission, with 1,153 confirmed cases and 7 deaths. WHO lifted the mpox PHEIC on 5 September 2025 but continues to advise emergency preparedness, and clade Ib has since caused locally acquired cases in countries across four of six WHO regions.",
-      "more": "Madagascar has had the largest clade Ib outbreak to date (1,092 confirmed cases and 3 deaths by 19 April 2026, across 51 districts). South Africa reported 22 laboratory-confirmed cases as of 22 September 2026 (Western Cape 18, Gauteng 3, KwaZulu-Natal 1) in two clusters of close contacts, with clade Ib preliminarily involved; 13 of the Western Cape cases were confirmed since mid-August. Singapore reported its first clade Ib cases on 2 April 2026, and Estonia its first clade I case in August 2026. UK: UKHSA's 8 October overview (data to 30 September) records 226 clade Ib cases in the UK since 2023 against 972 clade IIb, and states that clade Ib cases exceeded clade IIb cases from July 2026; a recombinant Ib/IIb virus was identified in a traveller in England in October 2025. No WHO situation report newer than #69 (14 September) was located.",
-      "src": "WHO mpox external situation report #69 (14 Sep 2026) via NICD; NICD South Africa mpox update (22 Sep 2026); WHO situation report #65 (Apr 2026); WHO DON-587; NaTHNaC; UKHSA Mpox outbreak epidemiological overview, 8 Oct 2026",
+      "desc": "As of data to 25 October 2026 (ECDC, published 27 October), DRC has 10,060 confirmed cases and 4,887 deaths, with 2,684 recovered and 1,008 patients in isolation, across 8 provinces and 66 of 178 health zones. By province (cases/deaths): Ituri 7,211/3,370; North Kivu 2,309/1,293; Haut-U\u00e9l\u00e9 436/190; Tshopo 83/27; Bas-U\u00e9l\u00e9 13/4; South Kivu 3/1; Nord-Ubangi 3/1; Sud-Ubangi 2/1. WHO's DON-622 (23 October, data to 20 October: 9,704 cases, 4,687 deaths, crude CFR 48.3%) counted 976 new cases and 482 deaths since 8 October \u2014 307 of those deaths in the community rather than in treatment centres \u2014 and contact follow-up at 79.7% of 30,130 contacts, well below the 95% target. UKHSA notes new cases in Ituri are falling, while North Kivu (the highest provincial CFR, 55.9%) keeps rising; the newest affected zone, Wapinda in Nord-Ubangi, borders the Central African Republic. This is the largest Bundibugyo outbreak on record and the second-largest Ebola outbreak of any species. The PHEIC (17 May) remains in force. WHO's formal risk assessment (very high in DRC, high in bordering countries, low globally) dates from 14 August and a revision is under way.",
+      "more": "KENYA: 9 confirmed cases, all in one cluster linked to the imported index case (a Kenyan who had lived in DRC, travelled by road to Kampala and flew to Nairobi on 3 October; died 5 October). The 8 secondary cases are 4 family members and 4 health and care workers who treated him. ECDC records 2 deaths (the second on 23 October) and the last case reported on 20 October. All 135 contacts were traced and quarantined; the first 20 finished 21-day follow-up on 25\u201326 October, with 98 still monitored. The Health Ministry reports no community transmission and says the end of the outbreak is 'within reach'. NIGERIA \u2014 first case in over a decade: a 42-year-old Swiss woman, wife of a Swiss embassy staff member in Abuja, confirmed 20 October (onset 7 October, sought care 11 October). She had travelled in Uganda and, per the Swiss government, not in DRC; the source of exposure is still under investigation, and how a Uganda exposure fits the dates has not been explained publicly. NCDC lists 53 primary contacts, most of them health workers; a suspected case in Rivers State tested negative. She was evacuated to Switzerland with a close contact on 26 October. The 13-day gap between arrival (3 October) and diagnosis is the main concern. UGANDA: its earlier outbreak (20 cases, 2 deaths) was declared over on 27 August; 60 contacts of the Kenyan case completed follow-up there. EUROPE: there have been 5 imported or medevac cases since May (Germany \u00d72, France, UK, Netherlands), plus the 26 October Swiss evacuation; ECDC rates the risk to the EU/EEA population as very low. COUNTERMEASURES: no Bundibugyo vaccine or treatment is licensed. The TUMAINI Phase 2/3 trial of several vaccine candidates, including Ervebo, enrolled its first participants in Bunia on 23 October. The Ervebo frontline-worker campaign in Kisangani (since 27 August) continues, but WHO says it is not known whether Ervebo protects against Bundibugyo in humans. Confirmed counts likely understate the true scale given the community deaths, conflict and gaps in follow-up.",
+      "src": "ECDC Ebola (Bundibugyo) event update, 27 Oct 2026 (data to 25\u201326 Oct); WHO DON-622, 23 Oct 2026; UKHSA Outbreaks under monitoring week 42 (to 20 Oct 2026); Citizen Digital (Kenya MoH), 22 Oct 2026; Africanews/AFP (Nigeria evacuation, 53 contacts), 26 Oct 2026; Malay Mail/AFP (Swiss statement), 24 Oct 2026",
       "tags": [
-        "Mpox",
-        "Clade Ib",
-        "Global spread"
-      ]
+        "Ebola",
+        "Bundibugyo",
+        "PHEIC",
+        "Cross-border spread",
+        "Kenya",
+        "Nigeria"
+      ],
+      "cases": 10060,
+      "deaths": 4887,
+      "hospitalized": 893
     },
     {
       "id": "bangladesh-measles-2026",
-      "date": "2026-10-08",
-      "sortDate": "2026-10-08",
+      "date": "2026-10-26",
+      "sortDate": "2026-10-26",
       "title": "Measles Outbreak \u2014 Bangladesh",
       "level": 3,
       "status": "Active \u2014 world's largest current measles outbreak (per CDC)",
       "country": [
         "Bangladesh"
       ],
-      "desc": "Bangladesh's Directorate General of Health Services (DGHS) reported 188,041 suspected and 21,212 laboratory-confirmed measles cases and 1,096 deaths (995 among suspected cases, 101 among confirmed cases) in 2026 up to 8 am on 27 September \u2014 up from 1,009 deaths on 9\u201310 September. ECDC's week-41 report (October) cites a newer, higher case count \u2014 201,625 suspected and 22,116 confirmed cases \u2014 but a lower death figure (1,040); the two series appear to use different definitions or cut-off dates and have not been reconciled, so deaths should be read as roughly 1,040\u20131,100. It is the country's deadliest measles outbreak in decades (Bangladesh recorded 132 cases and no deaths in all of 2025), and CDC lists it as the world's largest current measles outbreak. The emergency measles-rubella campaign that began 5 April vaccinated roughly 18\u201319.75 million children against an 18 million target, but about four million children were missed; DGHS acknowledged herd immunity was not achieved and says a further campaign is being prepared.",
-      "more": "WHO and UNICEF link the crisis to gaps in Bangladesh's immunization programme that emerged in 2024\u20132025 after the political upheaval; the Health Minister told parliament in September that procurement-policy changes in that period created a vaccine shortage. Dhaka hospitals report overcrowded wards, and chronic child malnutrition is raising case fatality. 79% of early cases were in children under five (WHO DON-598, April 2026). No official figures newer than 10 September were located as of 28 September.",
-      "src": "IANS/UNB relaying DGHS, 27 Sep 2026; ECDC Communicable Disease Threats Report week 41 (7 Oct 2026); Al Jazeera, 9 & 14 Sep 2026 (citing DGHS); AFP, 9\u201310 Sep 2026; WHO DON-598 (Apr 2026)",
+      "desc": "As of 8 am on 26 October 2026, Bangladesh's DGHS reports 222,552 suspected and 23,478 laboratory-confirmed measles cases in 2026, and 1,233 deaths (1,129 among suspected and 104 among confirmed cases). In the latest 24 hours there were 1,388 new suspected cases, 78 newly confirmed cases and 6 child deaths, so transmission is still running at well over 1,000 suspected cases a day. Deaths have risen from 1,009 on 10 September and about 1,096 on 27 September \u2014 roughly 140 more in a month. Hospitals have recorded 197,999 suspected-measles admissions since 15 March. It is Bangladesh's deadliest measles outbreak in decades (the country recorded 132 cases and no deaths in all of 2025), and CDC lists it as the world's largest current measles outbreak.",
+      "more": "Vaccination: the emergency measles-rubella campaign that began on 5 April reached roughly 18\u201319.75 million children against an 18 million target, but about four million were missed and DGHS has acknowledged that herd immunity was not achieved. A follow-up campaign had been announced as being prepared, but no start date was located. WHO and UNICEF link the crisis to immunization gaps in 2024\u20132025 after the political upheaval; the Health Minister told parliament in September that procurement-policy changes in that period caused a vaccine shortage. Chronic child malnutrition is raising case fatality. 79% of early cases were in children under five (WHO DON-598). Media death tallies of 1,240 or more after 26 October come from later daily DGHS bulletins.",
+      "src": "The Business Standard (relaying DGHS bulletin to 8 am, 26 Oct 2026); IANS, 26 Oct 2026; Dhaka Tribune daily DGHS reports, Oct 2026; Business Standard via Wikipedia (10 Sep 2026 totals); WHO DON-598 (Apr 2026)",
       "tags": [
         "Measles",
         "Bangladesh",
@@ -48,18 +57,38 @@
       ]
     },
     {
+      "id": "shamonda-france-2026",
+      "date": "2026-10-22",
+      "sortDate": "2026-10-22",
+      "title": "First Documented Human Shamonda Virus Infection \u2014 Fatal Case, Lyon (France)",
+      "level": 1,
+      "status": "Single case \u2014 no onward transmission; authorities report no general-population risk",
+      "country": [
+        "France"
+      ],
+      "desc": "On 22 October 2026 France reported the first documented human infection with Shamonda virus, an orthobunyavirus (Simbu serogroup) that infects cattle and is spread by Culicoides biting midges. The patient was severely immunocompromised, was being treated in Lyon and died in early October. The leading hypothesis is infection in eastern France, where the virus circulated among animals in spring and summer 2026. The Ministry of Agriculture says there is no identifiable risk to the general population, and the Health Ministry called the death an 'exceptional event' probably explained by the patient's underlying condition. ECDC opened a public-health event on 27 October.",
+      "more": "Why it is tracked: it is a first-ever spillover of an animal arbovirus into a human, found in a European clinical setting. That is the kind of novel zoonotic signal that genomic diagnostics are now picking up in immunocompromised patients, and it comes as Culicoides-borne livestock viruses (bluetongue, Schmallenberg \u2014 a close Simbu-group relative \u2014 and now Shamonda) are expanding north in Europe with climate change. How it was detected was not described in the sources located.",
+      "src": "Al Jazeera/Reuters, 22 Oct 2026; The Wire/AP, 22 Oct 2026; ECDC public health events listing ('First detection of Shamonda virus in an immunocompromised patient, France'), 27 Oct 2026",
+      "tags": [
+        "Shamonda virus",
+        "Orthobunyavirus",
+        "Novel spillover",
+        "Vector-borne"
+      ]
+    },
+    {
       "id": "irkutsk-plague-lab-2026",
-      "date": "2026-10-07",
-      "sortDate": "2026-10-07",
+      "date": "2026-10-21",
+      "sortDate": "2026-10-21",
       "title": "Irkutsk Anti-Plague Institute \u2014 Technician Death, Suspected Lab Exposure (Russia)",
       "level": 2,
-      "status": "Unconfirmed \u2014 official cause \"pneumonia of undetermined etiology\"; WHO seeking to verify",
+      "status": "Unexplained \u2014 cause of death undetermined; WHO says a lab-associated exposure 'cannot be fully excluded'",
       "country": [
         "Russia"
       ],
-      "desc": "Darya Shipilova, 28, a technician at the Irkutsk Anti-Plague Research Institute of Siberia and the Far East, was hospitalised on 29 September and died in the night of 1\u20132 October in a hospital in Shelekhov. Local and independent Russian media (People of Baikal, citing unnamed sources) report she broke a test tube containing pneumonic-plague bacteria (Yersinia pestis) on 25 September; Russian authorities have not confirmed this. Governor Igor Kobzev, citing a Rospotrebnadzor inspection and an expert commission, says the cause was pneumonia of undetermined etiology; Rospotrebnadzor says no microorganisms linked to her work were found in her samples and no high-threat pathogen was identified, and that no pathogen accidents are recorded at the institute. Russia's update to WHO (received 6 October) states that no plague case has been recorded in Irkutsk city. Rospotrebnadzor also called a circulating document describing special anti-plague measures 'untrue'.",
-      "more": "Contacts and containment: roughly 189\u2013200 contacts were placed under observation or isolation; ECDC reports all tested negative at the time of reporting. Rospotrebnadzor reported two COVID and two rhinovirus cases among contacts and no other infectious cases. The governor says no other institute staff have sought medical care since the death and that the situation is stable. Reports from anonymous sources of more than 60 staff confined on site, and of hospital wards cordoned off and a mask mandate at the Irkutsk Aluminum Plant (3 October), come from media and are not officially confirmed. WHO (spokesman Christian Lindmeier, 7 October) rates the risk as moderate to low for Irkutsk, low for Russia and very low for the rest of Europe, and says it is seeking to verify the event and the laboratory tests. UKHSA rates the risk to the UK as very low. US officials (Trump, Rubio) say they are monitoring closely; Rubio urged Russia to share more information. An international plague conference scheduled in Irkutsk for 21\u201322 October was arranged in June, according to the organisers. There is no public evidence of spread to residents and none linking the death to a weapons programme. Treat the plague-exposure account as UNCONFIRMED: it rests on Russian media and anonymous sources, and the official position is that the cause is undetermined.",
-      "src": "AFP via Courthouse News, 6 Oct 2026; ECDC CDTR week 41 (7 Oct 2026); UKHSA Outbreaks under monitoring week 40; RFE/RL; Al Jazeera, 6 Oct 2026; Gulf News/AP, 5 Oct 2026; CBS News",
+      "desc": "A 28-year-old technician at the Irkutsk Anti-Plague Research Institute of Siberia and the Far East was hospitalised on 29 September and died on 1\u20132 October. Local media citing anonymous sources reported a broken tube of Yersinia pestis on 25 September. Russia denies this: authorities classify the death as 'pneumonia of undetermined etiology', say plague was not the cause, and report that two independent investigations found no laboratory biosafety or biosecurity incident. WHO's DON-620 (10 October) reports that the patient and contacts were tested for a broad pathogen panel, including plague, with all high-threat pathogen tests negative (more than 5,500 tests across five Rospotrebnadzor institutions); that all contacts stayed asymptomatic; and that monitoring ended by 8\u20139 October, when the governor lifted the hospital quarantine. WHO adds that its confidence is limited because the cause of death is still unknown. Since the worker handled high-consequence pathogens, WHO says 'a laboratory-associated exposure cannot be fully excluded', and it has recommended further testing of clinical specimens at reference laboratories.",
+      "more": "Contacts: about 197 identified. The only infections found among them were COVID-19 (2), rhinovirus (2\u20133), one Haemophilus case and other opportunistic infections. Officially, quarantine applied only to the Shelekhov District Hospital inpatient unit; media reports of wider hospital closures and a 'second case' were denied by the authorities, who called a circulating plague-quarantine 'resolution' fake (13 October). Hong Kong and Macau added health declarations and checks for travellers from Irkutsk Oblast (12 October). ECDC said on 16 October that the information was still not enough for a firm conclusion. Unverified social-media claims of further deaths (19\u201320 October) have not been confirmed by any authority. The institute's 18th CIS plague conference, planned for Irkutsk on 21\u201322 October, was moved to 11\u201312 November 2026 under a Rospotrebnadzor order of 21 October; no reason was given (per the institute and conference websites, as compiled by PlagueIntel). Assessment: there is no evidence of onward transmission. As a biosafety question the event remains OPEN \u2014 no pathogen has been named, no lab results have been published, and WHO has not independently verified the findings. There is no public evidence linking it to any weapons activity.",
+      "src": "WHO DON-620, 10 Oct 2026; Al Jazeera, 10 Oct 2026; UN News, Oct 2026; CNN, 7 Oct 2026; PlagueIntel Irkutsk timeline (status as of 26 Oct 2026; secondary compilation); ECDC CDTR (16 Oct 2026)",
       "tags": [
         "Plague",
         "Yersinia pestis",
@@ -70,67 +99,59 @@
       ]
     },
     {
-      "id": "ebola-drc",
-      "date": "2026-10-07",
-      "sortDate": "2026-10-07",
-      "title": "Ebola (Bundibugyo virus) \u2014 DRC / Uganda",
-      "level": 4,
-      "status": "PHEIC \u00b7 Active \u2014 largest recorded Bundibugyo outbreak; first imported case in Kenya (6 Oct)",
-      "country": [
-        "DRC",
-        "Uganda",
-        "Kenya"
-      ],
-      "desc": "As of data to 6 October 2026 (reported 7 October, ECDC), DRC has 8,728 confirmed cases and 4,205 deaths, with 1,066 patients hospitalized in isolation and 2,269 recovered, across seven provinces and 64 of 167 health zones. The latest daily report added 63 cases and 27 deaths, and 82% of identified contacts are under follow-up. By province (cases/deaths): Ituri 6,513/3,007; North Kivu 1,785/1,021; Haut-U\u00e9l\u00e9 364/153; Tshopo 51/18; Bas-U\u00e9l\u00e9 10/4; South Kivu 3/1; Sud Ubangi 2/1. UKHSA's week-40 report (data to 4 October: 8,603 cases, 4,148 deaths) counted 487 new cases and 224 deaths in the week and notes North Kivu is rising. Compared with 7,890 cases and 3,799 deaths on 23 September, that is roughly 840 more cases and 400 more deaths in two weeks. WHO assesses the risk as very high in DRC, high in bordering countries, and low elsewhere; UKHSA rates the risk to the UK as low. The PHEIC was declared on 17 May 2026 and remains in force after the second IHR Emergency Committee (18 August).",
-      "more": "KENYA \u2014 first imported case: Kenya's Health Ministry confirmed on 6 October a Bundibugyo case in a Kenyan citizen who had lived in DRC for seven years, fell ill about a month earlier, travelled by road to Kampala and flew to Nairobi on 3 October. He was isolated on arrival and died on 5 October. Kenya reports 28 contacts identified and 23 passengers and 4 crew from the flight being traced, and says it has screened 652,584 travellers since enhanced surveillance began. OTHER SPREAD: Uganda's outbreak (20 confirmed cases, 2 deaths) was declared over in late August (sources give 25 or 27 August). A DRC-based health worker (MSF) tested positive on 29 September and was admitted in Leiden on 1 October; UKHSA counts this as the fourth imported case in Europe, after France (a doctor, 24 June), Germany (US citizens medevaced in May and July) and a UK evacuation (July). CDC stated earlier that no cases had been confirmed in the United States; no newer statement was located. COUNTERMEASURES: there is still no licensed Bundibugyo vaccine or therapy. On 31 July WHO's advisory group recommended prioritising the Zaire-species vaccine Ervebo for a Phase 3 trial (reversing its May position); the International Coordinating Group released 70,000 doses to DRC (20,000 for the trial, 50,000 for frontline workers) and a vaccination campaign for frontline workers began in Kisangani on 27 August (ECDC). Africa CDC noted there is no reliable evidence of efficacy against Bundibugyo yet. Moderna's mRNA-1469 entered a Phase 1 trial on 4 August; the PARTNERS trial (MBP134 and remdesivir) had enrolled 200 participants by late August; WHO has listed two more diagnostics for emergency use. Armed conflict, weak infrastructure and unpaid health-worker salaries continue to hamper the response, and the true scale is likely higher than confirmed counts.",
-      "src": "ECDC Communicable Disease Threats Report week 41 (7 Oct 2026); UKHSA Outbreaks under monitoring, week 40 (to 4 Oct 2026); Capital FM Kenya, 6 Oct 2026; Anadolu/AJC/ABC News on Kenya case, 6 Oct 2026; IPP Secretariat Day-100 countermeasures tracker (25 Aug 2026); WHO DON-617",
-      "tags": [
-        "Ebola",
-        "Filovirus",
-        "PHEIC",
-        "Zoonotic spillover",
-        "Cross-border",
-        "Second-largest Ebola outbreak on record"
-      ],
-      "cases": 7890,
-      "deaths": 3799,
-      "hospitalized": 893
-    },
-    {
-      "id": "mers-global",
-      "date": "2026-10-05",
-      "sortDate": "2026-10-05",
-      "title": "MERS-CoV \u2014 Global Update",
-      "level": 1,
-      "status": "Endemic monitoring",
-      "country": [
-        "Global"
-      ],
-      "desc": "ECDC's update published 5 October 2026 (totals to 29 September) shows no change from August: 2,649 cases and 960 deaths since April 2012, with two cases (one death) reported in 2026, all in Saudi Arabia (as of 31 August). New cases detected through surveillance are at their lowest level since 2014, and ECDC assesses the risk to the EU/EEA as low. WHO EMRO's June 2026 tally (2,637 cases, 965 deaths) differs slightly, reflecting reporting cutoffs and retrospective corrections. For context, 2025 saw 19 cases and 4 deaths globally, including two travel-associated cases in France.",
-      "more": "",
-      "src": "ECDC MERS-CoV worldwide overview (published 5 Oct 2026, totals to 29 Sep); WHO EMRO MERS update, Jun 2026; WHO DON-591 (Dec 2025)",
-      "tags": [
-        "MERS-CoV",
-        "Zoonotic"
-      ]
-    },
-    {
       "id": "avian-zoonotic-flu-2026",
-      "date": "2026-09-28",
-      "sortDate": "2026-09-28",
+      "date": "2026-10-19",
+      "sortDate": "2026-10-19",
       "title": "Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary",
       "level": 1,
       "status": "Endemic/Seasonal monitoring",
       "country": [
         "Global"
       ],
-      "desc": "WHO's 6 September 2026 human\u2013animal interface summary records, for 8 August\u20136 September, one new human A(H5N1) case, three A(H9N2) cases (all reported by China; two in children under five and one aged 5\u201310) and two A(H1N2) variant swine-influenza cases. There is no sustained human-to-human transmission and WHO's assessment of overall risk remains low. In the first quarter of 2026 WHO tracked 13 avian and swine influenza human cases, including one previously unreported fatal H5N1 case in a child in Bangladesh.",
-      "more": "H5N1 clade 2.3.4.4b continues to circulate in wild birds, poultry and (in the US) dairy cattle; CDC reports sporadic human cases among US dairy and poultry workers. More than 880 sporadic human H5N1 infections have been reported to WHO since 2003. Cambodia reported its sixth human H5N1 case of 2026 on 28 September (a 49-year-old poultry farmer in Oddar Meanchey province, hospitalised; close contacts offered oseltamivir); Cambodia had 18 cases and 9 deaths in 2025 (UKHSA). A WHO human\u2013animal interface summary newer than 6 September was not located.",
-      "src": "WHO influenza human-animal interface summary, 6 Sep 2026; CIDRAP, 29 Apr 2026; CDC H5 bird flu situation summary; WHO/Our World in Data H5N1 series; UKHSA Outbreaks under monitoring week 40 (28 Sep Cambodia report); The Star (Malaysia), 28 Sep 2026",
+      "desc": "New US human H5N1 case: on 15 October 2026 Yakima County (Washington State) reported a confirmed case in a worker exposed to infected dairy cattle. The case was mild, not hospitalised and isolating at home, and contacts are being monitored. That brings the US total since April 2024 to 72 cases in 13 states (one death): 42 from dairy cattle, 24 from poultry farms and culling, 3 from other animals and 3 with unknown exposure (ECDC, 19 October). It is Washington's first dairy-linked case; its 12 earlier cases were linked to poultry (11) or other animals (1). Globally, WHO's Western Pacific Region counts 1,003 human H5N1 cases and 479 deaths (CFR 47.8%) in 25 countries from 2003 to 6 September 2026. There is still no sustained human-to-human transmission, and WHO, CDC and ECDC rate the risk to the general population as low (CDC rates it moderate to high for people with exposure to infected animals).",
+      "more": "Cambodia: 6 human H5N1 cases in 2026; the latest, a 49-year-old poultry farmer in Oddar Meanchey, was reported on 28 September (Cambodia had 18 cases and 9 deaths in 2025). China reports sporadic H9N2 infections, mostly mild and in children; the latest had onset on 7 September in Guangdong, and ECDC updated its H9N2 overview on 26 October. The latest H5N6 case had onset on 16 April (Chongqing). WHO's 6 September human\u2013animal interface summary recorded 1 H5N1, 3 H9N2 and 2 swine-variant H1N2 cases for 8 August\u20136 September. H5N1 clade 2.3.4.4b continues to circulate in wild birds, poultry and US dairy cattle. Genotype B3.13, found in US cattle, has not been detected in Europe, and the EU/EEA has no confirmed human H5N1 cases.",
+      "src": "ECDC Avian influenza A(H5N1) human cases, United States, update 19 Oct 2026; UKHSA Outbreaks under monitoring week 42 (15 Oct 2026); WHO WPRO Avian Influenza Weekly Update No. 1064 (2 Oct 2026); WHO human\u2013animal interface summary, 6 Sep 2026; The Star (Malaysia), 28 Sep 2026",
       "tags": [
-        "Avian influenza",
         "H5N1",
         "H9N2",
+        "Dairy cattle",
+        "Zoonotic influenza"
+      ]
+    },
+    {
+      "id": "mpox-broader-dec25",
+      "date": "2026-10-18",
+      "sortDate": "2026-10-18",
+      "title": "Broader Transmission of Mpox (Clade Ib MPXV) \u2014 Global Situation",
+      "level": 3,
+      "status": "Active \u2014 PHEIC lifted 5 Sep 2025; sustained transmission continues",
+      "country": [
+        "Global"
+      ],
+      "desc": "WHO's 69th mpox situation report (14 September 2026) counts 52,424 laboratory-confirmed cases and 238 deaths (CFR 0.5%) across 35 African countries between 1 January 2025 and 16 August 2026; in the latest six-week window (6 Jul\u201316 Aug) 11 African countries had active transmission, with 1,153 confirmed cases and 7 deaths. WHO lifted the mpox PHEIC on 5 September 2025 but continues to advise emergency preparedness, and clade Ib has since caused locally acquired cases in countries across four of six WHO regions.",
+      "more": "South Africa: 26 laboratory-confirmed cases since 1 January as of 18 October (up from 22 on 22 September). These comprise Western Cape 18 (16 locally acquired, 2 imported), Gauteng 3, Eastern Cape 2, Free State 2 and KwaZulu-Natal 1. Clade was known for 17 cases: 13 clade Ib and 4 clade IIb. 25 of 26 cases are male (median age 37). Madagascar has had the largest clade Ib outbreak to date (1,092 confirmed cases and 3 deaths by 19 April 2026). Singapore reported its first clade Ib cases on 2 April 2026, and Estonia its first clade I case in August 2026. UK: UKHSA's 8 October overview (data to 30 September) records 226 clade Ib cases since 2023 against 972 clade IIb, with clade Ib cases exceeding clade IIb from July 2026. A recombinant Ib/IIb virus was identified in a traveller in England in October 2025. As of late October, no WHO situation report newer than #69 (14 September) was located.",
+      "src": "WHO mpox external situation report #69 (14 Sep 2026); TimesLIVE/South African Health Dept, 18 Oct 2026; WHO situation report #65 (Apr 2026); WHO DON-587; UKHSA Mpox outbreak epidemiological overview, 8 Oct 2026",
+      "tags": [
+        "Mpox",
+        "Clade Ib",
+        "Global spread"
+      ]
+    },
+    {
+      "id": "mers-global",
+      "date": "2026-10-15",
+      "sortDate": "2026-10-15",
+      "title": "MERS-CoV \u2014 Global Update",
+      "level": 1,
+      "status": "Endemic monitoring",
+      "country": [
+        "Global"
+      ],
+      "desc": "WHO data reported by UKHSA (15 October 2026) record 8 laboratory-confirmed MERS-CoV cases, including 1 death, in Saudi Arabia from 1 January to 5 October 2026. The cases were spread across Al Jouf, Arar, Hafr Al-Batin, Riyadh (2), Tabuk and Taif (2). Two reported direct camel contact and six did not; none were linked to each other, and there were no health-worker infections, so WHO treats them as sporadic zoonotic spillover. The global total since 2012 is 2,643 cases and 965 deaths (Saudi Arabia 2,232 and 870). ECDC's own series, last updated 19 October, still described 2026 as the lowest surveillance-detected level since 2014; its earlier count of two 2026 cases reflects reporting lags. ECDC assesses the risk to the EU/EEA as low.",
+      "more": "For context, 2025 saw 19 cases and 4 deaths globally, including two travel-associated cases in France. The UK has had 5 imported or related cases (2 deaths) since 2012, the last in 2018.",
+      "src": "UKHSA Outbreaks under monitoring week 42 (15 Oct 2026, citing WHO); ECDC MERS-CoV monthly update (19 Oct 2026); ECDC MERS-CoV worldwide overview (5 Oct 2026); WHO DON-591 (Dec 2025)",
+      "tags": [
+        "MERS-CoV",
         "Zoonotic"
       ]
     },
@@ -150,7 +171,7 @@
         "CAR"
       ],
       "desc": "ECDC's latest monthly overview (as of 28 September 2026) counts 249,136 cholera cases and 1,970 deaths worldwide since 1 January 2026 \u2014 about 43% fewer cases and 56% fewer deaths than the same point in 2025 (436,268 cases and 4,449 deaths). In the latest period (26 Aug\u201328 Sep) 46,153 new cases and 140 new deaths were reported, against 42,717 cases and 257 deaths in the previous period (plus 2,080 reported retrospectively). The largest contributors were Afghanistan (34,378 cases, 10 deaths), DRC (8,505 cases, the most deaths at 107), Yemen (1,885), Angola (748) and Congo (299). Nigeria, which dominated the August update, is no longer among the top five for the latest period, which suggests part of that August figure was backlog reporting. Country figures use different reporting cut-off dates.",
-      "more": "Regional detail from UNICEF/WHO (12 Aug): cholera was active across six countries in two corridors \u2014 the Lake Chad Basin (Chad, Cameroon, Nigeria) and the Congo River Basin (DRC, Republic of Congo, CAR). Seasonal rains, flooding, displacement and cross-border movement accelerate spread; children are disproportionately affected. In DRC, cholera is occurring alongside the Ebola emergency in the east and the DRC death toll (107 in the latest period) is the highest of any country. UNICEF sought $15 million to scale up its six-month response.",
+      "more": "Regional detail from UNICEF/WHO (12 Aug): cholera was active across six countries in two corridors \u2014 the Lake Chad Basin (Chad, Cameroon, Nigeria) and the Congo River Basin (DRC, Republic of Congo, CAR). Seasonal rains, flooding, displacement and cross-border movement accelerate spread; children are disproportionately affected. In DRC, cholera is occurring alongside the Ebola emergency in the east and the DRC death toll (107 in the latest period) is the highest of any country. UNICEF sought $15 million to scale up its six-month response. ECDC published a further monthly update on 27 October 2026, but it could not be accessed for this refresh, so the 28 September figures above remain the latest verified.",
       "src": "ECDC Cholera Worldwide Overview (28 Sep 2026); UNICEF/UN News, 12 Aug 2026",
       "tags": [
         "Cholera",
@@ -162,17 +183,17 @@
     },
     {
       "id": "h1n1-delhi-2026",
-      "date": "2026-09-07",
-      "sortDate": "2026-09-07",
+      "date": "2026-09-03",
+      "sortDate": "2026-09-03",
       "title": "H1N1 (Seasonal Influenza) \u2014 Delhi, India",
       "level": 1,
       "status": "Endemic/Seasonal monitoring",
       "country": [
         "India"
       ],
-      "desc": "Delhi's H1N1 count has plateaued rather than kept accelerating: 1,777 confirmed cases as of 20 August remains the most recent Delhi Health Department cumulative figure (a 7 September ministerial statement cited 1,349, reflecting a different reporting cutoff, not a decline). Of 2,392 influenza A cases recorded to 20 August, 1,777 were H1N1, 138 H3, 37 H1 (subtype not further specified) and 440 other influenza A; a further 210 were influenza B. H1N1 has displaced H3N2 as the leading subtype this year. ICMR states that no new or more virulent strain is circulating and that circulating viruses match the Northern Hemisphere vaccine strains.",
-      "more": "An ICMR-led virological analysis reported in New Microbes and New Infections (via a secondary summary) identifies an A/Missouri/11/2025(H1N1)pdm09-like variant within the established pdm09 lineage \u2014 not a novel reassortant. Officially, there are still zero confirmed H1N1 deaths in Delhi; the government continues to dispute media reports of fatalities. No official case count newer than 7 September was located as of 28 September; India's post-monsoon influenza peak (August\u2013October) is a recognised seasonal pattern.",
-      "src": "Delhi Health Dept data via Newskarnataka, 23 Aug 2026; Outlook India, 21 Aug 2026; ICMR statements; bioengineer.org summary of New Microbes and New Infections, Sep 2026; Health Minister statement via Nova Hospital Meerut, 7 Sep 2026",
+      "desc": "Delhi's 2026 H1N1 season has been far larger than usual. Delhi Health Department data put cases at 1,777 on 20 August, 2,308 by 25 August (when ICMR said this was roughly six to eight times a normal year) and 3,218 by 31 August. ICMR also recorded about 650 cases of other influenza variants. H1N1 has displaced H3N2 as the dominant subtype, circulating with influenza B and COVID-19. ICMR (Director-General Rajiv Bahl) says the virus is not a new or more virulent strain and matches the Northern Hemisphere vaccine strains. Most infections have been mild, with no ICU or ventilator cases reported as of late August. (This replaces this tracker's earlier 'plateau' reading, which was based on a stale cumulative figure.)",
+      "more": "An ICMR-led virological analysis in New Microbes and New Infections (via a secondary summary) identifies an A/Missouri/11/2025(H1N1)pdm09-like variant within the established pdm09 lineage, not a novel reassortant. Officially, Delhi still has zero confirmed H1N1 deaths, and the government disputes media reports of fatalities. Surveillance runs through 73 ICMR labs testing severe-acute-respiratory-infection samples weekly. Dengue is rising alongside it: 311 cases year-to-date at end-August and about 695 by the first week of October. No official H1N1 count newer than 31 August was located as of late October. India's post-monsoon influenza peak (August\u2013October) is a recognised seasonal pattern.",
+      "src": "Delhi Health Dept data via OneIndia, 3 Sep 2026; Outlook India (ICMR DG statement), 25 Aug 2026; Business Today, 21\u201322 Aug 2026; The Hans India (Delhi dengue), Oct 2026; bioengineer.org summary of New Microbes and New Infections, Sep 2026",
       "tags": [
         "H1N1",
         "Influenza",
@@ -418,12 +439,60 @@
   ],
   "governance": [
     {
+      "id": "uk-ai-biosecurity-lab-2026",
+      "date": "2026-10-24",
+      "sortDate": "2026-10-24",
+      "title": "UK Launches \u00a3100m AI Biosecurity Lab Backed by OpenAI, Anthropic and Google DeepMind",
+      "country": "UK",
+      "desc": "On 24 October 2026 the UK Cabinet Office announced an AI Biosecurity Lab, which the government describes as the world's first dedicated AI-biosecurity organisation. It will be an independent non-profit within a new National AI Biosecurity Initiative, with \u00a3100 million of government funding plus up to \u00a3200 million in company commitments. OpenAI is providing \u00a3100 million in compute and model credits and trusted access through its Rosalind Biodefense programme. Anthropic is providing up to \u00a3100 million in model credits, trusted model access and technical support. Google DeepMind is contributing scientists and access to Gemini and science models, and Basecamp Research its AI-biology models. Government partners are UKHSA, APHA, Dstl and the MHRA. The initial focus is early threat detection and faster vaccines and countermeasures. Significance: this is the clearest example yet of a state institutionalising 'defensive acceleration' \u2014 using frontier labs' own models for biodefence \u2014 rather than relying only on restricting access. It also creates a model India could study for pairing its One Health Mission and ICMR labs with frontier AI. Sources: Unite.AI (23\u201326 Oct 2026), Bloomberg (23 Oct 2026)."
+    },
+    {
+      "id": "unga-pppr-declaration-2026",
+      "date": "2026-10-12",
+      "sortDate": "2026-10-12",
+      "title": "UN General Assembly Adopts Pandemic Declaration by Vote After US Blocks Consensus",
+      "country": "Global",
+      "desc": "The political declaration from the second UN High-Level Meeting on Pandemic Prevention, Preparedness and Response (25 September 2026) could not be adopted by consensus because of US objections. It was instead adopted by a recorded vote in the General Assembly on 12 October: 153 in favour, 3 against (United States, Israel, Argentina) and 2 abstentions (New Zealand, Paraguay). The non-binding text welcomes the 2025 WHO Pandemic Agreement and calls for 'the timely completion of the PABS annex'; the US objected in part to those references to the annex negotiations. Significance: it confirms that the US is outside the WHO pandemic architecture, and it adds political pressure \u2014 but no legal force \u2014 to the stalled annex talks. Sources: AllAfrica/UN News, 13 Oct 2026; Times of Oman, Oct 2026; WHO, 18 Sep 2026."
+    },
+    {
+      "id": "india-high-containment-standards-2026",
+      "date": "2026-09-30",
+      "sortDate": "2026-09-30",
+      "title": "India Issues Minimum Standards for High-Containment Labs Under the National One Health Mission",
+      "country": "India",
+      "desc": "The 'Minimum Standard Requirements for High-Containment Facilities Under the National One Health Mission, 2026' were released at the Mission's Scientific Steering Committee meeting on 30 September 2026 and are hosted by the Office of the Principal Scientific Adviser (associated with ICMR, DBT and MoHFW). They set the conditions a BSL-3 laboratory must meet to join the Mission's high-risk-pathogen laboratory network: verified containment, equipment, access control and waste handling; trained staff, documented procedures, emergency plans and periodic safety checks; and data sharing under documented agreements that protect personal and sensitive data. Labs must first meet the existing 2024 national certification guidelines. Significance: this is India's most concrete recent step toward a networked, auditable high-containment system. It strengthens biosafety (containment and operations) but does not by itself create the biosecurity-specific law or agency that ORF flagged as missing. Source: The Policy Edge, 17 Oct 2026 (linking the PSA PDF)."
+    },
+    {
+      "id": "pabs-igwg8-no-consensus-2026",
+      "date": "2026-10-04",
+      "sortDate": "2026-09-18",
+      "title": "PABS Annex: IGWG8 Ends Without Consensus; IGWG9 Set for 2\u201313 November",
+      "country": "Global",
+      "desc": "The eighth session of the Intergovernmental Working Group (14\u201318 September 2026) negotiated the definitions, implementation and governance sections of the PABS annex. Delegations reported growing convergence but no consensus. The main splits, as reported by TWN, are: (1) whether 'pathogens with pandemic potential' is a closed list or an open-ended scope, with both list-based and risk-assessment approaches now in play; (2) developed countries seeking access to epidemic or PHEIC pathogens before any benefit commitments; (3) sample and sequence sharing \u2014 developed countries propose notifying WHO within 24 hours, while others want a risk assessment first ('as soon as possible' or 48 hours) and dispute whether sharing should be a legal obligation; and (4) whether the Conference of the Parties or the Director-General appoints the PABS Advisory Group. Informal drafting took place on 5\u20139 October; IGWG9 runs 2\u201313 November 2026, ahead of the WHA80 deadline in May 2027. Relevance: these sharing rules will decide how quickly sequences from outbreaks like Bundibugyo Ebola flow to countermeasure developers. Sources: WHO, 18 Sep 2026; Third World Network, 4 Oct 2026."
+    },
+    {
       "id": "crs-ai-bio-sept-2026",
       "date": "2026-09-15",
       "sortDate": "2026-09-15",
       "title": "CRS Update: Congress Weighs Several AI\u2013Biosecurity Bills; Synthesis-Screening Framework Still Unrevised",
       "country": "USA",
       "desc": "A Congressional Research Service primer updated 15 September 2026 states that no federal law broadly regulates AI in the biological sciences and that OSTP has not revised the 2024 nucleic-acid synthesis screening framework, despite EO 14292. It lists pending bills: H.R. 3029 (Nucleic Acid Standards for Biosecurity Act, passed the House); S. 3741 (Biosecurity Modernization and Innovation Act of 2026); S. 4363 (Engineering Biology Readiness Act); S. 4069 (AI-Ready Bio-Data Standards Act); S. 3952 (Future of Artificial Intelligence Innovation Act of 2026); and H.R. 9307 / S. 4770 (Web of Biological Data Act of 2026). It also notes NIST's warning that AI-designed sequences could evade current screening tools, and that Anthropic reported in September that some users circumvented its biosafety safeguards while describing them as 'working scientists'. Source: a secondary summary of the CRS text; individual bill status was not independently checked on Congress.gov."
+    },
+    {
+      "id": "hr10197-house-biosecurity-modernization-2026",
+      "date": "2026-08-31",
+      "sortDate": "2026-08-31",
+      "title": "House Companion Introduced: H.R. 10197 Biosecurity Modernization and Innovation Act (Pfluger\u2013Houlahan)",
+      "country": "USA",
+      "desc": "Rep. August Pfluger (R-TX), with Rep. Chrissy Houlahan (D-PA), introduced H.R. 10197 on 31 August 2026 \u2014 a bipartisan House counterpart to the Senate's S.3741 (Cotton\u2013Klobuchar). It would make nucleic-acid synthesis screening legally mandatory for sellers of DNA and RNA sequences and of the equipment that makes them. Sellers would have to verify customer identity, establish the purpose of each order, screen against a federal list of sequences of concern published by the Department of Commerce, and notify Commerce about high-risk buyers. Violations would carry civil penalties of up to $750,000 each, and the rules would take effect one year after enactment. Status: referred to House Energy and Commerce; no markup recorded. Significance: with companion bills now in both chambers, a mandatory-screening statute is plausible for the first time \u2014 though, as this tracker's AI-bio entries note, homology-based screening alone can be evaded by AI-redesigned sequences. Source: The Lobby News bill tracker (H.R. 10197)."
+    },
+    {
+      "id": "bwc-working-group-9th-session-2026",
+      "date": "2026-08-21",
+      "sortDate": "2026-08-21",
+      "title": "BWC Working Group: ~90% of Draft Report Agreed; Verification, Financing Unresolved Before Final December Session",
+      "country": "Global",
+      "desc": "At its ninth session (ending 21 August 2026 in Geneva), the Working Group on Strengthening the Biological Weapons Convention advanced a draft report covering seven areas: international cooperation, science and technology developments, confidence-building measures, verification, national implementation, response preparedness and institutional arrangements. It is mandated to establish, by consensus, a mechanism to review science and technology developments and another for international cooperation under Article X. BWPP reported about 90.6% of the text agreed early in the session. Still unresolved: verification, transfer controls, trust-fund financing (the US objected to language allowing contributions from non-state actors such as the EU), and three issues the Chair set aside (sanctions as a compliance tool, decision-making for new bodies, and the powers of the Meeting of States Parties). Russia and Iran raised formal objections. A final four-day session is scheduled for December 2026, and the 2027 Review Conference will decide what takes effect. The Chair cited AI\u2013biology convergence as a driver of urgency. Source: Global Biodefense, 19 Aug 2026."
     },
     {
       "id": "nti-input-screening-tool-2026",
@@ -479,7 +548,7 @@
       "sortDate": "2026-05-01",
       "title": "WHO Pandemic Agreement: PABS Annex Not Agreed; Negotiations Extended to May 2027",
       "country": "Global",
-      "desc": "WHO Member States failed to agree the Pathogen Access and Benefit-Sharing (PABS) annex to the Pandemic Agreement at the IGWG session of 27 April\u20131 May 2026, and agreed to extend negotiations; the annex is now expected to be resubmitted no later than the World Health Assembly in May 2027, with a further IGWG session held 6\u201317 July 2026. The main divide is between many developing and emerging economies (including the Africa Group and the Group for Equity) and several industrialised countries, including EU Member States. Relevance: pathogen-sample and sequence sharing rules are the mechanism the Agreement relies on for outbreaks such as Bundibugyo Ebola. Outcome of the July session was not located."
+      "desc": "WHO Member States failed to agree the Pathogen Access and Benefit-Sharing (PABS) annex to the Pandemic Agreement at the IGWG session of 27 April\u20131 May 2026, and agreed to extend negotiations; the annex is now expected to be resubmitted no later than the World Health Assembly in May 2027, with a further IGWG session held 6\u201317 July 2026. The main divide is between many developing and emerging economies (including the Africa Group and the Group for Equity) and several industrialised countries, including EU Member States. Relevance: pathogen-sample and sequence sharing rules are the mechanism the Agreement relies on for outbreaks such as Bundibugyo Ebola. Update: the July session and IGWG8 (14\u201318 September) also ended without consensus \u2014 see the September/October entries."
     },
     {
       "id": "openai-governance-framework-2026",
