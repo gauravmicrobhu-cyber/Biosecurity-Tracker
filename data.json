@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-29T05:04:45.319812+00:00",
+    "updatedAt": "2026-10-29T18:28:18.887669+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-10-29T05:04:45.319812+00:00"
+    "signalsUpdatedAt": "2026-10-29T18:28:18.887669+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-29T05:04:21.048799+00:00",
+    "checkedAt": "2026-10-29T18:27:52.187732+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -717,8 +717,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.63 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -738,10 +738,10 @@
     "preprints": {
       "ebola / bundibugyo": {
         "status": "normal",
-        "recentCount": 8,
+        "recentCount": 10,
         "priorCount": 12,
         "method": "europepmc",
-        "note": "8 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "10 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
         "status": "normal",
@@ -759,17 +759,17 @@
       },
       "avian influenza / H5N1": {
         "status": "normal",
-        "recentCount": 7,
+        "recentCount": 9,
         "priorCount": 8,
         "method": "europepmc",
-        "note": "7 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "9 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
         "status": "normal",
-        "recentCount": 4,
+        "recentCount": 8,
         "priorCount": 5,
         "method": "europepmc",
-        "note": "4 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "8 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "normal",
