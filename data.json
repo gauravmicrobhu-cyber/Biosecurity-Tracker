@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-31T04:45:20.202337+00:00",
+    "updatedAt": "2026-10-31T17:16:39.924517+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-10-31T04:45:20.202337+00:00"
+    "signalsUpdatedAt": "2026-10-31T17:16:39.924517+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-10-31T04:44:56.112543+00:00",
+    "checkedAt": "2026-10-31T17:16:13.605674+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -674,7 +674,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
