@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-04T05:30:44.143032+00:00",
+    "updatedAt": "2026-11-04T19:54:03.120415+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-04T05:30:44.143032+00:00"
+    "signalsUpdatedAt": "2026-11-04T19:54:03.120415+00:00"
   },
   "outbreaks": [
     {
@@ -656,14 +656,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-04T05:30:17.534432+00:00",
+    "checkedAt": "2026-11-04T19:53:35.521258+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.6 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -707,18 +707,73 @@
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
         "status": "spike",
-        "note": "z-score 221.44 against 60-day baseline (mean 0.0%, latest 0.159%). Headline check unavailable this run \u2014 treat as unverified.",
+        "note": "z-score 221.44 against 60-day baseline (mean 0.0%, latest 0.159%).",
         "corroborated": true,
         "corrobNote": "Matches tracked outbreak: \"Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary\"",
-        "articles": [],
-        "headlineCheck": "unavailable",
+        "articles": [
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://newsradio540.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "newsradio540.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://wflaorlando.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "wflaorlando.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://1190kex.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "1190kex.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://wdov.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "wdov.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://55krc.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "55krc.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://koacolorado.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "koacolorado.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington | News Radio 101 . 9 Big WAAX",
+            "url": "https://1019bigwaax.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "1019bigwaax.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+            "url": "https://wflanews.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "wflanews.iheart.com",
+            "date": "20261103T111500Z"
+          },
+          {
+            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington | Newsradio WOOD 1300 and 106 . 9 FM",
+            "url": "https://woodradio.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+            "domain": "woodradio.iheart.com",
+            "date": "20261103T111500Z"
+          }
+        ],
+        "headlineCheck": "confirmed",
         "dismissed": false
       },
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.62 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -788,8 +843,63 @@
       "note": "z-score 223.59 against 60-day baseline (mean 0.0%, latest 0.159%). Headline check unavailable this run \u2014 treat as unverified.",
       "corroborated": true,
       "corrobNote": "Matches tracked outbreak: \"Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary\"",
-      "articles": [],
-      "headlineCheck": "unavailable",
+      "articles": [
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://newsradio540.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "newsradio540.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://wflaorlando.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "wflaorlando.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://1190kex.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "1190kex.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://wdov.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "wdov.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://55krc.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "55krc.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://koacolorado.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "koacolorado.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington | News Radio 101 . 9 Big WAAX",
+          "url": "https://1019bigwaax.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "1019bigwaax.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
+          "url": "https://wflanews.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "wflanews.iheart.com",
+          "date": "20261103T111500Z"
+        },
+        {
+          "title": "First Human Bird Flu Death Of 2026 Recorded In Washington | Newsradio WOOD 1300 and 106 . 9 FM",
+          "url": "https://woodradio.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
+          "domain": "woodradio.iheart.com",
+          "date": "20261103T111500Z"
+        }
+      ],
+      "headlineCheck": "confirmed",
       "detectedAt": "2026-11-03T19:25:55.727425+00:00"
     },
     {
