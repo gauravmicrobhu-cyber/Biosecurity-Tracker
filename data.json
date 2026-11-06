@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-05T20:04:12.898550+00:00",
+    "updatedAt": "2026-11-06T05:50:03.677818+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-05T20:04:12.898550+00:00"
+    "signalsUpdatedAt": "2026-11-06T05:50:03.677818+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-05T20:02:42.286892+00:00",
+    "checkedAt": "2026-11-06T05:49:38.090605+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -674,7 +674,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -696,7 +696,7 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score -1.42 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "note": "z-score 0.17 against 60-day baseline (mean 0.004%, latest 0.004%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -706,74 +706,19 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "spike",
-        "note": "z-score 219.28 against 60-day baseline (mean 0.0%, latest 0.159%).",
-        "corroborated": true,
-        "corrobNote": "Matches tracked outbreak: \"Avian & Zoonotic Influenza at the Human\u2013Animal Interface \u2014 WHO Monthly Summary\"",
-        "articles": [
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://newsradio540.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "newsradio540.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://wflaorlando.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "wflaorlando.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://1190kex.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "1190kex.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://wdov.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "wdov.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://55krc.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "55krc.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://koacolorado.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "koacolorado.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington | News Radio 101 . 9 Big WAAX",
-            "url": "https://1019bigwaax.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "1019bigwaax.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington",
-            "url": "https://wflanews.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "wflanews.iheart.com",
-            "date": "20261103T111500Z"
-          },
-          {
-            "title": "First Human Bird Flu Death Of 2026 Recorded In Washington | Newsradio WOOD 1300 and 106 . 9 FM",
-            "url": "https://woodradio.iheart.com/content/2026-11-03-first-human-bird-flu-death-of-2026-recorded-in-washington/",
-            "domain": "woodradio.iheart.com",
-            "date": "20261103T111500Z"
-          }
-        ],
-        "headlineCheck": "confirmed",
+        "status": "normal",
+        "note": "z-score -0.18 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "corroborated": false,
+        "corrobNote": "",
+        "articles": [],
+        "headlineCheck": null,
         "dismissed": false
       },
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score -0.63 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -792,14 +737,18 @@
     },
     "preprints": {
       "ebola / bundibugyo": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 5,
+        "priorCount": 14,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "5 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 14 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 5,
+        "priorCount": 5,
         "method": "europepmc",
-        "note": "Fetch failed: HTTP Error 503: "
+        "note": "5 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 5 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "normal",
@@ -816,11 +765,11 @@
         "note": "13 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
-        "status": "normal",
+        "status": "elevated",
         "recentCount": 6,
-        "priorCount": 4,
+        "priorCount": 3,
         "method": "europepmc",
-        "note": "6 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 4 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "6 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "normal",
