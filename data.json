@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-06T05:50:03.677818+00:00",
+    "updatedAt": "2026-11-06T19:21:36.522387+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-06T05:50:03.677818+00:00"
+    "signalsUpdatedAt": "2026-11-06T19:21:36.522387+00:00"
   },
   "outbreaks": [
     {
@@ -656,14 +656,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-06T05:49:38.090605+00:00",
+    "checkedAt": "2026-11-06T19:21:09.838180+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.27 against 60-day baseline (mean 0.002%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -695,8 +695,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score 0.17 against 60-day baseline (mean 0.004%, latest 0.004%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -706,8 +706,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "normal",
-        "note": "z-score -0.18 against 60-day baseline (mean 0.005%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -717,8 +717,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.59 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
