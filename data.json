@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-10T19:43:14.391090+00:00",
+    "updatedAt": "2026-11-11T05:24:16.322627+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-10T19:43:14.391090+00:00"
+    "signalsUpdatedAt": "2026-11-11T05:24:16.322627+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-10T19:42:26.563235+00:00",
+    "checkedAt": "2026-11-11T05:22:58.499060+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -685,7 +685,7 @@
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -696,18 +696,61 @@
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
         "status": "normal",
-        "note": "z-score 0.14 against 60-day baseline (mean 0.003%, latest 0.004%).",
+        "note": "z-score 3.99 against 60-day baseline (mean 0.003%, latest 0.014%). Raw z-score 3.99 (spike) dismissed as noise: none of the 7 retrieved headlines mention this topic.",
         "corroborated": false,
         "corrobNote": "",
-        "articles": [],
-        "headlineCheck": null,
-        "dismissed": false
+        "articles": [
+          {
+            "title": "Ng\u0103n ng\u1eeba nguy c\u01a1 d\u1ecbch t\u1ea3 l\u1ee3n ch\u00e2u Phi l\u00e2y lan di\u1ec7n r\u1ed9ng",
+            "url": "https://baotintuc.vn/ngan-ngua-nguy-co-dich-ta-lon-chau-phi-lay-lan-dien-rong-post1400514.html",
+            "domain": "baotintuc.vn",
+            "date": "20261106T093000Z"
+          },
+          {
+            "title": "SKNVibes | Fighting in eastern DRC threatens Ebola response as countries tighten travel restrictions",
+            "url": "https://www.sknvibes.com/news/newsdetails.cfm/128057",
+            "domain": "sknvibes.com",
+            "date": "20261111T040000Z"
+          },
+          {
+            "title": "Intelig\u00eancia Artificial est\u00e1 a ajudar campanhas de vacinao em Mo\u00e7ambique",
+            "url": "https://sapo.pt/artigo/inteligencia-artificial-esta-a-ajudar-campanhas-de-vacinacao-em-mocambique-6af06bef59d2c55979334f6c",
+            "domain": "sapo.pt",
+            "date": "20261108T133000Z"
+          },
+          {
+            "title": "Crise clim\u00e1tica se tornou crise global de sa\u00fade de propores pand\u00eamicas , diz ONU",
+            "url": "https://tribunaonline.com.br/previsaodotempo/crise-climatica-se-tornou-crise-global-de-saude-de-proporcoes-pandemicas-diz-onu-334523",
+            "domain": "tribunaonline.com.br",
+            "date": "20261110T000000Z"
+          },
+          {
+            "title": "B\u00e1c s\u0129 Nguy\u1ec5n Trung C\u1ea5p l\u00e0m gi\u00e1m \u0111\u1ed1c B\u1ec7nh vi\u1ec7n B\u1ec7nh Nhi\u1ec7t \u0111\u1edbi Trung \u01b0\u01a1ng",
+            "url": "https://dantri.com.vn/suc-khoe/bac-si-nguyen-trung-cap-lam-giam-doc-benh-vien-benh-nhiet-doi-trung-uong-20261106145446984.htm",
+            "domain": "dantri.com.vn",
+            "date": "20261106T113000Z"
+          },
+          {
+            "title": "Chuy\u1ec3n \u0111\u1ed5i xanh gi\u00fap ng\u00e0nh ch\u0103n nu\u00f4i h\u00f3a gi\u1ea3i th\u00e1ch th\u1ee9c",
+            "url": "https://baocantho.com.vn/chuyen-doi-xanh-giup-nganh-chan-nuoi-hoa-giai-thach-thuc-a220874.html",
+            "domain": "baocantho.com.vn",
+            "date": "20261111T040000Z"
+          },
+          {
+            "title": "5 anos depois do in\u00edcio da pandemia : como est\u00e1 voc\u00ea ? | Papo das 9 # 896",
+            "url": "https://mundosustentavel.com.br/papo-das-9-896-5-anos-depois-do-inicio-da-pandemia-como-esta-voce/",
+            "domain": "mundosustentavel.com.br",
+            "date": "20261106T010000Z"
+          }
+        ],
+        "headlineCheck": "unconfirmed",
+        "dismissed": true
       },
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.2 against 60-day baseline (mean 0.005%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -718,7 +761,7 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score -0.53 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score -0.51 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -746,9 +789,9 @@
       "cholera": {
         "status": "normal",
         "recentCount": 4,
-        "priorCount": 8,
+        "priorCount": 7,
         "method": "europepmc",
-        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "normal",
@@ -759,17 +802,17 @@
       },
       "avian influenza / H5N1": {
         "status": "normal",
-        "recentCount": 11,
-        "priorCount": 8,
+        "recentCount": 9,
+        "priorCount": 9,
         "method": "europepmc",
-        "note": "11 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "9 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
-        "status": "elevated",
-        "recentCount": 6,
-        "priorCount": 3,
+        "status": "normal",
+        "recentCount": 5,
+        "priorCount": 4,
         "method": "europepmc",
-        "note": "6 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "5 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 4 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "elevated",
