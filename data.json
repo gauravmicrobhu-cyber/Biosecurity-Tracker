@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-11T19:32:43.199982+00:00",
+    "updatedAt": "2026-11-12T06:26:42.590470+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-11T19:32:43.199982+00:00"
+    "signalsUpdatedAt": "2026-11-12T06:26:42.590470+00:00"
   },
   "outbreaks": [
     {
@@ -656,14 +656,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-11T19:32:12.003188+00:00",
+    "checkedAt": "2026-11-12T06:25:38.942129+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "normal",
-        "note": "z-score -0.27 against 60-day baseline (mean 0.002%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -695,12 +695,12 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "spike",
-        "note": "z-score 4.06 against 60-day baseline (mean 0.003%, latest 0.014%). Headline check unavailable this run \u2014 treat as unverified.",
-        "corroborated": true,
-        "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
+        "status": "normal",
+        "note": "z-score -1.17 against 60-day baseline (mean 0.004%, latest 0.0%).",
+        "corroborated": false,
+        "corrobNote": "",
         "articles": [],
-        "headlineCheck": "unavailable",
+        "headlineCheck": null,
         "dismissed": false
       },
       {
@@ -718,12 +718,19 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score -0.51 against 60-day baseline (mean 0.001%, latest 0.0%).",
+        "note": "z-score 5.79 against 60-day baseline (mean 0.001%, latest 0.006%). Raw z-score 5.79 (spike) dismissed as noise: none of the 1 retrieved headlines mention this topic.",
         "corroborated": false,
         "corrobNote": "",
-        "articles": [],
-        "headlineCheck": null,
-        "dismissed": false
+        "articles": [
+          {
+            "title": "AI in healthcare summit held at University of Cincinnati",
+            "url": "https://local12.com/health/health-updates/ai-in-healthcare-summit-held-at-university-of-cincinnati",
+            "domain": "local12.com",
+            "date": "20261112T003000Z"
+          }
+        ],
+        "headlineCheck": "unconfirmed",
+        "dismissed": true
       }
     ]
   },
@@ -738,17 +745,17 @@
     "preprints": {
       "ebola / bundibugyo": {
         "status": "normal",
-        "recentCount": 10,
-        "priorCount": 11,
+        "recentCount": 8,
+        "priorCount": 10,
         "method": "europepmc",
-        "note": "10 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 11 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "8 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 10 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
         "status": "normal",
         "recentCount": 4,
-        "priorCount": 7,
+        "priorCount": 6,
         "method": "europepmc",
-        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "normal",
@@ -759,17 +766,17 @@
       },
       "avian influenza / H5N1": {
         "status": "normal",
-        "recentCount": 9,
-        "priorCount": 9,
+        "recentCount": 8,
+        "priorCount": 10,
         "method": "europepmc",
-        "note": "9 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "8 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 10 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
         "status": "normal",
-        "recentCount": 5,
-        "priorCount": 4,
+        "recentCount": 1,
+        "priorCount": 8,
         "method": "europepmc",
-        "note": "5 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 4 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "1 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "elevated",
