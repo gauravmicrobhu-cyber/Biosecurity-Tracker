@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-13T05:47:26.187798+00:00",
+    "updatedAt": "2026-11-13T19:39:37.743043+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-13T05:47:26.187798+00:00"
+    "signalsUpdatedAt": "2026-11-13T19:39:37.743043+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-13T05:46:45.437492+00:00",
+    "checkedAt": "2026-11-13T19:39:09.070487+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -717,12 +717,12 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
-        "corroborated": false,
-        "corrobNote": "",
+        "status": "spike",
+        "note": "z-score 4.09 against 60-day baseline (mean 0.001%, latest 0.005%). Headline check unavailable this run \u2014 treat as unverified.",
+        "corroborated": true,
+        "corrobNote": "Matches tracked outbreak: \"Irkutsk Anti-Plague Institute \u2014 Technician Death, Suspected Lab Exposure (Russia)\"",
         "articles": [],
-        "headlineCheck": null,
+        "headlineCheck": "unavailable",
         "dismissed": false
       }
     ]
@@ -781,6 +781,17 @@
     }
   },
   "signalHistory": [
+    {
+      "id": "lab-biosafety",
+      "label": "Lab biosafety incident / breach",
+      "status": "spike",
+      "note": "z-score 4.09 against 60-day baseline (mean 0.001%, latest 0.005%). Headline check unavailable this run \u2014 treat as unverified.",
+      "corroborated": true,
+      "corrobNote": "Matches tracked outbreak: \"Irkutsk Anti-Plague Institute \u2014 Technician Death, Suspected Lab Exposure (Russia)\"",
+      "articles": [],
+      "headlineCheck": "unavailable",
+      "detectedAt": "2026-11-13T19:39:09.070487+00:00"
+    },
     {
       "id": "lab-biosafety",
       "label": "Lab biosafety incident / breach",
