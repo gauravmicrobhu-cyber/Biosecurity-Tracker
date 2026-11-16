@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-15T18:46:09.048715+00:00",
+    "updatedAt": "2026-11-16T05:27:58.062789+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-15T18:46:09.048715+00:00"
+    "signalsUpdatedAt": "2026-11-16T05:27:58.062789+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-15T18:45:33.899849+00:00",
+    "checkedAt": "2026-11-16T05:27:25.792586+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -745,10 +745,10 @@
       },
       "cholera": {
         "status": "normal",
-        "recentCount": 7,
-        "priorCount": 6,
+        "recentCount": 6,
+        "priorCount": 7,
         "method": "europepmc",
-        "note": "7 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "6 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "elevated",
@@ -759,10 +759,10 @@
       },
       "avian influenza / H5N1": {
         "status": "normal",
-        "recentCount": 6,
-        "priorCount": 14,
+        "recentCount": 8,
+        "priorCount": 13,
         "method": "europepmc",
-        "note": "6 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 14 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "8 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 13 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
         "status": "normal",
