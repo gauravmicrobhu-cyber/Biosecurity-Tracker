@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-16T22:10:48.123878+00:00",
+    "updatedAt": "2026-11-17T07:13:51.368051+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-16T22:10:48.123878+00:00"
+    "signalsUpdatedAt": "2026-11-17T07:13:51.368051+00:00"
   },
   "outbreaks": [
     {
@@ -656,14 +656,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-16T22:09:42.872558+00:00",
+    "checkedAt": "2026-11-17T07:13:05.453274+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.28 against 60-day baseline (mean 0.002%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -685,7 +685,7 @@
         "id": "mass-illness-sasia",
         "label": "Mass illness \u2014 South Asia",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -695,8 +695,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: <urlopen error _ssl.c:1129: The handshake operation timed out>",
+        "status": "normal",
+        "note": "z-score -0.98 against 60-day baseline (mean 0.004%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -738,31 +738,31 @@
     "preprints": {
       "ebola / bundibugyo": {
         "status": "normal",
-        "recentCount": 16,
-        "priorCount": 11,
+        "recentCount": 15,
+        "priorCount": 9,
         "method": "europepmc",
-        "note": "16 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 11 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "15 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
         "status": "normal",
-        "recentCount": 6,
+        "recentCount": 5,
         "priorCount": 7,
         "method": "europepmc",
-        "note": "6 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "5 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
-        "status": "elevated",
-        "recentCount": 10,
-        "priorCount": 3,
+        "status": "normal",
+        "recentCount": 8,
+        "priorCount": 6,
         "method": "europepmc",
-        "note": "10 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "8 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "avian influenza / H5N1": {
         "status": "normal",
         "recentCount": 8,
-        "priorCount": 13,
+        "priorCount": 12,
         "method": "europepmc",
-        "note": "8 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 13 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "8 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "mpox": {
         "status": "normal",
@@ -772,11 +772,11 @@
         "note": "4 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
-        "status": "elevated",
-        "recentCount": 5,
-        "priorCount": 1,
+        "status": "normal",
+        "recentCount": 4,
+        "priorCount": 2,
         "method": "europepmc",
-        "note": "5 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 1 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "4 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 2 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       }
     }
   },
