@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-20T06:33:27.465734+00:00",
+    "updatedAt": "2026-11-20T19:57:55.946525+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-20T06:33:27.465734+00:00"
+    "signalsUpdatedAt": "2026-11-20T19:57:55.946525+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-20T06:26:18.547466+00:00",
+    "checkedAt": "2026-11-20T19:57:01.799135+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -674,7 +674,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -695,8 +695,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.06 against 60-day baseline (mean 0.003%, latest 0.004%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -706,8 +706,8 @@
       {
         "id": "avian-flu-human",
         "label": "Avian influenza \u2014 human cases",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score 0.42 against 60-day baseline (mean 0.005%, latest 0.015%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -717,26 +717,13 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "normal",
-        "note": "z-score 9.6 against 60-day baseline (mean 0.001%, latest 0.011%). Raw z-score 9.6 (spike) dismissed as noise: none of the 2 retrieved headlines mention this topic.",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
-        "articles": [
-          {
-            "title": "Pool Spa Patio Expo Wraps 2026 Edition in New Orleans with Record Engagement , Education and Networking",
-            "url": "https://www.manilatimes.net/2026/11/20/tmt-newswire/globenewswire/pool-spa-patio-expo-wraps-2026-edition-in-new-orleans-with-record-engagement-education-and-networking/2474665",
-            "domain": "manilatimes.net",
-            "date": "20261120T001500Z"
-          },
-          {
-            "title": "Super Creepy  The World Ahead 2027  Magazine Cover Published By The Economist Shows They Expect War , Pestilence And Financial Turmoil Next Year",
-            "url": "https://www.investmentwatchblog.com/super-creepy-the-world-ahead-2027-magazine-cover-published-by-the-economist-shows-they-expect-war-pestilence-and-financial-turmoil-next-year/",
-            "domain": "investmentwatchblog.com",
-            "date": "20261120T034500Z"
-          }
-        ],
-        "headlineCheck": "unconfirmed",
-        "dismissed": true
+        "articles": [],
+        "headlineCheck": null,
+        "dismissed": false
       }
     ]
   },
@@ -757,9 +744,11 @@
         "note": "14 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 8 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 5,
+        "priorCount": 7,
         "method": "europepmc",
-        "note": "Fetch failed: The read operation timed out"
+        "note": "5 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "elevated",
@@ -783,9 +772,11 @@
         "note": "7 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
-        "status": "error",
+        "status": "normal",
+        "recentCount": 5,
+        "priorCount": 3,
         "method": "europepmc",
-        "note": "Fetch failed: The read operation timed out"
+        "note": "5 preprint(s) with 'nipah' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       }
     }
   },
