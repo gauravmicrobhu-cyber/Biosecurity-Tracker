@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-22T19:28:33.674349+00:00",
+    "updatedAt": "2026-11-23T06:21:09.108525+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-22T19:28:33.674349+00:00"
+    "signalsUpdatedAt": "2026-11-23T06:21:09.108525+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-22T19:27:47.399012+00:00",
+    "checkedAt": "2026-11-23T06:20:29.107045+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -695,8 +695,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.81 against 60-day baseline (mean 0.003%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -717,8 +717,8 @@
       {
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.41 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -752,10 +752,10 @@
       },
       "measles": {
         "status": "normal",
-        "recentCount": 10,
-        "priorCount": 6,
+        "recentCount": 9,
+        "priorCount": 7,
         "method": "europepmc",
-        "note": "10 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 6 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "9 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "avian influenza / H5N1": {
         "status": "normal",
