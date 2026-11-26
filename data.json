@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-26T07:32:32.724998+00:00",
+    "updatedAt": "2026-11-26T21:20:44.424188+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-26T07:32:32.724998+00:00"
+    "signalsUpdatedAt": "2026-11-26T21:20:44.424188+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-26T07:28:18.180542+00:00",
+    "checkedAt": "2026-11-26T21:20:04.079722+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -695,12 +695,12 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
-        "corroborated": false,
-        "corrobNote": "",
+        "status": "spike",
+        "note": "z-score 7.89 against 60-day baseline (mean 0.003%, latest 0.035%). Headline check unavailable this run \u2014 treat as unverified.",
+        "corroborated": true,
+        "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
         "articles": [],
-        "headlineCheck": null,
+        "headlineCheck": "unavailable",
         "dismissed": false
       },
       {
@@ -781,6 +781,17 @@
     }
   },
   "signalHistory": [
+    {
+      "id": "cholera-global",
+      "label": "Cholera outbreak \u2014 Global",
+      "status": "spike",
+      "note": "z-score 7.89 against 60-day baseline (mean 0.003%, latest 0.035%). Headline check unavailable this run \u2014 treat as unverified.",
+      "corroborated": true,
+      "corrobNote": "Matches tracked outbreak: \"Cholera \u2014 West and Central Africa (Multi-country)\"",
+      "articles": [],
+      "headlineCheck": "unavailable",
+      "detectedAt": "2026-11-26T21:20:04.079722+00:00"
+    },
     {
       "id": "lab-biosafety",
       "label": "Lab biosafety incident / breach",
