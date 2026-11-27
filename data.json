@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-27T07:19:24.328244+00:00",
+    "updatedAt": "2026-11-27T21:03:38.596524+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-27T07:19:24.328244+00:00"
+    "signalsUpdatedAt": "2026-11-27T21:03:38.596524+00:00"
   },
   "outbreaks": [
     {
@@ -656,7 +656,7 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-27T07:17:08.129575+00:00",
+    "checkedAt": "2026-11-27T21:02:05.918482+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
@@ -695,8 +695,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "normal",
-        "note": "z-score -0.69 against 60-day baseline (mean 0.003%, latest 0.0%).",
+        "status": "error",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -718,7 +718,7 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score 3.31 against 60-day baseline (mean 0.001%, latest 0.005%). Raw z-score 3.31 (spike) dismissed as noise: none of the 1 retrieved headlines mention this topic.",
+        "note": "z-score 2.82 against 60-day baseline (mean 0.001%, latest 0.005%). Raw z-score 2.82 (elevated) dismissed as noise: none of the 1 retrieved headlines mention this topic.",
         "corroborated": false,
         "corrobNote": "",
         "articles": [
