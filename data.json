@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-27T21:03:38.596524+00:00",
+    "updatedAt": "2026-11-28T07:02:44.770066+00:00",
     "source": "Automated \u2014 GitHub Actions (GDELT live signals, ReliefWeb skipped \u2014 no appname)",
     "generator": "manual",
     "contentUpdatedAt": "2026-10-29T02:26:58.077417+00:00",
     "contentSource": "Manual research refresh, 29 Oct 2026 \u2014 WHO DON-620/622, ECDC, UKHSA week 41\u201342, national MoH/DGHS bulletins, WHO/IGWG, UN, UK Cabinet Office",
-    "signalsUpdatedAt": "2026-11-27T21:03:38.596524+00:00"
+    "signalsUpdatedAt": "2026-11-28T07:02:44.770066+00:00"
   },
   "outbreaks": [
     {
@@ -656,14 +656,14 @@
     }
   ],
   "signals": {
-    "checkedAt": "2026-11-27T21:02:05.918482+00:00",
+    "checkedAt": "2026-11-28T06:57:55.864149+00:00",
     "checkedBy": "Automated \u2014 GitHub Actions + live GDELT z-score (mode=timelinevol), headline-checked",
     "items": [
       {
         "id": "hemfever-drc",
         "label": "Hemorrhagic fever \u2014 Central Africa",
         "status": "normal",
-        "note": "z-score -0.25 against 60-day baseline (mean 0.002%, latest 0.0%).",
+        "note": "z-score -0.24 against 60-day baseline (mean 0.002%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -674,7 +674,7 @@
         "id": "unknown-pneumonia",
         "label": "Unknown pneumonia / mystery illness cluster",
         "status": "error",
-        "note": "Fetch failed: Unexpected GDELT response shape (no timeline data)",
+        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -695,8 +695,8 @@
       {
         "id": "cholera-global",
         "label": "Cholera outbreak \u2014 Global",
-        "status": "error",
-        "note": "Fetch failed: HTTP Error 429: Too Many Requests",
+        "status": "normal",
+        "note": "z-score -0.67 against 60-day baseline (mean 0.003%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
         "articles": [],
@@ -718,19 +718,12 @@
         "id": "lab-biosafety",
         "label": "Lab biosafety incident / breach",
         "status": "normal",
-        "note": "z-score 2.82 against 60-day baseline (mean 0.001%, latest 0.005%). Raw z-score 2.82 (elevated) dismissed as noise: none of the 1 retrieved headlines mention this topic.",
+        "note": "z-score -0.4 against 60-day baseline (mean 0.001%, latest 0.0%).",
         "corroborated": false,
         "corrobNote": "",
-        "articles": [
-          {
-            "title": "Avengers : Doomsday Fans Spot a Possible Oppenheimer Star Behind Doctor Doom Mask - Comic Book Movies and Superhero Movie News",
-            "url": "https://www.superherohype.com/movies/709705-avengers-doomsday-fan-theory-cillian-murphy-doctor-doom-casting",
-            "domain": "superherohype.com",
-            "date": "20261127T014500Z"
-          }
-        ],
-        "headlineCheck": "unconfirmed",
-        "dismissed": true
+        "articles": [],
+        "headlineCheck": null,
+        "dismissed": false
       }
     ]
   },
@@ -745,38 +738,36 @@
     "preprints": {
       "ebola / bundibugyo": {
         "status": "normal",
-        "recentCount": 11,
-        "priorCount": 16,
+        "recentCount": 10,
+        "priorCount": 17,
         "method": "europepmc",
-        "note": "11 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 16 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "10 preprint(s) with 'ebola / bundibugyo' in the title or abstract in the last 14 days, vs 17 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "cholera": {
         "status": "normal",
-        "recentCount": 4,
+        "recentCount": 5,
         "priorCount": 7,
         "method": "europepmc",
-        "note": "4 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "5 preprint(s) with 'cholera' in the title or abstract in the last 14 days, vs 7 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "measles": {
         "status": "normal",
-        "recentCount": 12,
-        "priorCount": 9,
+        "recentCount": 10,
+        "priorCount": 12,
         "method": "europepmc",
-        "note": "12 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "10 preprint(s) with 'measles' in the title or abstract in the last 14 days, vs 12 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "avian influenza / H5N1": {
-        "status": "normal",
-        "recentCount": 7,
-        "priorCount": 9,
+        "status": "error",
         "method": "europepmc",
-        "note": "7 preprint(s) with 'avian influenza / H5N1' in the title or abstract in the last 14 days, vs 9 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "Fetch failed: The read operation timed out"
       },
       "mpox": {
-        "status": "elevated",
-        "recentCount": 8,
-        "priorCount": 3,
+        "status": "normal",
+        "recentCount": 7,
+        "priorCount": 4,
         "method": "europepmc",
-        "note": "8 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 3 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
+        "note": "7 preprint(s) with 'mpox' in the title or abstract in the last 14 days, vs 4 in the prior 14 days (preprint servers indexed by Europe PMC, which include bioRxiv and medRxiv)."
       },
       "nipah": {
         "status": "normal",
